@@ -1,0 +1,18 @@
+
+
+<div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="feature-box secundary">
+      <i class="fa fa-trash right" aria-hidden="true" (click) = "onTrashClick()"></i>
+      <div class="feature-box-icon">
+        <img [src]= "item.logo" alt="">
+      </div>
+      <div class="feature-box-info">
+        <a href="#" routerLink = 'enterprise/details/{{item.id}}'>
+          <h4 class="shorter">{{item.name}}</h4>
+        </a>
+        <h6 class="short">{{item.headquarters}}</h6>
+        <p class="short">{{item.des}}</p>
+      
+      </div>
+    </div>
+  </div>

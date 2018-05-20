@@ -1,0 +1,235 @@
+.main .container .thumbnail #enterprise_logo
+  {
+    width: 200px;
+    
+  }
+
+  .main .info_edit, .info_edit_inplace, .info_edit_photos
+  {
+    float: right;
+    border-top: none; 
+   
+  }
+  #intro_edit
+  {
+    border-top: none; 
+  }
+
+  #large-content
+  {
+    min-height: 250px;
+  }
+   .right
+  {
+    float: right;
+  }
+  .modal-cancle
+  {
+    margin-right: 2%;
+    background-color: rgb(180, 180, 180);
+    border: 1px solid rgb(180, 180, 180);
+  }
+  .center
+  {
+    margin-left : 15%;
+  }
+  .visually-hidden
+  {
+    display: block;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .photo-list img
+  {
+    float: left;
+    
+  
+ }
+ .photo-list i
+ {
+   color : black;
+ }
+ .feature-box-icon img
+ {
+   width: 60px;
+   margin-top: -10px;
+   margin-left : -10px;
+ }
+
+ .container .feature-box .feature-box-info h4
+ {
+   color: #0088cc;
+ }
+
+ .container .feature-box .feature-box-info a+p ,.container .feature-box .feature-box-info > p+p~p
+ {
+   color: black;
+   
+ }
+
+ .container .feature-box .feature-box-info > p+p~p
+ {
+   font-size: 12px;
+ }
+ #ago
+ {
+   color: #777777;
+ }
+
+ .feature-box i
+ {
+   margin-right : 20px;
+   font-size : 15px;
+   cursor: pointer;
+ }
+
+ .flex-container
+ {
+   display : flex;
+   flex-direction: column;
+ }
+
+ .big_font
+ {
+   font-size : 35px;
+   margin-bottom:  2%;
+ }
+
+ .arabic
+ {
+   display: flex;
+   flex-direction: row-reverse;
+ }
+
+ .arabic2
+ {
+
+   text-align : right;
+ }
+ .left
+ {
+   float: left;
+ }
+
+
+ .switsh_to_arabic
+ {
+   margin-top: 1%;
+   margin-left: 2%;
+ }
+
+ .available-vacancies .vacancy
+ {
+   width : 20%;
+   height: 10%;
+ }
+
+ .available-vacancies .team-list .vacancy .thumb-info .thumb-info-title
+ {
+   font-size : 14px;
+ }
+
+ .feature-box i
+ {
+   color: #0088cc;
+   
+ }
+
+ .feature-box .info
+ {
+   display: inline-block;
+ }
+
+ .read-more-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s ease;
+}
+
+.read-more-toggle {
+  display: none;
+ 
+}
+
+.read-more-toggle-label {
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+  margin-left: -40px;
+  padding: 5px;
+  font-size: .9em;
+  color: #0088cc;
+ 
+}
+
+.seeMore
+{
+  font-size: 15px;
+  color: #0088cc;
+}
+
+.seeMore .less
+{
+  display: none;
+}
+
+
+
+.read-more-toggle-label:after {
+  content: "More";
+  display: inline-block;
+}
+
+
+
+.read-more-toggle:checked + .read-more-content {
+  display: block;
+  max-height: 1000px;
+}
+
+.read-more-toggle:checked + .read-more-content + .seeMore .read-more-toggle-label:after {
+  content: "Less";
+}
+
+.read-more-toggle:checked~.seeMore .less
+{
+  display: inline-block;
+}
+
+.read-more-toggle:checked~.seeMore .more
+{
+  display: none;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+{
+    margin-top : 5px;
+}
+
+
+ @media screen and (max-width : 470px)
+ {
+   .feature-box
+   {
+     
+     border-bottom: 0.5px solid #cfcfcf;
+   }
+
+   hr
+   {
+       display: none;
+   }
+   .read-more-toggle-label
+   {
+       margin: 0px;
+   }
+   
+ }
+
