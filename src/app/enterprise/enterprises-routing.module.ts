@@ -7,9 +7,9 @@ import { EnterpriseCreateComponent } from './enterprise-create/enterprise-create
 
 const enterpriseRoutes : Routes = [
     {path : 'enterprises', component : EnterpriseViewAllComponent } ,
-    {path : 'enterprise/details/:id', component: EnterpriseDetailsComponent},
-    {path : 'enetrprise/all' , component : EnterpriseViewAllComponent},
-    {path : 'enterprise/create', component : EnterpriseCreateComponent}
+    {path : 'enterprises/enterprise/details/:id', component: EnterpriseDetailsComponent},
+    {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
+    {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent}
 ]
 
 @NgModule({
