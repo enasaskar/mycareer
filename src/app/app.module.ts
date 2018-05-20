@@ -11,8 +11,8 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
-    // UserModule
+    AppRoutingModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

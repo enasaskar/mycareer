@@ -6,10 +6,10 @@ import { UserDashBoardComponent } from './user/user-dash-board/user-dash-board.c
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
-  // {path: '', redirectTo: '/home', pathMatch: 'full'},
-  // {path:'/home', component: AppComponent},
-  {path:'/userProfile', component: UserProfileComponent},
-  {path:'/userDashBoard', component:UserDashBoardComponent}
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path:'home', component: AppComponent},
+  {path:'userProfile', component: UserProfileComponent},
+  {path:'userDashBoard', component:UserDashBoardComponent}
 ];
 
 @NgModule({
