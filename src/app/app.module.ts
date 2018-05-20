@@ -1,3 +1,4 @@
+import { EnterprisesModule } from './enterprise/enterprises.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,8 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    EnterprisesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
