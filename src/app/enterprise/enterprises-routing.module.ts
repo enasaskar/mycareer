@@ -6,7 +6,7 @@ import { EnterpriseDetailsComponent } from './enterprise-details/enterprise-deta
 import { EnterpriseCreateComponent } from './enterprise-create/enterprise-create.component';
 
 const enterpriseRoutes : Routes = [
-    {path : '', component : EnterpriseViewAllComponent } ,
+    {path : 'enterprises', component : EnterpriseViewAllComponent } ,
     {path : 'enterprise/details/:id', component: EnterpriseDetailsComponent},
     {path : 'enetrprise/all' , component : EnterpriseViewAllComponent},
     {path : 'enterprise/create', component : EnterpriseCreateComponent}
