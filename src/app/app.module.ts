@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
+import { EnterpriseService } from './shared/classes/enterprise-service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     EnterprisesModule
   ],
-  providers: [],
+  providers: [EnterpriseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
