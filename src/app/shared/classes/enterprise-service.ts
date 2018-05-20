@@ -1,7 +1,8 @@
 import { Enterprise } from './enterprise';
 import { EnterpriseDetails } from './enterprise-details';
 import { EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
+
 export class EnterpriseService {
 
     
