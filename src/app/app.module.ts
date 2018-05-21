@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
 import { EnterpriseService } from './shared/classes/enterprise-service';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
     InterviewsModule,
     AppRoutingModule,
     UserModule,
-    EnterprisesModule
+    EnterprisesModule,
+    CoreModule
 
   ],
   providers: [EnterpriseService],
