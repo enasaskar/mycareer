@@ -30,6 +30,7 @@
               "src/assets/css/theme-blog.css",
               "src/assets/css/theme-shop.css",
               "src/assets/css/theme-animate.css",
+              "src/assets/css/custom.css",
               "src/styles.css"
             ],
             "scripts": []

@@ -1,1 +1,339 @@
 /* Add here all your CSS customizations */
+hr.tall {
+	margin: 30px 0 30px 0;
+}
+.img-thumbnail
+{
+    display: block;
+}
+.left
+{
+    float: left;
+}
+.right
+{
+    float: right;
+}
+a:link 
+{
+    text-decoration: none;
+}
+.hide
+{
+    display: none;
+}
+.remove, .add
+{
+    float: right;
+}
+.mobileDisplay
+{
+    display: none;
+}
+.thumb-info-social-icons
+{
+    border-top: none;
+    float: right;
+    padding: 0px 0;
+}
+p.clear
+{
+    clear: both;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+.upperSection
+{
+    border-bottom: 1px dotted #DDD;
+    animation-delay: 0.25s;
+}
+ul.contactInfo
+{
+    padding-top: 12px;
+    font-weight: bold;
+    animation-delay: 0.5s;
+}
+.mobileHide > p
+{
+    animation-delay: 0.75s;
+}
+.mobileHide > p+p , .mobileHide > p+p+ul
+{
+    animation-delay: 1s;
+}
+.mini
+{
+    width: 50%;
+    margin-left: 25%;
+}
+/*-----------------Image Edit---------------------*/
+.imageEdit
+{
+    text-align: center;
+}
+.imageEdit>img
+{
+    width: 85%;
+}
+.imageEditOptions
+{
+    font-size: 1.25em;
+    margin-left: 82px;
+    margin-top: 2px;
+}
+.imageEditOption
+{
+    padding: 12px;
+}
+@media (min-width: 1281px)
+{
+    
+    #popupImageEdit
+    {
+        width:38%;
+    }
+    .imageEditOption:hover
+    {
+        color:rgb(9, 9, 117);
+        font-size: 1.3em;
+    }
+}
+@media (max-width:440px)
+{
+    .imageEdit>img
+    {
+        max-width: 100%;
+    }
+    .imageEditOptions
+    {
+        font-size: 1.25em;
+        margin-left: 0px;
+        margin-top: 2px;
+    }
+}
+/*-----------------UserProfile Edit (Forms)---------------------*/
+
+.search, .input-group.input-search
+{
+    float: left;
+}
+.iconInput
+{
+    width:90%;
+    display: inline;
+}
+.inline
+{
+    display: inline-block;
+}
+.editable-content
+{
+    display:none;
+}
+.upperSection .form-group
+{
+    margin-right: 0;
+    margin-left: 0;
+}
+/*for adjusting position in mobile view*/
+@media (max-width:440px)
+{
+    .iconInput
+    {
+        width:86%;
+    }
+}
+
+/*-----------------Review Popup---------------------*/
+.green, ul.list.icons li .green
+{
+    color: green;
+}
+.red ,ul.list.icons li .red
+{
+    color:red;
+}
+.mfp-wrap .popup-inline-content.reviewFull
+{
+    width: 810px;
+}
+@media (max-width:440px)
+{
+    /* .owl-carousel .owl-item img
+    {
+        width:75%;
+    } */
+    .mobileDisplay
+    {
+        display: block;
+    }
+    .mobileHide
+    {
+        display: none;
+    }
+    .mfp-wrap .popup-inline-content.reviewFull
+    {
+        width: 100%;
+    }
+}
+/*----------------------Skills--------------------------*/
+/* .owl-item
+{
+    width: 200px !Important;
+} */
+.mfp-wrap .popup-inline-content.skillsFull
+{
+    width: 650px;
+}
+@media (max-width:440px)
+{
+    .mfp-wrap .popup-inline-content.skillsFull
+    {
+        width: 100%;
+    }
+    .search
+    {
+        width: 100%;
+        float: left;
+    }
+    #searchForm
+    {
+        margin-left: 0;
+        padding-bottom: 15px;
+    }
+    .remove,.add
+    {
+        font-size: 25px;
+    }
+    #edit-skills, #edit-Achieved-skills
+    {
+        margin-top: -58px;
+    }
+}
+.edit-skills-display, .edit-Achieved-skills-display
+{
+    display: none;
+}
+.editable-skill-details
+{
+    display: none;
+}
+/*----------------------UserViewAll--------------------------*/
+.team-list.connections .thumb-info-title
+{
+    font-size: 14px;
+}
+.team-list.connections .thumb-info-caption p
+{
+    margin: 0px 0 0px;
+}
+.team-list.connections .thumb-info .thumb-info-action-icon
+{
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    width: 37px;
+}
+/*-----------------------Enterprises--------------------------*/
+.read-more-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease;
+  }
+  
+  .read-more-toggle {
+    display: none;
+   
+  }
+  
+  .read-more-toggle-label {
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+    margin-left: -40px;
+    padding: 5px;
+    font-size: .9em;
+    color: #0088cc;
+   
+  }
+  
+  .seeMore
+  {
+    font-size: 15px;
+    color: #0088cc;
+  }
+  
+  .seeMore .less
+  {
+    display: none;
+  }
+  
+  
+  
+  .read-more-toggle-label:after {
+    content: "More";
+    display: inline-block;
+  }
+  
+  
+  
+  .read-more-toggle:checked + .read-more-content {
+    display: block;
+    max-height: 1000px;
+  }
+  
+  .read-more-toggle:checked + .read-more-content + .read-more-toggle-label:after {
+    content: "Less";
+  }
+  
+  .read-more-toggle:checked~.seeMore .less
+  {
+    display: inline-block;
+  }
+  
+  .read-more-toggle:checked~.seeMore .more
+  {
+    display: none;
+  }
+  .feature-box-icon img
+  {
+    width: 60px;
+    margin-top: -10px;
+    margin-left : -10px;
+  }
+
+  .feature-box i
+  {
+    margin-right : 20px;
+    font-size : 15px;
+    cursor: pointer;
+  }
+/*-------------------Dasboard-------------------------------------*/
+/*-------------Dashboard Applications----------------------*/
+.VacancyInfo ul.list li
+{
+    margin-bottom:0;
+}
+.feature-box.secundary.bordered
+{
+    border: 1.1px solid lightgrey;
+    border-radius: 10px;
+    padding: 16px 0px 0px 20px;
+}
+.acceptedCV .feature-box.secundary
+{
+    border: 1.1px solid lightgrey;
+    border-radius: 10px;
+    padding: 16px 8px 10px 20px;
+}
+.acceptedCV .alert-success
+{
+    margin-left: 30px;
+}
+.VacancyResponse
+{
+    padding: 0px 9px 3px 0px;
+}
+  
