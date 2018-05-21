@@ -5,25 +5,25 @@ import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-vie
 import { EnterpriseDetailsComponent } from './enterprise-details/enterprise-details.component';
 import { EnterpriseCreateComponent } from './enterprise-create/enterprise-create.component';
 
-const enterpriseRoutes : Routes = [
+const enterpriseRoutes: Routes = [
     {path : 'enterprises', component : EnterpriseViewAllComponent } ,
     {path : 'enterprises/enterprise/details/:id', component: EnterpriseDetailsComponent},
     {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
     {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent}
-]
+];
 
 @NgModule({
 
-    imports:[
+    imports: [
         RouterModule.forChild(enterpriseRoutes)
     ],
 
-    exports:[
+    exports: [
         RouterModule
     ]
-    
+
 })
 
-export class EnterpriseRoutingModule{
+export class EnterpriseRoutingModule {
 
 }

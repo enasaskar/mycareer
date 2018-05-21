@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   {path:'home', component: AppComponent},
   {path:'iv', component: InterviewsComponent},
   {path:'userProfile', component: UserProfileComponent},
-  {path:'userDashBoard', component:UserDashBoardComponent}
+  {path:'userDashBoard', component: UserDashBoardComponent}
 ];
 
 @NgModule({
