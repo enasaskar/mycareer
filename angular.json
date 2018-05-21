@@ -38,8 +38,17 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "src/assets/vendor/owlcarousel/owl.carousel.js"
+              "src/assets/vendor/jquery/jquery.js",
+              "src/assets/vendor/jquery.appear/jquery.appear.js",
+              "src/assets/vendor/jquery.easing/jquery.easing.js",
+              "src/assets/vendor/jquery-cookie/jquery-cookie.js",
+              "src/assets/dist/moment.js/min/moment.min.js",
+              "src/assets/vendor/bootstrap/bootstrap.min.js",
+              "src/assets/vendor/common/common.js",
+              "src/assets/vendor/owlcarousel/owl.carousel.js",
+              "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",
+              "src/assets/js/theme.js",
+              "src/assets/js/theme.init.js"
             ]
           },
           "configurations": {
