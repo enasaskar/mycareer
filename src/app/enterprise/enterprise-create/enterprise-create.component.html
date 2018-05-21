@@ -1,0 +1,79 @@
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Craete a new account for your Enterprise</h1>
+            </div>
+        </div>
+    </div>
+  </section>
+
+<div class="container">
+  <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <!-- <div class="panel-heading">
+        <div class="panel-title">Craete a new account for your Enterprise</div>
+      </div> -->
+      <div class="panel-body">
+        <form id="signupform" class="form-horizontal" role="form" method="get" (ngSubmit) = "OnSubmit(addForm)" #addForm = ngForm>
+
+
+
+          <div class="form-group">
+            <label for="name" class="col-md-3 control-label">Name</label>
+            <div class="col-md-9">
+              <input type="text" #eName = ngModel required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="headline" class="col-md-3 control-label">HeadLine</label>
+            <div class="col-md-9">
+              <input type="text" #eHeadline = ngModel required class="form-control" name="headLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description" class="col-md-3 control-label">Description</label>
+            <div class="col-md-9">
+              <input type="textarea" #eDesc = ngModel  required class="form-control" name="description" placeholder="Description" [(ngModel)] = "newEnterprise.des">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="headquarters" class="col-md-3 control-label">Headquarters</label>
+            <div class="col-md-9">
+              <input type="text" #eHead = ngModel  required class="form-control" name="headquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="website" class="col-md-3 control-label">Website</label>
+            <div class="col-md-9">
+              <input type="text" #eSite = ngModel required class="form-control" name="website" placeholder="website" [(ngModel)] = "newEnterprise.website">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 control-label">Size</label>
+            <div class="col-md-9">
+              <select  class="form-control" required name = "size" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
+                <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
+              </select>
+            </div>
+          </div>
+
+          
+          <div class="form-group">
+            <!-- Button -->
+            <div class="col-md-offset-3 col-md-9">
+              <button id="btn-signup" type="submit" class="btn btn-info" [disabled] = "addForm.invalid">
+                <i class="icon-hand-right"></i>Submit</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

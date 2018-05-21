@@ -1,0 +1,471 @@
+<section class="page-top">
+  <div class="container">
+      <div class="row">
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <h1>Enterprises/{{details.name}}</h1>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<div role="main" class="main">
+  <div class="container">
+
+    <!-- <div class="row push-top" id="projects">
+      <div id="popupProject" class="popup-inline-content">
+        <h2>Lorem Ipsum Dolor</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-thumbnail img-responsive" alt="" src="img/projects/project.jpg">
+          </div>
+          <div class="col-md-4">
+            <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
+            <label for="file-upload" class="btn btn-primary file-upload">Change Photo</label>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row enterprise-view-one">
+      <div class="col-md-3">
+        <div class="portfolio-item">
+          <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+            <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <span class="thumb-info-social-icons" id="intro_edit">
+          <div class="info_edit">
+            <a data-tooltip data-placement="top" data-original-title="Edit" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <span>Edit</span>
+            </a>
+          </div>
+        </span>
+        <h2 class="shorter">
+          {{details.name}}
+        </h2>
+        <h4>{{details.headLine}}</h4>
+
+        <span class="thumb-info-social-icons">
+          <div class="social">
+            <a data-tooltip data-placement="top" target="_blank" href="http://www.facebook.com" data-original-title="Facebook">
+              <i class="fa fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <a data-tooltip data-placement="top" href="http://www.twitter.com" data-original-title="Twitter">
+              <i class="fa fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+            <div class="info_edit_inplace">
+              <a data-tooltip data-placement="top" data-original-title="Edit">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <span>Edit</span>
+              </a>
+            </div>
+          </div>
+
+
+        </span>
+        <div class="des">
+          <div class="featured-box">
+            <div class="box-content">
+              <h4>
+                <strong>About Us</strong>
+              </h4>
+              <p class="editablePara">{{details.des}}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="hidden-textbox form-group"></div>
+
+        <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
+
+        <div class="row read-more-content">
+
+          <div class="col-sm-4">
+            <div class="business-card b1">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-1"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">WebSite</h4>
+                  <h6>{{details.website}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="business-card b2">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-2"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Headquarters</h4>
+                  <h6>{{details.headquarters}}</h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="business-card b3">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-dollar-sign icon-featured icon-featured-3"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Size</h4>
+                  <h6>{{details.size}}</h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="seeMore">
+          <div class="row">
+            <div class="col-md-6">
+              <hr class="short">
+              <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
+              <i class="fa fa-angle-double-down more"></i>
+              <i class="fa fa-angle-double-up less"></i>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <hr class="short" />
+
+
+
+    <!-- Available vacancies -->
+
+    <!-- <div class="available-vacancies ">
+
+      <div class="row">
+        <div class="col-md-11">
+          <h3>
+            <i class="fa fa-suitcase"></i>Available Vacancies</h3>
+        </div>
+        <div class="col-md-1 right">
+          <a href="Enterprise_SeeAll.html">See all</a>
+        </div>
+      </div>
+      <div class="vacancy">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12" id="1">
+            <div class="feature-box secundary">
+              <i class="fa fa-trash right" aria-hidden="true" data-id="1"></i>
+              <div class="feature-box-icon">
+                <img src="MyImages/vodafone-icon.png" alt="">
+              </div>
+              <div class="feature-box-info">
+                <a href="index-2.html">
+                  <h4 class="shorter">Software Engineer</h4>
+                </a>
+                <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p id="ago">posted 2 days ago</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12" id="2">
+            <div class="feature-box secundary">
+              <i class="fa fa-trash right" aria-hidden="true" data-id="2"></i>
+              <div class="feature-box-icon">
+                <img src="MyImages/vodafone-icon.png" alt="">
+              </div>
+              <div class="feature-box-info">
+                <a href="index-2.html">
+                  <h4 class="shorter">Software Engineer</h4>
+                </a>
+
+                <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p id="ago">posted 2 days ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12" id="4">
+            <div class="feature-box secundary">
+              <i class="fa fa-trash right" aria-hidden="true" data-id="4"></i>
+              <div class="feature-box-icon">
+                <img src="MyImages/vodafone-icon.png" alt="">
+              </div>
+
+              <div class="feature-box-info">
+                <a href="index-2.html">
+                  <h4 class="shorter">Software Engineer</h4>
+                </a>
+
+                <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p id="ago">posted 2 days ago</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12" id="5">
+            <div class="feature-box secundary">
+              <i class="fa fa-trash right" aria-hidden="true" data-id="5"></i>
+              <div class="feature-box-icon">
+                <img src="MyImages/vodafone-icon.png" alt="">
+              </div>
+              <div class="feature-box-info">
+                <a href="index-2.html">
+                  <h4 class="shorter">Software Engineer</h4>
+                </a>
+
+                <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p id="ago">posted 2 days ago</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+    <!-- reviews -->
+    <!-- <div class="">
+      <div class="post-block post-comments clearfix">
+        <hr class="short" />
+        <h3>
+          <i class="fa fa-comments"></i>Reviews</h3>
+        <div class="row">
+          <div class="col-md-9">
+            <ul class="comments">
+              <li>
+                <div class="comment">
+                  <div class="img-thumbnail">
+                    <img class="avatar" alt="" src="MyImages/Somerhalder.jpg">
+                  </div>
+                  <div class="comment-block">
+                    <div class="comment-arrow"></div>
+                    <span class="comment-by">
+                      <strong>John Doe</strong>
+                    </span>
+                    <p>onvallis placerat, felis enim ornare
+                      nisi, vitae mattis nulla ante id dui.</p>
+                    
+                  </div>
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <div class="vl"></div>
+            <aside class="sidebar">
+              <div class="row">
+                <div class="col-md-5">
+                  <h5>
+                    <i class="fa fa-star"></i>Ratings</h5>
+                </div>
+                <div class="col-md-7 right">
+                  <div class="">
+                    <div class="row">
+
+                      <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" data-toggle="modal" data-target="#myModal">
+                        <i class="fa fa-plus"></i>
+                        Add review
+                      </button>
+
+
+                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel">
+                                <i class="fa fa-star"></i>Add review</h4>
+                            </div>
+                            <div class="modal-body">
+                              <ul class="simple-post-list">
+                                <li>
+                                  <div class="post-image">
+                                    <div class="img-thumbnail">
+                                      <a href="shop-product-sidebar.html">
+                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="post-info">
+                                    <h6>Environment</h6>
+                                    <div class="post-meta">
+                                      $299
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="post-image">
+                                    <div class="img-thumbnail">
+                                      <a href="shop-product-sidebar.html">
+                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="post-info">
+                                    <h6>Workplace</h6>
+                                    <div class="post-meta">
+                                      $72
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="post-image">
+                                    <div class="img-thumbnail">
+                                      <a href="shop-product-sidebar.html">
+                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="post-info">
+                                    <h6>Appreciation</h6>
+                                    <div class="post-meta">
+                                      $60
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="post-image">
+                                    <div class="img-thumbnail">
+                                      <a href="shop-product-sidebar.html">
+                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div class="post-info">
+                                    <h6>Experience</h6>
+                                    <div class="post-meta">
+                                      $60
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="simple-post-list">
+                <li>
+                  <div class="post-image">
+                    <div class="img-thumbnail">
+                      <a href="shop-product-sidebar.html">
+                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-info">
+                    <h6>Environment</h6>
+                    <div class="post-meta">
+                      $299
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="post-image">
+                    <div class="img-thumbnail">
+                      <a href="shop-product-sidebar.html">
+                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-info">
+                    <h6>Workplace</h6>
+                    <div class="post-meta">
+                      $72
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="post-image">
+                    <div class="img-thumbnail">
+                      <a href="shop-product-sidebar.html">
+                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-info">
+                    <h6>Appreciation</h6>
+                    <div class="post-meta">
+                      $60
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="post-image">
+                    <div class="img-thumbnail">
+                      <a href="shop-product-sidebar.html">
+                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="post-info">
+                    <h6>Experience</h6>
+                    <div class="post-meta">
+                      $60
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </aside>
+          </div>
+
+        </div>
+      </div>
+
+    </div> -->
+
+  </div>
+  
+  <!-- floating-button -->
+  <!-- <div id="container-floating">
+
+    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy">
+      <img class="reminder" src="MyImages/vacancy.png" alt="">
+    </div>
+    <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New JobFair">
+      <img class="reminder" src="MyImages/jobFair.png" alt="">
+    </div>
+
+    <div id="floating-button" onclick="newmail()">
+      <p class="plus">+</p>
+      <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+    </div>
+
+  </div> -->
+</div>
