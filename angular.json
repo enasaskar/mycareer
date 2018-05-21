@@ -38,6 +38,7 @@
               "src/styles.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.js",
               "src/assets/vendor/owlcarousel/owl.carousel.js"
             ]
           },
