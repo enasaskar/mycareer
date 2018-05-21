@@ -4,14 +4,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserModule } from './user/user.module';
 
+import { UserModule } from './user/user.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
+import { PathsModule } from './paths/path.module';
+
 import { EnterpriseService } from './shared/classes/enterprise-service';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,8 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
     InterviewsModule,
     AppRoutingModule,
     UserModule,
-    EnterprisesModule
+    EnterprisesModule,
+    PathsModule
 
   ],
   providers: [EnterpriseService],
