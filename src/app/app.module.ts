@@ -10,6 +10,7 @@ import { InterviewsModule } from 'src/app/interviews/interviews.module';
 import { PathsModule } from './paths/path.module';
 
 import { EnterpriseService } from './shared/classes/enterprise-service';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -25,7 +26,11 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
     AppRoutingModule,
     UserModule,
     EnterprisesModule,
+<<<<<<< HEAD
+    CoreModule
+=======
     PathsModule
+>>>>>>> 691eaa85d72024a2d0a1031860df9cf7e6f87b4b
 
   ],
   providers: [EnterpriseService],
