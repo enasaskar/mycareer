@@ -26,11 +26,8 @@ import { CoreModule } from 'src/app/core/core.module';
     AppRoutingModule,
     UserModule,
     EnterprisesModule,
-<<<<<<< HEAD
-    CoreModule
-=======
+    CoreModule,
     PathsModule
->>>>>>> 691eaa85d72024a2d0a1031860df9cf7e6f87b4b
 
   ],
   providers: [EnterpriseService],
