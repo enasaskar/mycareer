@@ -56,7 +56,11 @@
               "src/assets/vendor/isotope/jquery.isotope.js",
               "src/assets/vendor/owlcarousel/owl.carousel.js",
               "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",
+              "src/assets/dist/bootstrap-star-rating/js/star-rating.min.js",
+              "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
               "src/assets/js/theme.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/datepicker.js",
               "src/assets/js/theme.init.js"
             ]
           },
