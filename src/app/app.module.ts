@@ -10,7 +10,6 @@ import { InterviewsModule } from 'src/app/interviews/interviews.module';
 // import { PathsModule } from './paths/path.module';
 
 import { EnterpriseService } from './shared/classes/enterprise-service';
-import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -23,10 +22,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     InterviewsModule,
     AppRoutingModule,
     UserModule,
-    EnterprisesModule,
-    OwlModule
+    EnterprisesModule
     // PathsModule
-
   ],
   providers: [EnterpriseService],
   bootstrap: [AppComponent]

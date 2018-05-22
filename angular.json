@@ -23,11 +23,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/vendor/bootstrap/bootstrap.min.css",
               "node_modules/bootstrap3/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/assets/vendor/owlcarousel/owl.carousel.min.css",
               "src/assets/vendor/owlcarousel/owl.theme.default.min.css",
               "src/assets/vendor/magnific-popup/magnific-popup.css",
+              "src/assets/dist/bootstrap-star-rating/css/star-rating.min.css",
+              "src/assets/dist/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",
               "src/assets/css/theme.css",
               "src/assets/css/theme-elements.css",
               "src/assets/css/theme-blog.css",
@@ -35,6 +38,7 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
+              "src/assets/css/review.css",
               "src/styles.css"
             ],
             "scripts": []
