@@ -37,9 +37,7 @@
               "src/assets/css/custom.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/vendor/owlcarousel/owl.carousel.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

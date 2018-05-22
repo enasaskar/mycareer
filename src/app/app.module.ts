@@ -7,10 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { UserModule } from './user/user.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
-import { PathsModule } from './paths/path.module';
+// import { PathsModule } from './paths/path.module';
 
 import { EnterpriseService } from './shared/classes/enterprise-service';
-
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -18,14 +18,14 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
   ],
   imports: [
     BrowserModule,
-
-    // AppRoutingModule,
-    // UserModule,
+    AppRoutingModule,
+    UserModule,
     InterviewsModule,
     AppRoutingModule,
     UserModule,
     EnterprisesModule,
-    PathsModule
+    OwlModule
+    // PathsModule
 
   ],
   providers: [EnterpriseService],
