@@ -12,16 +12,14 @@ import { PathsModule } from './paths/path.module';
 import { EnterpriseService } from './shared/classes/enterprise-service';
 import { CoreModule } from 'src/app/core/core.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
     BrowserModule,
-
-    // AppRoutingModule,
-    // UserModule,
+    AppRoutingModule,
+    UserModule,
     InterviewsModule,
     AppRoutingModule,
     UserModule,

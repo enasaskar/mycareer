@@ -1,0 +1,28 @@
+li .rating-container .rating-stars .filled-stars
+{
+	color:  #006699;
+	-webkit-text-stroke: 1px #006699;
+    text-shadow: 1px 1px  #006699;
+}
+li .rating-container
+{
+	padding-left: 15px;
+}
+li .rating-container.rating-xs
+{
+	font-size: 1.25em;
+}
+.rating-container .filled-stars{
+	color:  white;
+	-webkit-text-stroke: 1px white;
+    text-shadow: 1px 1px  #006699;
+}
+
+.rating-container.rating-xs{
+	font-size: 0.95em;
+	float: left;
+}
+.rating-container .star
+{
+	margin: 0 1px;
+}
