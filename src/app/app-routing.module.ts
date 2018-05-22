@@ -5,13 +5,15 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
 import { UserDashBoardComponent } from './user/user-dash-board/user-dash-board.component';
 import { AppComponent } from './app.component';
 import { InterviewsComponent } from 'src/app/interviews/interviews.component';
+import { SkillListComponent } from './skills/skill-list/skill-list.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path:'home', component: AppComponent},
-  {path:'iv', component: InterviewsComponent},
-  {path:'userProfile', component: UserProfileComponent},
-  {path:'userDashBoard', component: UserDashBoardComponent}
+  {path: 'home', component: AppComponent},
+  {path: 'iv', component: InterviewsComponent},
+  {path: 'userProfile', component: UserProfileComponent},
+  {path: 'userDashBoard', component: UserDashBoardComponent},
+  {path: 'skillsList', component: SkillListComponent}
 ];
 
 @NgModule({

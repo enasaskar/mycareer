@@ -23,11 +23,14 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/vendor/bootstrap/bootstrap.min.css",
               "node_modules/bootstrap3/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/assets/vendor/owlcarousel/owl.carousel.min.css",
               "src/assets/vendor/owlcarousel/owl.theme.default.min.css",
               "src/assets/vendor/magnific-popup/magnific-popup.css",
+              "src/assets/dist/bootstrap-star-rating/css/star-rating.min.css",
+              "src/assets/dist/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",
               "src/assets/css/theme.css",
               "src/assets/css/theme-elements.css",
               "src/assets/css/theme-blog.css",
@@ -35,9 +38,11 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
+              "src/assets/css/review.css",
               "src/styles.css"
             ],
             "scripts": [
+              "src/assets/vendor/modernizr/modernizr.js",
               "src/assets/vendor/jquery/jquery.js",
               "src/assets/vendor/jquery.appear/jquery.appear.js",
               "src/assets/vendor/jquery.easing/jquery.easing.js",
@@ -45,6 +50,10 @@
               "src/assets/dist/moment.js/min/moment.min.js",
               "src/assets/vendor/bootstrap/bootstrap.min.js",
               "src/assets/vendor/common/common.js",
+              "src/assets/vendor/jquery.validation/jquery.validation.js",
+              "src/assets/vendor/jquery.stellar/jquery.stellar.js",
+              "src/assets/vendor/jquery.gmap/jquery.gmap.js",
+              "src/assets/vendor/isotope/jquery.isotope.js",
               "src/assets/vendor/owlcarousel/owl.carousel.js",
               "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",
               "src/assets/js/theme.js",
