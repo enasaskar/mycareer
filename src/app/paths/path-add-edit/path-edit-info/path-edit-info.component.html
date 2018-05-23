@@ -1,3 +1,97 @@
-<p>
-  path-edit-info works!
-</p>
+<form method="POST">
+<div class="row  PathProfileData">
+    <!-- Save Icon -->
+    <div class="row">
+        <div class="col-sm-1 col-sm-offset-11">
+            <span class="thumb-info-social-icons right EditIconPathProfile">
+                <a id="edit-profile" data-tooltip data-placement="bottom" data-original-title="Save">
+                    <i class="fa fa-check"></i>
+                    <span>Save</span>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-sm-3  ">
+                <div class="portfolio-item thumbnail">
+                    <a href="" class="thumb-info">
+                        <img alt="" class="img-responsive" src="~/img/route.png">
+                        <span class="thumb-info-title">
+                            <span class="thumb-info-inner">Change Picture</span>
+                            <span class="thumb-info-type">Upload From Device</span>
+                        </span>
+                        <span class="thumb-info-action">
+                        </span>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <input type="file" accept="image" class="thumb-info-inner form-control">
+                </div>
+            </div>
+            <div class="col-sm-9 mediumPadding">
+                <input type="hidden" name="Emp.Id" value="@Model.Path.Id" />
+                <div class="form-group row">
+                    <div class="col-xs-4 ">
+                        <label class="  control-label">Name</label>
+                    </div>
+                    <div class=" col-xs-8">
+                        <!-- @Html.EditorFor(i => i.Name, "textbox") -->
+                      
+                      <input type="text" name="" class="form-control" value="" required="required"  >
+                      
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class=" col-xs-4">
+                      <span class="label">Main Category</span>
+                    </div>
+                    <div class=" col-xs-8">
+                        <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Main, Model.Categories) -->
+                        
+                        <select name="" class="form-control" required="required">
+                          <option value="">Computer Science</option>
+                          <option value="">Math </option>
+                          <option value="">Design</option>
+                        </select>
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class=" col-xs-4">
+                       
+                       <span class="label">Sub Category</span>
+                       
+                    </div>
+                    <div class=" col-xs-8">
+                        <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Sub, Model.Categories) -->
+                        <select name="" class="form-control" required="required">
+                          <option value="">Computer Science</option>
+                          <option value="">Math </option>
+                          <option value="">Design</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <label class="col-xs-4 control-label" for="textareaDefault">Path description</label>
+                    <div class="  col-xs-8">
+                       
+                        
+                        <textarea name="" class="form-control" rows="3" required="required"></textarea>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-offset-10">
+                <input type="submit" value=" Add Path" class="btn btn-primary" />
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+</form>
+
