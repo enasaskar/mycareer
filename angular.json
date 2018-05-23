@@ -38,11 +38,8 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
-<<<<<<< HEAD
               "src/assets/css/pathStyle.css",
-=======
               "src/assets/css/review.css",
->>>>>>> 69f0b8791dd379e651a4f212917fd276e858c498
               "src/styles.css"
             ],
             "scripts": [
