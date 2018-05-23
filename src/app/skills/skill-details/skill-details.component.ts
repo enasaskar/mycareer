@@ -9,7 +9,7 @@ import { ISkill } from '../../data/interfaces/iskill';
 export class SkillDetailsComponent implements OnInit {
 
   constructor() { }
-  public skillDetais: ISkill;
+  public skillDetais: ;
 
 
   ngOnInit() {
