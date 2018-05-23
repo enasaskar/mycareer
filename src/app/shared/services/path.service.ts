@@ -91,4 +91,8 @@ export class PathService {
         console.log(this.paths);
         return pathArr;
     }
+
+    public getById(id: number): IPath {
+        return this.paths.find(i => i.Id === id);
+    }
 }
