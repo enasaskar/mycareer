@@ -105,7 +105,7 @@
   }
   
   .nd1{
-    /* background:  url("../MyImages/bg5.png"); */
+    background:  url("../../../assets/img/bg5.png");
     right: 40px;
     bottom: 120px;
     animation-delay: 0.2s;
@@ -114,7 +114,7 @@
   }
   
   .nd3{
-    /* background:url("../MyImages/bg3.png"); */
+    background:url("../../../assets/img/bg3.png");
     right: 40px;
     bottom: 180px;
     animation-delay: 0.15s;
@@ -454,6 +454,11 @@ ul.comments .comment-block strong
   color: #444444;
 }
 
+.main .container .clearfix
+{
+    display : block;
+}
+
 .clearfix .sidebar
 {
   margin-left: 10%;
@@ -467,7 +472,7 @@ ul.comments .comment-block strong
   border-left: 1px solid #bcbcbcc4;
   height: 370px;
   position: absolute;
-  left: 5%;
+  left: 1%;
   margin-left: -3px;
   top: 0;
 }
@@ -560,9 +565,6 @@ ul.comments .comment-block strong
 
 .modal-backdrop.in
 {
-  z-index: 0;
+  z-index: 0 !important;
 }
 
-.modal-backdrop.fade{
-  z-index: 0;
-}
