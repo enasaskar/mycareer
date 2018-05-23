@@ -1,3 +1,148 @@
-<p>
-  path-detaileditem works!
-</p>
+ 
+<div role="main" class="main">
+  <!-- @{ ViewBag.BlackHeaderTitle = Model.MainCategory; }  -->
+  <!-- @Html.Partial("GeneralPartialViews/_PartialSectionBlackForTitle") -->
+  <div class="container">
+    <div class="portfolio-title">
+      <div class="row">
+        <div class="portfolio-nav-all col-md-1">
+          <a href="portfolio-single-project.html" data-tooltip data-original-title="Back to list">
+            <i class="fa fa-th"></i>
+          </a>
+        </div>
+        <div class="col-md-10 center">
+          <h2 class="shorter">{{Path.Name}}</h2>
+        </div>
+        <div class="portfolio-nav col-md-1">
+          <a href="" class="portfolio-nav-prev" data-tooltip data-original-title="Previous">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+          <a href="" class="portfolio-nav-next" data-tooltip data-original-title="Next">
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="tall">
+
+    <!-- Path Profile Data  -->
+    <div class="row  PathProfileData">
+      <!-- Edit Icon -->
+      <div class="col-md-12 ">
+        <div class="row">
+          <div class="col-sm-1 col-sm-offset-11">
+            <span class="thumb-info-social-icons right EditIconPathProfile">
+              <a id="edit-profile" data-tooltip data-placement="bottom" data-original-title="Edit">
+                <i class="fa fa-pencil"></i>
+                <span>Edit</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- data -->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-sm-3 col-xs-12">
+            <div class="thumbnail">
+              <img alt="" class="img-responsive" [src]="Path.ImgURL">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="portfolio-info">
+              <div class="row">
+                <div class="col-md-12 center">
+                  <ul>
+                    <li>
+                      <a href="#" data-tooltip data-original-title="Like">
+                        <i class="fa fa-heart"></i>{{Path.NoOfInterestedUsers}}
+                      </a>
+                    </li>
+                    <li>
+                      <i class="fa fa-tags"></i>
+                      <a href="#">{{Path.PathSubCategory.Name}}</a>,
+                      <a href="#">{{Path.PathMainCategory.Name}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <h4>
+
+              <strong>{{Path.Name}}</strong>
+            </h4>
+            <p class="taller">
+             {{ Path.Description }}
+            </p>
+
+            <a href="#" class="btn btn-primary btn-icon">
+              <i class="fa fa-external-link"></i>Enroll
+            </a>
+            <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="tall" />
+
+    <!-- Intro level skills -->
+    <app-path-level-skill [levelName]="'Intro'"></app-path-level-skill>
+
+    <hr class="tall" />
+
+    <!-- Intermediate  level skills -->
+    <app-path-level-skill [levelName]="'Intermediate'"></app-path-level-skill>
+
+    <hr class="tall" />
+
+    <!-- Advanced level skills -->
+    <app-path-level-skill [levelName]="'Advanced'"></app-path-level-skill>
+    <hr class="tall" />
+
+    <!--   Title-->
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>
+            Recommended By
+            <strong>Enterprises </strong>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- @Html.Partial("Enterprise/_EnterpriseViewAll",Model.EnterprisesRecommendPath) -->
+  TODO : add Enterprise components
+   <hr class="tall" />
+  <div class="container">
+    <!--   Title-->
+    <div class="">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>
+            Similar
+            <strong>Paths </strong>
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Path items View ALL -->
+
+    <div class="row shop">
+
+      <ul class="team-list sort-destination products path-items" data-sort-id="team">
+        <app-path-item ></app-path-item>
+        <app-path-item ></app-path-item>
+        <app-path-item ></app-path-item>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- @Html.Partial("GeneralPartialViews/_PartialFooterQuote"); -->

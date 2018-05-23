@@ -1,12 +1,12 @@
 <section class="page-top">
   <div class="container">
-      <div class="row">
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Enterprises/{{details.name}}</h1>
       </div>
-      <div class="row">
-          <div class="col-md-12">
-              <h1>Enterprises/{{details.name}}</h1>
-          </div>
-      </div>
+    </div>
   </div>
 </section>
 
@@ -43,7 +43,7 @@
       <div class="col-md-9">
         <span class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
-            <a data-tooltip data-placement="top" data-original-title="Edit" data-toggle="modal" data-target="#myModal">
+            <a data-tooltip data-placement="top" data-original-title="Edit">
               <i class="fa fa-pencil" aria-hidden="true"></i>
               <span>Edit</span>
             </a>
@@ -158,7 +158,7 @@
 
     <!-- Available vacancies -->
 
-    <!-- <div class="available-vacancies ">
+    <div class="available-vacancies ">
 
       <div class="row">
         <div class="col-md-11">
@@ -166,7 +166,7 @@
             <i class="fa fa-suitcase"></i>Available Vacancies</h3>
         </div>
         <div class="col-md-1 right">
-          <a href="Enterprise_SeeAll.html">See all</a>
+          <a href="">See all</a>
         </div>
       </div>
       <div class="vacancy">
@@ -243,135 +243,129 @@
 
         </div>
       </div>
-    </div> -->
-
-
+    </div>
 
 
     <!-- reviews -->
-    <!-- <div class="">
-      <div class="post-block post-comments clearfix">
+    <div class="post-block post-comments clearfix">
+      <div class="row">
         <hr class="short" />
-        <h3>
-          <i class="fa fa-comments"></i>Reviews</h3>
-        <div class="row">
-          <div class="col-md-9">
-            <ul class="comments">
-              <li>
-                <div class="comment">
-                  <div class="img-thumbnail">
-                    <img class="avatar" alt="" src="MyImages/Somerhalder.jpg">
-                  </div>
-                  <div class="comment-block">
-                    <div class="comment-arrow"></div>
-                    <span class="comment-by">
-                      <strong>John Doe</strong>
-                    </span>
-                    <p>onvallis placerat, felis enim ornare
-                      nisi, vitae mattis nulla ante id dui.</p>
-                    
-                  </div>
+        <h3><i class="fa fa-comments"></i>Reviews</h3>
+        <div class="col-md-9">
+          <ul class="comments">
+            <li>
+              <div class="comment">
+                <div class="img-thumbnail">
+                  <img class="avatar" alt="" src="../../../assets/img/Somerhalder.jpg">
                 </div>
-              </li>
-              
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <div class="vl"></div>
-            <aside class="sidebar">
-              <div class="row">
-                <div class="col-md-5">
-                  <h5>
-                    <i class="fa fa-star"></i>Ratings</h5>
+                <div class="comment-block">
+                  <div class="comment-arrow"></div>
+                  <span class="comment-by">
+                    <strong>John Doe</strong>
+                  </span>
+                  <p>onvallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+
                 </div>
-                <div class="col-md-7 right">
-                  <div class="">
-                    <div class="row">
+              </div>
+            </li>
 
-                      <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-plus"></i>
-                        Add review
-                      </button>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="vl"></div>
+          <aside class="sidebar">
+            <div class="row">
+              <div class="col-md-5">
+                <h5>
+                  <i class="fa fa-star"></i>Ratings</h5>
+              </div>
+              <div class="col-md-7">
+                <div class="">
+                  <div class="row">
+
+                    <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-plus"></i>
+                      Add rating
+                    </button>
 
 
-                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">×</span>
-                                <span class="sr-only">Close</span>
-                              </button>
-                              <h4 class="modal-title" id="myModalLabel">
-                                <i class="fa fa-star"></i>Add review</h4>
-                            </div>
-                            <div class="modal-body">
-                              <ul class="simple-post-list">
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
-                                      </a>
-                                    </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">×</span>
+                              <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                              <i class="fa fa-star"></i>Add rating</h4>
+                          </div>
+                          <div class="modal-body">
+                            <ul class="simple-post-list">
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Environment</h6>
-                                    <div class="post-meta">
-                                      $299
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Environment</h6>
+                                  <div class="post-meta">
+                                    <input type="text" class="rating input-active" data-size="md">
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Workplace</h6>
-                                    <div class="post-meta">
-                                      $72
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Workplace</h6>
+                                  <div class="post-meta">
+                                    $72
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Appreciation</h6>
-                                    <div class="post-meta">
-                                      $60
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Appreciation</h6>
+                                  <div class="post-meta">
+                                    $60
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Experience</h6>
-                                    <div class="post-meta">
-                                      $60
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Experience</h6>
+                                  <div class="post-meta">
+                                    $60
                                   </div>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
@@ -379,87 +373,85 @@
                   </div>
                 </div>
               </div>
+            </div>
 
-              <ul class="simple-post-list">
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
-                      </a>
-                    </div>
+            <ul class="simple-post-list">
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Environment</h6>
-                    <div class="post-meta">
-                      $299
-                    </div>
+                </div>
+                <div class="post-info">
+                  <h6>Environment</h6>
+                  <div class="post-meta">
+                    <input type="text" value="3" class="rating input-disabled" data-size="xs">
                   </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Workplace</h6>
-                    <div class="post-meta">
-                      $72
-                    </div>
+                </div>
+                <div class="post-info">
+                  <h6>Workplace</h6>
+                  <div class="post-meta">
+                    <input type="text" value="3" class="rating input-disabled" data-size="xs">
                   </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Appreciation</h6>
-                    <div class="post-meta">
-                      $60
-                    </div>
+                </div>
+                <div class="post-info">
+                  <h6>Appreciation</h6>
+                  <div class="post-meta">
+                    <input type="text" value="3" class="rating input-disabled" data-size="xs">
                   </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Experience</h6>
-                    <div class="post-meta">
-                      $60
-                    </div>
+                </div>
+                <div class="post-info">
+                  <h6>Experience</h6>
+                  <div class="post-meta">
+                    <input type="text" value="3" class="rating input-disabled" data-size="xs">
                   </div>
-                </li>
-              </ul>
-            </aside>
-          </div>
-
+                </div>
+              </li>
+            </ul>
+          </aside>
         </div>
+
       </div>
-
-    </div> -->
-
+    </div>
   </div>
-  
+
   <!-- floating-button -->
-  <!-- <div id="container-floating">
+  <div id="container-floating">
 
     <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy">
-      <img class="reminder" src="MyImages/vacancy.png" alt="">
+      <img class="reminder" src="../../../assets/img/vacancy.png" alt="">
     </div>
     <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New JobFair">
-      <img class="reminder" src="MyImages/jobFair.png" alt="">
+      <img class="reminder" src="../../../assets/img/jobFair.png" alt="">
     </div>
 
     <div id="floating-button" onclick="newmail()">
@@ -467,5 +459,5 @@
       <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
     </div>
 
-  </div> -->
+  </div>
 </div>

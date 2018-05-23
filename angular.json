@@ -30,6 +30,7 @@
               "src/assets/vendor/owlcarousel/owl.theme.default.min.css",
               "src/assets/vendor/magnific-popup/magnific-popup.css",
               "src/assets/dist/bootstrap-star-rating/css/star-rating.min.css",
+              "src/assets/css/review.css",              
               "src/assets/dist/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",
               "src/assets/css/theme.css",
               "src/assets/css/theme-elements.css",
@@ -38,7 +39,7 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
-              "src/assets/css/review.css",
+              "src/assets/css/pathStyle.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -55,13 +56,14 @@
               "src/assets/vendor/jquery.gmap/jquery.gmap.js",
               "src/assets/vendor/isotope/jquery.isotope.js",
               "src/assets/vendor/owlcarousel/owl.carousel.js",
-              "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",
-              "src/assets/dist/bootstrap-star-rating/js/star-rating.min.js",
+              "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",            
               "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
               "src/assets/js/theme.js",
               "src/assets/js/custom.js",
               "src/assets/js/datepicker.js",
-              "src/assets/js/theme.init.js"
+              "src/assets/js/theme.init.js",
+              "src/assets/dist/bootstrap-star-rating/js/star-rating.min.js",
+              "src/assets/js/review.js"
             ]
           },
           "configurations": {

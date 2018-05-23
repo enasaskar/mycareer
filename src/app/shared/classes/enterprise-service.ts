@@ -5,8 +5,7 @@ import { Subject } from 'rxjs';
 
 export class EnterpriseService {
 
-    
-    //public onDelete = new EventEmitter<Enterprise>();
+    // public onDelete = new EventEmitter<Enterprise>();
 
     public onDelete = new Subject();
 
@@ -39,19 +38,17 @@ export class EnterpriseService {
         des :'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         size : 300,
         website :'www.vadafone.com'
-    },
-    {
-    id : 2,
-    name : '',
-    headLine : '',
-    headquarters : '',
-    bigLogo : '',
-    des :'',
-    //size : '',
-    website :''
-    }
-]
-    
+        },{
+        id : 2,
+        name : '',
+        headLine : '',
+        headquarters : '',
+        bigLogo : '',
+        des :'',
+        //size : '',
+        website :''
+        }
+];
 
     public getAllDetails() : EnterpriseDetails[]
     {
