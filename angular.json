@@ -38,10 +38,32 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
+              "src/assets/css/pathStyle.css",
               "src/assets/css/review.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/vendor/modernizr/modernizr.js",
+              "src/assets/vendor/jquery/jquery.js",
+              "src/assets/vendor/jquery.appear/jquery.appear.js",
+              "src/assets/vendor/jquery.easing/jquery.easing.js",
+              "src/assets/vendor/jquery-cookie/jquery-cookie.js",
+              "src/assets/dist/moment.js/min/moment.min.js",
+              "src/assets/vendor/bootstrap/bootstrap.min.js",
+              "src/assets/vendor/common/common.js",
+              "src/assets/vendor/jquery.validation/jquery.validation.js",
+              "src/assets/vendor/jquery.stellar/jquery.stellar.js",
+              "src/assets/vendor/jquery.gmap/jquery.gmap.js",
+              "src/assets/vendor/isotope/jquery.isotope.js",
+              "src/assets/vendor/owlcarousel/owl.carousel.js",
+              "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",
+              "src/assets/dist/bootstrap-star-rating/js/star-rating.min.js",
+              "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
+              "src/assets/js/theme.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/datepicker.js",
+              "src/assets/js/theme.init.js"
+            ]
           },
           "configurations": {
             "production": {

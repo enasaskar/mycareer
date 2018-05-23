@@ -27,7 +27,7 @@ export class PathListComponent implements OnInit {
     description: 'This is an Embedded path',
     imgPath: '../../../assets/img/avatar-2.jpg',
     requiredSkillsCount: 29
-  },];
+  }, ];
   constructor() { }
 
   ngOnInit() {

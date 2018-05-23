@@ -556,3 +556,13 @@ ul.comments .comment-block strong
 {
   margin-top : 5px;
 }
+
+
+.modal-backdrop.in
+{
+  z-index: 0;
+}
+
+.modal-backdrop.fade{
+  z-index: 0;
+}

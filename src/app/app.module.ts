@@ -7,9 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
-// import { PathsModule } from './paths/path.module';
+import { PathsModule } from './paths/path.module';
 
 import { EnterpriseService } from './shared/classes/enterprise-service';
+import { CoreModule } from 'src/app/core/core.module';
+import { SkillsModule } from './skills/skills.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,11 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
     UsersModule,
     InterviewsModule,
     AppRoutingModule,
-    EnterprisesModule
-    // PathsModule
+    EnterprisesModule,
+    CoreModule,
+    PathsModule,
+    SkillsModule
+
   ],
   providers: [EnterpriseService],
   bootstrap: [AppComponent]
