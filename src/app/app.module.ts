@@ -11,6 +11,7 @@ import { PathsModule } from './paths/path.module';
 
 import { EnterpriseService } from './shared/classes/enterprise-service';
 import { CoreModule } from 'src/app/core/core.module';
+import { SkillsModule } from './skills/skills.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CoreModule } from 'src/app/core/core.module';
     UserModule,
     EnterprisesModule,
     CoreModule,
-    PathsModule
+    PathsModule,
+    SkillsModule
 
   ],
   providers: [EnterpriseService],
