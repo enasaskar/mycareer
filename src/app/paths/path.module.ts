@@ -8,8 +8,8 @@ import { PathListComponent } from './path-list/path-list.component';
 import { PathDetaileditemComponent } from './path-detaileditem/path-detaileditem.component';
 import { PathAddEditComponent } from './path-add-edit/path-add-edit.component';
 import { PathsComponent } from './paths.component';
-import { EditInfoComponent } from './path-add-edit/edit-info/edit-info.component';
 import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-level-skill.component';
+import { PathEditInfoComponent } from './path-add-edit/path-edit-info/path-edit-info.component';
 
 @NgModule({
     declarations: [
@@ -18,8 +18,8 @@ import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-l
         PathDetaileditemComponent,
         PathListComponent,
         PathItemComponent,
-        EditInfoComponent,
-        PathLevelSkillComponent
+        PathLevelSkillComponent,
+        PathEditInfoComponent
     ],
     imports: [
         CommonModule,
