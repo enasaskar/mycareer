@@ -19,14 +19,13 @@ import { SkillsModule } from './skills/skills.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     UsersModule,
     InterviewsModule,
-    AppRoutingModule,
     EnterprisesModule,
     CoreModule,
     PathsModule,
-    SkillsModule
+    SkillsModule,
+    AppRoutingModule
 
   ],
   providers: [EnterpriseService],
