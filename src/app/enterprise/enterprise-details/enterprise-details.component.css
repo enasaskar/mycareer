@@ -566,3 +566,8 @@ ul.comments .comment-block strong
 .modal-backdrop.fade{
   z-index: 0;
 }
+
+#myModal
+{
+  z-index: 0;
+}
