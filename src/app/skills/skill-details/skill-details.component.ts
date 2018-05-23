@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ISkill } from '../../data/interfaces/iskill';
 
 @Component({
   selector: 'app-skill-details',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SkillDetailsComponent implements OnInit {
 
   constructor() { }
+  public skillDetais: ISkill;
+
 
   ngOnInit() {
   }
