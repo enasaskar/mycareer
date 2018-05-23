@@ -12,6 +12,8 @@ import { PathsModule } from './paths/path.module';
 import { EnterpriseService } from './shared/classes/enterprise-service';
 import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
+import { PathService } from './shared/services/path.service';
+import { PathCategoryService } from './shared/services/PathCategory.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,11 @@ import { SkillsModule } from './skills/skills.module';
     AppRoutingModule
 
   ],
-  providers: [EnterpriseService],
+  providers: [
+    EnterpriseService,
+    PathService,
+    PathCategoryService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

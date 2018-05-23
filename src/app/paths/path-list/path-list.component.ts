@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PathCategoryService } from '../../shared/services/PathCategory.service';
+import { IPathCategory } from '../../shared/interfaces/ICategory';
 
 @Component({
   selector: 'app-path-list',
@@ -28,9 +30,12 @@ export class PathListComponent implements OnInit {
     imgPath: '../../../assets/img/avatar-2.jpg',
     requiredSkillsCount: 29
   }, ];
-  constructor() { }
+
+  public PathCategories: IPathCategory[];
+    constructor(private pathCategoryService: PathCategoryService) { }
 
   ngOnInit() {
+    this.PathCategories = this.pathCategoryService.getAll();
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPath } from '../../shared/interfaces/IPath';
 
 @Component({
   selector: 'app-path-detaileditem',
@@ -11,19 +12,17 @@ export class PathDetaileditemComponent implements OnInit {
 
 
 
-  // public Path Path { get; set; }
-  // public string Name { get; set; }
-  // public string Description { get; set; }
-  // public int NoOfInterestedUsers { get; set; }
-  // public string MainCategory { get; set; }
-  // public string SubCategory { get; set; }
+  public Path: IPath;
+  public NoOfInterestedUsers: number;
+  public MainCategory: string;
+  public SubCategory: string;
   // public List<Skill> IntroLevelSkills { get; set; }
   // public List<Skill> IntermediateLevelSkills { get; set; }
   // public List<Skill> AdvancedLevelSkills { get; set; }
 
   // public IEnumerable<EnterpriseIndexViewModel> EnterprisesRecommendPath { get; set; }
 
-  // public List<PathIndexViewModel> SimilarPaths { get; set; }
+  public SimilarPaths: IPath[];
 
 
 
