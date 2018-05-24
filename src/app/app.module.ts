@@ -18,7 +18,7 @@ import { PathCategoryService } from './shared/services/PathCategory.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

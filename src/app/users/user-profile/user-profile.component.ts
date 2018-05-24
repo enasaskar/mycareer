@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
+    this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
     });
