@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { JobfairsModule } from './jobfairs/jobfairs.module'
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
