@@ -7,17 +7,7 @@
           <div>
             <div class="thumbnail">
               <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
-                <img alt="" height="300" class="img-responsive" src="../../../assets/img/team/emp2.jpg">
-                <span class="thumb-info-action">
-                  <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div>
-            <div class="thumbnail">
-              <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
-                <img alt="" height="300" class="img-responsive" src="../../../assets/img/team/team-3.jpg">
+                <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
                 <span class="thumb-info-action">
                   <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
                 </span>
@@ -28,7 +18,7 @@
         <div id="popupImageEdit" class="popup-inline-content">
           <div class="row">
             <div class="imageEdit">
-              <img alt="" src="../../../assets/img/team/team-1.jpg">
+              <img [src]="user.imagePath">
             </div>
           </div>
           <div class="row">
@@ -49,7 +39,7 @@
       </div>
 
       <!--content-->
-      <app-user-details></app-user-details>
+      <app-user-details [user]="user"></app-user-details>
       <!--content editable-->
       <app-user-details-edit></app-user-details-edit>
 </div>
