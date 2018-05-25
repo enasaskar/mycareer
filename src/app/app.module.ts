@@ -13,6 +13,9 @@ import { PathsModule } from './paths/path.module';
 import { EnterpriseService } from './shared/classes/enterprise-service';
 import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
 
@@ -28,7 +31,8 @@ import { PathCategoryService } from './shared/services/PathCategory.service';
     CoreModule,
     PathsModule,
     SkillsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
 
   ],
   providers: [
