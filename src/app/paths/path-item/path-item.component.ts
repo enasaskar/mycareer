@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IPath } from '../../shared/interfaces/IPath';
 
 @Component({
   selector: 'app-path-item',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PathItemComponent implements OnInit {
 
-  public name = 'Hamada';
-  public description = 'This is a description';
-  public requiredSkillsCount = 15;
-  public imgPath = '../../../assets/route2.jpg';
+  // public name = 'Hamada';
+  // public description = 'This is a description';
+  // public requiredSkillsCount = 15;
+  // public imgPath = '../../../assets/img/avatar-2.jpg';
+
+  @Input() Path: IPath;
   constructor() { }
 
   ngOnInit() {

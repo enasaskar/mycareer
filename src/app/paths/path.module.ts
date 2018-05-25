@@ -10,6 +10,7 @@ import { PathAddEditComponent } from './path-add-edit/path-add-edit.component';
 import { PathsComponent } from './paths.component';
 import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-level-skill.component';
 import { PathEditInfoComponent } from './path-add-edit/path-edit-info/path-edit-info.component';
+import { ListComponent } from './path-list/list/list.component';
  
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { PathEditInfoComponent } from './path-add-edit/path-edit-info/path-edit-
         PathListComponent,
         PathItemComponent,
         PathLevelSkillComponent,
-        PathEditInfoComponent
+        PathEditInfoComponent,
+        ListComponent
     ],
     imports: [
         CommonModule,

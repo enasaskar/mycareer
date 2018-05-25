@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IPath } from '../../shared/interfaces/IPath';
+import { PathService } from '../../shared/services/path.service';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-path-detaileditem',
@@ -7,28 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PathDetaileditemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pathService: PathService, private route: ActivatedRoute) { }
 
 
 
-  // public Path Path { get; set; }
-  // public string Name { get; set; }
-  // public string Description { get; set; }
-  // public int NoOfInterestedUsers { get; set; }
-  // public string MainCategory { get; set; }
-  // public string SubCategory { get; set; }
-  // public List<Skill> IntroLevelSkills { get; set; }
-  // public List<Skill> IntermediateLevelSkills { get; set; }
-  // public List<Skill> AdvancedLevelSkills { get; set; }
-
-  // public IEnumerable<EnterpriseIndexViewModel> EnterprisesRecommendPath { get; set; }
-
-  // public List<PathIndexViewModel> SimilarPaths { get; set; }
-
-
-
+  public Path: IPath;
+  public SimilarPaths: IPath[];
 
   ngOnInit() {
+    this.Path.Id = this.route.snapshot.params['id'] || 10;
+    console.log(this.route);
+    this.Path = this.pathService.getById(this.Path.Id );
   }
 
 }

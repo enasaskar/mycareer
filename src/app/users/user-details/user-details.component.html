@@ -2,12 +2,12 @@
 <!--user details-->
 <div class="col-md-8 content">
   <div class="upperSection" data-appear-animation="fadeInLeft" >
-    <h2 class="shorter left">Joe <strong>Doe</strong></h2>
+    <h2 class="shorter left">{{user.fname}} <strong>{{user.lname}}</strong></h2>
     <span class="thumb-info-social-icons right"><a id="edit-profile" data-tooltip data-placement="bottom" href="#" data-original-title="Edit"><i class="fa fa-pencil"></i><span>Edit</span></a></span>
     <p class="clear"></p>
-          <h4 class="left">Web Designer</h4>
+          <h4 class="left">{{user.title}}</h4>
           <h4 class="left"><b>@</b></h4>
-    <h4 class="left"><a>Company</a></h4>
+    <h4 class="left"><a>{{user.enterpriseName}}</a></h4>
     <span class="thumb-info-social-icons">
         <a data-tooltip data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fa fa-facebook"></i><span>Facebook</span></a>
         <a data-tooltip data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fa fa-twitter"></i><span>Twitter</span></a>
@@ -17,18 +17,18 @@
   </div>
 
   <ul class="list icons list-unstyled contactInfo" data-appear-animation="fadeInLeft">
-      <li><i class="fa fa-envelope"></i> JoeDoe@gmail.com</li>
-      <li><i class="fa fa-phone-square"></i> 010********</li>
-      <li><i class="fa fa-map-marker"></i> 23 x st. </li>
+      <li><i class="fa fa-envelope"></i> {{user.email}}</li>
+      <li><i class="fa fa-phone-square"></i> {{user.telNumber}}</li>
+      <li><i class="fa fa-map-marker"></i> {{user.district+", "+user.city+", "+user.country}}. </li>
   </ul>
   <p  class="mobileDisplay"><a>Read more...</a></p>
   <div class="mobileHide">
-      <p data-appear-animation="fadeInLeft">Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc <a href="#">vehicula</a> lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.</p>
+      <p data-appear-animation="fadeInLeft">{{user.description}}</p>
       <p data-appear-animation="fadeInLeft"><b>Main Interests</b></p>
       <ul class="list icons list-unstyled" data-appear-animation="fadeInLeft">
-          <li><i class="fa fa-check"></i> Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.</li>
-          <li><i class="fa fa-check"></i> Phasellus in risus quis lectus iaculis vulputate id quis nisl.</li>
-          <li><i class="fa fa-check"></i> Iaculis vulputate id quis nisl.</li>
+        <li *ngFor="let interest of user.interests">
+            <i class="fa fa-check"></i> {{interest}}
+        </li>
       </ul>
   </div>
 </div>
