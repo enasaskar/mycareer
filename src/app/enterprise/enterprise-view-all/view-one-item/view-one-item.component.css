@@ -556,3 +556,8 @@ ul.comments .comment-block strong
 {
   margin-top : 5px;
 }
+
+.feature-box-info p
+{
+  margin-bottom: 2%;
+}
