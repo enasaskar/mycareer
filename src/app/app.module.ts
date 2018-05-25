@@ -12,6 +12,7 @@ import { PathsModule } from './paths/path.module';
 import { EnterpriseService } from './shared/classes/enterprise-service';
 import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SkillsModule } from './skills/skills.module';
     CoreModule,
     PathsModule,
     SkillsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
 
   ],
   providers: [EnterpriseService],
