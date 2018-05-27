@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JobfairsModule } from './jobfairs/jobfairs.module'
+import { JobfairsModule } from './jobfairs/jobfairs.module';
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
@@ -30,15 +30,10 @@ import { SizeService } from './shared/classes/size-service';
     InterviewsModule,
     EnterprisesModule,
     CoreModule,
-<<<<<<< HEAD
-    PathsModule
-
-=======
     PathsModule,
     SkillsModule,
     AppRoutingModule,
     NgbModule.forRoot()
->>>>>>> 0fbf24096eb495cc1f2396aa64c8c9e8fcc7fe28
 
   ],
   providers: [
