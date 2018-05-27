@@ -1,12 +1,12 @@
 <section class="page-top">
   <div class="container">
-      <div class="row">
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Enterprises/{{details.name}}</h1>
       </div>
-      <div class="row">
-          <div class="col-md-12">
-              <h1>Enterprises/{{details.name}}</h1>
-          </div>
-      </div>
+    </div>
   </div>
 </section>
 
@@ -30,7 +30,9 @@
       </div>
     </div> -->
 
-    <div class="row enterprise-view-one">
+
+    <!-- view details -->
+    <div ng-if="details != null" class="row enterprise-view-one" id = "e">
       <div class="col-md-3">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -43,8 +45,8 @@
       <div class="col-md-9">
         <span class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
-            <a data-tooltip data-placement="top" data-original-title="Edit" data-toggle="modal" data-target="#myModal">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+            <a data-tooltip data-placement="top" data-original-title="Edit">
+              <i class="fa fa-pencil" aria-hidden="true" (click)="onClick()"></i>
               <span>Edit</span>
             </a>
           </div>
@@ -96,7 +98,9 @@
             <div class="business-card b1">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-1"></i>
+                  <i class="fa fa-typo3 icon-featured icon-featured-1">
+                      <i class="fal fa-globe"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">WebSite</h4>
@@ -111,7 +115,9 @@
             <div class="business-card b2">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-2"></i>
+                  <i class="fa fa-typo3 icon-featured icon-featured-2">
+                      <i class="far fa-building"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Headquarters</h4>
@@ -125,7 +131,9 @@
             <div class="business-card b3">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-dollar-sign icon-featured icon-featured-3"></i>
+                  <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                      <i class="fas fa-sitemap"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Size</h4>
@@ -151,14 +159,105 @@
 
     </div>
 
+    <!-- edit view -->
+    
+    <form action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
+      <div id = "edit" class="enterpriseEdit">
+        <div class="col-md-3">
+            <div class="portfolio-item">
+              <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+                <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+              </a>
+    
+            </div>
+          </div>
+        <div class="col-md-9" >
+            <div class="input-group form-group">
+                <div class="row">
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = details.name>
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseHead" placeholder="HeadLine" [(ngModel)] = details.headLine>
+                  </div>
+          
+                </div>
+          
+                <div class="row">
+                  <div class="form-group col-md-12 input-group-lg">
+                    <input type="text" required class="form-control" name="enterpriseDesc" placeholder="Description" [(ngModel)] = details.des>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseWebSite" placeholder="Website" [(ngModel)] = details.website>                
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseFb" placeholder="FacebookAccount" [(ngModel)] = details.facebookAccount>                      
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseTwitter" placeholder="TwitterAccount" [(ngModel)] = details.twitterAccount>                      
+                  </div>
+                </div>
+                <div class="row">
+          
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                      
+                          <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
+                            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
+                          </select>
+                        
+                  </div>
+                </div>
+                <div class="row branches">
+                  <div class="form-group col-md-3 input-group-sm">
+                      
+                          <select  class="form-control" required name = "country"> 
+                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                          </select>
+                        
+                  </div>
+          
+                  <div class="form-group col-md-3 input-group-sm">
+                      
+                          <select  class="form-control" required name = "city"> 
+                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                          </select>
+                        
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-plus-circle" id="addBranch"></i>
+                  </div>
+                </div>
+                <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
+                <input type="submit" class="btn btn-primary right" value="Save" />
+    
+          
+              </div>
+        </div>
+    </div>
+    
+    </form>
+    
+    
+  
 
+
+
+    
     <hr class="short" />
 
 
 
     <!-- Available vacancies -->
 
-    <!-- <div class="available-vacancies ">
+    <div class="available-vacancies ">
 
       <div class="row">
         <div class="col-md-11">
@@ -166,7 +265,7 @@
             <i class="fa fa-suitcase"></i>Available Vacancies</h3>
         </div>
         <div class="col-md-1 right">
-          <a href="Enterprise_SeeAll.html">See all</a>
+          <a href="">See all</a>
         </div>
       </div>
       <div class="vacancy">
@@ -243,223 +342,231 @@
 
         </div>
       </div>
-    </div> -->
-
-
+    </div>
 
 
     <!-- reviews -->
-    <!-- <div class="">
-      <div class="post-block post-comments clearfix">
+    <div class="post-block post-comments clearfix">
+      <div class="row">
         <hr class="short" />
         <h3>
           <i class="fa fa-comments"></i>Reviews</h3>
-        <div class="row">
-          <div class="col-md-9">
-            <ul class="comments">
-              <li>
-                <div class="comment">
-                  <div class="img-thumbnail">
-                    <img class="avatar" alt="" src="MyImages/Somerhalder.jpg">
-                  </div>
-                  <div class="comment-block">
-                    <div class="comment-arrow"></div>
-                    <span class="comment-by">
-                      <strong>John Doe</strong>
-                    </span>
-                    <p>onvallis placerat, felis enim ornare
-                      nisi, vitae mattis nulla ante id dui.</p>
-                    
-                  </div>
+        <div class="col-md-9">
+          <ul class="comments">
+            <li>
+              <div class="comment">
+                <div class="img-thumbnail">
+                  <img class="avatar" alt="" src="../../../assets/img/Somerhalder.jpg">
                 </div>
-              </li>
-              
-            </ul>
-          </div>
-          <div class="col-md-3">
-            <div class="vl"></div>
-            <aside class="sidebar">
-              <div class="row">
-                <div class="col-md-5">
-                  <h5>
-                    <i class="fa fa-star"></i>Ratings</h5>
+                <div class="comment-block">
+                  <div class="comment-arrow"></div>
+                  <span class="comment-by">
+                    <strong>John Doe</strong>
+                  </span>
+                  <p>onvallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+
                 </div>
-                <div class="col-md-7 right">
-                  <div class="">
-                    <div class="row">
+              </div>
+            </li>
 
-                      <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-plus"></i>
-                        Add review
-                      </button>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="vl"></div>
+          <aside class="sidebar">
+            <div class="row">
+              <div class="col-md-5">
+                <h5>
+                  <i class="fa fa-star"></i>Ratings</h5>
+              </div>
+              <div class="col-md-7">
+                <div class="">
+                  <div class="row">
+                      <!-- <ng-template #content let-cl="close" let-di="dismiss">  
+                          <div class="modal-content">  
+                              <div class="modal-header">  
+                                  <h5 class="modal-title">Modal title</h5> <button type="button" class="close" (click)="cl('Closed from Close button')">  
+                        
+                                  <span aria-hidden="true">×</span>  
+                        
+                                </button> </div>  
+                              <div class="modal-body">  
+                                  <p>Modal body text goes here.</p>  
+                              </div>  
+                              <div class="modal-footer"> <button type="button" class="btn btn-secondary" (click)="di('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" (click)="cl('Closed from Close button')">Close</button> </div>  
+                          </div>  
+                      </ng-template>  -->
+                    <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content">
+                      <i class="fa fa-plus"></i>
+                      Add rating
+                    </button>
 
-
-                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">×</span>
-                                <span class="sr-only">Close</span>
-                              </button>
-                              <h4 class="modal-title" id="myModalLabel">
-                                <i class="fa fa-star"></i>Add review</h4>
-                            </div>
-                            <div class="modal-body">
-                              <ul class="simple-post-list">
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
-                                      </a>
-                                    </div>
+            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">×</span>
+                              <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                              <i class="fa fa-star"></i>Add rating</h4>
+                          </div>
+                          <div class="modal-body">
+                            <ul class="simple-post-list">
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Environment</h6>
-                                    <div class="post-meta">
-                                      $299
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Environment</h6>
+                                  <div class="post-meta">
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Workplace</h6>
-                                    <div class="post-meta">
-                                      $72
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Workplace</h6>
+                                  <div class="post-meta">
+                                    $72
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Appreciation</h6>
-                                    <div class="post-meta">
-                                      $60
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Appreciation</h6>
+                                  <div class="post-meta">
+                                    $60
                                   </div>
-                                </li>
-                                <li>
-                                  <div class="post-image">
-                                    <div class="img-thumbnail">
-                                      <a href="shop-product-sidebar.html">
-                                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
-                                      </a>
-                                    </div>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="post-image">
+                                  <div class="img-thumbnail">
+                                    <a href="shop-product-sidebar.html">
+                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
+                                    </a>
                                   </div>
-                                  <div class="post-info">
-                                    <h6>Experience</h6>
-                                    <div class="post-meta">
-                                      $60
-                                    </div>
+                                </div>
+                                <div class="post-info">
+                                  <h6>Experience</h6>
+                                  <div class="post-meta">
+                                    $60
                                   </div>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
+                    
+                  
                   </div>
                 </div>
               </div>
+            </div>
 
-              <ul class="simple-post-list">
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/company-workers.png">
-                      </a>
-                    </div>
+            <ul class="simple-post-list">
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Environment</h6>
-                    <div class="post-meta">
-                      $299
-                    </div>
+                </div>
+                <div class="post-info">
+                  <h6>Environment</h6>
+                  <div class="post-meta">
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
                   </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/workplace.png">
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
+                    </a>
                   </div>
-                  <div class="post-info">
-                    <h6>Workplace</h6>
-                    <div class="post-meta">
-                      $72
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/appreciation.png">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="post-info">
-                    <h6>Appreciation</h6>
-                    <div class="post-meta">
-                      $60
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="post-image">
-                    <div class="img-thumbnail">
-                      <a href="shop-product-sidebar.html">
-                        <img alt="" width="40" height="40" class="img-responsive" src="MyImages/cv.png">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="post-info">
-                    <h6>Experience</h6>
-                    <div class="post-meta">
-                      $60
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </aside>
-          </div>
+                </div>
+                <div class="post-info">
+                  <h6>Workplace</h6>
+                  <div class="post-meta">
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
 
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
+                    </a>
+                  </div>
+                </div>
+                <div class="post-info">
+                  <h6>Appreciation</h6>
+                  <div class="post-meta">
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
+
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="post-image">
+                  <div class="img-thumbnail">
+                    <a href="shop-product-sidebar.html">
+                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
+                    </a>
+                  </div>
+                </div>
+                <div class="post-info">
+                  <h6>Experience</h6>
+                  <div class="post-meta">
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </aside>
         </div>
+
       </div>
-
-    </div> -->
-
+    </div>
   </div>
-  
+
   <!-- floating-button -->
-  <!-- <div id="container-floating">
+  <div id="container-floating">
 
     <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy">
-      <img class="reminder" src="MyImages/vacancy.png" alt="">
+      <img class="reminder" src="../../../assets/img/vacancy.png" alt="">
     </div>
     <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New JobFair">
-      <img class="reminder" src="MyImages/jobFair.png" alt="">
+      <img class="reminder" src="../../../assets/img/jobFair.png" alt="">
     </div>
 
     <div id="floating-button" onclick="newmail()">
@@ -467,5 +574,5 @@
       <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
     </div>
 
-  </div> -->
+  </div>
 </div>

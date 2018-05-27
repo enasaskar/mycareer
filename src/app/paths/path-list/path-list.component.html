@@ -1,4 +1,4 @@
-<form action="" method="post">
+ 
   <div role="main" class="main">
     <!-- @Html.Partial("GeneralPartialViews/_PartialHeaderIntro_Quotes"); -->
     <div class="container">
@@ -9,31 +9,14 @@
         <li data-option-value="*" class="active">
           <a href="#">Show All</a>
         </li>
-        <li data-option-value=".leadership">
-          <a href="#">categoryName</a>
-        </li>
-        <li data-option-value=".marketing">
-          <a href="#">categoryName</a>
-        </li>
-        <li data-option-value=".development">
-          <a href="#">categoryName</a>
-        </li>
-        <li data-option-value=".design">
-          <a href="#">categoryName</a>
+        <li *ngFor='let cat of PathCategories' [attr.data-option-value]="cat.Name">
+          <a href="#">{{cat.Name}}</a>
         </li>
       </ul>
 
       <hr />
       <!-- Path items View ALL -->
 
-      <div class="row shop">
-
-        <ul class="team-list sort-destination products path-items" data-sort-id="team">
-          <app-path-item ></app-path-item>
-          <app-path-item ></app-path-item>
-          <app-path-item ></app-path-item>
-        </ul>
-      </div>
+      <app-list></app-list>
     </div>
-  </div>
-</form>
+  </div> 

@@ -1,4 +1,4 @@
-import { Sizes } from './sizes';
+// import { Sizes } from './sizes';
 export class EnterpriseDetails {
     id : number;
     name : string;
@@ -6,6 +6,8 @@ export class EnterpriseDetails {
     des : string;
     bigLogo? : string;
     headquarters : string;
-    size? : number;
+    size? : string;
     website: string;
+    facebookAccount:string;
+    twitterAccount : string;
 }

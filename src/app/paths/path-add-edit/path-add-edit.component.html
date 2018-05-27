@@ -1,3 +1,21 @@
-<p>
-  path-add-edit works!
-</p>
+<!-- @Html.Partial("GeneralPartialViews/_PartialSectionBlackForTitle") -->
+<div class="container">
+    <!-- Path Profile Editable Data  -->
+    <app-path-edit-info></app-path-edit-info>
+
+    <hr class="tall" />
+
+    <!-- Intro level skills -->
+    <app-path-level-skill [levelName]="'Intro'"></app-path-level-skill>
+
+    <hr class="tall" />
+
+    <!-- Intermediate  level skills -->
+    <app-path-level-skill [levelName]="'Intermediate'" ></app-path-level-skill>
+
+    <hr class="tall" />
+
+    <!-- Advanced level skills -->
+    <app-path-level-skill [levelName]="'Advanced'" ></app-path-level-skill>
+
+    <hr class="tall" />

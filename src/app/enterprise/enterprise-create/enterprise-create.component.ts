@@ -9,7 +9,6 @@ import { Sizes } from '../../shared/classes/sizes';
   selector: 'app-enterprise-create',
   templateUrl: './enterprise-create.component.html',
   styleUrls: ['./enterprise-create.component.css'],
-  providers : [SizeService]
 })
 export class EnterpriseCreateComponent implements OnInit {
 
