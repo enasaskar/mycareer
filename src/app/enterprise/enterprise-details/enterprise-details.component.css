@@ -362,6 +362,7 @@
   font-size: 15px;
   color: #0088cc;
   text-align: center;
+  margin-left : 30%;
 }
 
 .seeMore .less
@@ -511,9 +512,14 @@ ul.comments .comment-block strong
   width: 50px;
   height: 52px;
   font-size: 30px;
- text-align: center;
-  margin-top : -2px;
+  text-align: center;
+  margin-top : 0px;
 } 
+
+.icon-featured i
+{
+  font-style: normal;
+}
 
 .business-card .icon-featured-1
 {
@@ -560,6 +566,19 @@ ul.comments .comment-block strong
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
 {
   margin-top : 5px;
+}
+
+#edit{
+  display: none;
+}
+
+.input-group{
+  width: 100%;
+}
+
+#addBranch{
+  margin-top: 0.5%;
+  font-size: 25px;
 }
 
 

@@ -30,7 +30,9 @@
       </div>
     </div> -->
 
-    <div class="row enterprise-view-one">
+
+    <!-- view details -->
+    <div ng-if="details != null" class="row enterprise-view-one" id = "e">
       <div class="col-md-3">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -44,7 +46,7 @@
         <span class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
             <a data-tooltip data-placement="top" data-original-title="Edit">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <i class="fa fa-pencil" aria-hidden="true" (click)="onClick()"></i>
               <span>Edit</span>
             </a>
           </div>
@@ -96,7 +98,9 @@
             <div class="business-card b1">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-1"></i>
+                  <i class="fa fa-typo3 icon-featured icon-featured-1">
+                      <i class="fal fa-globe"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">WebSite</h4>
@@ -111,7 +115,9 @@
             <div class="business-card b2">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-2"></i>
+                  <i class="fa fa-typo3 icon-featured icon-featured-2">
+                      <i class="far fa-building"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Headquarters</h4>
@@ -125,7 +131,9 @@
             <div class="business-card b3">
               <div class="media">
                 <div class="media-left">
-                  <i class="fa fa-dollar-sign icon-featured icon-featured-3"></i>
+                  <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                      <i class="fas fa-sitemap"></i>
+                  </i>
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Size</h4>
@@ -151,7 +159,98 @@
 
     </div>
 
+    <!-- edit view -->
+    
+    <form action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
+      <div id = "edit" class="enterpriseEdit">
+        <div class="col-md-3">
+            <div class="portfolio-item">
+              <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+                <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+              </a>
+    
+            </div>
+          </div>
+        <div class="col-md-9" >
+            <div class="input-group form-group">
+                <div class="row">
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = details.name>
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseHead" placeholder="HeadLine" [(ngModel)] = details.headLine>
+                  </div>
+          
+                </div>
+          
+                <div class="row">
+                  <div class="form-group col-md-12 input-group-lg">
+                    <input type="text" required class="form-control" name="enterpriseDesc" placeholder="Description" [(ngModel)] = details.des>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseWebSite" placeholder="Website" [(ngModel)] = details.website>                
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseFb" placeholder="FacebookAccount" [(ngModel)] = details.facebookAccount>                      
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseTwitter" placeholder="TwitterAccount" [(ngModel)] = details.twitterAccount>                      
+                  </div>
+                </div>
+                <div class="row">
+          
+                  <div class="form-group col-md-6 input-group-sm">
+                    <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                      
+                          <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
+                            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
+                          </select>
+                        
+                  </div>
+                </div>
+                <div class="row branches">
+                  <div class="form-group col-md-3 input-group-sm">
+                      
+                          <select  class="form-control" required name = "country"> 
+                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                          </select>
+                        
+                  </div>
+          
+                  <div class="form-group col-md-3 input-group-sm">
+                      
+                          <select  class="form-control" required name = "city"> 
+                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                          </select>
+                        
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              
+                  </div>
+                  <div class="col-md-2">
+                    <i class="fa fa-plus-circle" id="addBranch"></i>
+                  </div>
+                </div>
+                <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
+                <input type="submit" class="btn btn-primary right" value="Save" />
+    
+          
+              </div>
+        </div>
+    </div>
+    
+    </form>
+    
+    
+  
 
+
+
+    
     <hr class="short" />
 
 
@@ -250,7 +349,8 @@
     <div class="post-block post-comments clearfix">
       <div class="row">
         <hr class="short" />
-        <h3><i class="fa fa-comments"></i>Reviews</h3>
+        <h3>
+          <i class="fa fa-comments"></i>Reviews</h3>
         <div class="col-md-9">
           <ul class="comments">
             <li>
@@ -282,14 +382,26 @@
               <div class="col-md-7">
                 <div class="">
                   <div class="row">
-
-                    <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" data-toggle="modal" data-target="#myModal">
+                      <!-- <ng-template #content let-cl="close" let-di="dismiss">  
+                          <div class="modal-content">  
+                              <div class="modal-header">  
+                                  <h5 class="modal-title">Modal title</h5> <button type="button" class="close" (click)="cl('Closed from Close button')">  
+                        
+                                  <span aria-hidden="true">×</span>  
+                        
+                                </button> </div>  
+                              <div class="modal-body">  
+                                  <p>Modal body text goes here.</p>  
+                              </div>  
+                              <div class="modal-footer"> <button type="button" class="btn btn-secondary" (click)="di('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" (click)="cl('Closed from Close button')">Close</button> </div>  
+                          </div>  
+                      </ng-template>  -->
+                    <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content">
                       <i class="fa fa-plus"></i>
                       Add rating
                     </button>
 
-
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -313,7 +425,6 @@
                                 <div class="post-info">
                                   <h6>Environment</h6>
                                   <div class="post-meta">
-                                    <!-- <input type="text" class="rating input-active" data-size="md"> -->
                                   </div>
                                 </div>
                               </li>
@@ -369,7 +480,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
+                    
+                  
                   </div>
                 </div>
               </div>
@@ -387,8 +500,7 @@
                 <div class="post-info">
                   <h6>Environment</h6>
                   <div class="post-meta">
-                    <!-- <input type="text" value="3" class="rating input-disabled" data-size="xs"> -->
-                    <ngb-rating [rate] = "3" [max] = 5 [readonly]=" true" ></ngb-rating>                    
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
                   </div>
                 </div>
               </li>
@@ -403,9 +515,8 @@
                 <div class="post-info">
                   <h6>Workplace</h6>
                   <div class="post-meta">
-                    <!-- <input type="text" value="3" class="rating input-disabled" data-size="xs"> -->
-                    <ngb-rating [rate] = "3" [max] = 5 [readonly]=" true" ></ngb-rating>                    
-                    
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
+
                   </div>
                 </div>
               </li>
@@ -420,9 +531,8 @@
                 <div class="post-info">
                   <h6>Appreciation</h6>
                   <div class="post-meta">
-                    <!-- <input type="text" value="3" class="rating input-disabled" data-size="xs"> -->
-                    <ngb-rating [rate] = "3" [max] = 5 [readonly]=" true" ></ngb-rating>                    
-                    
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
+
                   </div>
                 </div>
               </li>
@@ -437,9 +547,7 @@
                 <div class="post-info">
                   <h6>Experience</h6>
                   <div class="post-meta">
-                    <!-- <input type="text" value="3" class="rating input-disabled" data-size="xs"> -->
-                    <ngb-rating [rate] = "3" [max] = 5 [readonly]=" true" ></ngb-rating>                    
-                    
+                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
                   </div>
                 </div>
               </li>

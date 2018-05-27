@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
+import { SizeService } from './shared/classes/size-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PathCategoryService } from './shared/services/PathCategory.service';
   providers: [
     EnterpriseService,
     PathService,
-    PathCategoryService
+    PathCategoryService,
+    SizeService
 ],
   bootstrap: [AppComponent]
 })
