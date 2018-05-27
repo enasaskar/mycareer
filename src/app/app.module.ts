@@ -4,12 +4,21 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserModule } from './user/user.module';
-<<<<<<< HEAD
+import { JobfairsModule } from './jobfairs/jobfairs.module'
+
+import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
-=======
+import { PathsModule } from './paths/path.module';
+
 import { EnterpriseService } from './shared/classes/enterprise-service';
->>>>>>> b8420855242d733421c48e62db6d2a5e8bd2c4c3
+import { CoreModule } from 'src/app/core/core.module';
+import { SkillsModule } from './skills/skills.module';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { PathService } from './shared/services/path.service';
+import { PathCategoryService } from './shared/services/PathCategory.service';
+import { SizeService } from './shared/classes/size-service';
 
 @NgModule({
   declarations: [
@@ -17,17 +26,27 @@ import { EnterpriseService } from './shared/classes/enterprise-service';
   ],
   imports: [
     BrowserModule,
+    UsersModule,
+    InterviewsModule,
+    EnterprisesModule,
+    CoreModule,
 <<<<<<< HEAD
-    // AppRoutingModule,
-    // UserModule,
-    InterviewsModule
+    PathsModule
+
 =======
+    PathsModule,
+    SkillsModule,
     AppRoutingModule,
-    UserModule,
-    EnterprisesModule
->>>>>>> 9329685192655e688031c129c4a367bd5c783ae4
+    NgbModule.forRoot()
+>>>>>>> 0fbf24096eb495cc1f2396aa64c8c9e8fcc7fe28
+
   ],
-  providers: [EnterpriseService],
+  providers: [
+    EnterpriseService,
+    PathService,
+    PathCategoryService,
+    SizeService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
