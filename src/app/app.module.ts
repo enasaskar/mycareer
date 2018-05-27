@@ -19,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
 import { SizeService } from './shared/classes/size-service';
-
+import { VacanciesModule } from './vacancies/vacancies.module';
+// import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent
@@ -30,16 +31,9 @@ import { SizeService } from './shared/classes/size-service';
     InterviewsModule,
     EnterprisesModule,
     CoreModule,
-<<<<<<< HEAD
-    PathsModule
-
-=======
     PathsModule,
-    SkillsModule,
-    AppRoutingModule,
-    NgbModule.forRoot()
->>>>>>> 0fbf24096eb495cc1f2396aa64c8c9e8fcc7fe28
-
+    VacanciesModule,
+    AppRoutingModule
   ],
   providers: [
     EnterpriseService,

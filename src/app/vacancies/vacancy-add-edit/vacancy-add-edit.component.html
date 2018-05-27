@@ -1,254 +1,75 @@
-<!-- Vacancy-view-one -->
-<div role="main" class="main">
-
-  <!-- about-us -->
-  <section class="page-top">
+<section class="page-top">
     <div class="container">
-      <div class="row">
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="container">
-    <div class="row push-top" id="projects">
-      <div id="popupProject" class="popup-inline-content">
-        <h2>Lorem Ipsum Dolor</h2>
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-thumbnail img-responsive" alt="" src="img/projects/project.jpg">
-          </div>
-
+            <div class="col-md-12">
+            </div>
         </div>
-      </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Vacancies</h1>
+            </div>
+        </div>
     </div>
-
-    <div class="row enterprise-view-one">
-      <div class="col-md-3">
-        <div class="portfolio-item">
-          <a class="thumb-info lightbox" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
-            <img class="img-responsive" src="MyImages/vodafone.png" alt="" id="enterprise_logo">
-          </a>
-          <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <span class="thumb-info-social-icons" id="intro_edit">
-          <div class="info_edit">
-            <a data-tooltip data-placement="top" data-original-title="Edit" data-toggle="modal" data-target="#myModal">
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-              <span>Edit</span>
-            </a>
-          </div>
-        </span>
-        <h2 class="shorter arabic-titile">
-          Software Engineer
-        </h2>
-        <h4 class="arabic-headline">Vodafone Global Enterprise</h4>
-        <div class="">
-          <input type="submit" class="btn btn-primary" value="Apply" />
-          <input type="button" class="btn" value="Save" />
-        </div>
-
-        <span class="thumb-info-social-icons">
-          <div class="social">
-            <a data-tooltip data-placement="top" target="_blank" href="http://www.facebook.com" data-original-title="Facebook">
-              <i class="fa fa-facebook"></i>
-              <span>Facebook</span>
-            </a>
-            <a data-tooltip data-placement="top" href="http://www.twitter.com" data-original-title="Twitter">
-              <i class="fa fa-twitter"></i>
-              <span>Twitter</span>
-            </a>
-            <div class="info_edit_inplace">
-              <a data-tooltip data-placement="top" data-original-title="Edit">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-                <span>Edit</span>
-              </a>
+</section>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3" >
+        <form method="post">
+            <div  class="text-danger"></div>
+            <div class="form-group">
+                <label for="Vacancy.Posted_date" class="control-label">Posted date</label>
+                <input type="date" name="VacancyPosted_date" class="form-control" />
+                <span class="text-danger"></span>
             </div>
-          </div>
-
-
-        </span>
-        <div class="des">
-          <div class="featured-box">
-            <div class="box-content">
-              <h4>
-                <strong>Job Description</strong>
-              </h4>
-              <p class="editablePara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta.
-                Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget
-                diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+            <div class="form-group">
+                <label for="Vacancy.FK_Level_Id" class="control-label">Vacancy Level</label>
+                <select name="VacancyFK_Level_Id" class="form-control" >
+                      <option value="Entry">Entry Level</option>
+                      <option value="Mid">Mid Level</option>
+                </select>
             </div>
-          </div>
-        </div>
-
-
-        <div class="hidden-textbox form-group"></div>
-
-        <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
-
-
-        <div class="row read-more-content">
-
-          <div class="col-sm-4">
-            <div class="business-card b1">
-              <div class="media">
-                <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-1"></i>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Type</h4>
-                  <h6>Full-time</h6>
-                </div>
-              </div>
+            <div class="form-group">
+                <label for="VacancySalary" class="control-label">Salary</label>
+                <input name="VacancySalary" class="form-control" type="number"/>
+                <span  class="text-danger"></span>
             </div>
-          </div>
-
-
-          <div class="col-sm-4">
-            <div class="business-card b2">
-              <div class="media">
-                <div class="media-left">
-                  <i class="fa fa-typo3 icon-featured icon-featured-2"></i>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Level</h4>
-                  <h6>Senior</h6>
-
-                </div>
-              </div>
+            <div class="form-group">
+                <label for="Vacancy.FK_Currency_Id" class="control-label">Currency Type</label>
+                <select name="VacancyFK_Currency_Id" class="form-control" name="Currency" >
+                      <option value="LE">LE</option>
+                      <option value="EUR">EUR</option>
+                </select>
             </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="business-card b3">
-              <div class="media">
-                <div class="media-left">
-                  <i class="fa fa-dollar-sign icon-featured icon-featured-3"></i>
-                </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Salary</h4>
-                  <h6>Negotiable</h6>
-
-                </div>
-              </div>
+          
+            <div class="form-group">
+                <label for="Vacancy.EnterpriseSmallLogo" class="control-label">EnterpriseSmallLogo</label>
+                <input name="VacancyEnterpriseSmallLogo" class="form-control" type="file" />
+                <span  class="text-danger"></span>
             </div>
-          </div>
-        </div>
-        <div class="container seeMore">
-          <div class="row">
-            <div class="col-md-6">
-              <hr class="short">
-              <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
-              <i class="fa fa-angle-double-down more"></i>
-              <i class="fa fa-angle-double-up less"></i>
-
+            <div class="form-group">
+                <label for="VacancyEnterpriseBigLogo" class="control-label">EnterpriseBigLogo</label>
+                <input name="VacancyEnterpriseBigLogo" class="form-control"  type="file"/>
+                <span class="text-danger"></span>
             </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-
-  </div>
-</div>
-
-<hr class="short" />
-
-
-<!-- Similar vacancies -->
-
-<div class="container available-vacancies ">
-
-  <div class="row">
-    <div class="col-md-11">
-      <h3>
-        <i class="fa fa-suitcase"></i>Similar Vacancies</h3>
-    </div>
-    <div class="col-md-1 right">
-      <a href="Enterprise_SeeAll.html">See all</a>
+            <div class="form-group">
+                <label for="Vacancy" class="control-label">Location</label>
+                <select for="VLocation" class="form-control" name="VLocation" >
+                      <option value="SmartVillage">Smart Village</option>
+                      <option value="NaserCity">Naser City</option>
+                      <option value="Maadi">Maadi</option>
+                </select>
+            </div>
+          
+            <div class="form-group">
+                <label for="VacancyFK_VacancyType_Id" class="control-label">Vacancy Type </label>
+                <select for="VacancyFK_VacancyType_Id" class="form-control" name="VType">
+                      <option value="full">Full Time</option>
+                      <option value="part">Part Time</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
     </div>
   </div>
-  <div class="container vacancy">
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12" id="1">
-        <div class="feature-box secundary">
-          <i class="fa fa-trash right" aria-hidden="true" data-id="1"></i>
-          <div class="feature-box-icon">
-            <img src="MyImages/vodafone-icon.png" alt="">
-          </div>
-          <div class="feature-box-info">
-            <a href="index-2.html">
-              <h4 class="shorter">Software Engineer</h4>
-            </a>
-            <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p class="short">Vodafone</p>
-            <p id="ago">posted 2 days ago</p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6 col-xs-12" id="2">
-        <div class="feature-box secundary">
-          <i class="fa fa-trash right" aria-hidden="true" data-id="2"></i>
-          <div class="feature-box-icon">
-            <img src="MyImages/vodafone-icon.png" alt="">
-          </div>
-          <div class="feature-box-info">
-            <a href="index-2.html">
-              <h4 class="shorter">Software Engineer</h4>
-            </a>
-
-            <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p id="ago">posted 2 days ago</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-12" id="4">
-        <div class="feature-box secundary">
-          <i class="fa fa-trash right" aria-hidden="true" data-id="4"></i>
-          <div class="feature-box-icon">
-            <img src="MyImages/vodafone-icon.png" alt="">
-          </div>
-
-          <div class="feature-box-info">
-            <a href="index-2.html">
-              <h4 class="shorter">Software Engineer</h4>
-            </a>
-
-            <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p id="ago">posted 2 days ago</p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-6 col-sm-6 col-xs-12" id="5">
-        <div class="feature-box secundary">
-          <i class="fa fa-trash right" aria-hidden="true" data-id="5"></i>
-          <div class="feature-box-icon">
-            <img src="MyImages/vodafone-icon.png" alt="">
-          </div>
-          <div class="feature-box-info">
-            <a href="index-2.html">
-              <h4 class="shorter">Software Engineer</h4>
-            </a>
-
-            <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p id="ago">posted 2 days ago</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-</div>
+  

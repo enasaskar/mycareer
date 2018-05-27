@@ -39,11 +39,8 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
-<<<<<<< HEAD
               "src/assets/css/custommodal.css",
-=======
               "src/assets/css/pathStyle.css",
->>>>>>> 0fbf24096eb495cc1f2396aa64c8c9e8fcc7fe28
               "src/styles.css"
             ],
             "scripts": [

@@ -5,12 +5,23 @@ import { VacancyListComponent } from './vacancy-list/vacancy-list.component';
 import { VacancyItemDetailsComponent } from './vacancy-item-details/vacancy-item-details.component';
 import { VacancyItemComponent } from './vacancy-list/vacancy-item/vacancy-item.component';
 import { VacanciesRoutingModule } from './vacancies-routing.module';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
-    VacanciesRoutingModule
+    VacanciesRoutingModule,
+    FormsModule,
+    NgbModule
   ],
-  declarations: [VacancyAddEditComponent, VacancyListComponent, VacancyItemDetailsComponent, VacancyItemComponent]
+  declarations: [VacancyAddEditComponent,
+                 VacancyListComponent, 
+                 VacancyItemDetailsComponent,
+                 VacancyItemComponent],
+  exports:[
+    VacanciesRoutingModule,
+  
+  ]
 })
 export class VacanciesModule { }
