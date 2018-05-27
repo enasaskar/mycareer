@@ -9,7 +9,7 @@ import { InterviewsComponent } from 'src/app/interviews/interviews.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path:'home', component: AppComponent},
-  {path:'iv', component: InterviewsComponent},
+  {path:'interviews', component: InterviewsComponent},
   {path:'userProfile', component: UserProfileComponent},
   {path:'userDashBoard', component: UserDashBoardComponent}
 ];

@@ -35,6 +35,7 @@
               "src/assets/css/theme-animate.css",
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
+              "src/assets/css/custommodal.css",
               "src/styles.css"
             ],
             "scripts": [

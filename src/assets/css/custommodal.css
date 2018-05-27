@@ -1,0 +1,266 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+     height: 43px; 
+    color: #000;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    color: #000;
+}
+
+.form-control{
+    height: 34px;
+}
+
+/*Stars*/
+.ShapSquare{
+    background-color: #eee8e8;
+    padding: 25px;
+  }
+  .Square{
+    background-color: #fefefe;
+    border: 15px solid #eee8e8;
+    padding-top: 30px;
+  }
+  
+  
+  .center {
+    text-align: center;
+    height: 35px;
+    font-size: 1.9em;
+    color: black;
+}
+  
+  /* --star-- */
+  
+  
+  
+  
+  
+  /* Rating Star Widgets Style */
+  .rating-stars ul {
+    list-style-type:none;
+    padding:0;
+    
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  }
+  .rating-stars ul > li.star {
+    display:inline-block;
+    
+  }
+  
+  /* Idle State of the stars */
+  .rating-stars ul > li.star > i.fa {
+    font-size:1.2em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+  }
+  
+  /* Hover state of the stars */
+  .rating-stars ul > li.star.hover > i.fa {
+    color:rgb(3, 70, 114);
+    
+  }
+  
+  /* Selected state of the stars */
+  .rating-stars ul > li.star.selected > i.fa {
+    color:#0088cc;
+    
+  }
+
+
+
+  /*List*/
+  .feature-box.secundary .feature-box-icon {
+    background: transparent;
+    width: 30%;
+}
+
+
+.feature-box-info>p>button{
+    float: right;
+    color: white;
+}
+.feature-box-info>p>button:hover{
+    float: right;
+    color: black;
+}
+p.short{
+margin-left: 30px;
+}
+.jopspan{
+    color: black;
+}
+/* sections */
+.panel{
+    margin: 30px;
+}
+ .panel-title> a{
+     color: black;
+     font-size: 1em;
+     text-decoration: none;
+ }
+ .panel-title> a:hover{
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+}
+div#headingOne,div#headingTwo,div#headingThree{
+    background-color: rgb(51, 153, 153);
+    padding: 16px;
+}
+
+i.fa-arrow-down{
+    float:right ; 
+    color:black ;
+     margin-top: 9px;
+    margin-right: 33px; 
+    transition: transform 1s linear;
+    transform: rotate(0deg);
+    
+    
+}
+i.fa-arrow-down.open{
+    transform: rotate(180deg);
+    transition: transform 1s linear;
+  }
+
+h4>i.fa-search,h4>i.fa-times,h4>i.fa-check
+{
+    color: white;
+    font-size: 30px;
+    margin-right: 16px;
+}
+p>i.fa-pencil>a{
+    text-decoration: none;
+    color: white;
+    margin-left: 2px;
+    font-size: 1em;
+}
+p>i.fa-pencil>a:hover{
+    color: black;
+    cursor: pointer;
+}
+p>i.fa-pencil{
+    background-color: rgb(51, 153, 153);
+    font-size: 18px;
+    color: black;
+    border-radius: 3.2px;
+    padding: 9px;
+    float: right;
+     margin-bottom: 20px;
+}
+.panel-body>div.form-group{
+     margin-bottom: 40px;
+}
+.SeeMore{
+    float: right;
+    font-size: 1.2em;
+    text-decoration: underline;
+    margin-top: 12px;
+    color: rgb(51, 153, 153);
+}
+.SeeMore:hover{
+  color: red
+}
+@media screen  and (max-width: 900px){
+
+.feature-box.secundary .feature-box-icon {
+    background: transparent;
+    width: 18%;
+    height: 0%;
+}
+}
+@media screen  and (max-width: 770px){
+    
+i.fa-arrow-down {
+    margin-top: 12px;
+    margin-right: -6px;
+
+}
+.feature-box.secundary .feature-box-icon {
+    background: transparent;
+    width: 18%;
+    height: 0%;
+}
+p>i.fa-pencil>a:hover{
+    color: black;
+    cursor: pointer;
+}
+
+}
+@media screen and (max-width: 360px){
+    i.fa-arrow-down {
+   
+        margin-top: 14px;
+        margin-right: -13px;
+    }
+    p>i.fa-pencil>a:focus{
+        color: black;
+        cursor: pointer;
+    }
+}
+
+label.control-label.feedback{
+    margin-top: 18px;
+    font-size: 1.5em;
+}
