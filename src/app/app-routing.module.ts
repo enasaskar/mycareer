@@ -13,9 +13,15 @@ const appRoutes: Routes = [
   {path:'home', component: AppComponent},
   // {path:'interviews', component: InterviewsComponent},
   {path:'userProfile', component: UserProfileComponent},
+<<<<<<< HEAD
   {path:'userDashBoard', component: UserDashBoardComponent}
   // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
   // {path: 'skillsList', component: SkillListComponent}
+=======
+  {path:'userDashBoard', component: UserDashBoardComponent},
+  {path: 'home', component: AppComponent},
+  {path: 'interviews', component: InterviewsComponent}
+>>>>>>> 9415bf79061a9697ac807864cf5b3d26705ad4c1
 ];
 
 @NgModule({
