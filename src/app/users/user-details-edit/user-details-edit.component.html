@@ -1,27 +1,27 @@
 <!--upper section of user profile-->
 <!--user details edit-->
-<div class="col-md-8 editable-content">
+<div class="col-md-8">
   <form class="form-horizontal form-bordered" method="get">
     <div class="upperSection">
       <div class="row">
         <div class="form-group">
           <div class="col-md-3 col-xs-6">
-            <input class="form-control" type="text" value="John">
+            <input class="form-control" type="text" [value]="user.fname">
           </div>
           <div class="col-md-3 col-xs-6">
-            <input class="form-control" type="text" value="Doe">
+            <input class="form-control" type="text" [value]="user.lname">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="form-group">
           <div class="col-md-4 col-xs-6">
-            <input class="form-control inline iconInput" id="Position" type="text" value="Web Designer">
+            <input class="form-control inline iconInput" id="Position" type="text" [value]="user.title">
             <h4 class="inline"><b>@</b></h4>
           </div>
           <div class="col-md-4 col-xs-6">
             <div class="input-group input-search">
-              <input class="form-control" id="Company" type="text" value="Company">
+              <input class="form-control" id="Company" type="text" [value]="user.company">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
               </span>
@@ -43,7 +43,7 @@
       <li>
         <div class="row">
           <div class="col-md-4 col-xs-12">
-            <i class="fa fa-envelope"></i> <input class="form-control iconInput" id="email" type="text" value="JoeDoe@gmail.com">
+            <i class="fa fa-envelope"></i> <input class="form-control iconInput" id="email" type="text" [value]="user.email">
           </div>
           <div class="col-md-8"></div>
         </div>
@@ -52,7 +52,7 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-phone-square"></i>
-            <input class="form-control iconInput" id="mobileNo" type="text" value="010********">
+            <input class="form-control iconInput" id="mobileNo" type="text" [value]="user.telNumber">
           </div>
           <div class="col-md-8"></div>
         </div>
@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-map-marker"></i>
-            <input class="form-control iconInput" id="address" type="text" value="z st. district x">
+            <input class="form-control iconInput" id="address" type="text" [value]="user.district">
           </div>
           <div class="col-md-4 col-xs-6">
             <select class="form-control mb-md">
@@ -69,12 +69,6 @@
               <option>Cairo</option>
               <option>Alexandria</option>
             </select>
-            <!-- <div class="input-group input-search">
-              <input class="form-control" id="City" type="text" value="City">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-              </span>
-            </div> -->
           </div>
           <div class="col-md-4 col-xs-6">
             <select class="form-control mb-md">
@@ -82,12 +76,6 @@
               <option>Egypt</option>
               <option>Lebanon</option>
             </select>
-            <!-- <div class="input-group input-search">
-              <input class="form-control" id="Country" type="text" value="Country">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-              </span>
-            </div> -->
           </div>
         </div>
 
@@ -96,22 +84,14 @@
     <div>
       <div class="row">
         <div class="col-md-12">
-          <textarea class="form-control" rows="3" id="textareaDefault" value="Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus."></textarea>
+          <textarea class="form-control" rows="3" id="textareaDefault" [value]="user.description"></textarea>
         </div>
       </div>
       <p><b>Main Interests</b></p>
-      <ul class="list icons list-unstyled">
-        <li>
+      <ul class="list icons list-unstyled" >
+        <li *ngFor="let interest of user.interests">
           <i class="fa fa-check"></i>
-          <input class="form-control iconInput" type="text" value="Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.">
-        </li>
-        <li>
-          <i class="fa fa-check"></i> 
-          <input class="form-control iconInput" type="text" value="Phasellus in risus quis lectus iaculis vulputate id quis nisl.">
-        </li>
-        <li>
-          <i class="fa fa-check"></i> 
-          <input class="form-control iconInput" type="text" value="Iaculis vulputate id quis nisl.">
+          <input class="form-control iconInput" type="text" [value]="interest">
         </li>
       </ul>
     </div>

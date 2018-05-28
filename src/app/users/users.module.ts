@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -14,7 +14,10 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule.forChild([{path: 'user/:id', component: UsersComponent, children: [
       {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
-      {path: 'userProfile', component: UserProfileComponent},
+      {path: 'userProfile', component: UserProfileComponent, children: [
+        {path: '', component: UserDetailsComponent, pathMatch: 'full'},
+        {path: 'edit', component: UserDetailsEditComponent}
+      ]},
       {path: 'userDashBoard', component: UserDashBoardComponent}
     ]}])
   ],

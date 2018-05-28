@@ -39,9 +39,10 @@
       </div>
 
       <!--content-->
-      <app-user-details [user]="user"></app-user-details>
+      <router-outlet></router-outlet>
+      <!-- <app-user-details *ngIf="!edit" [user]="user" (editClicked)="onEditClicked($event)"></app-user-details> -->
       <!--content editable-->
-      <app-user-details-edit></app-user-details-edit>
+      <!-- <app-user-details-edit *ngIf="edit" [user]="user"></app-user-details-edit> -->
 </div>
 <hr class="tall" />
 

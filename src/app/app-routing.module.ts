@@ -13,7 +13,9 @@ const appRoutes: Routes = [
   {path:'home', component: AppComponent},
   {path:'interviews', component: InterviewsComponent},
   {path:'userProfile', component: UserProfileComponent},
-  {path:'userDashBoard', component: UserDashBoardComponent}
+  {path:'userDashBoard', component: UserDashBoardComponent},
+  {path: 'home', component: AppComponent},
+  {path: 'interviews', component: InterviewsComponent}
 ];
 
 @NgModule({

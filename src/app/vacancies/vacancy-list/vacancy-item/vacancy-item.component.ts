@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IVacancy } from '../../../shared/interfaces/IVacancy';
 
 @Component({
   selector: 'app-vacancy-item',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vacancy-item.component.css']
 })
 export class VacancyItemComponent implements OnInit {
-
+ @Input() vacancyitem:IVacancy;
   constructor() { }
 
   ngOnInit() {

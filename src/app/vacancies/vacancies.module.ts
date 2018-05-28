@@ -5,7 +5,7 @@ import { VacancyListComponent } from './vacancy-list/vacancy-list.component';
 import { VacancyItemDetailsComponent } from './vacancy-item-details/vacancy-item-details.component';
 import { VacancyItemComponent } from './vacancy-list/vacancy-item/vacancy-item.component';
 import { VacanciesRoutingModule } from './vacancies-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     VacanciesRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule
   ],
   declarations: [VacancyAddEditComponent,

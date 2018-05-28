@@ -1,0 +1,15 @@
+p.short{
+    margin-left: 80px;
+  }
+  
+  a h4{
+    color: blue
+  }
+  
+  .row >div.col-md-6{
+    margin-bottom: 30px
+  }
+  
+  .feature-box-info {
+    margin-bottom: 25px;
+}

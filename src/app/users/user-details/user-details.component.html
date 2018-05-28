@@ -3,7 +3,14 @@
 <div class="col-md-8 content">
   <div class="upperSection" data-appear-animation="fadeInLeft" >
     <h2 class="shorter left">{{user.fname}} <strong>{{user.lname}}</strong></h2>
-    <span class="thumb-info-social-icons right"><a id="edit-profile" data-tooltip data-placement="bottom" href="#" data-original-title="Edit"><i class="fa fa-pencil"></i><span>Edit</span></a></span>
+    <span class="thumb-info-social-icons right">
+        <a id="edit-profile" 
+        data-tooltip data-placement="bottom" 
+        data-original-title="Edit" 
+        [routerLink]="['edit']"
+        style="cursor: pointer;">
+        <i class="fa fa-pencil"></i><span>Edit</span>
+    </a></span>
     <p class="clear"></p>
           <h4 class="left">{{user.title}}</h4>
           <h4 class="left"><b>@</b></h4>
