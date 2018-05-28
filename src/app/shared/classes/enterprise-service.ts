@@ -1,3 +1,4 @@
+import { Sizes } from './sizes';
 import { Enterprise } from './enterprise';
 import { EnterpriseDetails } from './enterprise-details';
 import { EventEmitter } from '@angular/core';
@@ -14,7 +15,7 @@ export class EnterpriseService {
         {
             id : 1,
             name : 'Vodafone',
-            logo : '../assets/images/vodafone-icon.png',
+            logo : '../assets/img/vodafone-icon.png',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'USA'
         },
@@ -22,10 +23,38 @@ export class EnterpriseService {
         {
             id : 2,
             name : 'ITWORX',
-            logo : '../assets/images/ITWORX.jpg',
+            logo : '../assets/img/ITWORX.jpg',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'Egypt'
         },
+        {
+            id : 3,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 4,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 5,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 6,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        }
 
     ];
 
@@ -34,19 +63,24 @@ export class EnterpriseService {
         name : 'Vodafone',
         headLine : 'Telecommunications',
         headquarters : 'USA',
-        bigLogo : '../assets/images/vodafone.png',
+        bigLogo : '../assets/img/vodafone.png',
         des :'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        size : 300,
-        website :'www.vadafone.com'
-        },{
+        size : "300+",
+        website :'www.vodafone.com',
+        facebookAccount:'',
+        twitterAccount:''
+        },
+        {
         id : 2,
         name : '',
         headLine : '',
         headquarters : '',
         bigLogo : '',
         des :'',
-        //size : '',
-        website :''
+        size : '100-200',
+        website :'',
+        facebookAccount:'',
+        twitterAccount:''
         }
 ];
 
