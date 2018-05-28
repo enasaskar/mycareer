@@ -1,4 +1,4 @@
-import { IPathCategory } from "../interfaces/ICategory";
+import { IPathCategory } from '../interfaces/ICategory';
 
 export class PathCategoryService {
 

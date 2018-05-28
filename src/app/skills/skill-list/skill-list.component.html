@@ -39,7 +39,10 @@
                   </div>
               </div>
               <!-- aflet technical skills add skill bar and edit  -->
-           <app-skill-details></app-skill-details>
+              <!-- (data-plugin-options)='{"items": "skillsNo"} -->
+              <div class="owl-carousel owl-carousel-spaced smallOwl" (data-plugin-options)='{"items": "skillsNo"}'id="hideDots">
+           <app-skill-details *ngFor="let skil of skillsList" [skillDetails]=skil></app-skill-details>
+          </div>
               
 
 

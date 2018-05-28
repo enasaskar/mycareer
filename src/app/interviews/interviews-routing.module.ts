@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { InterviewViewallComponent } from './interview-viewall/interview-viewall.component';
+
+const interviewsRoutes: Routes = [
+    {path : 'interviews', component : InterviewViewallComponent } 
+];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+
+    imports: [
+        RouterModule.forChild(interviewsRoutes)
+    ],
+
+    exports: [
+        RouterModule
+    ]
+
 })
-export class InterviewsRoutingModule { }
+
+export class InterviewsRoutingModule {}
