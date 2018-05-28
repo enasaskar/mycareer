@@ -50,7 +50,7 @@ import { CurrencyService } from './shared/services/currency-service';
     EnterpriseService,
     PathService,
     PathCategoryService,
-    SkillsService
+    SkillsService,
     SizeService,
     VacancyService,
     BranchService,

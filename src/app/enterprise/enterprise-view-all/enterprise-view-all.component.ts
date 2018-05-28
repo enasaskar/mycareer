@@ -32,12 +32,6 @@ export class EnterpriseViewAllComponent implements OnInit {
   }
 
   OnSearchSubmit(form : NgForm){
-    if(this.searchWord.length > 0 ){    
-      this.enterprises = this.enterpriseService.getAll().filter(a=> a.name.includes(this.searchWord));
-      
-    }
-    else{ 
-      this.enterprises = this.enterpriseService.getAll();       
-    }
+    this.enterprises = this.enterpriseService.getBySearchWord(this.searchWord);
   }
 }

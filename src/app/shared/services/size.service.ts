@@ -1,4 +1,4 @@
-import { Sizes } from "./sizes";
+import { Sizes } from "../classes/sizes";
 
 export class SizeService {
     private sizes : Sizes[] = [{

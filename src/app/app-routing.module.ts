@@ -18,12 +18,12 @@ const appRoutes: Routes = [
     {path: 'userProfile', component: UserProfileComponent},
     {path: 'userDashBoard', component: UserDashBoardComponent}
   ]},
-  {path: 'skillsList', component: SkillListComponent}
+  {path: 'skillsList', component: SkillListComponent},
   {path: 'home', component: AppComponent},
   // {path:'interviews', component: InterviewsComponent},
   {path: 'userProfile', component: UserProfileComponent},
 
-  {path: 'userDashBoard', component: UserDashBoardComponent}
+  {path: 'userDashBoard', component: UserDashBoardComponent},
   // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
   // {path: 'skillsList', component: SkillListComponent}
 
