@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ISkill } from '../../shared/interfaces/iskill';
+import { SkillsService } from '../../shared/services/skills.service';
 
 @Component({
   selector: 'app-skill-details',
@@ -8,10 +9,9 @@ import { ISkill } from '../../shared/interfaces/iskill';
 })
 export class SkillDetailsComponent implements OnInit {
 
-  constructor() { }
-  public skillDetais: ISkill ;
-
-
+  constructor() {
+   }
+  @Input() public skillDetails: ISkill;
   ngOnInit() {
   }
 

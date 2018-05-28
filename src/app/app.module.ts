@@ -14,6 +14,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
+import { SkillsService } from './shared/services/skills.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PathCategoryService } from './shared/services/PathCategory.service';
   providers: [
     EnterpriseService,
     PathService,
-    PathCategoryService
+    PathCategoryService,
+    SkillsService
 ],
   bootstrap: [AppComponent]
 })
