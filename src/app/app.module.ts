@@ -30,15 +30,10 @@ import { SizeService } from './shared/classes/size-service';
     InterviewsModule,
     EnterprisesModule,
     CoreModule,
-<<<<<<< HEAD
-    PathsModule
-
-=======
     PathsModule,
     SkillsModule,
     AppRoutingModule,
     NgbModule.forRoot()
->>>>>>> 0fbf24096eb495cc1f2396aa64c8c9e8fcc7fe28
 
   ],
   providers: [

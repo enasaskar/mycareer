@@ -165,7 +165,7 @@ margin-left: 30px;
     text-decoration: none;
 }
 div#headingOne,div#headingTwo,div#headingThree{
-    background-color: rgb(51, 153, 153);
+    background-color: #0088cc;
     padding: 16px;
 }
 
@@ -201,7 +201,7 @@ p>i.fa-pencil>a:hover{
     cursor: pointer;
 }
 p>i.fa-pencil{
-    background-color: rgb(51, 153, 153);
+    background-color: #0088cc;
     font-size: 18px;
     color: black;
     border-radius: 3.2px;
@@ -217,7 +217,7 @@ p>i.fa-pencil{
     font-size: 1.2em;
     text-decoration: underline;
     margin-top: 12px;
-    color: rgb(51, 153, 153);
+    color: #0088cc;
 }
 .SeeMore:hover{
   color: red
