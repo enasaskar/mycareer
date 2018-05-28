@@ -1,6 +1,6 @@
 import { Enterprise } from './../../shared/classes/enterprise';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { EnterpriseService } from '../../shared/classes/enterprise-service';
+import { EnterpriseService } from '../../shared/services/enterprise.service';
 import { NgForm } from '@angular/forms';
 
 
