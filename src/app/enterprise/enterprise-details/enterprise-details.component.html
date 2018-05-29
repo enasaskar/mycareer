@@ -32,7 +32,7 @@
 
 
     <!-- view details -->
-    <div ng-if="details != null" class="row enterprise-view-one" id = "e">
+    <div ng-if="details !== undefined" class="row enterprise-view-one" id = "e">
       <div class="col-md-3">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -158,6 +158,92 @@
       </div>
 
     </div>
+
+
+    <!-- add view -->
+    <form action="" ng-if="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
+        <div id = "edit" class="enterpriseEdit">
+          <div class="col-md-3">
+              <div class="portfolio-item">
+                <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+                  <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+                </a>
+      
+              </div>
+            </div>
+          <div class="col-md-9" >
+              <div class="input-group form-group">
+                  <div class="row">
+                    <div class="form-group col-md-6 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = details.name>
+                    </div>
+                    <div class="form-group col-md-6 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseHead" placeholder="HeadLine" [(ngModel)] = details.headLine>
+                    </div>
+            
+                  </div>
+            
+                  <div class="row">
+                    <div class="form-group col-md-12 input-group-lg">
+                      <input type="text" required class="form-control" name="enterpriseDesc" placeholder="Description" [(ngModel)] = details.des>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseWebSite" placeholder="Website" [(ngModel)] = details.website>                
+                    </div>
+                    <div class="form-group col-md-4 input-group-sm">
+                        <input type="text" required class="form-control" name="enterpriseFb" placeholder="FacebookAccount" [(ngModel)] = details.facebookAccount>                      
+                    </div>
+                    <div class="form-group col-md-4 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseTwitter" placeholder="TwitterAccount" [(ngModel)] = details.twitterAccount>                      
+                    </div>
+                  </div>
+                  <div class="row">
+            
+                    <div class="form-group col-md-6 input-group-sm">
+                      <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        
+                    </div>
+                    <div class="form-group col-md-6 input-group-sm">
+                        
+                            <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
+                              <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
+                            </select>
+                          
+                    </div>
+                  </div>
+                  <div class="row branches">
+                    <div class="form-group col-md-3 input-group-sm">
+                        
+                            <select  class="form-control" required name = "country"> 
+                              <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                            </select>
+                          
+                    </div>
+            
+                    <div class="form-group col-md-3 input-group-sm">
+                        
+                            <select  class="form-control" required name = "city"> 
+                              <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                            </select>
+                          
+                    </div>
+                    <div class="form-group col-md-4 input-group-sm">
+                        <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              
+                    </div>
+                    <div class="col-md-2">
+                      <i class="fa fa-plus-circle" id="addBranch"></i>
+                    </div>
+                  </div>
+                  <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
+                  <input type="submit" class="btn btn-primary right" value="Save" />
+      
+            
+                </div>
+          </div>
+      </div>
+      
+    </form>
 
     <!-- edit view -->
     

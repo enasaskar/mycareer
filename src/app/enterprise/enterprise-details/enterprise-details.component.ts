@@ -35,14 +35,14 @@ export class EnterpriseDetailsComponent implements OnInit {
   
    }
    
-  ngOnInit() {
-     
+  ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
+    
     this.e = document.getElementById("e");
     this.edit = document.getElementById("edit");
     this.sizes = this.sizeService.getAll();
-    
+    // console.log(this.details);    
   }
   
   onClick(){
@@ -54,6 +54,10 @@ export class EnterpriseDetailsComponent implements OnInit {
   onCancle(){
     this.e.style.display = "block";
     this.edit.style.display = "none";
+  }
+
+  OnAddSubmit(form : NgForm){
+
   }
   
   OnEditSubmit(form : NgForm){
