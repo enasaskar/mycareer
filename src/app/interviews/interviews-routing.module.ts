@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InterviewViewallComponent } from './interview-viewall/interview-viewall.component';
+import { InterviewsComponent } from './interviews.component';
 
 const interviewsRoutes: Routes = [
-    {path : 'interviews', component : InterviewViewallComponent } 
+    {path : 'interviews', component : InterviewsComponent } 
 ];
 
 @NgModule({
