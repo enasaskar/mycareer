@@ -5,31 +5,30 @@ import { IBranch } from '../interfaces/IBranch';
 @Injectable()
 export class BranchService {
 
-    private branches :IBranch[]=[
+    private branches: IBranch[] = [
         {
            id: 1,
-          name:"Smart Village",
+          name: 'Smart Village',
           isDeleted: false,
 
         },
         {
             id: 2,
-            name:"maadi",
+            name: 'maadi',
             isDeleted: false,
         },
         {
             id: 3,
-            name:"Naser City",
+            name: 'Naser City',
             isDeleted: false,
         }
 
-    ]
-    
-    public getAll():IBranch[]
-    {
-      return this.branches.filter(res=>res.isDeleted==false);
+    ];
+
+    public getAll(): IBranch[] {
+      return this.branches.filter(res => res.isDeleted === false);
     }
- 
+
     public getById(id: number): IBranch {
         return this.branches.find(i => i.id === id);
     }
@@ -37,14 +36,14 @@ export class BranchService {
         this.branches.splice(i, 1);
     }
 
-    public addbranch(v:IBranch){
+    public addbranch(v: IBranch) {
         this.branches.push(v);
     }
-    public updatebranch(id:number,v:IBranch){
-        let vac= this.branches.find(i=>i.id==id)
-        vac.name=v.name;
-       
-        this.branches.push(vac)
+    public updatebranch(id: number, v: IBranch) {
+        const vac = this.branches.find(i => i.id === id);
+        vac.name = v.name;
+
+        this.branches.push(vac);
     }
 
     // public getAll() : IVacancy[]

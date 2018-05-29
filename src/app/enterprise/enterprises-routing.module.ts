@@ -8,6 +8,7 @@ import { EnterpriseCreateComponent } from './enterprise-create/enterprise-create
 const enterpriseRoutes: Routes = [
     {path : 'enterprises', component : EnterpriseViewAllComponent } ,
     {path : 'enterprises/enterprise/details/:id', component: EnterpriseDetailsComponent},
+    {path : 'enterprises/enterprise/details', component: EnterpriseDetailsComponent},    
     {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
     {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent}
 ];
