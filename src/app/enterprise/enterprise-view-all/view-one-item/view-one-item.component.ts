@@ -1,4 +1,4 @@
-import { EnterpriseService } from './../../../shared/classes/enterprise-service';
+import { EnterpriseService } from './../../../shared/services/enterprise.service';
 
 
 import { Enterprise } from './../../../shared/classes/enterprise';

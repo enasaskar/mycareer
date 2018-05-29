@@ -1,4 +1,4 @@
-import { EnterpriseService } from './../../shared/classes/enterprise-service';
+import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +9,7 @@ import {
   ModalDismissReasons  
 } from '@ng-bootstrap/ng-bootstrap';  
 import { Sizes } from '../../shared/classes/sizes';
-import { SizeService } from '../../shared/classes/size-service';
+import { SizeService } from '../../shared/services/size.service';
 
 
 
@@ -35,14 +35,14 @@ export class EnterpriseDetailsComponent implements OnInit {
   
    }
    
-  ngOnInit() {
-     
+  ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
+    
     this.e = document.getElementById("e");
     this.edit = document.getElementById("edit");
     this.sizes = this.sizeService.getAll();
-    
+    // console.log(this.details);    
   }
   
   onClick(){
@@ -54,6 +54,10 @@ export class EnterpriseDetailsComponent implements OnInit {
   onCancle(){
     this.e.style.display = "block";
     this.edit.style.display = "none";
+  }
+
+  OnAddSubmit(form : NgForm){
+
   }
   
   OnEditSubmit(form : NgForm){

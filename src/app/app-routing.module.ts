@@ -11,25 +11,13 @@ import { UsersComponent } from './users/users.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
+  // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
   {path: 'home', component: AppComponent},
   {path: 'iv', component: InterviewsComponent},
-  {path: 'user', component: UsersComponent, children: [
-    {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
-    {path: 'userProfile', component: UserProfileComponent},
-    {path: 'userDashBoard', component: UserDashBoardComponent}
-  ]},
+  {path: 'interviews', component: InterviewsComponent},
   {path: 'skillsList', component: SkillListComponent}
-  {path: 'home', component: AppComponent},
   // {path:'interviews', component: InterviewsComponent},
-  {path: 'userProfile', component: UserProfileComponent},
-
-  {path: 'userDashBoard', component: UserDashBoardComponent}
-  // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
   // {path: 'skillsList', component: SkillListComponent}
-
-  {path: 'userDashBoard', component: UserDashBoardComponent},
-  {path: 'home', component: AppComponent},
-  {path: 'interviews', component: InterviewsComponent}
 
 ];
 

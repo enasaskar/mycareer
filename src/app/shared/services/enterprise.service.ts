@@ -1,6 +1,6 @@
-import { Sizes } from './sizes';
-import { Enterprise } from './enterprise';
-import { EnterpriseDetails } from './enterprise-details';
+import { Sizes } from '../classes/sizes';
+import { Enterprise } from '../classes/enterprise';
+import { EnterpriseDetails } from '../classes/enterprise-details';
 import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -115,6 +115,19 @@ export class EnterpriseService {
         const index = this.enetrprises.indexOf(enterprise);
         this.enetrprises.splice(index,1);
         console.log(this.enetrprises);
+    }
+
+    public getBySearchWord(searchWord : string){
+        let enterprises = []
+        if(searchWord.length > 0 ){    
+            enterprises = this.getAll().filter(a=> a.name.toLowerCase().includes(searchWord.toLowerCase()));
+            
+          }
+          else{ 
+            enterprises = this.getAll();       
+          }
+
+          return enterprises;
     }
 
 }
