@@ -9,9 +9,11 @@ import { UserViewAllComponent } from './user-view-all/user-view-all.component';
 import { UsersComponent } from './users.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkillsModule } from '../skills/skills.module';
 
 @NgModule({
   imports: [
+    SkillsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
