@@ -3,7 +3,7 @@ export class Skill {
     ID: number;
     Name: string;
     IsDeleted: boolean;
-    Img: string;
+    Img?: string;
     Level?: string;
     NoEndorsments?: number;
     Description ?: string;

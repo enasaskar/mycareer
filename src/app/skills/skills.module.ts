@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { SkillListComponent } from './skill-list/skill-list.component';
 import { SkillDetailsComponent } from './skill-details/skill-details.component';
-import { SkillAddEditComponent } from './skill-add-edit/skill-add-edit.component';
 import { SkillItemSmallComponent } from './skill-item-small/skill-item-small.component';
 
 @NgModule({
@@ -13,13 +12,11 @@ import { SkillItemSmallComponent } from './skill-item-small/skill-item-small.com
   declarations: [
     SkillListComponent,
     SkillDetailsComponent,
-    SkillAddEditComponent,
     SkillItemSmallComponent
 ],
   exports: [
     SkillListComponent,
-    SkillDetailsComponent,
-    SkillAddEditComponent
+    SkillDetailsComponent
   ]
 })
 export class SkillsModule { }
