@@ -1,4 +1,4 @@
-import { EnterpriseService } from './../../shared/classes/enterprise-service';
+import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +9,7 @@ import {
   ModalDismissReasons  
 } from '@ng-bootstrap/ng-bootstrap';  
 import { Sizes } from '../../shared/classes/sizes';
-import { SizeService } from '../../shared/classes/size-service';
+import { SizeService } from '../../shared/services/size.service';
 
 
 
