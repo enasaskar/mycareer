@@ -1,81 +1,49 @@
-
-
-     <!DOCTYPE html>
-     <html lang="en">
-  <div class="container">
-      <div class="row" id="SkillsUser">
-          <div class="col-md-12">
-              <h2>
-                  <strong>Skills</strong>
-              </h2>
-              <!-- kol aly fo2 3al kbeer 5als al-7 items -->
-              <!-- technical skills add skill bar and edit  -->
-              <div class="row">
-                  <div class="col-md-3 col-xs-10">
-                      <h3 class="left">
-                          <strong>Technical</strong> Skills</h3>
-                  </div>
-                  <div class="col-md-3 col-xs-10">
-                      <div class="search edit-skills-display">
-                          <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
-                              <div class="input-group">
-                                  <input type="text" class="form-control search" name="q" id="q" placeholder="Add Skill..." required="" aria-required="true">
-                                  <span class="input-group-btn">
-                                      <button class="btn btn-default" type="submit">
-                                          <i class="fa fa-search"></i>
-                                      </button>
-                                  </span>
-                              </div>
-                          </form>
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-xs-2">
-                      <span class="thumb-info-social-icons right" id="edit-skills">
-                          <a data-tooltip data-placement="bottom" href="#" data-original-title="Edit">
-                              <i class="fa fa-pencil"></i>
-                              <span>Edit</span>
-                          </a>
-                      </span>
-                  </div>
-              </div>
-              <!-- aflet technical skills add skill bar and edit  -->
-              <!-- (data-plugin-options)='{"items": "skillsNo"} -->
-              <div class="owl-carousel owl-carousel-spaced smallOwl" (data-plugin-options)='{"items": "skillsNo"}'id="hideDots">
-           <app-skill-details *ngFor="let skil of skillsList" [skillDetails]=skil></app-skill-details>
-          </div>
-              
+<div class="container">
+    <div class="row" id="SkillsUser">
+        <div class="col-md-12">
+            <h2>
+                <strong>Skills</strong>
+            </h2>
+            <!-- kol aly fo2 3al kbeer 5als al-7 items -->
+            <!-- technical skills add skill bar and edit  -->
+            <div class="row">
+                <div class="col-md-3 col-xs-10">
+                    <h3 class="left">
+                        <strong>Technical</strong> Skills</h3>
+                </div>
+                <div class="col-md-3 col-xs-10">
+                    <div class="search edit-skills-display">
+                        <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
+                            <div class="input-group">
+                                <input type="text" class="form-control search" name="q" id="q" placeholder="Add Skill..." required="" aria-required="true">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-2">
+                    <span class="thumb-info-social-icons right" id="edit-skills">
+                        <a data-tooltip data-placement="bottom" href="#" data-original-title="Edit">
+                            <i class="fa fa-pencil"></i>
+                            <span>Edit</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <!-- aflet technical skills add skill bar and edit  -->
+            <!-- (data-plugin-options)='{"items": "skillsNo"} -->
+            <div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}' id="hideDots">
+                <app-skill-item-small *ngFor="let skil of skillsList" [skillDetails]=skil></app-skill-item-small>
+            </div>
 
 
 
-              <!-- aflet kol aly fo2 3al kbeer 5als al-7 items -->
-          </div>
-      </div>
-  </div>
 
-
-  <!-- Technical skills row edit -->
-  <!-- <div class="row">
-              <div class="col-md-3 col-xs-10">
-                  <h3 class="left"><strong>Technical</strong> Skills</h3>
-              </div>
-              <div class="col-md-3 col-xs-10">
-                  <div class="search edit-skills-display">
-                      <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
-                          <div class="input-group">
-                              <input type="text" class="form-control search" name="q" id="q" placeholder="Add Skill..." required="" aria-required="true">
-                              <span class="input-group-btn">
-                                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                              </span>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-              <div class="col-md-6 col-xs-2">
-                  <span class="thumb-info-social-icons right" id="edit-skills">
-                      <a data-tooltip data-placement="bottom" href="#" data-original-title="Edit">
-                          <i class="fa fa-pencil"></i><span>Edit</span>
-                      </a>
-                  </span>
-              </div>
-          </div> -->
-
+            <!-- aflet kol aly fo2 3al kbeer 5als al-7 items -->
+        </div>
+    </div>
+</div>

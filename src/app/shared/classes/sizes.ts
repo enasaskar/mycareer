@@ -1,5 +1,5 @@
 export class Sizes {
 
-    value : number;
-    text : string;
+    value: number;
+    text: string;
 }

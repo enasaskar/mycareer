@@ -1,8 +1,8 @@
-import { ISkill } from '../interfaces/iskill' ;
 import { getAllDebugNodes } from '@angular/core/src/debug/debug_node';
+import { Skill } from '../classes/skill.model';
 
 export class SkillsService {
-private skills: ISkill[] = [
+private skills: Skill[] = [
     {
         ID: 1,
         Name: 'C#',
@@ -54,11 +54,11 @@ private skills: ISkill[] = [
 ];
 
 
-public getAll(): ISkill[] {
+public getAll(): Skill[] {
     return this.skills.filter(s => s.IsDeleted === false);
 }
 
-public getByID(id: number): ISkill {
+public getByID(id: number): Skill {
     return this.skills.find(s => s.ID === id);
 }
 }

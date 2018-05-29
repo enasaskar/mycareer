@@ -1,4 +1,16 @@
 /* Add here all your CSS customizations */
+
+/*Form Error message*/
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+textarea.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.errorMsg{
+    color:red;
+}
+
 /*User Css*/
 hr.tall {
 	margin: 30px 0 30px 0;
