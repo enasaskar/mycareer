@@ -7,7 +7,7 @@
         </style>
     
     
-<div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}'id="hideDots">
+
   <div>
           <a href="#" class="remove edit-skills-display"><i class="fa fa-trash"></i></a>
           <p class="clear"></p>
@@ -15,7 +15,7 @@
               <a class="thumb-info lightbox" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
                   <img alt="" class="img-responsive" src="../../../../assets/img/project.jpg">
                   <span class="thumb-info-title">
-                      <span class="thumb-info-inner">{{skillDetais.name}}</span>
+                      <span class="thumb-info-inner">{{skillDetails.Name}}</span>
                       <span class="thumb-info-type">       
                           <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">.30
                       </span>
@@ -35,8 +35,8 @@
                           <a href="#" class="thumb-info team">
                               <img alt="" src="../../../../assets/img/team-1.jpg">
                               <span class="thumb-info-title">
-                                  <span class="thumb-info-inner">C#</span>
-                                  <span class="thumb-info-type">Level 1/3</span>
+                                  <span class="thumb-info-inner" >{{skillDetails.Name}}</span>
+                                  <span class="thumb-info-type">{{skillDetails.Level}}</span>
                               </span>
                           </a>
                       </div>
@@ -45,14 +45,14 @@
                       <h4>Reviews</h4>
                       <ul class="list icons list-unstyled">
                           <li>
-                              <strong class="left">{{skillDetais.rate}}</strong>
+                              <strong class="left">{{skillDetails.Rate}}</strong>
                               <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">
                               <p class="clear"></p>
                           </li>
                           <li>
                               <strong>Endorsments</strong> 
                               <div class="counters dark">
-                                  <strong data-to="30">30</strong>
+                                  <strong (data-to)="skillDetails.NoEndorsments">{{skillDetails.NoEndorsments}}</strong>
                               </div>
                           </li>
                       </ul>
@@ -121,4 +121,4 @@
               </div>
           </div>
       </div>
-  </div>
+

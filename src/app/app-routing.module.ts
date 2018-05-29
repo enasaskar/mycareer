@@ -10,11 +10,15 @@ import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path:'home', component: AppComponent},
-  {path:'userProfile', component: UserProfileComponent},
+
   // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
+  {path: 'home', component: AppComponent},
+  {path: 'iv', component: InterviewsComponent},
+  {path: 'interviews', component: InterviewsComponent},
+  {path: 'skillsList', component: SkillListComponent}
+  // {path:'interviews', component: InterviewsComponent},
   // {path: 'skillsList', component: SkillListComponent}
-  {path:'userDashBoard', component: UserDashBoardComponent}
+
 ];
 
 @NgModule({

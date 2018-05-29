@@ -1,7 +1,11 @@
 export interface ISkill {
-name: string;
-description?: string;
-rate?: number;
-review?: string;
+ID: number;
+Name: string;
+IsDeleted: boolean;
+Level?: string;
+NoEndorsments?: number;
+Description?: string;
+Rate?: number;
+Review?: string;
 }
 
