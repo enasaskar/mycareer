@@ -455,29 +455,6 @@ ul.comments .comment-block strong
   color: #444444;
 }
 
-.main .container .clearfix
-{
-    display : block;
-}
-
-.clearfix .sidebar
-{
-  margin-left: 10%;
-}
-
-.clearfix .sidebar h6
-{
-  color : #0088cc ;
-}
-.vl {
-  border-left: 1px solid #bcbcbcc4;
-  height: 370px;
-  position: absolute;
-  left: 1%;
-  margin-left: -3px;
-  top: 0;
-}
-
 
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------- */
@@ -579,6 +556,11 @@ ul.comments .comment-block strong
 #addBranch{
   margin-top: 0.5%;
   font-size: 25px;
+}
+
+/* ------------------------------------------------------------------------------------- */
+input.ng-invalid.ng-touched{
+  border :solid 1px rgb(145, 0, 0);
 }
 
 

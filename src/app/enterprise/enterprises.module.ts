@@ -9,6 +9,11 @@ import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-vie
 import { EnterpriseDetailsComponent } from './enterprise-details/enterprise-details.component';
 import { EnterpriseCreateComponent } from './enterprise-create/enterprise-create.component';
 import { EnterpriseComponent } from './enterprise.component';
+import { ReviewsComponent } from './enterprise-details/reviews/reviews.component';
+import { CommentsComponent } from './enterprise-details/reviews/comments/comments.component';
+import { RatingComponent } from './enterprise-details/reviews/rating/rating.component';
+import { CommentComponent } from './enterprise-details/reviews/comments/comment/comment.component';
+import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/one-item.component';
 
 @NgModule({
     declarations:[
@@ -16,7 +21,12 @@ import { EnterpriseComponent } from './enterprise.component';
         EnterpriseCreateComponent,
         EnterpriseDetailsComponent,
         EnterpriseViewAllComponent,
-        ViewOneItemComponent
+        ViewOneItemComponent,
+        ReviewsComponent,
+        CommentsComponent,
+        RatingComponent,
+        CommentComponent,
+        OneItemComponent
     ],
     imports:[
         CommonModule,

@@ -4,7 +4,8 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <h1>Enterprises/{{details.name}}</h1>
+        <h1 *ngIf = "details">Enterprises/{{details.name}}</h1>
+        <h1 *ngIf = "!details">Create your own account</h1>        
       </div>
     </div>
   </div>
@@ -32,7 +33,7 @@
 
 
     <!-- view details -->
-    <div ng-if="details !== undefined" class="row enterprise-view-one" id = "e">
+    <div *ngIf="details" class="row enterprise-view-one" id = "e">
       <div class="col-md-3">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -161,93 +162,77 @@
 
 
     <!-- add view -->
-    <form action="" ng-if="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
-        <div id = "edit" class="enterpriseEdit">
-          <div class="col-md-3">
-              <div class="portfolio-item">
-                <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
-                  <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
-                </a>
-      
-              </div>
-            </div>
-          <div class="col-md-9" >
-              <div class="input-group form-group">
-                  <div class="row">
-                    <div class="form-group col-md-6 input-group-sm">
-                      <input type="text" required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = details.name>
-                    </div>
-                    <div class="form-group col-md-6 input-group-sm">
-                      <input type="text" required class="form-control" name="enterpriseHead" placeholder="HeadLine" [(ngModel)] = details.headLine>
-                    </div>
-            
-                  </div>
-            
-                  <div class="row">
-                    <div class="form-group col-md-12 input-group-lg">
-                      <input type="text" required class="form-control" name="enterpriseDesc" placeholder="Description" [(ngModel)] = details.des>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-md-4 input-group-sm">
-                      <input type="text" required class="form-control" name="enterpriseWebSite" placeholder="Website" [(ngModel)] = details.website>                
-                    </div>
-                    <div class="form-group col-md-4 input-group-sm">
-                        <input type="text" required class="form-control" name="enterpriseFb" placeholder="FacebookAccount" [(ngModel)] = details.facebookAccount>                      
-                    </div>
-                    <div class="form-group col-md-4 input-group-sm">
-                      <input type="text" required class="form-control" name="enterpriseTwitter" placeholder="TwitterAccount" [(ngModel)] = details.twitterAccount>                      
-                    </div>
-                  </div>
-                  <div class="row">
-            
-                    <div class="form-group col-md-6 input-group-sm">
-                      <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        
-                    </div>
-                    <div class="form-group col-md-6 input-group-sm">
-                        
-                            <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
-                              <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
-                            </select>
-                          
-                    </div>
-                  </div>
-                  <div class="row branches">
-                    <div class="form-group col-md-3 input-group-sm">
-                        
-                            <select  class="form-control" required name = "country"> 
-                              <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
-                            </select>
-                          
-                    </div>
-            
-                    <div class="form-group col-md-3 input-group-sm">
-                        
-                            <select  class="form-control" required name = "city"> 
-                              <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
-                            </select>
-                          
-                    </div>
-                    <div class="form-group col-md-4 input-group-sm">
-                        <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              
-                    </div>
-                    <div class="col-md-2">
-                      <i class="fa fa-plus-circle" id="addBranch"></i>
-                    </div>
-                  </div>
-                  <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
-                  <input type="submit" class="btn btn-primary right" value="Save" />
-      
-            
-                </div>
-          </div>
+    <form action="enterprises/enterprise/details/{{newEnterprise.id}}" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
+      <div class="form-group">
+        <label for="name" class="col-md-3 control-label">Name</label>
+        <div class="col-md-9">
+          <input type="text" #eName = ngModel required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">
+        </div>
       </div>
+
+      <div class="form-group">
+        <label for="headline" class="col-md-3 control-label">HeadLine</label>
+        <div class="col-md-9">
+          <input type="text" #eHeadline = ngModel required class="form-control" name="headLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description" class="col-md-3 control-label">Description</label>
+        <div class="col-md-9">
+          <input type="textarea" #eDesc = ngModel  required class="form-control" name="description" placeholder="Description" [(ngModel)] = "newEnterprise.des">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="headquarters" class="col-md-3 control-label">Headquarters</label>
+        <div class="col-md-9">
+          <input type="text" #eHead = ngModel  required class="form-control" name="headquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="website" class="col-md-3 control-label">Website</label>
+        <div class="col-md-9">
+          <input type="text" #eSite = ngModel required class="form-control" name="website" placeholder="website" [(ngModel)] = "newEnterprise.website">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="facebook" class="col-md-3 control-label">Facebook Account</label>
+        <div class="col-md-9">
+          <input type="text" #eFb = ngModel required class="form-control" name="facebook" placeholder="Facebook Account" [(ngModel)] = "newEnterprise.facebookAccount">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="twitter" class="col-md-3 control-label">Twitter Account</label>
+        <div class="col-md-9">
+          <input type="text" #eTwitter = ngModel required class="form-control" name="twitter" placeholder="Twitter Account" [(ngModel)] = "newEnterprise.twitterAccount">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 control-label">Size</label>
+        <div class="col-md-9">
+          <select  class="form-control" required name = "size" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
+            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
+          </select>
+        </div>
+      </div>
+
       
+      <div class="form-group">
+        <!-- Button -->
+        <div class="col-md-offset-3 col-md-9">
+          <button id="btn-signup" type="submit" class="btn btn-info" [disabled] = "addForm.invalid">
+            <i class="icon-hand-right"></i>Submit</button>
+        </div>
+      </div>
+
     </form>
 
+
     <!-- edit view -->
-    
-    <form action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
+    <form *ngIf="details" action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
       <div id = "edit" class="enterpriseEdit">
         <div class="col-md-3">
             <div class="portfolio-item">
@@ -331,19 +316,14 @@
     
     </form>
     
-    
   
-
-
-
-    
     <hr class="short" />
 
 
 
     <!-- Available vacancies -->
 
-    <div class="available-vacancies ">
+    <div *ngIf="details" class="available-vacancies ">
 
       <div class="row">
         <div class="col-md-11">
@@ -432,221 +412,11 @@
 
 
     <!-- reviews -->
-    <div class="post-block post-comments clearfix">
-      <div class="row">
-        <hr class="short" />
-        <h3>
-          <i class="fa fa-comments"></i>Reviews</h3>
-        <div class="col-md-9">
-          <ul class="comments">
-            <li>
-              <div class="comment">
-                <div class="img-thumbnail">
-                  <img class="avatar" alt="" src="../../../assets/img/Somerhalder.jpg">
-                </div>
-                <div class="comment-block">
-                  <div class="comment-arrow"></div>
-                  <span class="comment-by">
-                    <strong>John Doe</strong>
-                  </span>
-                  <p>onvallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
-
-                </div>
-              </div>
-            </li>
-
-          </ul>
-        </div>
-        <div class="col-md-3">
-          <div class="vl"></div>
-          <aside class="sidebar">
-            <div class="row">
-              <div class="col-md-5">
-                <h5>
-                  <i class="fa fa-star"></i>Ratings</h5>
-              </div>
-              <div class="col-md-7">
-                <div class="">
-                  <div class="row">
-                      <!-- <ng-template #content let-cl="close" let-di="dismiss">  
-                          <div class="modal-content">  
-                              <div class="modal-header">  
-                                  <h5 class="modal-title">Modal title</h5> <button type="button" class="close" (click)="cl('Closed from Close button')">  
-                        
-                                  <span aria-hidden="true">×</span>  
-                        
-                                </button> </div>  
-                              <div class="modal-body">  
-                                  <p>Modal body text goes here.</p>  
-                              </div>  
-                              <div class="modal-footer"> <button type="button" class="btn btn-secondary" (click)="di('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" (click)="cl('Closed from Close button')">Close</button> </div>  
-                          </div>  
-                      </ng-template>  -->
-                    <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content">
-                      <i class="fa fa-plus"></i>
-                      Add rating
-                    </button>
-
-            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">
-                              <span aria-hidden="true">×</span>
-                              <span class="sr-only">Close</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">
-                              <i class="fa fa-star"></i>Add rating</h4>
-                          </div>
-                          <div class="modal-body">
-                            <ul class="simple-post-list">
-                              <li>
-                                <div class="post-image">
-                                  <div class="img-thumbnail">
-                                    <a href="shop-product-sidebar.html">
-                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-info">
-                                  <h6>Environment</h6>
-                                  <div class="post-meta">
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="post-image">
-                                  <div class="img-thumbnail">
-                                    <a href="shop-product-sidebar.html">
-                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-info">
-                                  <h6>Workplace</h6>
-                                  <div class="post-meta">
-                                    $72
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="post-image">
-                                  <div class="img-thumbnail">
-                                    <a href="shop-product-sidebar.html">
-                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-info">
-                                  <h6>Appreciation</h6>
-                                  <div class="post-meta">
-                                    $60
-                                  </div>
-                                </div>
-                              </li>
-                              <li>
-                                <div class="post-image">
-                                  <div class="img-thumbnail">
-                                    <a href="shop-product-sidebar.html">
-                                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-info">
-                                  <h6>Experience</h6>
-                                  <div class="post-meta">
-                                    $60
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                    
-                  
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <ul class="simple-post-list">
-              <li>
-                <div class="post-image">
-                  <div class="img-thumbnail">
-                    <a href="">
-                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
-                    </a>
-                  </div>
-                </div>
-                <div class="post-info">
-                  <h6>Environment</h6>
-                  <div class="post-meta">
-                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="post-image">
-                  <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
-                    </a>
-                  </div>
-                </div>
-                <div class="post-info">
-                  <h6>Workplace</h6>
-                  <div class="post-meta">
-                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
-
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="post-image">
-                  <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
-                    </a>
-                  </div>
-                </div>
-                <div class="post-info">
-                  <h6>Appreciation</h6>
-                  <div class="post-meta">
-                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
-
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="post-image">
-                  <div class="img-thumbnail">
-                    <a href="shop-product-sidebar.html">
-                      <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
-                    </a>
-                  </div>
-                </div>
-                <div class="post-info">
-                  <h6>Experience</h6>
-                  <div class="post-meta">
-                    <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </aside>
-        </div>
-
-      </div>
-    </div>
+    <app-reviews></app-reviews>
   </div>
 
   <!-- floating-button -->
-  <div id="container-floating">
+  <div *ngIf="details" id="container-floating">
 
     <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy">
       <img class="reminder" src="../../../assets/img/vacancy.png" alt="">

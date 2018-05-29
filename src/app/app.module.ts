@@ -30,7 +30,7 @@ import { CurrencyService } from './shared/services/currency-service';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

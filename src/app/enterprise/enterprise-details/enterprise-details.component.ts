@@ -22,12 +22,18 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   public id : string; 
 
+  public newId = 3;
+
   details : EnterpriseDetails;
 
   public  e:any;
   public  edit;
 
   sizes : Sizes [];
+
+  flag : boolean = true;
+  
+  newEnterprise  = new EnterpriseDetails();
   
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
@@ -38,11 +44,14 @@ export class EnterpriseDetailsComponent implements OnInit {
   ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
-    
+    if(this.details == undefined){
+      this.flag = false;
+    }
+    console.log(this.flag);
     this.e = document.getElementById("e");
     this.edit = document.getElementById("edit");
     this.sizes = this.sizeService.getAll();
-    // console.log(this.details);    
+     
   }
   
   onClick(){
@@ -57,7 +66,17 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   OnAddSubmit(form : NgForm){
-
+    if(form.valid)
+    {
+      this.newEnterprise.id = this.newId;
+      //console.log(this.newEnterprise);
+      this.enterpriseService.add(this.newEnterprise);
+      //console.log(this.enterpriseService.getAllDetails());
+      console.log(this.newEnterprise.size);
+      
+      this.newId++;
+  
+    }
   }
   
   OnEditSubmit(form : NgForm){
