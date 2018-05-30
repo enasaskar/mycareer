@@ -15,6 +15,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
@@ -43,6 +44,7 @@ import { CurrencyService } from './shared/services/currency-service';
     AppRoutingModule,
     SkillsModule,
     AppRoutingModule,
+    BsDatepickerModule.forRoot(),
     NgbModule.forRoot()
 
   ],
