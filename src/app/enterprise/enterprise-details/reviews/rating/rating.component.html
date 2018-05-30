@@ -8,108 +8,12 @@
       </div>
       <div class="col-md-7">
         <div class="">
-          <div class="row">
-              <!-- <ng-template #content let-cl="close" let-di="dismiss">  
-                  <div class="modal-content">  
-                      <div class="modal-header">  
-                          <h5 class="modal-title">Modal title</h5> <button type="button" class="close" (click)="cl('Closed from Close button')">  
-                
-                          <span aria-hidden="true">×</span>  
-                
-                        </button> </div>  
-                      <div class="modal-body">  
-                          <p>Modal body text goes here.</p>  
-                      </div>  
-                      <div class="modal-footer"> <button type="button" class="btn btn-secondary" (click)="di('Dismissed from dismiss button')">Dismiss</button> <button type="button" class="btn btn-primary" (click)="cl('Closed from Close button')">Close</button> </div>  
-                  </div>  
-              </ng-template>  -->
-            <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content">
+          <div class="row"> 
+                  
+            <button style="margin-top : -10px;" class="btn btn-primary" title="Share this content" (click)="openReviewDialog()">
               <i class="fa fa-plus"></i>
               Add rating
             </button>
-
-    <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      <span aria-hidden="true">×</span>
-                      <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">
-                      <i class="fa fa-star"></i>Add rating</h4>
-                  </div>
-                  <div class="modal-body">
-                    <ul class="simple-post-list">
-                      <li>
-                        <div class="post-image">
-                          <div class="img-thumbnail">
-                            <a href="shop-product-sidebar.html">
-                              <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/company-workers.png">
-                            </a>
-                          </div>
-                        </div>
-                        <div class="post-info">
-                          <h6>Environment</h6>
-                          <div class="post-meta">
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="post-image">
-                          <div class="img-thumbnail">
-                            <a href="shop-product-sidebar.html">
-                              <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/workplace.png">
-                            </a>
-                          </div>
-                        </div>
-                        <div class="post-info">
-                          <h6>Workplace</h6>
-                          <div class="post-meta">
-                            $72
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="post-image">
-                          <div class="img-thumbnail">
-                            <a href="shop-product-sidebar.html">
-                              <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/appreciation.png">
-                            </a>
-                          </div>
-                        </div>
-                        <div class="post-info">
-                          <h6>Appreciation</h6>
-                          <div class="post-meta">
-                            $60
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="post-image">
-                          <div class="img-thumbnail">
-                            <a href="shop-product-sidebar.html">
-                              <img alt="" width="40" height="40" class="img-responsive" src="../../../assets/img/cv.png">
-                            </a>
-                          </div>
-                        </div>
-                        <div class="post-info">
-                          <h6>Experience</h6>
-                          <div class="post-meta">
-                            $60
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            
-          
           </div>
         </div>
       </div>
@@ -119,4 +23,5 @@
       <app-one-item></app-one-item>
     </ul>
   </aside>
+  
 </div>

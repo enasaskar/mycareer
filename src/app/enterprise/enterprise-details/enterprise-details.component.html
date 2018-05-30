@@ -276,16 +276,13 @@
                     <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        
                   </div>
                   <div class="form-group col-md-6 input-group-sm">
-                      
                           <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
                             <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
                           </select>
-                        
                   </div>
                 </div>
                 <div class="row branches">
                   <div class="form-group col-md-3 input-group-sm">
-                      
                           <select  class="form-control" required name = "country"> 
                             <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
                           </select>
