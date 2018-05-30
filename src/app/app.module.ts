@@ -27,6 +27,9 @@ import { BranchService } from './shared/services/branch-service';
 import { VacancyLevelService } from './shared/services/vacancyLevel-service';
 import { VacancyTypeService } from './shared/services/vacancyType-service';
 import { CurrencyService } from './shared/services/currency-service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
@@ -43,8 +46,10 @@ import { CurrencyService } from './shared/services/currency-service';
     AppRoutingModule,
     SkillsModule,
     AppRoutingModule,
+    BrowserAnimationsModule, 
+    CalendarModule.forRoot(), 
     NgbModule.forRoot()
-
+    
   ],
   providers: [
     EnterpriseService,
