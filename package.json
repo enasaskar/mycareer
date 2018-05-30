@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "fontawesome": "^4.7.2",
     "jquery": "^3.3.1",
+    "ngx-bootstrap": "^3.0.0",
     "rxjs": "^6.0.0",
     "script-loader": "^0.7.2",
     "zone.js": "^0.8.26"
