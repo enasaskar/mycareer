@@ -14,6 +14,9 @@ import { CommentsComponent } from './enterprise-details/reviews/comments/comment
 import { RatingComponent } from './enterprise-details/reviews/rating/rating.component';
 import { CommentComponent } from './enterprise-details/reviews/comments/comment/comment.component';
 import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/one-item.component';
+import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-item.component';
+
 
 @NgModule({
     declarations:[
@@ -26,7 +29,10 @@ import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/o
         CommentsComponent,
         RatingComponent,
         CommentComponent,
-        OneItemComponent
+        OneItemComponent,
+        WorkExperienceComponent,
+        WorkExpItemComponent
+    
     ],
     imports:[
         CommonModule,
