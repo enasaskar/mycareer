@@ -10,11 +10,16 @@ import { NgForm } from '@angular/forms';
 export class ReviewModalContentComponent implements OnInit {
 
 
-  public currentRate : string = '3';
+  public currentRate : string ;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  OnAddRating(){
+      console.log("hiiii");
+      console.log(this.currentRate);
   }
 
 }
