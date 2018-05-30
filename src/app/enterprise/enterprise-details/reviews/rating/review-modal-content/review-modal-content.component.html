@@ -1,0 +1,34 @@
+
+<form action="" method="POST" role="form">
+    <legend>Add an rating</legend>
+
+    <div class="form-group">
+        <div class="modal-body">
+            <ul class="simple-post-list">
+            <li>
+                <div class="post-image">
+                    <div class="img-thumbnail">
+                        <a href="">
+                            <img alt="" width="40" height="40" class="img-responsive" src="../../../../../../assets/img/company-workers.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="post-info">
+                    <h4>Environment</h4>
+                    <div class="post-meta">
+                      <ngb-rating [(rate)]="currentRate" [max] = 5 ></ngb-rating>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+         
+
+  

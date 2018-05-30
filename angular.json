@@ -40,6 +40,7 @@
               "src/assets/css/skins/default.css",
               "src/assets/css/custom.css",
               "src/assets/css/pathStyle.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -60,17 +61,17 @@
               "src/assets/vendor/jflickrfeed/jflickrfeed.js",
               "src/assets/vendor/magnific-popup/jquery.magnific-popup.js",      
               "src/assets/vendor/vide/vide.js",                                  
-              "src/assets/js/theme.js",
               "src/assets/vendor/rs-plugin/js/jquery.themepunch.tools.min.js",
               "src/assets/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js",
               "src/assets/vendor/circle-flip-slideshow/js/jquery.flipshow.js",
               "src/assets/js/views/view.home.js",              
-              "src/assets/js/custom.js",
-              "src/assets/js/theme.init.js",
-              "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",              
-              "src/assets/js/datepicker.js",
               "src/assets/dist/bootstrap-star-rating/js/star-rating.min.js",
-              "src/assets/js/review.js"
+              "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",              
+              "src/assets/js/theme.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/review.js",
+              "src/assets/js/datepicker.js",
+              "src/assets/js/theme.init.js"
             ]
           },
           "configurations": {

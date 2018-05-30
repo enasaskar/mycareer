@@ -1,5 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -7,11 +9,15 @@ import { UserDetailsEditComponent } from './user-details-edit/user-details-edit.
 import { UserDashBoardComponent } from './user-dash-board/user-dash-board.component';
 import { UserViewAllComponent } from './user-view-all/user-view-all.component';
 import { UsersComponent } from './users.component';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkillsModule } from '../skills/skills.module';
+import { VacanciesModule } from '../vacancies/vacancies.module';
+import { InterviewsModule } from '../interviews/interviews.module';
 
 @NgModule({
   imports: [
+    SkillsModule,
+    VacanciesModule,
+    InterviewsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -15,6 +15,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
@@ -33,7 +34,7 @@ import { CalendarModule } from 'angular-calendar';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import { CalendarModule } from 'angular-calendar';
     AppRoutingModule,
     BrowserAnimationsModule, 
     CalendarModule.forRoot(), 
+    BsDatepickerModule.forRoot(),
     NgbModule.forRoot()
     
   ],
