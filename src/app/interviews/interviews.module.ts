@@ -6,6 +6,7 @@ import { InterviewDetailsComponent } from './interview-details/interview-details
 import { InterviewViewallComponent } from './interview-viewall/interview-viewall.component';
 import { InterviewApplicantitemComponent } from './interview-applicantitem/interview-applicantitem.component';
 import { InterviewListComponent } from './interview-list/interview-list.component';
+import { UserPendingInterviewsComponent } from './user-pending-interviews/user-pending-interviews.component';
 
 @NgModule({
   imports: [
@@ -13,18 +14,20 @@ import { InterviewListComponent } from './interview-list/interview-list.componen
     InterviewsRoutingModule
   ],
   declarations: [
-    InterviewsComponent, 
-    InterviewDetailsComponent, 
-    InterviewViewallComponent, 
-    InterviewApplicantitemComponent, 
-    InterviewListComponent
-  ],
-  exports: [
-    InterviewsComponent, 
-    InterviewDetailsComponent, 
-    InterviewViewallComponent, 
-    InterviewApplicantitemComponent, 
+    InterviewsComponent,
+    InterviewDetailsComponent,
+    InterviewViewallComponent,
+    InterviewApplicantitemComponent,
     InterviewListComponent,
+    UserPendingInterviewsComponent
+],
+  exports: [
+    InterviewsComponent,
+    InterviewDetailsComponent,
+    InterviewViewallComponent,
+    InterviewApplicantitemComponent,
+    InterviewListComponent,
+    UserPendingInterviewsComponent
   ]
 })
 export class InterviewsModule { }
