@@ -69,7 +69,6 @@
               "src/assets/dist/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",              
               "src/assets/js/theme.js",
               "src/assets/js/custom.js",
-              "src/assets/js/review.js",
               "src/assets/js/datepicker.js",
               "src/assets/js/theme.init.js"
             ]
