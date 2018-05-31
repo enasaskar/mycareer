@@ -10,7 +10,7 @@ export class InterviewsComponent implements OnInit {
   constructor() { }
   seeMore = false;
   seeMoreclicked(){
-    this.seeMore = true;
+    this.seeMore = !this.seeMore;
   }
   ngOnInit() {
   }

@@ -34,7 +34,7 @@ import { CalendarModule } from 'angular-calendar';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -47,11 +47,10 @@ import { CalendarModule } from 'angular-calendar';
     AppRoutingModule,
     SkillsModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
-    CalendarModule.forRoot(), 
     BsDatepickerModule.forRoot(),
-    NgbModule.forRoot()
-    
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   providers: [
     EnterpriseService,
