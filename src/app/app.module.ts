@@ -28,10 +28,13 @@ import { BranchService } from './shared/services/branch-service';
 import { VacancyLevelService } from './shared/services/vacancyLevel-service';
 import { VacancyTypeService } from './shared/services/vacancyType-service';
 import { CurrencyService } from './shared/services/currency-service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +48,9 @@ import { CurrencyService } from './shared/services/currency-service';
     SkillsModule,
     AppRoutingModule,
     BsDatepickerModule.forRoot(),
-    NgbModule.forRoot()
-
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   providers: [
     EnterpriseService,
