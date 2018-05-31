@@ -20,7 +20,7 @@
     </div>
 
     <ul class="simple-post-list">
-      <app-one-item></app-one-item>
+      <app-one-item *ngFor="let item of ratingList" [ratingItem] = "item"></app-one-item>
     </ul>
   </aside>
   

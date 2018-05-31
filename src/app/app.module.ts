@@ -31,6 +31,7 @@ import { CurrencyService } from './shared/services/currency-service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
+import { RatingListService } from './shared/services/ratingList.service';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { CalendarModule } from 'angular-calendar';
     BranchService,
     VacancyLevelService,
     VacancyTypeService,
-    CurrencyService
+    CurrencyService,
+    RatingListService
 
 ],
   bootstrap: [AppComponent]

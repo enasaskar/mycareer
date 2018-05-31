@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { RatingList } from './../../../../../shared/classes/ratingList';
+import { Component, OnInit, Input } from '@angular/core';
+import { RatingListService } from '../../../../../shared/services/ratingList.service';
 
 @Component({
   selector: 'app-one-item',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OneItemComponent implements OnInit {
 
+  @Input() public ratingItem : RatingList;
+  
   constructor() { }
 
   ngOnInit() {
+
+    
   }
 
 }
