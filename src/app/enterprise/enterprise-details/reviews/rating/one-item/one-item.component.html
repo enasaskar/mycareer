@@ -2,18 +2,18 @@
   <div class="post-image">
     <div class="img-thumbnail">
       <a href="">
-        <img alt="" width="40" height="40" class="img-responsive" src="../../../../../../assets/img/company-workers.png">
+        <img alt="" width="40" height="40" class="img-responsive" [src]="ratingItem.icon">
       </a>
     </div>
   </div>
   <div class="post-info">
-    <h6>Environment</h6>
+    <h6>{{ratingItem.name}}</h6>
     <div class="post-meta">
-      <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
+      <ngb-rating [rate]="ratingItem.value" [max]=5 [readonly]=" true"></ngb-rating>
     </div>
   </div>
 </li>
-<li>
+<!-- <li>
   <div class="post-image">
     <div class="img-thumbnail">
       <a href="shop-product-sidebar.html">
@@ -59,4 +59,4 @@
       <ngb-rating [rate]="3" [max]=5 [readonly]=" true"></ngb-rating>
     </div>
   </div>
-</li>
+</li> -->

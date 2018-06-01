@@ -15,6 +15,7 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
@@ -27,10 +28,14 @@ import { BranchService } from './shared/services/branch-service';
 import { VacancyLevelService } from './shared/services/vacancyLevel-service';
 import { VacancyTypeService } from './shared/services/vacancyType-service';
 import { CurrencyService } from './shared/services/currency-service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { RatingListService } from './shared/services/ratingList.service';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -43,8 +48,10 @@ import { CurrencyService } from './shared/services/currency-service';
     AppRoutingModule,
     SkillsModule,
     AppRoutingModule,
-    NgbModule.forRoot()
-
+    BsDatepickerModule.forRoot(),
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot()
   ],
   providers: [
     EnterpriseService,
@@ -56,7 +63,8 @@ import { CurrencyService } from './shared/services/currency-service';
     BranchService,
     VacancyLevelService,
     VacancyTypeService,
-    CurrencyService
+    CurrencyService,
+    RatingListService
 
 ],
   bootstrap: [AppComponent]

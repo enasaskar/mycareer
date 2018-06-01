@@ -2,7 +2,10 @@ import { EnterpriseRoutingModule } from './enterprises-routing.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { ViewOneItemComponent } from './enterprise-view-all/view-one-item/view-one-item.component';
 import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-view-all.component';
@@ -16,7 +19,9 @@ import { CommentComponent } from './enterprise-details/reviews/comments/comment/
 import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/one-item.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-item.component';
-
+import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
+// import { VacancyListComponent } from '../vacancies/vacancy-list/vacancy-list.component';
+// import { VacancyItemComponent } from '../vacancies/vacancy-list/vacancy-item/vacancy-item.component';
 
 @NgModule({
     declarations:
@@ -32,20 +37,27 @@ import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-i
         CommentComponent,
         OneItemComponent,
         WorkExperienceComponent,
-        WorkExpItemComponent
+        WorkExpItemComponent,
+        ReviewModalContentComponent,
+        // VacancyListComponent,
+        // VacancyItemComponent
     ],
     imports:
     [
         CommonModule,
         FormsModule,
         EnterpriseRoutingModule,
-        NgbModule
+         NgbModule
     ],
     exports:
     [
         WorkExperienceComponent,
-        WorkExpItemComponent
-    ]
+        WorkExpItemComponent,
+        NgbModule,
+        MatDialogModule,
+        BrowserAnimationsModule
+    ],
+    entryComponents: [ReviewModalContentComponent]
 })
 
 export class EnterprisesModule {}

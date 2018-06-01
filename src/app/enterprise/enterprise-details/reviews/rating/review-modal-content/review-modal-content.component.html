@@ -1,0 +1,32 @@
+
+<form action="" method="POST" role="form"  (ngSubmit) = "OnAddRating(ratingForm)" #ratingForm = ngForm>
+    <legend>Add an rating</legend>
+
+    <div class="form-group">
+        <div class="modal-body">
+            <ul class="simple-post-list">
+            <li>
+                <div class="post-image">
+                    <div class="img-thumbnail">
+                        <a href="">
+                            <img alt="" width="40" height="40" class="img-responsive" [src]="ratingList[0].icon">
+                        </a>
+                    </div>
+                </div>
+                <div class="post-info">
+                    <h5>{{ratingList[0].name}}</h5>
+                    <div class="post-meta">
+                      <ngb-rating [(rate)]="currentRate" [max] = 5  [(ngModel)] = currentRate name = "rate"></ngb-rating>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="button" class="btn btn-default">Cancle</button>
+</form>
+
+         
+
+  
