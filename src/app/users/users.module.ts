@@ -12,12 +12,14 @@ import { UsersComponent } from './users.component';
 import { SkillsModule } from '../skills/skills.module';
 import { VacanciesModule } from '../vacancies/vacancies.module';
 import { InterviewsModule } from '../interviews/interviews.module';
+import { EnterprisesModule } from '../enterprise/enterprises.module';
 
 @NgModule({
   imports: [
     SkillsModule,
     VacanciesModule,
     InterviewsModule,
+    EnterprisesModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

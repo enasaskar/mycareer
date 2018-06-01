@@ -1,5 +1,5 @@
 import { EnterpriseRoutingModule } from './enterprises-routing.module';
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +19,8 @@ import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-i
 
 
 @NgModule({
-    declarations:[
+    declarations:
+    [
         EnterpriseComponent,
         EnterpriseCreateComponent,
         EnterpriseDetailsComponent,
@@ -32,16 +33,19 @@ import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-i
         OneItemComponent,
         WorkExperienceComponent,
         WorkExpItemComponent
-    
     ],
-    imports:[
+    imports:
+    [
         CommonModule,
         FormsModule,
         EnterpriseRoutingModule,
         NgbModule
+    ],
+    exports:
+    [
+        WorkExperienceComponent,
+        WorkExpItemComponent
     ]
 })
 
-export class EnterprisesModule{
-
-}
+export class EnterprisesModule {}
