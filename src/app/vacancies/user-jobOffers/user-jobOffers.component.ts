@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { JobOffer } from '../../shared/classes/jobOffer.model';
 
 @Component({
   selector: 'app-user-jobOffers',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserJobOffersComponent implements OnInit {
 
+  @Input() JobOffers: JobOffer[];
   constructor() { }
 
   ngOnInit() {
   }
-
+  jobOfferStatus(i: number, status: boolean) {
+    // I want to reject the other offers so should I do it here or ajax or what??
+    this.JobOffers[i].accept = status;
+  }
 }
