@@ -1,5 +1,4 @@
-import { RatingList } from './../../../../../shared/classes/ratingList';
-import { RatingListService } from './../../../../../shared/services/ratingList.service';
+
 
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -14,20 +13,28 @@ import { NgForm } from '@angular/forms';
 export class ReviewModalContentComponent implements OnInit {
 
 
-  public currentRate : string ;
-  ratingList : RatingList[];
+  public envRate : string ;
+  public workplaceRate : string ;
+  public appRate : string ;
+  public expRate : string ;
 
 
-  constructor(private ratingService : RatingListService) {
+
+  constructor() {
 
      }
 
   ngOnInit() {
-    this.ratingList = this.ratingService.getAll();
+  
   }
 
   OnAddRating(form : NgForm){
-      console.log(this.currentRate);
+      console.log(this.envRate);
+      console.log(this.workplaceRate);
+      console.log(this.appRate);
+      console.log(this.expRate);
+
+      //To Do : add ratings to user-rating table
   }
 
 }
