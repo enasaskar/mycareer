@@ -45,7 +45,9 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
         CommonModule,
         FormsModule,
         EnterpriseRoutingModule,
-         NgbModule
+        NgbModule,
+        VacanciesModule
+        
     ],
     exports:
     [
@@ -54,7 +56,6 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
         NgbModule,
         MatDialogModule,
         BrowserAnimationsModule,
-        VacanciesModule
     ],
     entryComponents: [ReviewModalContentComponent]
 })
