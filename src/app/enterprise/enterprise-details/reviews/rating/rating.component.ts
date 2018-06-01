@@ -24,7 +24,8 @@ export class RatingComponent implements OnInit {
 
   openReviewDialog() {
     this.dialogBody = this.dialog.open(ReviewModalContentComponent,{
-    width : '300px'
+    width : '500px'
+    // height : '530px'
     });
   }
 

@@ -33,7 +33,9 @@ import { UserJobOffersComponent } from './user-jobOffers/user-jobOffers.componen
   [
     VacanciesRoutingModule,
     UserPendingVacanciesComponent,
-    UserJobOffersComponent
+    UserJobOffersComponent,
+    VacancyListComponent,
+    VacancyItemComponent
   ]
 })
 export class VacanciesModule { }

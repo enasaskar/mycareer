@@ -20,8 +20,7 @@ import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/o
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-item.component';
 import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
-// import { VacancyListComponent } from '../vacancies/vacancy-list/vacancy-list.component';
-// import { VacancyItemComponent } from '../vacancies/vacancy-list/vacancy-item/vacancy-item.component';
+import { VacanciesModule } from '../vacancies/vacancies.module';
 
 @NgModule({
     declarations:
@@ -38,9 +37,8 @@ import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/r
         OneItemComponent,
         WorkExperienceComponent,
         WorkExpItemComponent,
-        ReviewModalContentComponent,
-        // VacancyListComponent,
-        // VacancyItemComponent
+        ReviewModalContentComponent
+    
     ],
     imports:
     [
@@ -55,7 +53,8 @@ import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/r
         WorkExpItemComponent,
         NgbModule,
         MatDialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        VacanciesModule
     ],
     entryComponents: [ReviewModalContentComponent]
 })
