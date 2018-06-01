@@ -10,13 +10,14 @@
                 <i class="fa fa-pencil"></i>
             </a>
             <div class="feature-box-icon">
-                <img src="../../../assets/img/logos/vodaphone.png" alt="">
+                <img [src]="workExpItem.enterprise.logo" alt="">
             </div>
             <div class="feature-box-info">
                 <a href="index-2.html">
-                    <h4 class="shorter">Vodafone</h4>
+                    <h4 class="shorter">{{workExpItem.enterprise.name}}</h4>
                 </a>
-                <p class="">10/2015 - present</p>
+                <span>{{workExpItem.content}}</span><br>
+                <span>{{workExpItem.startDate}} - {{workExpItem.endDate}}</span>
             </div>
     </div>
 </div>
