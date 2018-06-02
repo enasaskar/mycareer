@@ -277,14 +277,14 @@
                   </div>
                   <div class="form-group col-md-6 input-group-sm">
                           <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
-                            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>                            
+                            <option *ngFor="let s of sizes">{{s.text}}</option>                            
                           </select>
                   </div>
                 </div>
                 <div class="row branches">
                   <div class="form-group col-md-3 input-group-sm">
                           <select  class="form-control" required name = "country"> 
-                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                            <!-- <option *ngFor="let s of sizes">{{s.text}}</option> -->
                           </select>
                         
                   </div>
@@ -292,7 +292,7 @@
                   <div class="form-group col-md-3 input-group-sm">
                       
                           <select  class="form-control" required name = "city"> 
-                            <!-- <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option> -->
+                            <!-- <option *ngFor="let s of sizes">{{s.text}}</option> -->
                           </select>
                         
                   </div>
@@ -300,7 +300,7 @@
                       <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              
                   </div>
                   <div class="col-md-2">
-                    <i class="fa fa-plus-circle" id="addBranch"></i>
+                    <i class="fa fa-plus" id="addBranch"></i>
                   </div>
                 </div>
                 <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
@@ -405,7 +405,7 @@
 
         </div>
       </div> -->
-      <app-vacancy-list></app-vacancy-list>
+      <!-- <app-vacancy-list></app-vacancy-list> -->
     
     </div>
 
