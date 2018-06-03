@@ -1,6 +1,6 @@
-export interface IBranch {
-    id: number ;
-    name: string ;
-    isDeleted: boolean;
+export class IBranch{
+    id:number
+    name:string
+    isDeleted:boolean
 
 }

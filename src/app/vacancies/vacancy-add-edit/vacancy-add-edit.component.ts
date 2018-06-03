@@ -17,11 +17,11 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./vacancy-add-edit.component.css']
 })
 export class VacancyAddEditComponent implements OnInit {
-  newvacancy  : IVacancy;
-  newvlevel: IVacancyLevel;
-  newvtype: IVacancyType;
-  newcurrency: ICurrency;
-  newbranch: IBranch;
+  newvacancy  : IVacancy=new IVacancy();
+  newvlevel: IVacancyLevel=new IVacancyLevel();
+  newvtype: IVacancyType=new IVacancyType();
+  newcurrency: ICurrency=new ICurrency();
+  newbranch: IBranch=new IBranch();
 
   vlevel: IVacancyLevel[]
   vtype: IVacancyType[]
@@ -42,26 +42,14 @@ export class VacancyAddEditComponent implements OnInit {
   OnSubmit(form : NgForm){
     if(form.valid)
     {
-      console.log(this.id);
 
       this.newvacancy.id = this.id;
-      console.log(this.newvacancy.id);
-
-      this.newvacancy.fK_Branch_Id=this.newbranch.id;   
-      console.log(this.newvacancy);
- 
+      this.newvacancy.isDeleted=false;
+      this.newvacancy.fK_Branch_Id=this.newbranch.id;    
       this.newvacancy.fK_Currency_Id=this.newcurrency.id;
-      console.log(this.newvacancy);
-
       this.newvacancy.fK_Enterprise_Id=1;
-      console.log(this.newvacancy);
-
       this.newvacancy.fK_Level_Id=this.newvlevel.id;
-      console.log(this.newvacancy);
-
       this.newvacancy.fK_VacancyType_Id=this.newvtype.id;
-      console.log(this.newvacancy);
-
       this.vacancy.addVacancy(this.newvacancy);
       console.log(this.newvacancy);
       console.log(this.vacancy.getAll());
