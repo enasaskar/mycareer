@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interviews.component.css']
 })
 export class InterviewsComponent implements OnInit {
-
-  constructor() { }
   seeMoreAccepted = false;
   seeMorePending = false;
+
+  startInterview="Start Interview";
+  accept ="Accept";
+  constructor() { }
+  
   seeMoreAcceptedclicked(){
     this.seeMoreAccepted = !this.seeMoreAccepted;
   }
