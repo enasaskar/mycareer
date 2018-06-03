@@ -1,6 +1,6 @@
 <!--page containing all user progress like path/interviews/job offers etc...-->
 
-<!--skills-->
+<!--paths-->
 <div class="row" id="SkillsDashboard">
     <div class="col-md-12">
         <!--path name-->
@@ -927,213 +927,18 @@
     </div>
 </div>
 <!--Vacancies-->
-<div class="row push-top" id="projects">
+<div class="row push-top">
     <div class="col-md-12">
         <h2><strong>Applications</strong></h2>
     </div>
+    <!--Accepted CV-->
+    <app-user-pending-vacancies [userPendingVacancies]="userPendingVacancies"></app-user-pending-vacancies>
+    <hr class="mini"/>
+    <!--Pending Interview-->
+    <app-user-pending-interviews></app-user-pending-interviews>
+    <hr class="mini"/>
+    <!--Status-->
+    <!--Job Offers-->
+    <app-user-jobOffers [JobOffers]="userJobOffers"></app-user-jobOffers>
+    <hr class="tall"/>
 </div>
-<!--Accepted CV-->
-<div class="row class1 acceptedCV">
-              <div class="row">
-                  <div class="col-md-12"><h3><i class="fa fa-check"></i> <strong>Accepted</strong> CV</h3></div>
-              </div>
-              <div class="row">
-                  <div class="col-md-8 alert alert-success">
-                      <strong>Congratualtions Joe!</strong> Your CV has been accepted in the following vacancies and pending your interview slot choice.
-                  </div>
-              </div>
-              
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/vodaphone.png" alt="">
-                      </div>
-                      <div class="feature-box-info">
-                          <a href="index-2.html">
-                              <h4 class="shorter">Vodafone</h4>
-                          </a>
-                          <p class="">Web Developer - Junior Level</p>
-                          <div class="right">
-                              <button type="submit" class="btn btn-primary">Pick Interview Slot</button>
-                          </div>
-                      </div>
-                      <p class="clear"></p>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/orange.png" alt="">
-                      </div>
-                      <div class="feature-box-info">
-                          <a href="index-2.html">
-                              <h4 class="shorter">Orange</h4>
-                          </a>
-                          <p class="">Front-End Developer - Junior Level</p>
-                          <div class="right">
-                              <button type="submit" class="btn btn-primary">Pick Interview Slot</button>
-                          </div>
-                          <p class="clear"></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/itworx.jpg" alt="">
-                      </div>
-                      <div class="feature-box-info">
-                          <a href="index-2.html">
-                              <h4 class="shorter">ITWorx</h4>
-                          </a>
-                          <p class="">Front-End Developer - Junior Level</p>
-                          <div class="right">
-                              <button type="submit" class="btn btn-primary">Pick Interview Slot</button>
-                          </div>
-                          <p class="clear"></p>
-                      </div>
-                  </div>
-              </div>
-</div>
-<hr class="mini"/>
-<!--Pending Interview-->
-<div class="row class1">
-              <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Pending</strong> Interviews</h3></div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/vodaphone.png" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a class="right">
-                              <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-                          </a>
-                          <a href="index-2.html">
-                              <h4 class="shorter">Vodafone</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i>Web Developer</li>
-                              <li><i class="fa fa-calendar"></i> 15-5-2018</li>
-                              <li><i class="fa fa-clock-o"></i> 12:30 pm</li>
-                          </ul>
-                          
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/orange.png" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a class="right">
-                              <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-                          </a>
-                          <a href="index-2.html">
-                              <h4 class="shorter">Orange</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i>Front-End Developer</li>
-                              <li><i class="fa fa-calendar"></i> 17-5-2018</li>
-                              <li><i class="fa fa-clock-o"></i> 01:30 pm</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/itworx.jpg" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a class="right">
-                              <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-                          </a>
-                          <a href="index-2.html">
-                              <h4 class="shorter">ITWorx</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i>Back-End Developer</li>
-                              <li><i class="fa fa-calendar"></i> 20-5-2018</li>
-                              <li><i class="fa fa-clock-o"></i> 05:30 pm</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-</div>
-<hr class="mini"/>
-<!--Status-->
-<!--Job Offers-->
-<div class="row class1">
-              <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Job</strong> Offers</h3></div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/vodaphone.png" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a href="index-2.html">
-                              <h4 class="shorter">Vodafone</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                              <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
-                              <!--add countdown-->
-                              <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
-                          </ul>
-                          <div class="right VacancyResponse">
-                              <button type="button" class="btn btn-success">Accept</button>
-                              <button type="button" class="btn btn-danger">Reject</button>
-                          </div>
-                          <p class="clear"></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/orange.png" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a href="index-2.html">
-                              <h4 class="shorter">Orange</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                              <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
-                              <!--add countdown-->
-                              <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
-                          </ul>
-                          <div class="right VacancyResponse">
-                              <button type="button" class="btn btn-success">Accept</button>
-                              <button type="button" class="btn btn-danger">Reject</button>
-                          </div>
-                          <p class="clear"></p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                  <div class="feature-box secundary bordered">
-                      <div class="feature-box-icon">
-                          <img src="../../../assets/img/logos/itworx.jpg" alt="">
-                      </div>
-                      <div class="feature-box-info VacancyInfo">
-                          <a href="index-2.html">
-                              <h4 class="shorter">ITWorx</h4>
-                          </a>
-                          <ul class="list icons list-unstyled">
-                              <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                              <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
-                              <!--add countdown-->
-                              <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
-                          </ul>
-                          <div class="right VacancyResponse">
-                              <button type="button" class="btn btn-success">Accept</button>
-                              <button type="button" class="btn btn-danger">Reject</button>
-                          </div>
-                          <p class="clear"></p>
-                      </div>
-                  </div>
-              </div>
-</div>
-<hr class="tall"/>

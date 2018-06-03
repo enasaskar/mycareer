@@ -7,9 +7,11 @@
         <div class="form-group">
           <div class="col-md-3 col-xs-6">
             <input class="form-control" type="text" formControlName = "firstname">
+            <span class="errorMsg" *ngIf="!userEditForm.get('firstname').valid && userEditForm.get('firstname').touched">Entry not valid</span>
           </div>
           <div class="col-md-3 col-xs-6">
             <input class="form-control" type="text" formControlName ="lastname">
+            <span class="errorMsg" *ngIf="!userEditForm.get('lastname').valid && userEditForm.get('lastname').touched">Entry not valid</span>
           </div>
         </div>
       </div>
@@ -23,7 +25,7 @@
             <div class="input-group input-search">
               <input class="form-control" id="Company" type="text" formControlName ="enterpriseName">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                <button class="btn btn-default"><i class="fa fa-search"></i></button>
               </span>
             </div>
           </div>
@@ -44,6 +46,7 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-envelope"></i> <input class="form-control iconInput" id="email" type="text" formControlName = "email">
+            <span class="errorMsg" *ngIf="!userEditForm.get('email').valid && userEditForm.get('email').touched">Entry not valid</span>
           </div>
           <div class="col-md-8"></div>
         </div>
@@ -53,6 +56,7 @@
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-phone-square"></i>
             <input class="form-control iconInput" id="mobileNo" type="text" formControlName = "telNumber">
+            <span class="errorMsg" *ngIf="!userEditForm.get('telNumber').valid && userEditForm.get('telNumber').touched">Entry not valid</span>
           </div>
           <div class="col-md-8"></div>
         </div>
@@ -64,14 +68,14 @@
             <input class="form-control iconInput" id="address" type="text" formControlName = "district">
           </div>
           <div class="col-md-4 col-xs-6">
-            <select class="form-control mb-md">
+            <select class="form-control mb-md" formControlName = "city">
               <option>City...</option>
               <option>Cairo</option>
               <option>Alexandria</option>
             </select>
           </div>
           <div class="col-md-4 col-xs-6">
-            <select class="form-control mb-md">
+            <select class="form-control mb-md" formControlName = "country">
               <option>Country...</option>
               <option>Egypt</option>
               <option>Lebanon</option>
@@ -85,6 +89,7 @@
       <div class="row">
         <div class="col-md-12">
           <textarea class="form-control" rows="3" id="textareaDefault" formControlName = "description"></textarea>
+          <span class="errorMsg" *ngIf="!userEditForm.get('description').valid && userEditForm.get('description').touched">Entry not valid</span>
         </div>
       </div>
       <p><b>Main Interests</b></p>
@@ -97,7 +102,7 @@
     </div>
     <div class="right">
       <button type="button" class="btn btn-default" (click)="onCancel()">Cancel</button>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!userEditForm.valid">Save</button>
     </div>
     <p class="clear"></p>
   </form>

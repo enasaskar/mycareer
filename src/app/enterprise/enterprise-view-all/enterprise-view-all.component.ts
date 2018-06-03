@@ -1,6 +1,7 @@
 import { Enterprise } from './../../shared/classes/enterprise';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { EnterpriseService } from '../../shared/classes/enterprise-service';
+import { EnterpriseService } from '../../shared/services/enterprise.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { EnterpriseService } from '../../shared/classes/enterprise-service';
 export class EnterpriseViewAllComponent implements OnInit {
 
   enterprises : Enterprise[];
+
+  searchWord : string;
   
 
   constructor(private enterpriseService : EnterpriseService) {
@@ -25,8 +28,10 @@ export class EnterpriseViewAllComponent implements OnInit {
       }
 
   ngOnInit() {
+    this.enterprises = this.enterpriseService.getAll(); 
+  }
 
-    this.enterprises = this.enterpriseService.getAll();
- 
+  OnSearchSubmit(form : NgForm){
+    this.enterprises = this.enterpriseService.getBySearchWord(this.searchWord);
   }
 }
