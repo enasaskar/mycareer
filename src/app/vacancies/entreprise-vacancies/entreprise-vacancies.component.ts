@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IVacancy } from '../../shared/interfaces/IVacancy';
+import { Vacancy } from '../../shared/classes/vacancy.model';
 import { VacancyService } from '../../shared/services/vacancy-service';
 
 @Component({
@@ -8,7 +8,7 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./entreprise-vacancies.component.css']
 })
 export class EntrepriseVacanciesComponent implements OnInit {
-  vacancies: IVacancy[];  
+  vacancies: Vacancy[];  
   constructor(private vacancyServiec: VacancyService) { }
 
   ngOnInit() {
