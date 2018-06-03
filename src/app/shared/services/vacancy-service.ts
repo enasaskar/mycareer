@@ -10,6 +10,7 @@ export class VacancyService {
         {
            id: 1,
            logoImg: "../../../assets/img/ITWORX.jpg",
+           logoImgbig:"../../../assets/img/ITWORX.jpg",
            title: "Software Engineer",
            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
            requirements:"bla bla",
@@ -26,6 +27,7 @@ export class VacancyService {
         {
             id: 2,
             logoImg: "../../../assets/img/ITWORX.jpg",
+            logoImgbig:"../../../assets/img/ITWORX.jpg",
             title: "Software Engineer 2",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             requirements:"bla bla",
@@ -42,6 +44,7 @@ export class VacancyService {
         {
             id: 3,
             logoImg: "../../../assets/img/ITWORX.jpg",
+            logoImgbig:"../../../assets/img/ITWORX.jpg",
             title: "Software Engineer 3",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             requirements:"bla bla",
@@ -58,6 +61,7 @@ export class VacancyService {
         {
             id: 4,
             logoImg: "../../../assets/img/ITWORX.jpg",
+            logoImgbig:"../../../assets/img/ITWORX.jpg",
             title: "Software Engineer 4",
             description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             requirements:"bla bla",

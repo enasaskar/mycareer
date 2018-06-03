@@ -1,5 +1,5 @@
-export  interface ICurrency{
-    id:number,
-    name:string
-    isDeleted:boolean
+export  class ICurrency{
+    id:number;
+    name:string;
+    isDeleted:boolean;
 }

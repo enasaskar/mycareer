@@ -1,5 +1,5 @@
-export  interface IVacancyType{
-    id:number,
+export  class IVacancyType{
+    id:number
     name:string
     isDeleted:boolean
 }
