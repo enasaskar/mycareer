@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InterviewsComponent } from './interviews.component';
 import { InterviewListComponent } from './interview-list/interview-list.component';
-import { InterviewDetailsComponent } from './interview-details/interview-details.component';
+import { InterviewViewAllComponent } from './interview-view-all/interview-view-all.component';
 
 const interviewsRoutes: Routes = [
     {path : 'interviews', component : InterviewsComponent },
-    {path : 'interviews/evaluation', component : InterviewDetailsComponent }
+    {path : 'interviews/view-all', component : InterviewViewAllComponent }
     
 ];
 
