@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Enterprise } from '../../shared/classes/enterprise';
+import { EnterpriseService } from '../../shared/services/enterprise.service';
 
 @Component({
   selector: 'app-work-experience',
@@ -8,9 +10,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WorkExperienceComponent implements OnInit {
 
   @Input() workExperiences;
-  constructor() { }
+  enterprises: Enterprise[] = [];
+  constructor(private enterpriseService: EnterpriseService) { }
 
   ngOnInit() {
+    this.workExperiences.map(item => {
+      const enterprise = this.enterpriseService.getEnterpriseById(item.enterpriseID);
+      this.enterprises.push(enterprise);
+    });
   }
 
 }

@@ -1,12 +1,12 @@
 import { Vacancy } from './vacancy.model';
 
 export class JobOffer {
-    vacancy: Vacancy;
+    vacancyID: number;
     expireDate: string;
     accept: boolean;
 
-    constructor(vacancy: Vacancy, expireDate: string) {
-        this.vacancy = vacancy;
+    constructor(vacancyID: number, expireDate: string) {
+        this.vacancyID = vacancyID;
         this.expireDate = expireDate;
     }
 }

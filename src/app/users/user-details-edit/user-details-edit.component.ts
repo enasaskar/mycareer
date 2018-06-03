@@ -27,6 +27,7 @@ export class UserDetailsEditComponent implements OnInit {
   }
   onSubmit() {
     const newUser = new User(
+      this.id,
       this.user.imagePath,
       this.userEditForm.value['firstname'],
       this.userEditForm.value['lastname'],

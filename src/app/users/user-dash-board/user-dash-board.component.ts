@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Vacancy } from '../../shared/classes/vacancy.model';
 import { Enterprise } from '../../shared/classes/enterprise';
 import { JobOffer } from '../../shared/classes/jobOffer.model';
+import { Interview } from '../../shared/classes/interview.model';
+import { VacancyService } from '../../shared/services/vacancy-service';
+import { EnterpriseService } from '../../shared/services/enterprise.service';
+import { JobOfferService } from '../../shared/services/jobOffer.service';
 
 @Component({
   selector: 'app-user-dash-board',
@@ -11,30 +15,28 @@ import { JobOffer } from '../../shared/classes/jobOffer.model';
 export class UserDashBoardComponent implements OnInit {
 
   userPendingVacancies: Vacancy[];
+  userPendingInterviews: Interview[];
   userJobOffers: JobOffer[];
+  userID = 1;
 
-  constructor() { }
+  constructor(private vacancyService: VacancyService,
+    private enterpriseService: EnterpriseService,
+    private jobOfferService: JobOfferService
+  ) { }
 
   ngOnInit() {
 
+    this.userPendingVacancies = this.vacancyService.getUserVacancies(0);
+
     // fill this from api
-    this.userPendingVacancies = [
-      new Vacancy( new Enterprise('Vodafone', '../../../assets/img/logos/vodaphone.png'),
-      'Front-end Developer', 'Junior'),
-      new Vacancy( new Enterprise('ITWorx', '../../../assets/img/logos/itworx.jpg'),
-      'Software Developer', 'Junior'),
-      new Vacancy( new Enterprise('Orange', '../../../assets/img/logos/orange.png'),
-      'Front-end Developer', 'Junior'),
+    this.userPendingInterviews = [
+      new Interview(1, '15-5-2018', '12:30 pm'),
+      new Interview(2, '15-5-2018', '12:30 pm'),
+      new Interview(3, '15-5-2018', '12:30 pm')
     ];
+
     // fill this from api
-    this.userJobOffers = [
-      new JobOffer( new Vacancy( new Enterprise('Vodafone', '../../../assets/img/logos/vodaphone.png'),
-      'Front-end Developer', 'Junior'),
-      '30-8-2018'),
-      new JobOffer ( new Vacancy( new Enterprise('ITWorx', '../../../assets/img/logos/itworx.jpg'),
-      'Software Developer', 'Junior'),
-      '30-8-2018')
-    ];
+    this.userJobOffers = this.jobOfferService.getUserJobOffers(0);
   }
 
 }
