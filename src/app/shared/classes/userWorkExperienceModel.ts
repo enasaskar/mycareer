@@ -1,13 +1,13 @@
 import { Enterprise } from './enterprise';
 
 export class WorkExperience {
-    enterprise: Enterprise;
+    enterpriseID: number;
     content: string;
     startDate: string;
     endDate: string;
 
-    constructor(enterprise: Enterprise, content: string, startDate: string, endDate: string) {
-        this.enterprise = enterprise;
+    constructor(enterpriseID: number, content: string, startDate: string, endDate: string) {
+        this.enterpriseID = enterpriseID;
         this.content = content;
         this.startDate = startDate;
         this.endDate  = endDate;

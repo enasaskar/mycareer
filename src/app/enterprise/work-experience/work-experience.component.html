@@ -1,6 +1,8 @@
 <!--Previous Exp-->
 
-<app-work-exp-item *ngFor="let workExpItem of workExperiences" [workExpItem]="workExpItem"></app-work-exp-item>
+<app-work-exp-item *ngFor="let workExpItem of workExperiences; let i = index"
+[workExpItem]="workExpItem"
+[enterprise]="enterprises[i]"></app-work-exp-item>
 <!-- <div class="col-md-4 col-sm-6 col-xs-12" id="1">
         <div class="feature-box secundary">
                 <a class="right">

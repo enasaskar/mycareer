@@ -8,14 +8,14 @@
       </div>
   </div>
   
-  <div *ngFor="let vacancy of userPendingVacancies" class="col-md-4 col-sm-6 col-xs-12">
+  <div *ngFor="let vacancy of userPendingVacancies; let i = index" class="col-md-4 col-sm-6 col-xs-12">
       <div class="feature-box secundary">
           <div class="feature-box-icon">
-              <img [src]="vacancy.enterprise.logo" alt="">
+              <img [src]="enterprises[i].logo" alt="">
           </div>
           <div class="feature-box-info">
               <a href="index-2.html">
-                  <h4 class="shorter">{{vacancy.enterprise.name}}</h4>
+                  <h4 class="shorter">{{enterprises[i].name}}</h4>
               </a>
               <p class="">{{vacancy.title}} - {{vacancy.level}} Level</p>
               <div class="right">
