@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class InterviewsComponent implements OnInit {
 
   constructor() { }
-  seeMore = false;
-  seeMoreclicked(){
-    this.seeMore = !this.seeMore;
+  seeMoreAccepted = false;
+  seeMorePending = false;
+  seeMoreAcceptedclicked(){
+    this.seeMoreAccepted = !this.seeMoreAccepted;
+  }
+  seeMorePendingclicked(){
+    this.seeMorePending = !this.seeMorePending;
   }
   ngOnInit() {
   }
