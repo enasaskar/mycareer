@@ -76,26 +76,13 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   OnEditSubmit(form : NgForm){
       //To Do:call update function
+      this.enterpriseService.update(this.details.id-1,this.details);
+      this.e = document.getElementById("e");
+      this.edit = document.getElementById("edit");  
+      this.e.style.display = "block";
+      this.edit.style.display = "none";
       
   }
 
-  
 
-
-//   showModal(content) {  
-//     this.modalService.open(content).result.then(  
-//         (closeResult) => {  
-//             //modal close  
-//             console.log("modal closed : ", closeResult);  
-//         }, (dismissReason) => {  
-//             //modal Dismiss  
-//             if (dismissReason == ModalDismissReasons.ESC) {  
-//                 console.log("modal dismissed when used pressed ESC button");  
-//             } else if (dismissReason == ModalDismissReasons.BACKDROP_CLICK) {  
-//                 console.log("modal dismissed when used pressed backdrop");  
-//             } else {  
-//                 console.log(dismissReason);  
-//             }  
-//         })  
-// }  
 }

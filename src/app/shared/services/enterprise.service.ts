@@ -117,6 +117,10 @@ export class EnterpriseService {
         console.log(this.enetrprises);
     }
 
+    public update(i : number, e : EnterpriseDetails){
+        this.enterprisesDetails[i] = e;
+    }
+
     public getBySearchWord(searchWord : string){
         let enterprises = []
         if(searchWord.length > 0 ){    
