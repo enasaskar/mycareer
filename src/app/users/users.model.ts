@@ -1,4 +1,5 @@
 export class User {
+  public id: number;
   public imagePath: string;
   public fname: string;
   public lname: string;
@@ -13,9 +14,10 @@ export class User {
   public description: string;
   public interests: string[];
 
-  constructor(imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
+  constructor(id: number, imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
      email: string, telNumber: string, district: string, country: string, city: string, description: string,
      interests: string[]) {
+       this.id = id;
        this.imagePath = imagePath;
        this.fname = fname;
        this.lname = lname;

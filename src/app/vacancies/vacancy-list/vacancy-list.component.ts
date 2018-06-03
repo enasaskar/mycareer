@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IVacancy } from '../../shared/interfaces/IVacancy';
 import { VacancyService } from '../../shared/services/vacancy-service';
+import { Vacancy } from '../../shared/classes/vacancy.model';
 
 @Component({
   selector: 'app-vacancy-list',
@@ -8,7 +8,7 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./vacancy-list.component.css']
 })
 export class VacancyListComponent implements OnInit {
-  vacancies: IVacancy[];
+  vacancies: Vacancy[];
   constructor(private vacancyServiec: VacancyService) { }
 
   ngOnInit() {

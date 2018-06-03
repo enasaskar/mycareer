@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { EnterpriseService } from '../../../shared/services/enterprise.service';
+import { Enterprise } from '../../../shared/classes/enterprise';
 
 @Component({
   selector: 'app-work-exp-item',
@@ -8,9 +10,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WorkExpItemComponent implements OnInit {
 
   @Input() workExpItem;
-  constructor() { }
+  @Input() enterprise: Enterprise;
+  constructor(private enterpriseService: EnterpriseService) { }
 
   ngOnInit() {
+    // this.entreprise = this.enterpriseService.getEnterpriseById(this.workExpItem.enterpriseID);
+    // console.log(this.entreprise);
   }
 
 }
