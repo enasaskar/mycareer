@@ -1,5 +1,5 @@
-export  interface IVacancyLevel{
-    id:number,
+export  class IVacancyLevel{
+    id:number
     name:string
     isDeleted:boolean
 }
