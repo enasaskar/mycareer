@@ -4,3 +4,7 @@
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.page-top{
+    margin-top : 6.4%;
+}

@@ -14,8 +14,8 @@ import { EnterpriseService } from './shared/services/enterprise.service';
 import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { PathService } from './shared/services/path.service';
 import { PathCategoryService } from './shared/services/PathCategory.service';
@@ -32,6 +32,8 @@ import { CurrencyService } from './shared/services/currency-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { RatingListService } from './shared/services/ratingList.service';
+
+import { RatingModule } from 'ngx-bootstrap/rating';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
@@ -49,9 +51,10 @@ import { RatingListService } from './shared/services/ratingList.service';
     SkillsModule,
     AppRoutingModule,
     BsDatepickerModule.forRoot(),
-    NgbModule.forRoot(),
     BrowserAnimationsModule,
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    ModalModule.forRoot(),
+    RatingModule.forRoot()
   ],
   providers: [
     EnterpriseService,
