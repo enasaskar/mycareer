@@ -1,63 +1,23 @@
 <div class="row class1">
   <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Pending</strong> Interviews</h3></div>
-  <div class="col-md-4 col-sm-6 col-xs-12">
+  <div *ngFor="let interview of Interviews" class="col-md-4 col-sm-6 col-xs-12">
       <div class="feature-box secundary bordered">
           <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/vodaphone.png" alt="">
+              <img [src]="interview.vacancy.enterprise.logo" alt="">
           </div>
           <div class="feature-box-info VacancyInfo">
               <a class="right">
                   <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
               </a>
               <a href="index-2.html">
-                  <h4 class="shorter">Vodafone</h4>
+                  <h4 class="shorter">{{interview.vacancy.enterprise.name}}</h4>
               </a>
               <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i>Web Developer</li>
-                  <li><i class="fa fa-calendar"></i> 15-5-2018</li>
-                  <li><i class="fa fa-clock-o"></i> 12:30 pm</li>
+                  <li><i class="fa fa-suitcase"></i>{{interview.vacancy.title}}</li>
+                  <li><i class="fa fa-calendar"></i> {{interview.date}}</li>
+                  <li><i class="fa fa-clock-o"></i> {{interview.time}}</li>
               </ul>
               
-          </div>
-      </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="feature-box secundary bordered">
-          <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/orange.png" alt="">
-          </div>
-          <div class="feature-box-info VacancyInfo">
-              <a class="right">
-                  <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-              </a>
-              <a href="index-2.html">
-                  <h4 class="shorter">Orange</h4>
-              </a>
-              <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i>Front-End Developer</li>
-                  <li><i class="fa fa-calendar"></i> 17-5-2018</li>
-                  <li><i class="fa fa-clock-o"></i> 01:30 pm</li>
-              </ul>
-          </div>
-      </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12">
-      <div class="feature-box secundary bordered">
-          <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/itworx.jpg" alt="">
-          </div>
-          <div class="feature-box-info VacancyInfo">
-              <a class="right">
-                  <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-              </a>
-              <a href="index-2.html">
-                  <h4 class="shorter">ITWorx</h4>
-              </a>
-              <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i>Back-End Developer</li>
-                  <li><i class="fa fa-calendar"></i> 20-5-2018</li>
-                  <li><i class="fa fa-clock-o"></i> 05:30 pm</li>
-              </ul>
           </div>
       </div>
   </div>

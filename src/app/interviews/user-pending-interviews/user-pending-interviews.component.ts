@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Interview } from '../../shared/classes/interview.model';
 
 @Component({
   selector: 'app-user-pending-interviews',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPendingInterviewsComponent implements OnInit {
 
+  @Input() interviews: Interview[];
   constructor() { }
 
   ngOnInit() {
