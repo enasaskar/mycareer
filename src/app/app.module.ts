@@ -1,3 +1,4 @@
+import { UserCommentsService } from './shared/services/user-comments.service';
 import { EnterprisesModule } from './enterprise/enterprises.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,11 @@ import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
 import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
+
+
+
+
+// import { RouterModule } from '@angular/router';
 import { SkillsService } from 'src/app/shared/services/skills.service';
 import { SizeService } from 'src/app/shared/services/size.service';
 import { VacancyService } from 'src/app/shared/services/vacancy-service';
@@ -77,7 +83,8 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     VacancyLevelService,
     VacancyTypeService,
     CurrencyService,
-    RatingListService
+    RatingListService,
+    UserCommentsService
 ],
   bootstrap: [AppComponent]
 })
