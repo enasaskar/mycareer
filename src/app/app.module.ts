@@ -34,6 +34,7 @@ import { CalendarModule } from 'angular-calendar';
 import { RatingListService } from './shared/services/ratingList.service';
 
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
+    NgbModule.forRoot(),
     ModalModule.forRoot(),
     RatingModule.forRoot()
   ],
