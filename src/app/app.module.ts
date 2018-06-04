@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
 import { PathsModule } from './paths/path.module';
 
+import { EnterpriseService } from './shared/services/enterprise.service';
 import { CoreModule } from 'src/app/core/core.module';
 import { SkillsModule } from './skills/skills.module';
 
@@ -24,7 +25,18 @@ import { JobofferitemComponent } from './home/jobofferitem/jobofferitem.componen
 import { JobOfferService }from './shared/services/job-offer.service';
 import { CompanylogoitemComponent } from './home/companylogoitem/companylogoitem.component'
 import { CompanyLogoService } from 'src/app/shared/services/company-logo.service';
-import { EnterpriseService } from 'src/app/shared/services/enterprise.service';
+import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
+import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+import { SkillsService } from 'src/app/shared/services/skills.service';
+import { SizeService } from 'src/app/shared/services/size.service';
+import { VacancyService } from 'src/app/shared/services/vacancy-service';
+import { VacancyLevelService } from 'src/app/shared/services/vacancyLevel-service';
+import { BranchService } from 'src/app/shared/services/branch-service';
+import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
+import { CurrencyService } from 'src/app/shared/services/currency-service';
+import { RatingListService } from 'src/app/shared/services/ratingList.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +54,14 @@ import { EnterpriseService } from 'src/app/shared/services/enterprise.service';
     PathsModule,
     SkillsModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    VacanciesModule,
+    AppRoutingModule,
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot(),
+    ModalModule.forRoot(),
+    RatingModule.forRoot()
 
   ],
   providers: [
@@ -51,7 +70,15 @@ import { EnterpriseService } from 'src/app/shared/services/enterprise.service';
     PathCategoryService,
     HomeService,
     JobOfferService,
-    CompanyLogoService
+    CompanyLogoService,
+    SkillsService,
+    SizeService,
+    VacancyService,
+    BranchService,
+    VacancyLevelService,
+    VacancyTypeService,
+    CurrencyService,
+    RatingListService
 ],
   bootstrap: [AppComponent]
 })
