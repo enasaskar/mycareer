@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JobfairsModule } from './jobfairs/jobfairs.module'
+import { JobfairsModule } from './jobfairs/jobfairs.module';
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
@@ -22,8 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { HomeService } from 'src/app/shared/services/home-service.service';
 import { ServicesitemComponent } from './home/servicesitem/servicesitem.component';
 import { JobofferitemComponent } from './home/jobofferitem/jobofferitem.component';
-import { JobOfferService }from './shared/services/job-offer.service';
-import { CompanylogoitemComponent } from './home/companylogoitem/companylogoitem.component'
+import { JobOfferService } from './shared/services/job-offer.service';
+import { CompanylogoitemComponent } from './home/companylogoitem/companylogoitem.component';
 import { CompanyLogoService } from 'src/app/shared/services/company-logo.service';
 import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
 import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
