@@ -65,7 +65,6 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    NgbModule.forRoot(),
     ModalModule.forRoot(),
     RatingModule.forRoot()
   ],
