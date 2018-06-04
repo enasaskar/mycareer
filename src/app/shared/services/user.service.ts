@@ -17,40 +17,6 @@ export class UserService {
     'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
     'Iaculis vulputate id quis nisl.'])
   ];
-
-  private userExperiences: WorkExperience[] = [
-    new WorkExperience( 1,
-    'Web Developer',
-    '10-5-2015',
-    'present'),
-    new WorkExperience(2,
-    'Systems Developer',
-    '10-5-2010',
-    '20-6-2014'),
-    new WorkExperience(3,
-    'Software Developer',
-    '10-5-2009',
-    '20-6-2010')
-  ];
-
-  private userEducation: WorkExperience[] = [
-
-    new WorkExperience(
-      7,
-      '9 Months Program',
-      '10/2017',
-      'present'),
-      new WorkExperience(
-        8,
-        `Bachelor's Degree`,
-        '09/2012',
-        '07/2017'),
-      new WorkExperience(
-        9,
-        `HighSchool`,
-        '',
-        '09/2013')
-  ];
   constructor() { }
   // CRUD ops here
   getUsers() {
@@ -67,11 +33,5 @@ export class UserService {
   }
   deleteUser(i: number) {
     this.users.splice(i, 1);
-  }
-  getUserExperiences(i: number) {
-    return this.userExperiences;
-  }
-  getUserEducationalBackground(i: number) {
-    return this.userEducation;
   }
 }
