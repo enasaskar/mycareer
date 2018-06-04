@@ -1,3 +1,4 @@
+import { UserCommentsService } from './shared/services/user-comments.service';
 import { EnterprisesModule } from './enterprise/enterprises.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -82,7 +83,8 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     VacancyLevelService,
     VacancyTypeService,
     CurrencyService,
-    RatingListService
+    RatingListService,
+    UserCommentsService
 ],
   bootstrap: [AppComponent]
 })
