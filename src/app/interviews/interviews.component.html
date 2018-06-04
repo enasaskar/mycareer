@@ -38,12 +38,12 @@
                 </aside>
             </div>
         </div>    
-        <app-interview-applicantitem ></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="startInterview"></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="startInterview"></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="startInterview"></app-interview-applicantitem>
         <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="!seeMoreAccepted">See More</a>
         <p class="clear"></p>
-        <app-interview-list *ngIf="seeMoreAccepted"></app-interview-list>
+        <app-interview-list *ngIf="seeMoreAccepted" [btnTitle]="startInterview"></app-interview-list>
         <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="seeMoreAccepted">See Less</a>
         <p class="clear"></p>
 
@@ -67,12 +67,12 @@
                 </aside>
             </div>
         </div>    
-        <app-interview-applicantitem></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="accept"></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="accept"></app-interview-applicantitem>
+        <app-interview-applicantitem [btnTitle]="accept"></app-interview-applicantitem>
         <a class="SeeMore" (click)="seeMorePendingclicked()" *ngIf="!seeMorePending">See More</a>
         <p class="clear"></p>
-        <app-interview-list *ngIf="seeMorePending"></app-interview-list>
+        <app-interview-list *ngIf="seeMorePending" [btnTitle]="accept"></app-interview-list>
         <a class="SeeMore" (click)="seeMorePendingclicked()" *ngIf="seeMorePending">See Less</a>
         <p class="clear"></p>
 
