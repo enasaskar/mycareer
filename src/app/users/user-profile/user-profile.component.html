@@ -54,13 +54,14 @@
     <div class="row class1">
         <div class="col-md-12"><h3><strong>Work</strong> Experience</h3></div>
     </div>
-    <app-work-experience [workExperiences]='userWorkExperiences'></app-work-experience>
+    <app-work-experience [workExperiences]='userWorkExperiences' [type]="'work'"></app-work-experience>
+    <hr class="mini"/>
 
     <!--Educational Background-->
     <div class="row class1">
       <div class="col-md-12"><h3><strong>Educational</strong> Background</h3></div>
     </div>
-    <app-work-experience [workExperiences]='userEducationalBackground'></app-work-experience>
+    <app-work-experience [workExperiences]='userEducationalBackground' [type]="'edu'"></app-work-experience>
   </div>
     
 </div>
