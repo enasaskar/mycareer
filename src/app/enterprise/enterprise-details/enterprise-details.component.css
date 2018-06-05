@@ -416,6 +416,7 @@
 .enterprise-view-one .des .featured-box
 {
   text-align: left;
+  margin-top: 7%;
 }
 .enterprise-view-one .des .featured-box .box-content
 {
@@ -558,7 +559,12 @@ ul.comments .comment-block strong
   font-size: 25px;
 }
 
-/* ------------------------------------------------------------------------------------- */
+#socialIcons{
+  margin-top: -4%;
+  display: block;
+}
+
+/* ------------------------------validation------------------------------------------------------- */
 input.ng-invalid.ng-touched{
   border :solid 1px rgb(145, 0, 0);
 }
