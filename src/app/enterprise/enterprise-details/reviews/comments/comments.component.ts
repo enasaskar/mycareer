@@ -12,13 +12,16 @@ import { UserComments } from '../../../../shared/classes/user-comments';
 })
 export class CommentsComponent implements OnInit {
   enterpriseId : number;
-  // user : User;
   comments : UserComments[] = [];
   constructor(private commentService : UserCommentsService,private active : ActivatedRoute) { }
 
   ngOnInit() {
     this.enterpriseId = this.active.snapshot.params["id"]; 
     this.comments = this.commentService.getByEnterpriseId(this.enterpriseId);
+    
+  }
+
+  AddComment(){
     
   }
 
