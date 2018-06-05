@@ -38,9 +38,30 @@
         </div>
       </div>
 
-      <!--content-->
+      <!--user data content-->
       <router-outlet></router-outlet>
+      <hr class="tall" />
 </div>
-<hr class="tall" />
 
-<app-skill-list></app-skill-list>
+<div class="row" id="PreviousExperience">
+  <div class="container">
+    <div class="row push-top" id="projects">
+        <div class="col-md-12">
+            <h2><strong>Experience</strong></h2>
+        </div>
+    </div>
+    <!--Previous Exp-->
+    <div class="row class1">
+        <div class="col-md-12"><h3><strong>Work</strong> Experience</h3></div>
+    </div>
+    <app-work-experience [workExperiences]='userWorkExperiences' [type]="'work'"></app-work-experience>
+    <hr class="mini"/>
+
+    <!--Educational Background-->
+    <div class="row class1">
+      <div class="col-md-12"><h3><strong>Educational</strong> Background</h3></div>
+    </div>
+    <app-work-experience [workExperiences]='userEducationalBackground' [type]="'edu'"></app-work-experience>
+  </div>
+    
+</div>

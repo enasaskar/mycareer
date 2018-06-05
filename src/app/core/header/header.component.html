@@ -1,207 +1,64 @@
-<header id="header">
-  <div class="container">
-    <div class="logo">
-      <a href="index.html">
-        <!-- <img alt="Porto" width="111" height="54" data-sticky-width="82" data-sticky-height="40" src="img/logo.png"> -->
-        <img width="200" height="50" data-sticky-width="100" data-sticky-width="40" src="../../../assets/img/logo.png" alt="">
-      </a>
-    </div>
-    <div class="search">
-      <form id="searchForm" action="page-search-results.html" method="get">
-        <div class="input-group">
-          <input type="text" class="form-control search" name="q" id="q" placeholder="Search..." required>
-          <span class="input-group-btn ">
-            <button class="btn btn-default search-icon" type="submit">
-              <i class="fa fa-search "></i>
-            </button>
-          </span>
-        </div>
-      </form>
-    </div>
-    <ul class="social-icons">
-      <li class="facebook">
-        <a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a>
-      </li>
-      <li class="twitter">
-        <a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a>
-      </li>
-      <!-- <li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li> -->
-    </ul>
-    <nav>
-      <ul class="nav nav-pills nav-top">
-        <li>
-          <a href="about-us.html">
-            <i class="fa fa-angle-right"></i>About Us</a>
-        </li>
-        <li>
-          <a href="contact-us.html">
-            <i class="fa fa-angle-right"></i>Contact Us</a>
-        </li>
-        <li class="phone">
-          <span>
-            <i class="fa fa-phone"></i>(123) 456-7890</span>
-        </li>
-      </ul>
-    </nav>
-    <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
-      <i class="fa fa-bars"></i>
-    </button>
-  </div>
-  <div class="navbar-collapse nav-main-collapse collapse">
+
+
+
+<header id="header" class="narrow" data-plugin-options='{"alwaysStickyEnabled": true, "stickyEnabled": true, "stickyWithGap": false, "stickyChangeLogoSize": false}'>
     <div class="container">
-      <nav class="nav-main mega-menu">
-        <ul class="nav nav-pills nav-main" id="mainMenu">
-          <li class="active">
-            <a href="">HOME</a>
-          </li>
-          <li>
-            <a href="">VACANCIES</a>
-          </li>
-          <li>
-            <a href="">JOB FAIRS</a>
-          </li>
-          <li>
-            <a href="">CAREER PATHES</a>
-          </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" href="#">
-              For Enterprises
-              <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="">Post New Vacancy</a>
-              </li>
-              <li>
-                <a href="">Create Job Fair</a>
-              </li>
-              <li>
-                <a href="">Go Premium</a>
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown mega-menu-item mega-menu-signin signin" id="headerAccount">
-            <a class="dropdown-toggle" href="page-login.html">
-              <i class="fa fa-user"></i> Sign In
-              <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <div class="mega-menu-content">
-                  <div class="row">
-                    <div class="col-md-12">
-
-                      <div class="signin-form">
-
-                        <span class="mega-menu-sub-title">Sign In</span>
-
-                        <form action="" id="" method="post">
-                          <div class="row">
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <label>Username or E-mail Address</label>
-                                <input type="text" value="" class="form-control input-lg">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <a class="pull-right" id="headerRecover" href="#">(Lost Password?)</a>
-                                <label>Password</label>
-                                <input type="password" value="" class="form-control input-lg">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <span class="remember-box checkbox">
-                                <label for="rememberme">
-                                  <input type="checkbox" id="rememberme" name="rememberme">Remember Me
-                                </label>
-                              </span>
-                            </div>
-                            <div class="col-md-6">
-                              <input type="submit" value="Login" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                            </div>
-                          </div>
-                        </form>
-
-                        <p class="sign-up-info">Don't have an account yet?
-                          <a href="#" id="headerSignUp">Sign Up</a>
-                        </p>
-
-                      </div>
-
-                      <div class="signup-form">
-                        <span class="mega-menu-sub-title">Create Account</span>
-
-                        <form action=""  method="post">
-                          <div class="row">
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <label>E-mail Address</label>
-                                <input type="text" value="" class="form-control input-lg">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="form-group">
-                              <div class="col-md-6">
-                                <label>Password</label>
-                                <input type="password" value="" class="form-control input-lg">
-                              </div>
-                              <div class="col-md-6">
-                                <label>Re-enter Password</label>
-                                <input type="password" value="" class="form-control input-lg">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <input type="submit" value="Create Account" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                            </div>
-                          </div>
-                        </form>
-
-                        <p class="log-in-info">Already have an account?
-                          <a href="#" id="">Log In</a>
-                        </p>
-                      </div>
-
-                      <div class="recover-form">
-                        <span class="mega-menu-sub-title">Reset My Password</span>
-                        <p>Complete the form below to receive an email with the authorization code needed to reset your password.</p>
-
-                        <form action=""  method="post">
-                          <div class="row">
-                            <div class="form-group">
-                              <div class="col-md-12">
-                                <label>E-mail Address</label>
-                                <input type="text" value="" class="form-control input-lg">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-12">
-                              <input type="submit" value="Submit" class="btn btn-primary pull-right push-bottom" data-loading-text="Loading...">
-                            </div>
-                          </div>
-                        </form>
-
-                        <p class="log-in-info">Already have an account?
-                          <a href="#" id="headerRecoverCancel">Log In</a>
-                        </p>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+      <div class="logo">
+        <a href="index.html">
+          <img alt="Porto" width="200" height="50" src="../../../assets/img/logo.png">
+        </a>
+      </div>
+      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
     </div>
-  </div>
-</header>
+    <div class="navbar-collapse nav-main-collapse collapse">
+      <div class="container">
+        <ul class="social-icons">
+          <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+          <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+        </ul>
+        <nav class="nav-main mega-menu">
+          <ul class="nav nav-pills nav-main" id="mainMenu">
+            <li class="dropdown active">
+              <a class="dropdown-toggle" href="">
+                Home
+              </a>
+            </li>
+            <li>
+              <a routerLink='/vacancy'>Vacancies</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" routerLink='/enterprises'>Enterprises </a>
+            </li>
+            <li class="dropdown mega-menu-item mega-menu-fullwidth">
+              <a class="dropdown-toggle" routerLink = "/paths/list">
+                Career Pathes
+              </a>
+            </li>
+            <!-- <li class="dropdown">
+              <a class="dropdown-toggle" href="#">
+                For Enterprises
+                <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="">Post New Vacancy</a></li>
+                <li><a href="">Go Premium</a></li>
+              </ul>
+            </li> -->
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#">
+                Sign Up
+              </a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="#">
+                Sign In
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+

@@ -1,9 +1,11 @@
 import { EnterpriseRoutingModule } from './enterprises-routing.module';
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { ViewOneItemComponent } from './enterprise-view-all/view-one-item/view-one-item.component';
 import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-view-all.component';
@@ -18,10 +20,11 @@ import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/o
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-item.component';
 import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { VacanciesModule } from '../vacancies/vacancies.module';
 
 @NgModule({
-    declarations:[
+    declarations:
+    [
         EnterpriseComponent,
         EnterpriseCreateComponent,
         EnterpriseDetailsComponent,
@@ -37,17 +40,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         ReviewModalContentComponent
     
     ],
-    imports:[
+    imports:
+    [
         CommonModule,
         FormsModule,
         EnterpriseRoutingModule,
         NgbModule,
+        VacanciesModule
+        
+    ],
+    exports:
+    [
+        WorkExperienceComponent,
+        WorkExpItemComponent,
+        NgbModule,
         MatDialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
     ],
     entryComponents: [ReviewModalContentComponent]
 })
 
-export class EnterprisesModule{
-
-}
+export class EnterprisesModule {}

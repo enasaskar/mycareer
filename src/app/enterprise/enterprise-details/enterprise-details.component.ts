@@ -32,8 +32,6 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   sizes : Sizes [];
 
-  flag : boolean = true;
-  
   newEnterprise  = new EnterpriseDetails();
   
   
@@ -41,27 +39,23 @@ export class EnterpriseDetailsComponent implements OnInit {
     private sizeService : SizeService,private dialog: MatDialog) {
   
    }
-   
+ 
   ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
-    if(this.details == undefined){
-      this.flag = false;
-    }
-    console.log(this.flag);
-    this.e = document.getElementById("e");
-    this.edit = document.getElementById("edit");
-    this.sizes = this.sizeService.getAll();
-     
+    this.sizes = this.sizeService.getAll();   
   }
   
   onClick(){
-    
+    this.e = document.getElementById("e");
+    this.edit = document.getElementById("edit");  
     this.e.style.display = "none";
     this.edit.style.display = "block";
   }
 
   onCancle(){
+    this.e = document.getElementById("e");
+    this.edit = document.getElementById("edit");  
     this.e.style.display = "block";
     this.edit.style.display = "none";
   }
@@ -82,26 +76,13 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   OnEditSubmit(form : NgForm){
       //To Do:call update function
+      this.enterpriseService.update(this.details.id-1,this.details);
+      this.e = document.getElementById("e");
+      this.edit = document.getElementById("edit");  
+      this.e.style.display = "block";
+      this.edit.style.display = "none";
       
   }
 
-  
 
-
-//   showModal(content) {  
-//     this.modalService.open(content).result.then(  
-//         (closeResult) => {  
-//             //modal close  
-//             console.log("modal closed : ", closeResult);  
-//         }, (dismissReason) => {  
-//             //modal Dismiss  
-//             if (dismissReason == ModalDismissReasons.ESC) {  
-//                 console.log("modal dismissed when used pressed ESC button");  
-//             } else if (dismissReason == ModalDismissReasons.BACKDROP_CLICK) {  
-//                 console.log("modal dismissed when used pressed backdrop");  
-//             } else {  
-//                 console.log(dismissReason);  
-//             }  
-//         })  
-// }  
 }

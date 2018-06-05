@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { IVacancyLevel } from '../../shared/interfaces/IVacancyLevel';
+import { NgForm } from '@angular/forms';
+
 import { VacancyLevelService } from '../../shared/services/vacancyLevel-service';
 import { VacancyTypeService } from '../../shared/services/vacancyType-service';
 import { CurrencyService } from '../../shared/services/currency-service';
 import { BranchService } from '../../shared/services/branch-service';
 import { IBranch } from '../../shared/interfaces/IBranch';
 import { ICurrency } from '../../shared/interfaces/ICurrency';
-import { IVacancyType } from '../../shared/interfaces/IVacancyType';
-import { NgForm } from '@angular/forms';
-import { IVacancy } from '../../shared/interfaces/IVacancy';
 import { VacancyService } from '../../shared/services/vacancy-service';
+import { Vacancy } from '../../shared/classes/vacancy.model';
+import { VacancyLevel } from '../../shared/classes/vacancyLevel';
+import { VacancyType } from '../../shared/classes/VacancyType';
 
 @Component({
   selector: 'app-vacancy-add-edit',
@@ -17,20 +18,22 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./vacancy-add-edit.component.css']
 })
 export class VacancyAddEditComponent implements OnInit {
-  newvacancy  : IVacancy;
-  newvlevel: IVacancyLevel;
-  newvtype: IVacancyType;
-  newcurrency: ICurrency;
-  newbranch: IBranch;
+  newvacancy: Vacancy = new Vacancy();
+  newvlevel: VacancyLevel = new VacancyLevel();
+  newvtype: VacancyType = new VacancyType();
+  newcurrency: ICurrency = new ICurrency();
+  newbranch: IBranch = new IBranch();
 
-  vlevel: IVacancyLevel[]
-  vtype: IVacancyType[]
-  currency: ICurrency[]
-  branch: IBranch[]
+  vlevel: VacancyLevel[];
+  vtype: VacancyType[];
+  currency: ICurrency[];
+  branch: IBranch[];
 
-  id : number = 5;
+  id = 5;
 
-  constructor(private vacancy:VacancyService,private vlevels: VacancyLevelService, private vtypes: VacancyTypeService, private currencies: CurrencyService, private branchs: BranchService) { }
+  constructor(private vacancy: VacancyService, private vlevels: VacancyLevelService,
+    private vtypes: VacancyTypeService, private currencies: CurrencyService,
+    private branchs: BranchService) { }
 
   ngOnInit() {
     this.vlevel = this.vlevels.getAll();
@@ -39,34 +42,21 @@ export class VacancyAddEditComponent implements OnInit {
     this.branch = this.branchs.getAll();
 
   }
-  OnSubmit(form : NgForm){
-    if(form.valid)
-    {
-      console.log(this.id);
+  OnSubmit(form: NgForm) {
+    if (form.valid) {
 
       this.newvacancy.id = this.id;
-      console.log(this.newvacancy.id);
-
-      this.newvacancy.fK_Branch_Id=this.newbranch.id;   
-      console.log(this.newvacancy);
- 
-      this.newvacancy.fK_Currency_Id=this.newcurrency.id;
-      console.log(this.newvacancy);
-
-      this.newvacancy.fK_Enterprise_Id=1;
-      console.log(this.newvacancy);
-
-      this.newvacancy.fK_Level_Id=this.newvlevel.id;
-      console.log(this.newvacancy);
-
-      this.newvacancy.fK_VacancyType_Id=this.newvtype.id;
-      console.log(this.newvacancy);
-
+      this.newvacancy.isDeleted = false;
+      this.newvacancy.fK_Branch_Id = this.newbranch.id;
+      this.newvacancy.fK_Currency_Id = this.newcurrency.id;
+      this.newvacancy.fK_Enterprise_Id = 1;
+      this.newvacancy.fK_Level_Id = this.newvlevel.id;
+      this.newvacancy.fK_VacancyType_Id = this.newvtype.id;
       this.vacancy.addVacancy(this.newvacancy);
       console.log(this.newvacancy);
       console.log(this.vacancy.getAll());
-      
+
       this.id++;
-  
+
     }  }
 }

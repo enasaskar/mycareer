@@ -1,4 +1,11 @@
 .feature-box.secundary .feature-box-icon {
-    height: 134px;
+    height: 136px;
 }
 
+.col-md-4{
+    margin-bottom: 20px;
+}
+
+.modal-header .close {
+    margin-top: -10px;
+}

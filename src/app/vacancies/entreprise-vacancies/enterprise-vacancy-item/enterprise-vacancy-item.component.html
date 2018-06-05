@@ -1,0 +1,29 @@
+<div class="col-md-6 col-sm-6 col-xs-12">
+  <div class="feature-box secundary">
+      <a class="right" routerLink='deletevacancy/{{vacancyitem.id}}'>
+          <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
+      </a>
+      <a class="thumb-info lightbox right" routerLink='detailsvacancy/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+          data-toggle="tooltip" data-placement="top" title="more info">
+          <i class="fa fa-info"></i>
+      </a>
+      <a class="thumb-info lightbox right" routerLink='editvacancy/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+          data-toggle="tooltip" data-placement="top" title="edit">
+          <i class="fa fa-pencil"></i>
+      </a>
+
+      <div class="feature-box-icon">
+          <img src="{{vacancyitem.logoImg}}" alt="">
+      </div>
+      <div class="feature-box-info">
+          <a href="">
+              <h4 class="shorter">{{vacancyitem.title}}</h4>
+          </a>
+          <h6 class="short">location</h6>
+          <p class="short des">{{vacancyitem.description}}</p>
+          <p class="short">posted {{vacancyitem.postdate}} ago</p>
+
+      </div>
+  </div>
+
+</div>

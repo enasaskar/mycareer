@@ -11,11 +11,11 @@ export class EnterpriseService {
     public onDelete = new Subject();
 
 
-    private enetrprises : Enterprise[] = [
+    private enetrprises: Enterprise[] = [
         {
             id : 1,
             name : 'Vodafone',
-            logo : '../assets/img/vodafone-icon.png',
+            logo : '../assets/img/logos/vodafone.png',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'USA'
         },
@@ -23,7 +23,7 @@ export class EnterpriseService {
         {
             id : 2,
             name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
+            logo : '../assets/img/logos/itworx.jpg',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'Egypt'
         },
@@ -54,11 +54,32 @@ export class EnterpriseService {
             logo : '../assets/img/ITWORX.jpg',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'Egypt'
+        },
+        {
+            id: 7,
+            name: 'Information Technology Institute',
+            logo: '../../../assets/img/school.png',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id: 8,
+            name: 'Engineering Ain Shams University',
+            logo: '../../../assets/img/school.png',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id: 9,
+            name: 'Al-Farouk Language School',
+            logo: '../../../assets/img/school.png',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
         }
 
     ];
 
-    private enterprisesDetails : EnterpriseDetails[] = [{
+    private enterprisesDetails: EnterpriseDetails[] = [{
         id : 1,
         name : 'Vodafone',
         headLine : 'Telecommunications',
@@ -84,47 +105,51 @@ export class EnterpriseService {
         }
 ];
 
-    public getAllDetails() : EnterpriseDetails[]
-    {
+    public getAllDetails() : EnterpriseDetails[] {
         return this.enterprisesDetails;
     }
 
-    public getAll() : Enterprise[]
-    {
+    public getAll() : Enterprise[] {
         return this.enetrprises;
     }
 
-    public add(enterprise : EnterpriseDetails)
-    {
+    public add(enterprise : EnterpriseDetails) {
         this.enterprisesDetails.push(enterprise);
     }
 
-    public getById(id : number)
-    {
-        for(let i = 0 ; i < this.enterprisesDetails.length ; i++)
-        {
-            if(this.enterprisesDetails[i].id == id)
-            {
+    public getById(id: number) {
+        for (let i = 0 ; i < this.enterprisesDetails.length ; i++) {
+            if (this.enterprisesDetails[i].id === id) {
                 return this.enterprisesDetails[i];
             }
         }
     }
 
-    public delete(enterprise : Enterprise)
-    {
+    public getEnterpriseById(id: number) {
+        for (let i = 0 ; i < this.enetrprises.length ; i++) {
+            if (this.enetrprises[i].id === id) {
+                return this.enetrprises[i];
+            }
+        }
+    }
+
+    public delete(enterprise: Enterprise) {
         const index = this.enetrprises.indexOf(enterprise);
-        this.enetrprises.splice(index,1);
+        this.enetrprises.splice(index, 1);
         console.log(this.enetrprises);
     }
 
-    public getBySearchWord(searchWord : string){
+    public update(i : number, e: EnterpriseDetails) {
+        this.enterprisesDetails[i] = e;
+    }
+
+    public getBySearchWord(searchWord : string) {
         let enterprises = []
-        if(searchWord.length > 0 ){    
+        if(searchWord.length > 0 ){
             enterprises = this.getAll().filter(a=> a.name.toLowerCase().includes(searchWord.toLowerCase()));
             
-          }
-          else{ 
-            enterprises = this.getAll();       
+          } else {
+            enterprises = this.getAll();
           }
 
           return enterprises;

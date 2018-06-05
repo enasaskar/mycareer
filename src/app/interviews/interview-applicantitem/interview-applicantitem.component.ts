@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, Input} from '@angular/core';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-interview-applicantitem',
@@ -6,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interview-applicantitem.component.css']
 })
 export class InterviewApplicantitemComponent implements OnInit {
+ @Input() btnTitle;
+  modalRef: BsModalRef;
 
-  constructor() { }
+  max = 10;
+  rate = [0,0,0,0];
+  isReadonly = false;
 
+  constructor(private modalService: BsModalService) { }
+  
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
+
+  confirmSelection(event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      this.isReadonly = true;
+    }
+  }
   ngOnInit() {
   }
 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../users/users.model';
+import { WorkExperience } from '../classes/userWorkExperienceModel';
 
 @Injectable({
   providedIn: 'root'
@@ -8,13 +9,13 @@ export class UserService {
 
   // replace this with data from API
   private users: User[] = [
-    new User('../../../assets/img/team/emp2.jpg', 'Joe', 'Doe', 'Web Developer', 'Company', 'JoeDoe@gmail.com',
-  '01067439936', 'Heliopolis', 'Egypt', 'Cairo',
-  // tslint:disable-next-line:max-line-length
-  'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-  ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-  'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-  'Iaculis vulputate id quis nisl.'])
+    new User(0, '../../../assets/img/team/emp2.jpg', 'Joe', 'Doe', 'Web Developer', 'Company', 'JoeDoe@gmail.com',
+    '01067439936', 'Heliopolis', 'Egypt', 'Cairo',
+    // tslint:disable-next-line:max-line-length
+    'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+    ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+    'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+    'Iaculis vulputate id quis nisl.'])
   ];
   constructor() { }
   // CRUD ops here

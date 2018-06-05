@@ -1,87 +1,21 @@
 <!--Previous Exp-->
-<div class="row" id="PreviousExperience">
-    <div class="container">
-        <div class="row push-top" id="projects">
-            <div class="col-md-12">
-                <h2><strong>Experience</strong></h2>
-                <div id="popupProject" class="popup-inline-content">
-                            <h2>Lorem Ipsum Dolor</h2>
 
-                            <div class="row">
-                                
-                                <div class="col-md-6">
-
-                                    <h4>Project
-                                        <strong>Description</strong>
-                                    </h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elit mattis adipiscing. Fusce in hendrerit
-                                        purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium
-                                        eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
-
-
-                                    <h4 class="push-top">Services</h4>
-
-                                    <ul class="list icons list-unstyled">
-                                        <li>
-                                            <i class="fa fa-check"></i> Design</li>
-                                        <li>
-                                            <i class="fa fa-check"></i> HTML/CSS</li>
-                                        <li>
-                                            <i class="fa fa-check"></i> Javascript</li>
-                                        <li>
-                                            <i class="fa fa-check"></i> Backend</li>
-                                    </ul>
-
-                                </div>
-                            </div>
-                </div>
-            </div>
+<app-work-exp-item *ngFor="let workExpItem of workExperiences; let i = index" 
+[workExpItem]="workExpItem" [workExpIndex]="i" [type]="type"></app-work-exp-item>
+<!-- <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
+<div class="container read-more-content">
+   <div class="row class1">
+       <!-- <app-work-exp-item></app-work-exp-item> -->
+<!-- <div class="container seeMore">
+    <hr class="short"/>
+    <div class="row">
+        <div class="col-md-6">
         </div>
-        <div class="row class1">
-            <div class="col-md-12"><h3><strong>Work</strong> Experience</h3></div>
-            <!-- <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-                <div class="feature-box secundary">
-                        <a class="right">
-                            <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
-                        </a>
-                        <a class="thumb-info lightbox right" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
-                            <i class="fa fa-info" data-toggle="tooltip" data-placement="top" title="more info"></i>
-                        </a>
-                        <a class="right">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <div class="feature-box-icon">
-                            <img src="../../../assets/img/logos/vodaphone.png" alt="">
-                        </div>
-                        <div class="feature-box-info">
-                            <a href="index-2.html">
-                                <h4 class="shorter">Vodafone</h4>
-                            </a>
-                            <p class="">10/2015 - present</p>
-                        </div>
-                </div>
-            </div> -->
-            <app-work-exp-item></app-work-exp-item>
-          </div>
-    </div>
-    <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
-    <div class="container read-more-content">
-        <div class="row class1">
-            <app-work-exp-item></app-work-exp-item>
-            
+        <div class="col-md-6">
+            <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
+            <i class="fa fa-angle-double-down more"></i>
+            <i class="fa fa-angle-double-up less"></i>
         </div>
+        <hr class="tall" />
     </div>
-    <div class="container seeMore">
-        <hr class="short"/>
-        <div class="row">
-            <div class="col-md-6">
-            </div>
-            <div class="col-md-6">
-                <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
-                <i class="fa fa-angle-double-down more"></i>
-                <i class="fa fa-angle-double-up less"></i>
-            </div>
-            <hr class="tall" />
-        </div>
-    </div>
-</div>
+</div> -->

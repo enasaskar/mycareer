@@ -1,69 +1,24 @@
 <div class="row class1">
-  <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Job</strong> Offers</h3></div>
-  <div class="col-md-4 col-sm-6 col-xs-12" id="1">
+  <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong> Job</strong> Offers</h3></div>
+  <div *ngFor="let offer of JobOffers; let i = index" class="col-md-4 col-sm-6 col-xs-12">
       <div class="feature-box secundary bordered">
           <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/vodaphone.png" alt="">
-          </div>
+              <img [src]="enterprises[i].logo">
+              <!-- <img src="../../../assets/img/logos/vodafone.png"> -->
+        </div>
           <div class="feature-box-info VacancyInfo">
               <a href="index-2.html">
-                  <h4 class="shorter">Vodafone</h4>
+                  <h4 class="shorter">{{enterprises[i].name}}</h4>
               </a>
               <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                  <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
+                  <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> {{vacancies[i].title}}</li>
+                  <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> {{offer.expireDate}}</li>
                   <!--add countdown-->
                   <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
               </ul>
               <div class="right VacancyResponse">
-                  <button type="button" class="btn btn-success">Accept</button>
-                  <button type="button" class="btn btn-danger">Reject</button>
-              </div>
-              <p class="clear"></p>
-          </div>
-      </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-      <div class="feature-box secundary bordered">
-          <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/orange.png" alt="">
-          </div>
-          <div class="feature-box-info VacancyInfo">
-              <a href="index-2.html">
-                  <h4 class="shorter">Orange</h4>
-              </a>
-              <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                  <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
-                  <!--add countdown-->
-                  <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
-              </ul>
-              <div class="right VacancyResponse">
-                  <button type="button" class="btn btn-success">Accept</button>
-                  <button type="button" class="btn btn-danger">Reject</button>
-              </div>
-              <p class="clear"></p>
-          </div>
-      </div>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12" id="1">
-      <div class="feature-box secundary bordered">
-          <div class="feature-box-icon">
-              <img src="../../../assets/img/logos/itworx.jpg" alt="">
-          </div>
-          <div class="feature-box-info VacancyInfo">
-              <a href="index-2.html">
-                  <h4 class="shorter">ITWorx</h4>
-              </a>
-              <ul class="list icons list-unstyled">
-                  <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                  <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> 15-5-2018</li>
-                  <!--add countdown-->
-                  <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
-              </ul>
-              <div class="right VacancyResponse">
-                  <button type="button" class="btn btn-success">Accept</button>
-                  <button type="button" class="btn btn-danger">Reject</button>
+                  <button type="button" class="btn btn-success" (click)="jobOfferStatus(i,true)">Accept</button>
+                  <button type="button" class="btn btn-danger" (click)="jobOfferStatus(i,false)">Reject</button>
               </div>
               <p class="clear"></p>
           </div>

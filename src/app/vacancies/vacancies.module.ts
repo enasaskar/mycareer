@@ -10,6 +10,8 @@ import { VacanciesRoutingModule } from './vacancies-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserPendingVacanciesComponent } from './user-pending-vacancies/user-pending-vacancies.component';
 import { UserJobOffersComponent } from './user-jobOffers/user-jobOffers.component';
+import { EntrepriseVacanciesComponent } from './entreprise-vacancies/entreprise-vacancies.component';
+import { EnterpriseVacancyItemComponent } from './entreprise-vacancies/enterprise-vacancy-item/enterprise-vacancy-item.component';
 
 @NgModule({
   imports: [
@@ -25,15 +27,18 @@ import { UserJobOffersComponent } from './user-jobOffers/user-jobOffers.componen
     VacancyListComponent,
     VacancyItemDetailsComponent,
     VacancyItemComponent,
-    UserPendingVacanciesComponent
-,
-    UserJobOffersComponent
+    UserPendingVacanciesComponent,
+    UserJobOffersComponent,
+    EntrepriseVacanciesComponent,
+    EnterpriseVacancyItemComponent
 ],
   exports:
   [
     VacanciesRoutingModule,
     UserPendingVacanciesComponent,
-    UserJobOffersComponent
+    UserJobOffersComponent,
+    EntrepriseVacanciesComponent,
+    EnterpriseVacancyItemComponent
   ]
 })
 export class VacanciesModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
+
 
 
 @Component({
@@ -10,11 +12,33 @@ import { NgForm } from '@angular/forms';
 export class ReviewModalContentComponent implements OnInit {
 
 
-  public currentRate : string = '3';
+  public envRate : string ;
+  public workplaceRate : string ;
+  public appRate : string ;
+  public expRate : string ;
 
-  constructor() { }
+
+
+  constructor(private dialogRef: MatDialogRef<ReviewModalContentComponent>) {
+
+     }
 
   ngOnInit() {
+  
+  }
+
+  OnAddRating(form : NgForm){
+      console.log(this.envRate);
+      console.log(this.workplaceRate);
+      console.log(this.appRate);
+      console.log(this.expRate);
+      this.dialogRef.close();
+
+      //To Do : add ratings to user-rating table
+  }
+
+  OnCancle(){
+    this.dialogRef.close();    
   }
 
 }

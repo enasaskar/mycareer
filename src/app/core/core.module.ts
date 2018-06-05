@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CoreComponent } from './core.component';
-import { InterviewsModule } from 'src/app/interviews/interviews.module';
+import { Routes, RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
-    InterviewsModule
+    RouterModule
   ],
   declarations: [HeaderComponent, FooterComponent, CoreComponent],
   exports: [HeaderComponent, FooterComponent, CoreComponent]

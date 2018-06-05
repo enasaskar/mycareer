@@ -932,13 +932,13 @@
         <h2><strong>Applications</strong></h2>
     </div>
     <!--Accepted CV-->
-    <app-user-pending-vacancies></app-user-pending-vacancies>
+    <app-user-pending-vacancies [userPendingVacancies]="userPendingVacancies"></app-user-pending-vacancies>
     <hr class="mini"/>
     <!--Pending Interview-->
-    <app-user-pending-interviews></app-user-pending-interviews>
+    <app-user-pending-interviews [interviews] = "userPendingInterviews"></app-user-pending-interviews>
     <hr class="mini"/>
     <!--Status-->
     <!--Job Offers-->
-    <app-user-jobOffers></app-user-jobOffers>
+    <app-user-jobOffers [JobOffers]="userJobOffers"></app-user-jobOffers>
     <hr class="tall"/>
 </div>

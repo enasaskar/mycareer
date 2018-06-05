@@ -1,6 +1,6 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
     <div class="feature-box secundary">
-            <a class="right">
+            <a class="right" (click)="deleteExperience()">
                 <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
             </a>
             <a class="thumb-info lightbox right" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -10,13 +10,14 @@
                 <i class="fa fa-pencil"></i>
             </a>
             <div class="feature-box-icon">
-                <img src="../../../assets/img/logos/vodaphone.png" alt="">
+                <img [src]="enterprise.logo" alt="">
             </div>
             <div class="feature-box-info">
                 <a href="index-2.html">
-                    <h4 class="shorter">Vodafone</h4>
+                    <h4 class="shorter">{{enterprise.name}}</h4>
                 </a>
-                <p class="">10/2015 - present</p>
+                <span>{{workExpItem.content}}</span><br>
+                <span>{{workExpItem.startDate}} - {{workExpItem.endDate}}</span>
             </div>
     </div>
 </div>
