@@ -10,7 +10,6 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillListComponent implements OnInit {
 
-  // gwa al-ctor al-service public wla private ?
   constructor(public skillsService: SkillsService) {
     this.skillsList = skillsService.getAll();
     this.skillsNo = this.skillsList.length;

@@ -1,97 +1,89 @@
-<div class="row">
-  <div class="col-md-4">
-    <div class="team-item thumbnail">
-      <!--link to profile-->
-      <a href="#" class="thumb-info team">
-        <img alt="" src="../../../../assets/img/team-1.jpg">
-        <span class="thumb-info-title">
-          <span class="thumb-info-inner">{{skillDetails.Name}}</span>
-          <span class="thumb-info-type">{{skillDetails.Level}}</span>
-        </span>
-      </a>
-    </div>
-  </div>
-  <div class="col-md-8">
-    <h4>Reviews</h4>
-    <ul class="list icons list-unstyled">
-      <li>
-        <strong class="left">{{skillDetails.Rate}}</strong>
-        <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">
-        <p class="clear"></p>
-      </li>
-      <li>
-        <strong>Endorsments</strong>
-        <div class="counters dark">
-          <strong (data-to)="skillDetails.NoEndorsments">{{skillDetails.NoEndorsments}}</strong>
-        </div>
-      </li>
-    </ul>
-    <hr class="tall" />
 
-    <div class="row">
-      <div class="col-md-3 col-xs-10">
-        <h4 class="left">Details</h4>
-      </div>
-      <div class="col-md-3 col-xs-10"></div>
-      <div class="col-md-6 col-xs-2">
-        <span class="thumb-info-social-icons right" id="edit-skills-details">
-          <a data-tooltip data-placement="bottom" href="#" data-original-title="Edit">
-            <i class="fa fa-pencil"></i>
-            <span>Edit</span>
-          </a>
-        </span>
-      </div>
-    </div>
+   <form (ngSubmit)="onAddSkill()">
     <ul class="list icons list-unstyled">
-      <li>
-        <i class="fa fa-calendar"></i> Date-acquired
-        <input type="text" placeholder="Datepicker" bsDatepicker bsConfig=theme-blue>
-        <!-- <strong id="date-acquired">1/10/2017</strong> -->
-        <!--Date Time Picker-->
-        <!-- <div class="form-group editable-skill-details">
-          <div class="input-group date" id="datetimepicker1">
-            <input type="text" class="form-control">
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-          </div>
-        </div> -->
-      </li>
-      <li>
-        <i class="fa fa-university"></i>
-        From
-        <span class="label label-info">Ain Shams University</span>
-        <span class="label label-info">ITI</span>
-        <div class="form-group search editable-skill-details">
-          <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
-            <div class="input-group">
-              <input type="text" class="form-control search" name="q" id="q" placeholder="Add institute..." required="" aria-required="true">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">
-                  <i class="fa fa-plus"></i>
-                </button>
-              </span>
-            </div>
-          </form>
-        </div>
-      </li>
-      <li>
-        <i class="fa fa-road"></i>
-        Required in Paths
-        <span class="label label-primary">Web Development</span>
-        <span class="label label-primary">Full-Stack Developer</span>
-        <span class="label label-primary">Back-End Developer</span>
-      </li>
-      <li>
-        <i class="fa fa-briefcase"></i>
-        Required in
-        <span class="label label-success">100</span> Vacancies
-      </li>
+
+      <div class="table-responsive">
+        <table class="table table-hover tableCustom">
+
+          <tbody>
+            <tr>
+
+
+              <td>
+                <i class="fa fa-calendar"></i> Date-acquired</td>
+              <td>
+                <input type="text" placeholder=" work with fontawesom unicode calendar plus &, #,xf271" bsDatepicker [bsConfig]="datePickerConfig">
+              </td>
+              <!-- <strong id="date-acquired">1/10/2017</strong> -->
+              <!--Date Time Picker-->
+              <!-- <div class="form-group editable-skill-details">
+                        <div class="input-group date" id="datetimepicker1">
+                          <input type="text" class="form-control">
+                          <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                          </span>
+                        </div>
+                      </div> -->
+
+
+            </tr>
+            <tr>
+
+              <td>
+                <i class="fa fa-university"></i>
+                From</td>
+              <td>
+                <input type="text" multiple>
+              </td>
+              <!-- <div class="form-group search editable-skill-details">
+                      <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
+                        <div class="input-group">
+                          <input type="text" class="form-control search" name="q" id="q" placeholder="Add institute..." required="" aria-required="true">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                              <i class="fa fa-plus"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </form>
+                    </div>
+                    <i class="fa fa-plus-circle plusIcon" aria-hidden="true"></i>-->
+
+            </tr>
+            <tr>
+              <td>
+
+                <i class="fa fa-road"></i>
+                Required in Paths</td>
+              <td>
+                <input type="text" name="" id="">
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <span class="label label-primary pathLabel">Web Development</span>
+                <span class="label label-primary pathLabel">Full-Stack Developer</span>
+                <span class="label label-primary pathLabel">Back-End Developer</span>
+              </td>
+            </tr>
+            <tr>
+
+              <td>
+                <i class="fa fa-briefcase"></i> Required in Vacancies</td>
+              <td>
+                <input type="text" name="" id="">
+                <!-- <span class="label label-success">100</span> output of no of vacancies displayed here -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </ul>
+  </form>
     <div class="right editable-skill-details">
       <button type="button" class="btn btn-default">Cancel</button>
       <button type="submit" class="btn btn-primary">Save</button>
     </div>
     <p class="clear"></p>
-  </div>
-</div>
+ 
