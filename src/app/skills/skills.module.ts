@@ -19,11 +19,11 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
     RouterModule.forChild(
     [
       {path: 'skills', component: SkillListComponent , children: [
-        {path: '', component: SkillDetailsPopupComponent},
+        // {path: '', component: SkillDetailsPopupComponent},
         {path: 'edit', component: SkillDetailsEditComponent}
       ] },
       {path: 'oneSkill' , component: SkillItemSmallComponent},
-      {path: '', component: SkillDetailsPopupComponent},
+      // {path: '', component: SkillDetailsPopupComponent},
 
       // {path: 'edit', component: SkillDetailsEditComponent}
       // {path: 'skillPopup', component: SkillPopupComponent, children: [
