@@ -5,6 +5,7 @@ import { User } from '../users.model';
 import { UserService } from '../../shared/services/user.service';
 import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
 import { Enterprise } from '../../shared/classes/enterprise';
+import { WorkExperienceService } from '../../shared/services/workExperience.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -20,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   userEducationalBackground: WorkExperience[];
   constructor(
     private userService: UserService,
+    private workService: WorkExperienceService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -29,8 +31,8 @@ export class UserProfileComponent implements OnInit {
       this.user = this.userService.getUserById(this.id);
     });
     // get this from api b3d kda
-    this.userWorkExperiences = this.userService.getUserExperiences(this.id);
+    this.userWorkExperiences = this.workService.getUserExperiences(this.id);
     // get this from api b3d kda
-    this.userEducationalBackground = this.userService.getUserEducationalBackground(this.id);
+    this.userEducationalBackground = this.workService.getUserEducationalBackground(this.id);
   }
 }

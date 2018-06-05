@@ -7,12 +7,13 @@ import { AppComponent } from './app.component';
 import { InterviewsComponent } from 'src/app/interviews/interviews.component';
 import { SkillListComponent } from './skills/skill-list/skill-list.component';
 import { UsersComponent } from './users/users.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 
   // component should be anonymous home landing page not AppComponent (3shn kda bytl3 2 footers lw 3mlna /home route)
-  {path: 'home', component: AppComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'skillsList', component: SkillListComponent}
   // {path: 'skillsList', component: SkillListComponent}
 
