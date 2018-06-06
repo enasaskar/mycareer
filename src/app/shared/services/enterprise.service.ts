@@ -136,7 +136,6 @@ export class EnterpriseService {
     public delete(enterprise: Enterprise) {
         const index = this.enetrprises.indexOf(enterprise);
         this.enetrprises.splice(index, 1);
-        console.log(this.enetrprises);
     }
 
     public update(i : number, e: EnterpriseDetails) {

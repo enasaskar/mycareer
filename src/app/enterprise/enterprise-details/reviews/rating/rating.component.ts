@@ -1,3 +1,4 @@
+import { UserRatingsService } from './../../../../shared/services/user-ratings.service';
 import { RatingList } from './../../../../shared/classes/ratingList';
 import { Component, OnInit } from '@angular/core';
 
@@ -16,16 +17,17 @@ export class RatingComponent implements OnInit {
   dialogBody : MatDialogRef<ReviewModalContentComponent>;
   ratingList : RatingList[];
 
-  constructor(private dialog: MatDialog,private ratingService : RatingListService) { }
+  constructor(private dialog: MatDialog,private ratingService : UserRatingsService) { }
 
   ngOnInit() {
-    this.ratingList = this.ratingService.getAll();
+    
+   
   }
 
   openReviewDialog() {
     this.dialogBody = this.dialog.open(ReviewModalContentComponent,{
     width : '500px'
-    // height : '530px'
+    
     });
   }
 
