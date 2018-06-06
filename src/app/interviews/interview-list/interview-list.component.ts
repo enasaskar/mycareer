@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./interview-list.component.css']
 })
 export class InterviewListComponent implements OnInit {
- @Input() btnTitle;
+ @Input() listType;
   constructor() { }
   ngOnInit() {
   }

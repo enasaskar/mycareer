@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-interviews',
   templateUrl: './interviews.component.html',
@@ -8,11 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class InterviewsComponent implements OnInit {
   seeMoreAccepted = false;
   seeMorePending = false;
-
-  startInterview="Start Interview";
-  accept ="Accept";
-  constructor() { }
   
+  constructor() { }
+ 
   seeMoreAcceptedclicked(){
     this.seeMoreAccepted = !this.seeMoreAccepted;
   }
