@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { UserRatings } from './../../../../shared/classes/user-ratings';
 import { EnterpriseService } from './../../../../shared/services/enterprise.service';
 import { UserRatingsService } from './../../../../shared/services/user-ratings.service';
@@ -23,11 +24,11 @@ export class RatingComponent implements OnInit {
   ratingModal : RatingModal[] = [];
 
   constructor(private dialog: MatDialog,private enterpriseService : EnterpriseService,
-  private ratingListService : RatingListService) { }
+  private ratingListService : RatingListService,private active : ActivatedRoute) { }
 
   ngOnInit() {
     this.ratingList = this.ratingListService.getAll();
-    this.userRatings = this.enterpriseService.getRatingAvg(1);   
+    this.userRatings = this.enterpriseService.getRatingAvg(+this.active.snapshot.params["id"]);   
     for(let i = 0; i < this.userRatings.length; i++){
       let item = this.enterpriseService.getRatingItem(this.ratingList,this.userRatings[i].ratingListItemId);
       let ratingItem : RatingModal = {
