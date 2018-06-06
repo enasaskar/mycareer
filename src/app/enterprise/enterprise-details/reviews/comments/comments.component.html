@@ -1,4 +1,5 @@
 <div class="col-md-9">
+    <i class="fa fa-plus right" (click) = "AddComment()"></i>
   <ul class="comments">
   <app-comment *ngFor="let c of comments" [comment] = "c"></app-comment>
   </ul>

@@ -19,8 +19,9 @@ import { CommentComponent } from './enterprise-details/reviews/comments/comment/
 import { OneItemComponent } from './enterprise-details/reviews/rating/one-item/one-item.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-item.component';
-import {ReviewModalContentComponent} from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
+import { ReviewModalContentComponent } from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
 import { VacanciesModule } from '../vacancies/vacancies.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations:
@@ -46,8 +47,8 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
         FormsModule,
         EnterpriseRoutingModule,
         NgbModule,
-        VacanciesModule
-        
+        VacanciesModule,
+        RouterModule
     ],
     exports:
     [

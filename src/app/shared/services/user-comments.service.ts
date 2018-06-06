@@ -27,4 +27,8 @@ constructor() {
       }
     }
 
+    public addComment(comment : UserComments){
+        this.comments.push(comment);
+    }
+
 }

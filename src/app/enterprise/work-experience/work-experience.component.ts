@@ -10,6 +10,7 @@ import { EnterpriseService } from '../../shared/services/enterprise.service';
 export class WorkExperienceComponent implements OnInit {
 
   @Input() workExperiences;
+  @Input() type: string;
   enterprises: Enterprise[] = [];
   constructor(private enterpriseService: EnterpriseService) { }
 

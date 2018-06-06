@@ -4,7 +4,7 @@
 <header id="header" class="narrow" data-plugin-options='{"alwaysStickyEnabled": true, "stickyEnabled": true, "stickyWithGap": false, "stickyChangeLogoSize": false}'>
     <div class="container">
       <div class="logo">
-        <a href="index.html">
+        <a href="">
           <img alt="Porto" width="200" height="50" src="../../../assets/img/logo.png">
         </a>
       </div>
@@ -20,39 +20,40 @@
         </ul>
         <nav class="nav-main mega-menu">
           <ul class="nav nav-pills nav-main" id="mainMenu">
-            <li class="dropdown active">
-              <a class="dropdown-toggle" href="">
+            <li class="active" >
+              <a  routerLink = "/home">
                 Home
               </a>
             </li>
             <li>
               <a routerLink='/vacancy'>Vacancies</a>
             </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" routerLink='/enterprises'>Enterprises </a>
+            <li>
+              <a routerLink='/enterprises'>Enterprises </a>
             </li>
-            <li class="dropdown mega-menu-item mega-menu-fullwidth">
-              <a class="dropdown-toggle" routerLink = "/paths/list">
+            <li>
+              <a  routerLink = "/paths/list">
                 Career Pathes
               </a>
             </li>
-            <!-- <li class="dropdown">
+            <li class="dropdown">
               <a class="dropdown-toggle" href="#">
                 For Enterprises
                 <i class="fa fa-angle-down"></i>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="">Post New Vacancy</a></li>
+                <li><a routerLink = "/vacancy/addvacancy">Post New Vacancy</a></li>
+                <li><a  routerLink = "/interviews/view-all">Vacancies Interviews Details</a></li>
                 <li><a href="">Go Premium</a></li>
               </ul>
-            </li> -->
-            <li class="dropdown">
-              <a class="dropdown-toggle" href="#">
+            </li>
+            <li>
+              <a href="">
                 Sign Up
               </a>
             </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" href="#">
+            <li>
+              <a href="#">
                 Sign In
               </a>
             </li>
