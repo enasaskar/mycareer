@@ -7,8 +7,7 @@ import { Vacancy } from '../../../shared/classes/vacancy.model';
   styleUrls: ['./enterprise-vacancy-item.component.css']
 })
 export class EnterpriseVacancyItemComponent implements OnInit {
-  @Input() vacancyitem:Vacancy;
-
+ @Input() eVacancyItem : Vacancy;
   constructor() { }
 
   ngOnInit() {

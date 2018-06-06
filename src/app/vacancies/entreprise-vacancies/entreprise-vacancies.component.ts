@@ -8,11 +8,11 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./entreprise-vacancies.component.css']
 })
 export class EntrepriseVacanciesComponent implements OnInit {
-  vacancies: Vacancy[];  
-  constructor(private vacancyServiec: VacancyService) { }
+  eVacancies: Vacancy[];  
+  constructor(private eVacancyServiec: VacancyService) { }
 
   ngOnInit() {
-    this.vacancies = this.vacancyServiec.getAll();    
+    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(1); 
   }
 
 }

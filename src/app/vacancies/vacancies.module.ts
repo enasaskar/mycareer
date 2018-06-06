@@ -1,3 +1,4 @@
+import { VacanciesComponent } from './vacancies.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +31,8 @@ import { EnterpriseVacancyItemComponent } from './entreprise-vacancies/enterpris
     UserPendingVacanciesComponent,
     UserJobOffersComponent,
     EntrepriseVacanciesComponent,
-    EnterpriseVacancyItemComponent
+    EnterpriseVacancyItemComponent,
+    VacanciesComponent
 ],
   exports:
   [
