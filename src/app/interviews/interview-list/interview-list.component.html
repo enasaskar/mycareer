@@ -1,4 +1,6 @@
-
-  <app-interview-applicantitem>
-      <ng-content></ng-content>
-  </app-interview-applicantitem>
+<div [ngSwitch]="listType">
+  <app-interview-applicantitem *ngSwitchCase="'shortlist'"></app-interview-applicantitem>
+  <app-view-one-item *ngSwitchCase="'pendingcv'">
+    <ng-content></ng-content>
+  </app-view-one-item>
+</div>

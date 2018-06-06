@@ -16,10 +16,93 @@
                 <li><i class="fa fa-clock-o"></i><strong>at:</strong> 12:30:50 pm</li>
             </ul>
             <div class="right VacancyResponse">
-                <ng-content></ng-content>
+                    <button type="button" class="btn btn-primary"(click)="openModal(evaluation)">Start Interview</button>
             </div>
             <p class="clear"></p>
         </div>
     </div>
 </div>
 
+<ng-template #evaluation>
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h4 class="modal-title pull-left">Youssef Hany </h4> -->
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="team-item thumbnail">
+                            <!--link to profile-->
+                            <a href="#" class="thumb-info team">
+                                <img alt="" src="../../../assets/img/team/emp.jpg">
+                                <span class="thumb-info-title">
+                                    <span class="thumb-info-inner">John Doe</span>
+                                    <span class="thumb-info-type">Web Developer</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>
+                            <strong>his/her Skills</strong>
+                        </h4>
+    
+                        <ul class="list icons list-unstyled">
+                            <li>
+                                <i class="fa fa-check green"></i> Global culture</li>
+                            <li>
+                                <i class="fa fa-check green"></i> Cross functional career opportunities</li>
+                            <li>
+                                <i class="fa fa-check green"></i> Leadership is engaged</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <!-- Applicant details -->
+                        <div class="col-md-12 col-xs-12">
+                            <p class="center">
+                                <strong>Review On Skills</strong>
+                            </p>
+                        </div>
+    
+                        <!-- Evaluate the applicant -->
+                        <div class="col-md-12 col-xs-12 center">
+                            <i class="fa fa-css3"></i>Technical Skills</div>
+                        <br>
+                        <div class="col-md-6 col-xs-6">
+                            <span>HTML5: </span>
+                            <rating [(ngModel)]="rate[0]" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <span>JQuery: </span>
+                            <rating [(ngModel)]="rate[1]" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <span>CSS3: </span>
+                            <rating [(ngModel)]="rate[2]" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
+                        </div>
+                        <div class="col-md-6 col-xs-6">
+                            <span>Javascript: </span>
+                            <rating [(ngModel)]="rate[3]" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
+                        </div>
+    
+                        <!-- Write feedback -->
+                        <div class="ShapSquare col-md-12">
+                            <label for="feedback" class="control-label feedback">
+                                <strong>Feedback</strong>
+                            </label>
+                            <textarea name="feedback" rows="5" class="form-control"> </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+    
+</ng-template>
