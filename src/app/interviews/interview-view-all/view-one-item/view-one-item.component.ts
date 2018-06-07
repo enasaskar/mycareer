@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-view-one-item',
@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-one-item.component.css']
 })
 export class ViewOneItemComponent implements OnInit {
-
+  @Input() applicant: {
+    id: number,
+    fname: string,
+    lname: string,
+    imagePath: string,
+    position: string,
+    status,
+    appointment: {
+      date: string,
+      time: string
+    }
+  };
   constructor() { }
 
   ngOnInit() {

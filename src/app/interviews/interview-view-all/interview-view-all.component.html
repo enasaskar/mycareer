@@ -32,51 +32,12 @@
     </div> 
     <!-- Applicants -->
     <div class="row class1">
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
+        <app-view-one-item *ngFor="let applicant of applicants" [applicant]="applicant">
+                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant.id)"></i>
+                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant.id)"></i>
                 <i class="fa fa-hourglass-end" style="color:blue"></i>
         </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
+        
     </div>
     
     <button type="button" class="btn btn-primary pull-right" routerLink ="/interviews">Schedual An Interview</button>

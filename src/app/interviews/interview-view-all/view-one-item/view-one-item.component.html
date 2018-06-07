@@ -1,16 +1,16 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
     <div class="feature-box secundary bordered">
         <div class="feature-box-icon">
-            <img src="../../../assets/img/team/emp.jpg">
+            <img [src]="applicant.imagePath">
         </div>
         <div class="feature-box-info VacancyInfo">
             <a href="#" routerLink="/user/0/userProfile">
-                <h4 class="shorter">Youssef Hany</h4>
+                <h4 class="shorter"> {{applicant.fname + " "+ applicant.lname}}</h4>
             </a>
             <ul class="list icons list-unstyled">
                 <li>
                     <i class="fa fa-suitcase"></i>
-                    <strong>Position:</strong> Front-End developper</li>
+                    <strong>Position:</strong> {{applicant.position}}</li>
             </ul>
             <div class="right VacancyResponse">
                 <ng-content></ng-content>     

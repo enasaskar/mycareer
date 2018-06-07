@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InterviewListComponent implements OnInit {
  @Input() listType;
+ @Input() Applicants;
   constructor() { }
   ngOnInit() {
   }
