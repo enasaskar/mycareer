@@ -1,0 +1,116 @@
+<div role="main" class="main">
+
+  <section class="page-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>New Feeds</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-3">
+        <aside class="sidebar">
+          <div class="card hovercard">
+            <div class="cardheader"></div>
+            <div class="avatar">
+              <img alt="" src="../../../assets/img/logos/vodafone.png">
+            </div>
+            <div class="info counters">
+              <div class="title">
+                <a href="">Vodafone</a>
+              </div>
+              <div class="desc">Telecommunications</div>
+              <div>
+                <i class="fa fa-eye"></i>
+                <strong data-to="100">100</strong>
+                <label>Profile Views</label>
+              </div>
+              <div>
+                <i class="fa fa-star"></i>
+                <strong data-to="100">100</strong>
+                <label>Comments & Ratings</label>
+              </div>
+              <div>
+                <i class="fa fa-user"></i>
+                <strong data-to="56">56</strong>
+                <label>Applicants</label>
+              </div>
+            </div>
+          </div>
+ 
+          <div class="tabs">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i>Ratings</a></li>
+              <li><a href="#recentPosts" data-toggle="tab"><i class="fa fa-comment"></i>Recent Comments</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="popularPosts">
+                <!-- <app-rating></app-rating> -->
+              </div>
+              <div class="tab-pane" id="recentPosts">
+                <!-- <app-comments></app-comments> -->
+              </div>
+            </div>
+          </div>
+
+          <hr />
+        </aside>
+      </div>
+      
+      <div class="col-md-6">
+
+        <h2>Some <strong>Statistics</strong></h2>
+        <hr class="short">
+        <h4>Vacancies Statistics</h4>
+        <div class="counters center vacanciesStatistics">
+          <i class="fa fa-suitcase"></i>
+          <strong data-to="20">20</strong>
+          <label>Total Posted Vacancies Number</label>
+        </div>
+        <hr class="shorter">
+        <div style="display: block">
+          <canvas baseChart
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+
+        <h4>Interviews Statistics</h4>
+        <div style="display: block">
+          <canvas baseChart
+                      [data]="doughnutChartData"
+                      [labels]="doughnutChartLabels"
+                      [chartType]="doughnutChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+
+      </div>
+
+      <div class="col-md-3">
+							
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><i class="fa fa-bookmark"></i> Quick Shortcuts</h3>
+            </div>
+            <div class="panel-body">
+              <a routerLink = "/vacancy/addvacancy" class="btn btn-default btn-lg btn-block" role="button"><i class="fa fa-suitcase"></i><br/>New Vacancy</a>
+              <a routerLink = "/paths/add" class="btn btn-default btn-lg btn-block" role="button"><i class="fa fa-road"></i><br/>New Path</a>
+              <a routerLink = "/interviews" class="btn btn-default btn-lg btn-block" role="button"><i class="fa fa-calendar"></i><br/>Interview Slots</a>
+            </div>
+          </div>
+
+    </div>
+
+    </div>
+
+  </div>
+
+</div>
