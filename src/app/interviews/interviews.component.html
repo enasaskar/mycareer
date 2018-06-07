@@ -39,12 +39,11 @@
             </div>
         </div> 
 
-        <app-interview-applicantitem></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
-        <app-interview-applicantitem></app-interview-applicantitem>
+        <app-interview-applicantitem *ngFor="let accapplicant of firstSlotAccepted"[applicant]="accapplicant"></app-interview-applicantitem>
+
         <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="!seeMoreAccepted">See More</a>
         <p class="clear"></p>
-        <app-interview-list *ngIf="seeMoreAccepted" [listType]="'shortlist'"></app-interview-list>
+        <app-interview-list *ngIf="seeMoreAccepted" [listType]="'shortlist'" [Applicants]="secondSlotAccepted"></app-interview-list>
         <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="seeMoreAccepted">See Less</a>
         <p class="clear"></p>
 
@@ -72,21 +71,13 @@
                 </aside>
             </div>
         </div>
-        <app-view-one-item>
-            <i class="fa fa-check " style="color:green"></i>
-            <i class="fa fa-close " style="color:red"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-            <i class="fa fa-check " style="color:green"></i>
-            <i class="fa fa-close " style="color:red"></i>
-        </app-view-one-item>
-        <app-view-one-item>
-            <i class="fa fa-check " style="color:green"></i>
-            <i class="fa fa-close " style="color:red"></i>
+        <app-view-one-item *ngFor="let pendapplicant of firstSlotPending" [applicant]="pendapplicant">
+            <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(pendapplicant.id)"></i>
+            <i class="fa fa-close " style="color:red" (click)="rejectApplicant(pendapplicant.id)"></i>
         </app-view-one-item>
         <a class="SeeMore" (click)="seeMorePendingclicked()" *ngIf="!seeMorePending">See More</a>
         <p class="clear"></p>
-        <app-interview-list *ngIf="seeMorePending" [listType]="'pendingcv'">
+        <app-interview-list *ngIf="seeMorePending" [listType]="'pendingcv'" [Applicants]="secondSlotPending">
                 <i class="fa fa-check " style="color:green"></i>
                 <i class="fa fa-close " style="color:red"></i>
         </app-interview-list>
