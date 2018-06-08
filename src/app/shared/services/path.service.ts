@@ -4,7 +4,10 @@ export class PathService {
     constructor() {
 
     }
-    private path: IPath ;
+    //  =============================================================================================================
+    //  ================================================   DATA   ==================================================
+    //  =============================================================================================================
+    private path: IPath;
     private paths: IPath[] = [
         {
             Id: 1,
@@ -24,7 +27,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 2,
@@ -44,7 +48,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 3,
@@ -64,7 +69,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 4,
@@ -84,7 +90,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 5,
@@ -104,7 +111,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 6,
@@ -124,7 +132,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 7,
@@ -144,7 +153,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 8,
@@ -164,7 +174,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 9,
@@ -184,7 +195,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 10,
@@ -204,7 +216,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 11,
@@ -224,7 +237,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 12,
@@ -244,7 +258,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 13,
@@ -264,7 +279,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 14,
@@ -284,7 +300,8 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }, {
             Id: 15,
@@ -304,10 +321,80 @@ export class PathService {
                 IsDeleted: false
             },
             EntPathCreator: null,
-            NoOfInterestedUsers: 55
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
 
         }];
 
+    private similarPaths: IPath[] = [
+        {
+            Id: 1,
+            Name: 'Web development',
+            Description: 'This is a web path',
+            ImgURL: '../../../assets/img/avatar-2.jpg',
+            RequiredSkillsCount: 20,
+            IsDeleted: false,
+            PathMainCategory: {
+                Id: 1,
+                Name: 'IT',
+                IsDeleted: false
+            },
+            PathSubCategory: {
+                Id: 2,
+                Name: 'Software development',
+                IsDeleted: false
+            },
+            EntPathCreator: null,
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
+
+        }, {
+            Id: 2,
+            Name: 'IOS development',
+            Description: 'This is an IOS path',
+            ImgURL: '../../../assets/img/avatar-2.jpg',
+            RequiredSkillsCount: 20,
+            IsDeleted: false,
+            PathMainCategory: {
+                Id: 1,
+                Name: 'IT',
+                IsDeleted: false
+            },
+            PathSubCategory: {
+                Id: 2,
+                Name: 'Software development',
+                IsDeleted: false
+            },
+            EntPathCreator: null,
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
+
+        }, {
+            Id: 3,
+            Name: 'Android development',
+            Description: 'This is an Android path',
+            ImgURL: '../../../assets/img/avatar-2.jpg',
+            RequiredSkillsCount: 20,
+            IsDeleted: false,
+            PathMainCategory: {
+                Id: 1,
+                Name: 'IT',
+                IsDeleted: false
+            },
+            PathSubCategory: {
+                Id: 2,
+                Name: 'Software development',
+                IsDeleted: false
+            },
+            EntPathCreator: null,
+            NoOfInterestedUsers: 55,
+            SimilarPaths: null
+
+        }];
+
+    //  =============================================================================================================
+    //  ================================================ Functions ==================================================
+    //  =============================================================================================================
     public getAll(): IPath[] {
         const pathArr = this.paths.filter(p => p.IsDeleted === false);
         console.log(this.paths);
@@ -315,7 +402,11 @@ export class PathService {
     }
 
     public getById(id: number): IPath {
-    //   this.path = this.paths.find(i => i.Id == id);
+        //   this.path = this.paths.find(i => i.Id == id);
         return this.paths.find(i => i.Id == id);
+    }
+
+    public getSimilarPaths(id: number): IPath[] {
+        return this.similarPaths;
     }
 }

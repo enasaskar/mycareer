@@ -14,6 +14,8 @@ export  interface IPath {
     PathMainCategory: IPathCategory;
     PathSubCategory: IPathCategory;
     EntPathCreator: Enterprise;
+
+    SimilarPaths: IPath[];
     // RequiredSkills: ISkills[];
     // VacancyRelatedToPath: Vacancy[];
     // EnterpriseRecommendPath: Enterprise[];
