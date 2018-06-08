@@ -11,7 +11,7 @@ export class InterviewApplicantitemComponent implements OnInit {
   modalRef: BsModalRef;
 
   max = 10;
-  rate = [0,0,0,0];
+  rate = [0, 0, 0, 0];
   isReadonly = false;
 
   constructor(private modalService: BsModalService) { }

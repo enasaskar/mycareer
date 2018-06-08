@@ -1,5 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { FormControl } from '@angular/forms';
+
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { User } from '../users.model';
 import { UserService } from '../../shared/services/user.service';
@@ -20,21 +24,26 @@ export class UserProfileComponent implements OnInit {
   id: number;
   userWorkExperiences: WorkExperience[];
   userEducationalBackground: WorkExperience[];
+  // for adding work exp
+  modalRef: BsModalRef;
+
   constructor(
     private userService: UserService,
     private workService: WorkExperienceService,
     private educationService: EducationalBackgroundService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private modalService: BsModalService) { }
 
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
     });
-    // get this from api b3d kda
     this.userWorkExperiences = this.workService.getUserExperiences(this.id);
-    // get this from api b3d kda
     this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

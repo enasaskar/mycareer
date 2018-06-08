@@ -132,6 +132,15 @@ export class EnterpriseService {
             }
         }
     }
+    public getByName (name: string): Enterprise {
+        let enterprise: Enterprise;
+        this.enetrprises.map( item => {
+            if (item.name === name) {
+                enterprise = item;
+            }
+        });
+        return enterprise;
+    }
 
     public delete(enterprise: Enterprise) {
         const index = this.enetrprises.indexOf(enterprise);

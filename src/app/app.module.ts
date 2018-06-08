@@ -43,6 +43,8 @@ import { BranchService } from 'src/app/shared/services/branch-service';
 import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
+import { UserService } from './shared/services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,7 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    ModalModule.forRoot() 
+    ModalModule.forRoot()
   ],
   providers: [
     EnterpriseService,
@@ -83,7 +85,8 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     VacancyTypeService,
     CurrencyService,
     RatingListService,
-    UserCommentsService
+    UserCommentsService,
+    UserService
 ],
   bootstrap: [AppComponent]
 })
