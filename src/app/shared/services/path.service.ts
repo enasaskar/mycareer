@@ -8,6 +8,19 @@ export class PathService {
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
+    public defaultPath: IPath = {
+        Id : 0,
+        Name: '',
+        Description: '',
+        EntPathCreator: null,
+        ImgURL: '../../../assets/img/avatar-2.jpg',
+        NoOfInterestedUsers: 0,
+        IsDeleted: false,
+        PathMainCategory: null,
+        RequiredSkillsCount: 0,
+        PathSubCategory: null,
+        SimilarPaths: null
+      };
     private paths: IPath[] = [
         {
             Id: 1,
