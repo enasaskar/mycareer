@@ -23,6 +23,8 @@ import { ReviewModalContentComponent } from './enterprise-details/reviews/rating
 import { VacanciesModule } from '../vacancies/vacancies.module';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
+
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         WorkExpItemComponent,
         ReviewModalContentComponent,
         LandingPageComponent
+,
+    JobPostingPlansComponent
 ],
     imports:
     [
