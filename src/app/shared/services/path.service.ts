@@ -10,7 +10,7 @@ export class PathService {
     private path: IPath;
     public defaultPath: IPath = {
         Id : 0,
-        Name: '',
+        Name: 'tst',
         Description: '',
         EntPathCreator: null,
         ImgURL: '../../../assets/img/avatar-2.jpg',
@@ -421,5 +421,11 @@ export class PathService {
 
     public getSimilarPaths(id: number): IPath[] {
         return this.similarPaths;
+    }
+
+    public addPath(path: IPath): number {
+        path.Id = this.paths.length + 1;
+        this.paths.push(path);
+        return path.Id;
     }
 }
