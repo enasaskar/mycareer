@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ChartsModule } from 'ng2-charts';
+// import { ChartsModule } from 'ng2-charts';
 
 import { ViewOneItemComponent } from './enterprise-view-all/view-one-item/view-one-item.component';
 import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-view-all.component';
@@ -51,7 +51,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
         NgbModule,
         VacanciesModule,
         RouterModule,
-        ChartsModule
+        // ChartsModule
     ],
     exports:
     [
