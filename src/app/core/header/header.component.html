@@ -1,65 +1,83 @@
-
-
-
 <header id="header" class="narrow" data-plugin-options='{"alwaysStickyEnabled": true, "stickyEnabled": true, "stickyWithGap": false, "stickyChangeLogoSize": false}'>
+  <div class="container">
+    <div class="logo">
+      <a href="">
+        <img alt="Porto" width="200" height="50" src="../../../assets/img/logo.png">
+      </a>
+    </div>
+    <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="navbar-collapse nav-main-collapse collapse">
     <div class="container">
-      <div class="logo">
-        <a href="">
-          <img alt="Porto" width="200" height="50" src="../../../assets/img/logo.png">
-        </a>
-      </div>
-      <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
-        <i class="fa fa-bars"></i>
-      </button>
-    </div>
-    <div class="navbar-collapse nav-main-collapse collapse">
-      <div class="container">
-        <ul class="social-icons">
-          <li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
-          <li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+      <ul class="social-icons">
+        <li class="facebook">
+          <a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a>
+        </li>
+        <li class="twitter">
+          <a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a>
+        </li>
+      </ul>
+      <nav class="nav-main mega-menu">
+        <ul class="nav nav-pills nav-main" id="mainMenu">
+          <li class="active">
+            <a routerLink="/home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a routerLink='/vacancy'>Vacancies</a>
+          </li>
+          <li>
+            <a routerLink='/enterprises'>Enterprises </a>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle">
+              Career Paths
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a routerLink="/paths/list">All Paths</a>
+              </li>
+              <li>
+                <a routerLink="/paths/add">Add Path</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle">
+              For Enterprises
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a routerLink="/vacancy/addvacancy">Post New Vacancy</a>
+              </li>
+              <li>
+                <a routerLink="/paths/add">Add New Career Path</a>
+              </li>
+              <li>
+                <a routerLink="/interviews/applicants">Vacancies Interviews Details</a>
+              </li>
+              <li>
+                <a routerLink = "/enterprises/enterprise/goPremium">Go Premium</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>
+              Sign Up
+            </a>
+          </li>
+          <li>
+            <a>
+              Sign In
+            </a>
+          </li>
         </ul>
-        <nav class="nav-main mega-menu">
-          <ul class="nav nav-pills nav-main" id="mainMenu">
-            <li class="active" >
-              <a  routerLink = "/home">
-                Home
-              </a>
-            </li>
-            <li>
-              <a routerLink='/vacancy'>Vacancies</a>
-            </li>
-            <li>
-              <a routerLink='/enterprises'>Enterprises </a>
-            </li>
-            <li>
-              <a  routerLink = "/paths/list">
-                Career Pathes
-              </a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" href="#">
-                For Enterprises
-                <i class="fa fa-angle-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a routerLink = "/vacancy/addvacancy">Post New Vacancy</a></li>
-                <li><a  routerLink = "/interviews/view-all">Vacancies Interviews Details</a></li>
-                <li><a href="">Go Premium</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="">
-                Sign Up
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Sign In
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      </nav>
     </div>
-  </header>
-
+  </div>
+</header>

@@ -6,7 +6,7 @@ import { InterviewViewAllComponent } from './interview-view-all/interview-view-a
 
 const interviewsRoutes: Routes = [
     {path : 'interviews', component : InterviewsComponent },
-    {path : 'interviews/view-all', component : InterviewViewAllComponent }
+    {path : 'interviews/applicants', component : InterviewViewAllComponent }
 ];
 
 @NgModule({

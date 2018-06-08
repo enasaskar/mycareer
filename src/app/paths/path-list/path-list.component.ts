@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PathCategoryService } from '../../shared/services/PathCategory.service';
 import { IPathCategory } from '../../shared/interfaces/ICategory';
+import { IPath } from '../../shared/interfaces/IPath';
+import { PathService } from '../../shared/services/path.service';
 
 @Component({
   selector: 'app-path-list',
@@ -9,33 +11,16 @@ import { IPathCategory } from '../../shared/interfaces/ICategory';
 })
 export class PathListComponent implements OnInit {
 
-  public pathsList = [{
-    name: 'Web',
-    description: 'This is a web path',
-    imgPath: '../../../assets/img/avatar-2.jpg',
-    requiredSkillsCount: 20
-  }, {
-    name: 'Android',
-    description: 'This is an Android path',
-    imgPath: '../../../assets/img/avatar-2.jpg',
-    requiredSkillsCount: 23
-  }, {
-    name: 'IoT',
-    description: 'This is a IoT path',
-    imgPath: '../../../assets/img/avatar-2.jpg',
-    requiredSkillsCount: 21
-  }, {
-    name: 'Embedded',
-    description: 'This is an Embedded path',
-    imgPath: '../../../assets/img/avatar-2.jpg',
-    requiredSkillsCount: 29
-  }, ];
+
 
   public PathCategories: IPathCategory[];
-    constructor(private pathCategoryService: PathCategoryService) { }
+  public paths: IPath[];
+    constructor(private pathCategoryService: PathCategoryService,
+      private pathService: PathService) { }
 
   ngOnInit() {
     this.PathCategories = this.pathCategoryService.getAll();
+    this.paths = this.pathService.getAll();
   }
 
 }

@@ -1,4 +1,4 @@
-<form method="POST">
+<form method="POST" (ngSubmit)='addPath(PathForm)' #PathForm = "ngForm">
 <div class="row  PathProfileData">
     <!-- Save Icon -->
     <div class="row">
@@ -16,7 +16,7 @@
             <div class="col-sm-3  ">
                 <div class="portfolio-item thumbnail">
                     <a href="" class="thumb-info">
-                        <img alt="" class="img-responsive" src="~/img/route.png">
+                        <img alt="" class="img-responsive" [src]="path.ImgURL">
                         <span class="thumb-info-title">
                             <span class="thumb-info-inner">Change Picture</span>
                             <span class="thumb-info-type">Upload From Device</span>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="col-sm-9 mediumPadding">
-                <input type="hidden" name="Emp.Id" value="@Model.Path.Id" />
+                <input type="hidden" name="path.Id"  [(ngModel)]= "path.Id"/>
                 <div class="form-group row">
                     <div class="col-xs-4 ">
                         <label class="  control-label">Name</label>
@@ -38,38 +38,37 @@
                     <div class=" col-xs-8">
                         <!-- @Html.EditorFor(i => i.Name, "textbox") -->
                       
-                      <input type="text" name="" class="form-control" value="" required="required"  >
+                      <input type="text" name="path.Name" class="form-control"  required="required"  [(ngModel)]= "path.Name" >
                       
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class=" col-xs-4">
-                      <span class="label">Main Category</span>
+                      <span>Main Category</span>
                     </div>
                     <div class=" col-xs-8">
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Main, Model.Categories) -->
                         
-                        <select name="" class="form-control" required="required">
-                          <option value="">Computer Science</option>
-                          <option value="">Math </option>
-                          <option value="">Design</option>
-                        </select>
-                        
+
+                        <select   name="path.PathMainCategory" class="form-control" [(ngModel)]= "path.PathMainCategory" >
+                            <option value="" disabled selected> Select Main category</option>
+                            <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
+                          </select>
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class=" col-xs-4">
                        
-                       <span class="label">Sub Category</span>
+                       <span>Sub Category</span>
                        
                     </div>
                     <div class=" col-xs-8">
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Sub, Model.Categories) -->
-                        <select name="" class="form-control" required="required">
-                          <option value="">Computer Science</option>
-                          <option value="">Math </option>
-                          <option value="">Design</option>
-                        </select>
+                        <select [(ngModel)]= "path.PathSubCategory" name="path.PathSubCategory" class="form-control" >
+                            <option value="" disabled selected> Select Sub category</option>
+                            <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
+                          </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -78,7 +77,7 @@
                     <div class="  col-xs-8">
                        
                         
-                        <textarea name="" class="form-control" rows="3" required="required"></textarea>
+                        <textarea name="path.Description" class="form-control" rows="3" required="required"  [(ngModel)]= "path.Description"></textarea>
                         
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -10,7 +11,9 @@ const enterpriseRoutes: Routes = [
     {path : 'enterprises/enterprise/details/:id', component: EnterpriseDetailsComponent},
     {path : 'enterprises/enterprise/details', component: EnterpriseDetailsComponent},    
     {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
-    {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent}
+    {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent},
+    {path : 'enterprises/enterprise/goPremium', component : JobPostingPlansComponent}
+
 ];
 
 @NgModule({

@@ -1,6 +1,11 @@
 <div [ngSwitch]="listType">
-  <app-interview-applicantitem *ngSwitchCase="'shortlist'"></app-interview-applicantitem>
-  <app-view-one-item *ngSwitchCase="'pendingcv'">
-    <ng-content></ng-content>
-  </app-view-one-item>
+  <div *ngSwitchCase="'shortlist'">
+      <app-interview-applicantitem *ngFor="let acceptedapp of Applicants" [applicant]="acceptedapp"></app-interview-applicantitem>
+  </div>
+  <div *ngSwitchCase="'pendingcv'">
+    <app-view-one-item *ngFor="let pendapp of Applicants" [applicant]="pendapp">
+      <ng-content></ng-content>
+    </app-view-one-item>
+  </div>
+  
 </div>

@@ -1,19 +1,19 @@
 <div class="col-md-4 col-sm-6 col-xs-12" id="1">
     <div class="feature-box secundary bordered">
         <div class="feature-box-icon">
-            <img src="../../../assets/img/team/emp.jpg" alt="">
+            <img [src]="applicant.imagePath" alt="">
         </div>
         <div class="feature-box-info VacancyInfo">
             <a class="right">
-                <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
+                <i class="fa fa-trash" aria-hidden="true" data-id="1" (click)="deleteApplicant(applicant.id)"></i>
             </a>
             <a routerLink="/user/0/userProfile">
-                <h4 class="shorter">Joe Doe</h4>
+                <h4 class="shorter">{{applicant.fname + " " + applicant.lname }}</h4>
             </a>
             <ul class="list icons list-unstyled">
-                <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> Web Developer</li>
-                <li><i class="fa fa-calendar"></i><strong>Date :</strong> 15-5-2018</li>
-                <li><i class="fa fa-clock-o"></i><strong>at:</strong> 12:30:50 pm</li>
+                <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> {{applicant.position}}</li>
+                <li><i class="fa fa-calendar"></i><strong>Date :</strong> {{applicant.appointment.date}}</li>
+                <li><i class="fa fa-clock-o"></i><strong>at:</strong> {{applicant.appointment.time}}</li>
             </ul>
             <div class="right VacancyResponse">
                     <button type="button" class="btn btn-primary"(click)="openModal(evaluation)">Start Interview</button>
@@ -37,10 +37,10 @@
                         <div class="team-item thumbnail">
                             <!--link to profile-->
                             <a href="#" class="thumb-info team">
-                                <img alt="" src="../../../assets/img/team/emp.jpg">
+                                <img alt="" [src]="applicant.imagePath">
                                 <span class="thumb-info-title">
-                                    <span class="thumb-info-inner">John Doe</span>
-                                    <span class="thumb-info-type">Web Developer</span>
+                                    <span class="thumb-info-inner">{{applicant.fname + " " + applicant.lname }}</span>
+                                    <span class="thumb-info-type">{{applicant.position}}</span>
                                 </span>
                             </a>
                         </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PathService } from '../../../shared/services/path.service';
 import { IPath } from '../../../shared/interfaces/IPath';
 
@@ -9,11 +9,11 @@ import { IPath } from '../../../shared/interfaces/IPath';
 })
 export class ListComponent implements OnInit {
 
-  paths: IPath[];
+  @Input() pathList: IPath[];
   constructor(private pathService: PathService) { }
 
   ngOnInit() {
-    this.paths = this.pathService.getAll();
+    // this.paths = this.pathService.getAll();
   }
 
 }

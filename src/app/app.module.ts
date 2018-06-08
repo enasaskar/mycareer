@@ -44,6 +44,7 @@ import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service'
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { UserService } from './shared/services/user.service';
+import { ApplicantsService } from './shared/services/applicants.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,8 @@ import { UserService } from './shared/services/user.service';
     CurrencyService,
     RatingListService,
     UserCommentsService,
-    UserService
+    UserService,
+    ApplicantsService
 ],
   bootstrap: [AppComponent]
 })

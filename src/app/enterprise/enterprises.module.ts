@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ChartsModule } from 'ng2-charts';
 
 import { ViewOneItemComponent } from './enterprise-view-all/view-one-item/view-one-item.component';
 import { EnterpriseViewAllComponent } from './enterprise-view-all/enterprise-view-all.component';
@@ -22,6 +22,10 @@ import { WorkExpItemComponent } from './work-experience/work-exp-item/work-exp-i
 import { ReviewModalContentComponent } from './enterprise-details/reviews/rating/review-modal-content/review-modal-content.component';
 import { VacanciesModule } from '../vacancies/vacancies.module';
 import { RouterModule } from '@angular/router';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
+
+
 
 @NgModule({
     declarations:
@@ -38,9 +42,11 @@ import { RouterModule } from '@angular/router';
         OneItemComponent,
         WorkExperienceComponent,
         WorkExpItemComponent,
-        ReviewModalContentComponent
-    
-    ],
+        ReviewModalContentComponent,
+        LandingPageComponent
+,
+    JobPostingPlansComponent
+],
     imports:
     [
         CommonModule,
@@ -48,7 +54,8 @@ import { RouterModule } from '@angular/router';
         EnterpriseRoutingModule,
         NgbModule,
         VacanciesModule,
-        RouterModule
+        RouterModule,
+        ChartsModule
     ],
     exports:
     [

@@ -9,16 +9,9 @@
   </div>
 
   <div class="container vacancy">
-      <!-- <div class="row">
-          <div class="form-group">
-              <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6">
-                  <input type="search" name="" class="form-control" value="" title="" placeholder="Search">
-              </div>
-          </div>
-      </div> -->
 
       <div class="row">
-          <app-vacancy-item *ngFor="let v of vacancies" [vacancyitem]="v"></app-vacancy-item>
+          <app-enterprise-vacancy-item *ngFor="let i of eVacancies" [eVacancyItem] = "i"></app-enterprise-vacancy-item>
       </div>
   </div>
   

@@ -9,7 +9,7 @@ import { RatingListService } from '../../../../../shared/services/ratingList.ser
 })
 export class OneItemComponent implements OnInit {
 
-  @Input() public ratingItem : RatingList;
+  @Input() public ratingItem ;
   
   constructor() { }
 
