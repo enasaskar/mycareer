@@ -11,7 +11,11 @@ export class JobOfferService {
     new JobOffer (2 , '30-8-2018')
   ];
   constructor() { }
+
   public getUserJobOffers(id: number): JobOffer[] {
     return this.JobOffers;
+  }
+  deleteOffer(i: number) {
+    this.JobOffers.splice(i, 1);
   }
 }
