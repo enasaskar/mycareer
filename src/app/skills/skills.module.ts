@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+
 
 import { SkillListComponent } from './skill-list/skill-list.component';
 import { SkillDetailsPopupComponent } from './skill-details-popup/skill-details-popup.component';
@@ -30,7 +32,9 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
       // {path: '', component: SkillDetailsComponent},
       // {path: 'edit', component: SkillDetailsEditComponent}
       // ]},
-    ])
+    ]),
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     SkillListComponent,
