@@ -6,19 +6,33 @@ import { Injectable } from '@angular/core';
 export class ApplicantsService {
   private appllicants = [
     {
-      id: 0,
-      fname: "Youssef",
+      id: 1,
+      fname: "Karim",
       lname: "Sameh",
       imagePath: "../../../assets/img/team/emp.jpg",
       position: ".net-developer",
-      status: null,
+      status: true,
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 1,
+          rate: 0
+        }]
     },
     {
-      id: 1,
+      id: 2,
       fname: "Sara",
       lname: "Adel",
       imagePath: "../../../assets/img/team/emp6.jpg",
@@ -27,10 +41,24 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 1,
+          rate: 0
+        }]
     },
     {
-      id: 2,
+      id: 3,
       fname: "Bola",
       lname: "Hany",
       imagePath: "../../../assets/img/team/emp4.jpg",
@@ -39,10 +67,24 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 1,
+          rate: 0
+        }]
     },
     {
-      id: 3,
+      id: 4,
       fname: "Ann",
       lname: "Amgad",
       imagePath: "../../../assets/img/team/emp5.jpg",
@@ -51,10 +93,24 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 1,
+          rate: 0
+        }]
     },
     {
-      id: 4,
+      id: 5,
       fname: "Ahmed",
       lname: "Ayman",
       imagePath: "../../../assets/img/team/emp3.jpg",
@@ -63,10 +119,24 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 5,
+          rate: 0
+        }, {
+          id: 6,
+          rate: 0
+        }]
     },
     {
-      id: 5,
+      id:6,
       fname: "Rana",
       lname: "Osama",
       imagePath: "../../../assets/img/team/emp7.jpg",
@@ -75,10 +145,24 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 2,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }]
     },
     {
-      id: 6,
+      id: 7,
       fname: "Youssef",
       lname: "Sameh",
       imagePath: "../../../assets/img/team/emp.jpg",
@@ -87,9 +171,27 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 2,
+          rate: 0
+        },
+        {
+          id: 3,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 5,
+          rate: 0
+        }, {
+          id: 6,
+          rate: 0
+        }]
     },{
-      id: 7,
+      id: 8,
       fname: "Jhon",
       lname: "Doe",
       imagePath: "../../../assets/img/team/emp.jpg",
@@ -98,9 +200,23 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [
+        {
+          id: 2,
+          rate: 0
+        }, {
+          id: 3,
+          rate: 0
+        }, {
+          id: 5,
+          rate: 0
+        }, {
+          id: 6,
+          rate: 0
+        }]
     },{
-      id: 8,
+      id: 9,
       fname: "Youssef",
       lname: "Sameh",
       imagePath: "../../../assets/img/team/emp.jpg",
@@ -109,7 +225,21 @@ export class ApplicantsService {
       appointment: {
         date: null,
         time: null
-      }
+      },
+      skills: [        // skills evaluation
+        {
+          id: 1,
+          rate: 0
+        }, {
+          id: 2,
+          rate: 0
+        }, {
+          id: 4,
+          rate: 0
+        }, {
+          id: 5,
+          rate: 0
+        }]
     }
   ]
   
@@ -118,6 +248,7 @@ export class ApplicantsService {
   public getAll() {
    return this.appllicants;
   }
+  
   // public add() {
   // }
   public update(id:number,status:boolean) {
