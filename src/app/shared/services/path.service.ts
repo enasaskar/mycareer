@@ -410,7 +410,7 @@ export class PathService {
     //  =============================================================================================================
     public getAll(): IPath[] {
         const pathArr = this.paths.filter(p => p.IsDeleted === false);
-        console.log(this.paths);
+        // console.log(this.paths);
         return pathArr;
     }
 

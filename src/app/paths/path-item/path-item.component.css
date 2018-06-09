@@ -1,0 +1,11 @@
+li{
+    /* flex-wrap: wrap;
+    align-content: flex-start; */
+    height: 250px;
+}
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
