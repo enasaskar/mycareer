@@ -1,15 +1,18 @@
 import { Sizes } from '../classes/sizes';
 import { Enterprise } from '../classes/enterprise';
 import { EnterpriseDetails } from '../classes/enterprise-details';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { RatingModal } from '../classes/rating.modal';
+import { UserRatingsService } from './user-ratings.service';
+import { RatingList } from '../classes/ratingList';
 
+@Injectable({
+    providedIn: 'root'
+  })
 export class EnterpriseService {
 
-    // public onDelete = new EventEmitter<Enterprise>();
-
     public onDelete = new Subject();
-
 
     private enetrprises: Enterprise[] = [
         {
@@ -79,6 +82,10 @@ export class EnterpriseService {
 
     ];
 
+    constructor(private userRatingService : UserRatingsService){
+
+    }
+
     private enterprisesDetails: EnterpriseDetails[] = [{
         id : 1,
         name : 'Vodafone',
@@ -132,11 +139,19 @@ export class EnterpriseService {
             }
         }
     }
+    public getByName (name: string): Enterprise {
+        let enterprise: Enterprise;
+        this.enetrprises.map( item => {
+            if (item.name === name) {
+                enterprise = item;
+            }
+        });
+        return enterprise;
+    }
 
     public delete(enterprise: Enterprise) {
         const index = this.enetrprises.indexOf(enterprise);
         this.enetrprises.splice(index, 1);
-        console.log(this.enetrprises);
     }
 
     public update(i : number, e: EnterpriseDetails) {
@@ -153,6 +168,14 @@ export class EnterpriseService {
           }
 
           return enterprises;
+    }
+
+    public getRatingItem(ratingList : RatingList[], id : number){
+            return ratingList.find(a => a.id == id);
+    }
+
+    public getRatingAvg(id : number){
+        return this.userRatingService.getAll().filter(a => a.enterpriesId == id);
     }
 
 }

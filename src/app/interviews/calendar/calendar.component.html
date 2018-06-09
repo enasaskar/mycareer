@@ -2,8 +2,16 @@
 </calendar-header>
 
 <div [ngSwitch]="view">
-  <mwl-calendar-month-view *ngSwitchCase="'month'" [@.disabled]="true" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
-    (eventTimesChanged)="eventTimesChanged($event)" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)">
+  <mwl-calendar-month-view 
+  *ngSwitchCase="'month'" 
+  [@.disabled]="true" 
+  [viewDate]="viewDate" 
+  [events]="events" 
+  [refresh]="refresh"
+  (eventTimesChanged)="eventTimesChanged($event)" 
+  [activeDayIsOpen]="activeDayIsOpen" 
+  (dayClicked)="dayClicked($event.day)"
+  (dayClicked)="clickedDate = $event.day.date">
   </mwl-calendar-month-view>
   <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)">
   </mwl-calendar-week-view>
@@ -12,7 +20,7 @@
 </div>
 <h3>
   <button class="btn btn-primary pull-right" style="margin-top:10px" (click)="addEvent()">
-    Add Event
+    Add Interviews Slot
   </button>
   <div class="clearfix"></div>
 </h3>

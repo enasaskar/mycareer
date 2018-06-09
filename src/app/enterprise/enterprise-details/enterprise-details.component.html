@@ -56,8 +56,8 @@
           {{details.name}}
         </h2>
         <h4>{{details.headLine}}</h4>
-
-        <span class="thumb-info-social-icons">
+        <hr class="shorter"/>
+        <span class="thumb-info-social-icons" id="socialIcons">
           <div class="social">
             <a data-tooltip data-placement="top" target="_blank" href="http://www.facebook.com" data-original-title="Facebook">
               <i class="fa fa-facebook"></i>
@@ -67,12 +67,7 @@
               <i class="fa fa-twitter"></i>
               <span>Twitter</span>
             </a>
-            <div class="info_edit_inplace">
-              <a data-tooltip data-placement="top" data-original-title="Edit">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-                <span>Edit</span>
-              </a>
-            </div>
+            
           </div>
 
 
@@ -378,13 +373,13 @@
 
 
     <!-- reviews -->
-    <app-reviews></app-reviews>
+    <app-reviews *ngIf="details"></app-reviews>
   </div>
 
   <!-- floating-button -->
   <div *ngIf="details" id="container-floating">
 
-    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy">
+    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy" routerLink = "/vacancy/addvacancy">
       <img class="reminder" src="../../../assets/img/vacancy.png" alt="">
     </div>
     <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New JobFair">

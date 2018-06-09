@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Vacancy } from '../../shared/classes/vacancy.model';
 import { VacancyService } from '../../shared/services/vacancy-service';
@@ -8,11 +9,11 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./entreprise-vacancies.component.css']
 })
 export class EntrepriseVacanciesComponent implements OnInit {
-  vacancies: Vacancy[];  
-  constructor(private vacancyServiec: VacancyService) { }
+  eVacancies: Vacancy[];  
+  constructor(private eVacancyServiec: VacancyService,private active : ActivatedRoute) { }
 
   ngOnInit() {
-    this.vacancies = this.vacancyServiec.getAll();    
+    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(+this.active.snapshot.params["id"]); 
   }
 
 }

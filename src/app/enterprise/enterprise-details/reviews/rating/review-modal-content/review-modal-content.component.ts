@@ -1,6 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
+import { UserRatingsService } from './../../../../../shared/services/user-ratings.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
+import { UserRatings } from '../../../../../shared/classes/user-ratings';
 
 
 
@@ -19,7 +22,8 @@ export class ReviewModalContentComponent implements OnInit {
 
 
 
-  constructor(private dialogRef: MatDialogRef<ReviewModalContentComponent>) {
+  constructor(private dialogRef: MatDialogRef<ReviewModalContentComponent>,
+    private ratingService : UserRatingsService,private active : ActivatedRoute) {
 
      }
 
@@ -28,10 +32,12 @@ export class ReviewModalContentComponent implements OnInit {
   }
 
   OnAddRating(form : NgForm){
-      console.log(this.envRate);
-      console.log(this.workplaceRate);
-      console.log(this.appRate);
-      console.log(this.expRate);
+      let id = +this.active.snapshot.params["id"];
+      this.ratingService.addRating(new UserRatings(0,id,1,this.envRate));
+      this.ratingService.addRating(new UserRatings(0,id,2,this.workplaceRate));
+      this.ratingService.addRating(new UserRatings(0,id,3,this.appRate));
+      this.ratingService.addRating(new UserRatings(0,id,4,this.expRate));
+      console.log(this.ratingService.getAll());
       this.dialogRef.close();
 
       //To Do : add ratings to user-rating table

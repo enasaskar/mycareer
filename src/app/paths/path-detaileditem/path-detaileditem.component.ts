@@ -15,13 +15,25 @@ export class PathDetaileditemComponent implements OnInit {
 
 
 
-  public Path: IPath;
-  public SimilarPaths: IPath[];
+  public Path: IPath = {
+    Id : 1,
+    Name: 'No Data',
+    Description: 'No data yet',
+    EntPathCreator: null,
+    ImgURL: null,
+    NoOfInterestedUsers: 0,
+    IsDeleted: false,
+    PathMainCategory: null,
+    RequiredSkillsCount: 0,
+    PathSubCategory: null,
+    SimilarPaths: null
+  };
 
   ngOnInit() {
-    this.Path.Id = this.route.snapshot.params['id'] || 10;
-    console.log(this.route);
+
+    this.Path.Id = this.route.snapshot.params['id'] || 1;
     this.Path = this.pathService.getById(this.Path.Id );
+    this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
   }
 
 }
