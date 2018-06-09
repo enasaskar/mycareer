@@ -36,17 +36,17 @@
           <h4 class="left">Details</h4>
         </div>
         <div class="col-md-6 "></div>
-        <div class="col-md-3 col-xs-2 editIcon" *ngIf="editIcon"> 
-            <span class="thumb-info-social-icons right" id="edit-skills-details">
+        <div class="col-md-3 col-xs-2 editIcon " *ngIf="editIcon"> 
+            <span class="thumb-info-social-icons right " id="edit-skills-details">
              
-          <a data-tooltip data-placement="bottom" data-original-title="Edit" (click)="onClick()">   
+          <a class="ptr" data-tooltip data-placement="bottom" data-original-title="Edit" (click)="onClick()">   
           <i class="fa fa-pencil" ></i>
           <span>Edit</span>
         </a>
         </span>
         </div>
         <div (click)="back()" *ngIf="!editIcon">
-          <a>back</a>
+          <a class="ptr">back</a>
         </div>
       </div>
      

@@ -1,22 +1,23 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <ul class="list icons list-unstyled">
 
-   <form (ngSubmit)="onAddSkill()">
-    <ul class="list icons list-unstyled">
+    <div class="table-responsive">
+      <table class="table table-hover tableCustom">
 
-      <div class="table-responsive">
-        <table class="table table-hover tableCustom">
-
-          <tbody>
-            <tr>
-
-
-              <td>
-                <i class="fa fa-calendar"></i> Date-acquired</td>
-              <td>
-                <input type="text" placeholder=" work with fontawesom unicode calendar plus &, #,xf271" bsDatepicker [bsConfig]="datePickerConfig">
-              </td>
-              <!-- <strong id="date-acquired">1/10/2017</strong> -->
-              <!--Date Time Picker-->
-              <!-- <div class="form-group editable-skill-details">
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa fa-calendar"></i> Date-acquired</td>
+            <td>
+              <input type="text" 
+              formControlName="acquiredDate" 
+              name="acquiredDate" 
+              bsDatepicker [bsConfig]="datePickerConfig">
+            </td>
+            <!-- placeholder=" work with fontawesom unicode calendar plus &, #,xf271"  -->
+            <!-- <strong id="date-acquired">1/10/2017</strong> -->
+            <!--Date Time Picker-->
+            <!-- <div class="form-group editable-skill-details">
                         <div class="input-group date" id="datetimepicker1">
                           <input type="text" class="form-control">
                           <span class="input-group-addon">
@@ -26,16 +27,17 @@
                       </div> -->
 
 
-            </tr>
-            <tr>
-
-              <td>
-                <i class="fa fa-university"></i>
-                From</td>
-              <td>
-                <input type="text" multiple>
-              </td>
-              <!-- <div class="form-group search editable-skill-details">
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-university"></i>
+              From</td>
+            <td>
+              <input type="text" 
+              formControlName="from" 
+              name="from">
+            </td>
+            <!-- <div class="form-group search editable-skill-details">
                       <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
                         <div class="input-group">
                           <input type="text" class="form-control search" name="q" id="q" placeholder="Add institute..." required="" aria-required="true">
@@ -49,41 +51,44 @@
                     </div>
                     <i class="fa fa-plus-circle plusIcon" aria-hidden="true"></i>-->
 
-            </tr>
-            <tr>
-              <td>
+          </tr>
+          <tr>
+            <td>
 
-                <i class="fa fa-road"></i>
-                Required in Paths</td>
-              <td>
-                <input type="text" name="" id="">
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <span class="label label-primary pathLabel">Web Development</span>
-                <span class="label label-primary pathLabel">Full-Stack Developer</span>
-                <span class="label label-primary pathLabel">Back-End Developer</span>
-              </td>
-            </tr>
-            <tr>
+              <i class="fa fa-road"></i>
+              Required in Paths</td>
+            <td>
+              <input type="text" 
+              formControlName="paths" 
+              name="paths" >
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <span class="label label-primary pathLabel">Web Development</span>
+              <span class="label label-primary pathLabel">Full-Stack Developer</span>
+              <span class="label label-primary pathLabel">Back-End Developer</span>
+            </td>
+          </tr>
+          <tr>
 
-              <td>
-                <i class="fa fa-briefcase"></i> Required in Vacancies</td>
-              <td>
-                <input type="text" name="" id="">
-                <!-- <span class="label label-success">100</span> output of no of vacancies displayed here -->
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </ul>
-  </form>
-    <div class="right editable-skill-details">
-      <button type="button" class="btn btn-default">Cancel</button>
-      <button type="submit" class="btn btn-primary">Save</button>
+            <td>
+              <i class="fa fa-briefcase"></i> Required in Vacancies</td>
+            <td>
+              <input type="text" 
+              formControlName="vacancies" 
+              name="vacancies" >
+              <!-- <span class="label label-success">100</span> output of no of vacancies displayed here -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <p class="clear"></p>
- 
+  </ul>
+  <div class="right ">
+    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+  <p class="clear"></p>
+</form>

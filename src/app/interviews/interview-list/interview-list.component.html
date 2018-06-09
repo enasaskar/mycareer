@@ -1,11 +1,60 @@
+<!-- List Type -->
+<div class="col-md-12"></div>
 <div [ngSwitch]="listType">
-  <div *ngSwitchCase="'shortlist'">
-      <app-interview-applicantitem *ngFor="let acceptedapp of Applicants" [applicant]="acceptedapp"></app-interview-applicantitem>
-  </div>
-  <div *ngSwitchCase="'pendingcv'">
-    <app-view-one-item *ngFor="let pendapp of Applicants" [applicant]="pendapp">
-      <ng-content></ng-content>
-    </app-view-one-item>
-  </div>
-  
+<h3 *ngSwitchCase="'shortlist'">
+    <i class="fa fa-file-text"></i>
+    <strong>Accepted</strong> CV</h3>
+<h3 *ngSwitchCase="'pendingcv'">
+    <i class="fa fa-file-text"></i>
+    <strong>Pending</strong> CV</h3>
+</div>  
+
+<!-- Search -->
+<div class="row" *ngIf="seeMore">
+    <div class="col-md-4 right search">
+        <aside class="sidebar">
+            <form method="POST" role="form">
+                <div class="input-group input-group-lg">
+                    <input class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </aside>
+    </div>
 </div>
+
+<!-- Card View depends on list Type -->
+<div [ngSwitch]="listType">
+    <div *ngSwitchCase="'shortlist'">
+        <app-interview-applicantitem *ngFor="let acceptedapp of firstSlotAccepted" [applicant]="acceptedapp"></app-interview-applicantitem>
+    </div>
+    <div *ngSwitchCase="'pendingcv'">
+        <app-view-one-item *ngFor="let pendapp of firstSlotPending" [applicant]="pendapp">
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant(pendapp.id,'first')"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant(pendapp.id,'first')"></i>
+        </app-view-one-item>
+    </div>
+</div>
+
+<!-- see more button -->
+<a class="SeeMore" (click)="seeMoreclicked()" *ngIf="!seeMore">See More</a>
+<p class="clear"></p>
+
+<!-- the rest of applicants card -->
+<div [ngSwitch]="listType" *ngIf="seeMore">
+    <div *ngSwitchCase="'shortlist'"  >
+        <app-interview-applicantitem *ngFor="let acceptedapp of secondSlotAccepted" [applicant]="acceptedapp"></app-interview-applicantitem>
+    </div>
+    <div *ngSwitchCase="'pendingcv'">
+        <app-view-one-item *ngFor="let pendapp of secondSlotPending" [applicant]="pendapp">
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant(pendapp.id,'second')"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant(pendapp.id,'second')"></i>
+        </app-view-one-item>
+    </div>
+</div>
+<a class="SeeMore" (click)="seeMoreclicked()" *ngIf="seeMore">See Less</a>
+<p class="clear"></p>

@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef, Input} from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ApplicantsService } from '../../shared/services/applicants.service';
+import { SkillsService } from '../../shared/services/skills.service';
 
 @Component({
   selector: 'app-interview-applicantitem',
@@ -19,14 +20,18 @@ export class InterviewApplicantitemComponent implements OnInit {
     appointment: {
       date: string,
       time: string
-    }
+    },
+    skills: [
+      {
+        id: number,
+        rate:number
+      }]
   };
   modalRef: BsModalRef;
   max = 10;
-  rate = [0, 0, 0, 0];
   isReadonly = false;
 
-  constructor(private modalService: BsModalService,private applicantsService:ApplicantsService) { }
+  constructor(private modalService: BsModalService,private applicantsService:ApplicantsService,private skillsService:SkillsService) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -39,6 +44,9 @@ export class InterviewApplicantitemComponent implements OnInit {
   }
   ngOnInit() {
    
+  }
+  getSkillName(id:number):string {
+    return this.skillsService.getByID(id).Name;
   }
   deleteApplicant(id:number){
     this.applicantsService.delete(id);

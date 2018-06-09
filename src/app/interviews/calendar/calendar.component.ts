@@ -4,7 +4,7 @@ import { addDays, startOfDay, endOfDay, isSameMonth, isSameDay } from 'date-fns'
 import {
   CalendarEvent,
   CalendarEventTimesChangedEvent,
-  CalendarEventAction
+  CalendarEventAction,
 } from 'angular-calendar';
 import { colors } from '../../calendar-utils/colors';
 
@@ -22,23 +22,47 @@ export class CalendarComponent {
 
   activeDayIsOpen: boolean;
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+  events: CalendarEvent[]=[];
+
+  refresh: Subject<any> = new Subject();
+
+  // selectedMonthViewDay: CalendarMonthViewDay;
+
+  dayClicked({ date, events}: { date: Date; events: CalendarEvent[];}): void {
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
         events.length === 0
       ) {
         this.activeDayIsOpen = false;
+       
       } else {
         this.activeDayIsOpen = true;
-        this.viewDate = date;
+        this.viewDate = date;  
       }
     }
-  }
-  events: CalendarEvent[] = [];
 
-  refresh: Subject<any> = new Subject();
+    // if (this.selectedMonthViewDay) {
+    //   debugger;
+    //   delete this.selectedMonthViewDay.cssClass;
+    // }
+    // day.cssClass = 'cal-day-selected';
+    // this.selectedMonthViewDay = day;
+  }
+
+  // beforeMonthViewRender({ body }: { body: CalendarMonthViewDay[] }): void {
+  //   body.forEach(day => {
+  //     if (
+  //       this.selectedMonthViewDay &&
+  //       day.date.getTime() === this.selectedMonthViewDay.date.getTime()
+  //     ) {
+  //       day.cssClass = 'cal-day-selected';
+  //       this.selectedMonthViewDay = day;
+  //     }
+  //   });
+  // }
   
+
   eventTimesChanged({
     event,
     newStart,
@@ -50,6 +74,7 @@ export class CalendarComponent {
   }
   
   addEvent(): void {
+    console.log(this.clickedDate.toLocaleDateString());
     this.events.push({
       title: "interviews",
       start: startOfDay(this.clickedDate),
@@ -73,7 +98,6 @@ export class CalendarComponent {
     });
     this.refresh.next();
   }
-
-  
+ 
 }
 

@@ -1,3 +1,4 @@
+<!-- interview section -->
 <section class="page-top">
     <div class="container">
         <div class="row">
@@ -21,68 +22,11 @@
         <hr class="mini">
         
         <!-- shortList -->
-        <div class="col-md-12"><h3><i class="fa fa-file-text"></i> <strong>Accepted</strong> CV</h3></div>
-        <div class="row" *ngIf="seeMoreAccepted">
-            <div class="col-md-4 right search">
-                <aside class="sidebar">
-                    <form method="POST" role="form">
-                        <div class="input-group input-group-lg">
-                            <input class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </aside>
-            </div>
-        </div> 
-
-        <app-interview-applicantitem *ngFor="let accapplicant of firstSlotAccepted"[applicant]="accapplicant"></app-interview-applicantitem>
-
-        <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="!seeMoreAccepted">See More</a>
-        <p class="clear"></p>
-        <app-interview-list *ngIf="seeMoreAccepted" [listType]="'shortlist'" [Applicants]="secondSlotAccepted"></app-interview-list>
-        <a class="SeeMore" (click)="seeMoreAcceptedclicked()" *ngIf="seeMoreAccepted">See Less</a>
-        <p class="clear"></p>
-
+        <app-interview-list [listType]="'shortlist'"></app-interview-list>
         <hr class="mini">
 
         <!-- Waiting List -->
-        <div class="col-md-12">
-            <h3>
-                <i class="fa fa-file-text"></i>
-                <strong>Pending</strong> CV</h3>
-        </div>
-        <div class="row" *ngIf="seeMorePending">
-            <div class="col-md-4 right search">
-                <aside class="sidebar">
-                    <form method="POST" role="form">
-                        <div class="input-group input-group-lg">
-                            <input class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                    </form>
-                </aside>
-            </div>
-        </div>
-        <app-view-one-item *ngFor="let pendapplicant of firstSlotPending" [applicant]="pendapplicant">
-            <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(pendapplicant.id)"></i>
-            <i class="fa fa-close " style="color:red" (click)="rejectApplicant(pendapplicant.id)"></i>
-        </app-view-one-item>
-        <a class="SeeMore" (click)="seeMorePendingclicked()" *ngIf="!seeMorePending">See More</a>
-        <p class="clear"></p>
-        <app-interview-list *ngIf="seeMorePending" [listType]="'pendingcv'" [Applicants]="secondSlotPending">
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-        </app-interview-list>
-        <a class="SeeMore" (click)="seeMorePendingclicked()" *ngIf="seeMorePending">See Less</a>
-        <p class="clear"></p>
-
+        <app-interview-list [listType]="'pendingcv'"></app-interview-list>
+        
     </div>
 </div>
