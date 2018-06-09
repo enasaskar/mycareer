@@ -45,6 +45,7 @@ import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
+// import { SkillItemSmallComponent } from './skills/skill-item-small/skill-item-small.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,9 @@ import { ApplicantsService } from './shared/services/applicants.service';
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     ModalModule.forRoot()
+  ],
+  exports: [
+    // SkillItemSmallComponent
   ],
   providers: [
     EnterpriseService,

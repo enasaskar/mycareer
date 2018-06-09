@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Skill } from '../../../shared/classes/skill.model';
+import { PathService } from '../../../shared/services/path.service';
 
 @Component({
   selector: 'app-path-level-skill',
@@ -8,8 +10,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PathLevelSkillComponent implements OnInit {
 
   @Input() levelName: string;
-  @Input() skills: string[];
-  constructor() { }
+  @Input() skills: Skill[];
+  constructor(private pathService: PathService) { }
 
   ngOnInit() {
   }

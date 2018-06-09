@@ -18,6 +18,7 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
     CommonModule,
     NgbModule,
     BsDatepickerModule,
+    // SkillItemSmallComponent,
     RouterModule.forChild(
     [
       {path: 'skills', component: SkillListComponent , children: [

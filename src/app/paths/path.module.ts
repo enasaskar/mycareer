@@ -11,7 +11,9 @@ import { PathsComponent } from './paths.component';
 import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-level-skill.component';
 import { PathEditInfoComponent } from './path-add-edit/path-edit-info/path-edit-info.component';
 import { ListComponent } from './path-list/list/list.component';
- 
+
+// import { SkillItemSmallComponent } from '../skills/skill-item-small/skill-item-small.component';
+
 @NgModule({
     declarations: [
         PathsComponent,
@@ -21,12 +23,14 @@ import { ListComponent } from './path-list/list/list.component';
         PathItemComponent,
         PathLevelSkillComponent,
         PathEditInfoComponent,
+        // SkillItemSmallComponent,
         ListComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         PathRoutingModule
+        // SkillItemSmallComponent
     ]
 })
 
