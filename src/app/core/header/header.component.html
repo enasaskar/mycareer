@@ -22,8 +22,11 @@
       <nav class="nav-main mega-menu">
         <ul class="nav nav-pills nav-main" id="mainMenu">
           <li class="active">
-            <a routerLink="/home">
+            <a *ngIf="id===null" routerLink="/home">
               Home
+            </a>
+            <a *ngIf="id!==null" [routerLink]="['user',id,'userDashBoard']">
+              Dashboard
             </a>
           </li>
           <li>
@@ -66,15 +69,18 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li *ngIf="id===null">
             <a>
               Sign Up
             </a>
           </li>
-          <li>
+          <li *ngIf="id===null">
             <a>
               Sign In
             </a>
+          </li>
+          <li *ngIf="id!==null">
+            <a [routerLink]="['user',id,'userProfile']">My Profile</a>
           </li>
         </ul>
       </nav>
