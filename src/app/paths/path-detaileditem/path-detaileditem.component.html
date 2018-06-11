@@ -77,10 +77,19 @@
              {{ Path.Description }}
             </p>
 
-            <a href="#" class="btn btn-primary btn-icon">
-              <i class="fa fa-external-link"></i>Enroll
-            </a>
-            <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+            <div *ngIf="!isEnterprise" >
+              <a href="#" class="btn btn-primary btn-icon" (click)="enrollUser()">
+                <i class="fa fa-external-link"></i>Enroll
+              </a>
+              <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+            </div>
+
+            <div *ngIf="isEnterprise" >
+                <a href="#" class="btn btn-primary btn-icon" (click)="RecommendPath()">
+                  <i class="fa fa-external-link"></i>Recommend
+                </a>
+                <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+              </div>
 
 
           </div>

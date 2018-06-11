@@ -514,4 +514,12 @@ export class PathService {
         this.skills.find(s => s.Name === skillName);
         return true; // true if succssesfully inserted
     }
+
+    public enrollUserToPath(userId: number, pathId: number) {
+
+    }
+
+    public enterpriseRecommendPath (enterpriseId: number, pathId: number) {
+        
+    }
 }

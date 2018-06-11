@@ -3,6 +3,7 @@ import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
 import {ActivatedRoute} from '@angular/router';
 import { Skill } from '../../shared/classes/skill.model';
+import { User } from '../../users/users.model';
 
 
 @Component({
@@ -32,6 +33,19 @@ export class PathDetaileditemComponent implements OnInit {
   // };
   public Path = this.pathService.defaultPath;
 
+  public isEnterprise = true;
+
+  public User: User = {
+    id: 0,
+    fname: 'John',
+    lname: 'Doe',
+    email: 'jogn@gmail',
+    city: 'Cairo',
+    country: 'Egypt',
+    telNumber: '010000',
+    district: 'Haram',
+  };
+
   ngOnInit() {
 
     this.Path.Id = this.route.snapshot.params['id'] || 1;
@@ -41,4 +55,13 @@ export class PathDetaileditemComponent implements OnInit {
     console.log( this.skills);
   }
 
+  public enrollUser() {
+    // TODO: get user id
+    this.pathService.enrollUserToPath(this.User.id, this.Path.Id);
+  }
+
+  public RecommendPath() {
+    // TODO: get enterprise id
+    this.pathService.enterpriseRecommendPath(1, this.Path.Id);
+  }
 }

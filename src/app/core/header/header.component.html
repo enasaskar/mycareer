@@ -70,11 +70,15 @@
             </ul>
           </li>
           <li *ngIf="id===null">
+              <a class="dropdown-toggle">
+                  Login
+                 </a>
             <!-- <app-registration></app-registration> -->
           </li>
           <li *ngIf="id===null">
-            <!-- <app-login></app-login> -->
-          </li>
+              <a class="dropdown-toggle">
+                  Sign Up
+                 </a>          </li>
           <li *ngIf="id!==null">
             <a [routerLink]="['user',id,'userProfile']">My Profile</a>
           </li>
