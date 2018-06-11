@@ -17,19 +17,20 @@ export class PathDetaileditemComponent implements OnInit {
 
 
 
-  public Path: IPath = {
-    Id : 1,
-    Name: 'No Data',
-    Description: 'No data yet',
-    EntPathCreator: null,
-    ImgURL: null,
-    NoOfInterestedUsers: 0,
-    IsDeleted: false,
-    PathMainCategory: null,
-    RequiredSkillsCount: 0,
-    PathSubCategory: null,
-    SimilarPaths: null
-  };
+  // public Path: IPath = {
+  //   Id : 1,
+  //   Name: 'No Data',
+  //   Description: 'No data yet',
+  //   EntPathCreator: null,
+  //   ImgURL: null,
+  //   NoOfInterestedUsers: 0,
+  //   IsDeleted: false,
+  //   PathMainCategory: null,
+  //   RequiredSkillsCount: 0,
+  //   PathSubCategory: null,
+  //   SimilarPaths: null
+  // };
+  public Path = this.pathService.defaultPath;
 
   ngOnInit() {
 

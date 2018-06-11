@@ -40,4 +40,13 @@ export class PathLevelSkillComponent implements OnInit {
   public toggleDiv() {
     this.showSearch = ! this.showSearch;
   }
+
+  public addSkill(skillName: string) {
+    if (skillName.length > 0) {
+      // not empty
+      this.pathService.addSkillToPath(skillName);
+    }
+
+    this.toggleDiv();
+  }
 }

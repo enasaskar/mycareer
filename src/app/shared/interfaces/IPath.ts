@@ -1,5 +1,6 @@
 import { IPathCategory } from './ICategory';
 import { Enterprise } from '../classes/enterprise';
+import { Skill } from '../classes/skill.model';
 
 export  interface IPath {
     Id: number;
@@ -16,7 +17,7 @@ export  interface IPath {
     EntPathCreator: Enterprise;
 
     SimilarPaths: IPath[];
-    // RequiredSkills: ISkills[];
+    RequiredSkills: Skill[];
     // VacancyRelatedToPath: Vacancy[];
     // EnterpriseRecommendPath: Enterprise[];
     // UserFollowPaths: User[];

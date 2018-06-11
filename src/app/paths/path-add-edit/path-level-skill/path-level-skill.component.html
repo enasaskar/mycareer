@@ -11,7 +11,7 @@
                 <div class="form-group col-md-10 searchSkillInPath" [ngClass]="{'hide': showSearch}">
                     <div class="col-md-12">
                         <mat-form-field class="example-full-width">
-                            <input type="text" placeholder="Pick a skill" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                            <input type="text" placeholder="Pick a skill" #skillName aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                             <mat-autocomplete #auto="matAutocomplete">
                                 <mat-option *ngFor="let skillOption of filteredOptions | async | slice:0:90" [value]="skillOption.Name">
                                     {{ skillOption.Name }}
@@ -20,7 +20,7 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <span class="thumb-info-social-icons  AddPathSkill left  " (click)="toggleDiv()">
+                <span class="thumb-info-social-icons  AddPathSkill left  " (click)="addSkill(skillName)">
                     <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
                         <i class="fa fa-plus"></i>
                         <span>Add Path</span>
