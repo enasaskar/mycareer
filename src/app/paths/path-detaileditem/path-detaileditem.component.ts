@@ -37,6 +37,7 @@ export class PathDetaileditemComponent implements OnInit {
     this.Path = this.pathService.getById(this.Path.Id );
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
     this.skills = this.pathService.getSkills(this.Path.Id);
+    console.log( this.skills);
   }
 
 }

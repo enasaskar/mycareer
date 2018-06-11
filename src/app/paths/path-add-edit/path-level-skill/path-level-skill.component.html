@@ -8,16 +8,16 @@
                 </h3>
             </div>
             <div class="col-sm-4">
-                <div class="form-group col-md-10 searchSkillInPath" [ngClass]="{'hide': showSearch}" >
+                <div class="form-group col-md-10 searchSkillInPath" [ngClass]="{'hide': showSearch}">
                     <div class="col-md-12">
-                        <div class="input-group input-search">
-                            <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
+                        <mat-form-field class="example-full-width">
+                            <input type="text" placeholder="Pick a skill" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let skillOption of filteredOptions | async | slice:0:90" [value]="skillOption.Name">
+                                    {{ skillOption.Name }}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
                     </div>
                 </div>
                 <span class="thumb-info-social-icons  AddPathSkill left  " (click)="toggleDiv()">

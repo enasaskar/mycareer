@@ -1,6 +1,6 @@
 import { PathRoutingModule } from './path-routing.module';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { PathItemComponent } from './path-item/path-item.component';
@@ -13,8 +13,15 @@ import { PathEditInfoComponent, SuccessAddPopup } from './path-add-edit/path-edi
 import { ListComponent } from './path-list/list/list.component';
 import { SkillsModule } from '../skills/skills.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material';
 
+import {
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+  } from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -26,7 +33,7 @@ import { MatDialogModule } from '@angular/material';
         PathLevelSkillComponent,
         PathEditInfoComponent,
         ListComponent,
-        SuccessAddPopup
+        SuccessAddPopup,
         ],
     entryComponents: [
         SuccessAddPopup
@@ -35,11 +42,22 @@ import { MatDialogModule } from '@angular/material';
         CommonModule,
         FormsModule,
         PathRoutingModule,
-        SkillsModule
+        SkillsModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
     exports: [
         MatDialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ]
 })
 
