@@ -1,3 +1,5 @@
+import { CityService } from './../../shared/services/city.service';
+import { City } from './../../shared/classes/city';
 import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { Component, OnInit, Input } from '@angular/core';
@@ -11,6 +13,8 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';  
 import { Sizes } from '../../shared/classes/sizes';
 import { SizeService } from '../../shared/services/size.service';
+import { Country } from '../../shared/classes/country';
+import { CountryService } from '../../shared/services/country.service';
 
 
 
@@ -31,12 +35,16 @@ export class EnterpriseDetailsComponent implements OnInit {
   public  edit;
 
   sizes : Sizes [];
+  countries : Country[];
+  cities : City[];
+  
 
   newEnterprise  = new EnterpriseDetails();
   
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
-    private sizeService : SizeService,private dialog: MatDialog) {
+    private sizeService : SizeService,private dialog: MatDialog,
+    private countryService : CountryService, private cityService : CityService) {
   
    }
  
@@ -44,6 +52,8 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
     this.sizes = this.sizeService.getAll();   
+    this.countries = this.countryService.getAll();
+    this.cities = this.cityService.getAll();
   }
   
   onClick(){
