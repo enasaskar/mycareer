@@ -48,6 +48,7 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
   exports: [
     SkillListComponent,
     SkillDetailsPopupComponent,
+    SkillItemSmallComponent,
     SkillDetailsEditComponent
   ]
 })

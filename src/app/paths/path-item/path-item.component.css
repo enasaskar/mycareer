@@ -1,9 +1,9 @@
-li{
+.team-item {
     /* flex-wrap: wrap;
     align-content: flex-start; */
     height: 250px;
 }
-p{
+p {
     overflow: hidden;
     text-overflow: ellipsis;
 }

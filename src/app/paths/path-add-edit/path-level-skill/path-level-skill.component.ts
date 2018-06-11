@@ -11,9 +11,13 @@ export class PathLevelSkillComponent implements OnInit {
 
   @Input() levelName: string;
   @Input() skills: Skill[];
+  showSearch = true;
   constructor(private pathService: PathService) { }
 
   ngOnInit() {
   }
 
+  public toggleDiv() {
+    this.showSearch = ! this.showSearch;
+  }
 }

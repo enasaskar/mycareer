@@ -11,7 +11,7 @@ export class PathService {
     private path: IPath;
     public defaultPath: IPath = {
         Id: 0,
-        Name: 'tst',
+        Name: '',
         Description: '',
         EntPathCreator: null,
         ImgURL: '../../../assets/img/avatar-2.jpg',
@@ -407,55 +407,55 @@ export class PathService {
         }];
 
     private skills: Skill[] = [{
-        ID: 1,
-        Name: 'C#',
-        Img: '../../../assets/img/avatar-2.jpg',
-        Description: 'This is a skill for a certain path or a certain person',
-        IsDeleted: false,
-        Rate: 5,
-        Level: 'Intro',
-        Review: 'great skill, you should all get it',
-        NoEndorsments: 4
-    }, {
-        ID: 2,
-        Name: 'Angular',
-        Img: '../../../assets/img/avatar-2.jpg',
-        Description: 'This is a skill for a certain path or a certain person',
-        IsDeleted: false,
-        Rate: 5,
-        Level: 'Intermediate',
-        Review: 'great skill, you should all get it',
-        NoEndorsments: 4
-    }, {
-        ID: 3,
-        Name: 'Time Management',
-        Img: '../../../assets/img/avatar-2.jpg',
-        Description: 'This is a skill for a certain path or a certain person',
-        IsDeleted: false,
-        Rate: 5,
-        Level: 'Advanced',
-        Review: 'great skill, you should all get it',
-        NoEndorsments: 4
-    }, {
-        ID: 4,
-        Name: 'OS',
-        Img: '../../../assets/img/avatar-2.jpg',
-        Description: 'This is a skill for a certain path or a certain person',
-        IsDeleted: false,
-        Rate: 5,
-        Level: 'Intro',
-        Review: 'great skill, you should all get it',
-        NoEndorsments: 4
-    }, {
-        ID: 5,
-        Name: 'OOP',
-        Img: '../../../assets/img/avatar-2.jpg',
-        Description: 'This is a skill for a certain path or a certain person',
-        IsDeleted: false,
-        Rate: 5,
-        Level: 'Intro',
-        Review: 'great skill, you should all get it',
-        NoEndorsments: 4
+            ID: 1,
+            Name: 'C#',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 2,
+            Name: 'Angular',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intermediate',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 3,
+            Name: 'Time Management',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Advanced',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 4,
+            Name: 'OS',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 5,
+            Name: 'OOP',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
     }];
 
     //  =============================================================================================================
