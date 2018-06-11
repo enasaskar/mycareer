@@ -1,3 +1,4 @@
+<!-- *ngIf="offer.accept!==false" -->
 <div class="row class1">
   <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong> Job</strong> Offers</h3></div>
   <div *ngFor="let offer of JobOffers; let i = index" class="col-md-4 col-sm-6 col-xs-12">
@@ -12,13 +13,19 @@
               </a>
               <ul class="list icons list-unstyled">
                   <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> {{vacancies[i].title}}</li>
-                  <li><i class="fa fa-calendar"></i><strong>Expire Date</strong> {{offer.expireDate}}</li>
+                  <li *ngIf="!offer.accept && offer.accept !== false"><i class="fa fa-calendar"></i><strong>Expire Date</strong> {{offer.expireDate}}</li>
                   <!--add countdown-->
-                  <li><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
+                  <li *ngIf="!offer.accept && offer.accept !== false"><i class="fa fa-clock-o"></i><strong>Expires in:</strong> 12:30:50</li>
               </ul>
-              <div class="right VacancyResponse">
-                  <button type="button" class="btn btn-success" (click)="jobOfferStatus(i,true)">Accept</button>
-                  <button type="button" class="btn btn-danger" (click)="jobOfferStatus(i,false)">Reject</button>
+              <div *ngIf="!offer.accept && offer.accept !== false" class="right VacancyResponse">
+                  <button type="button" class="btn btn-success" (click)="jobOfferStatus(offer,true)">Accept</button>
+                  <button type="button" class="btn btn-danger" (click)="jobOfferStatus(offer,false)">Reject</button>
+              </div>
+              <div *ngIf="offer.accept" class="right VacancyResponse">
+                Offer accepted!
+              </div>
+              <div *ngIf="offer.accept===false" class="right VacancyResponse">
+                Offer rejected
               </div>
               <p class="clear"></p>
           </div>

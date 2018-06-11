@@ -43,7 +43,10 @@ import { BranchService } from 'src/app/shared/services/branch-service';
 import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
+import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
+// import { SkillItemSmallComponent } from './skills/skill-item-small/skill-item-small.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,10 @@ import { ApplicantsService } from './shared/services/applicants.service';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    ModalModule.forRoot() 
+    ModalModule.forRoot()
+  ],
+  exports: [
+    // SkillItemSmallComponent
   ],
   providers: [
     EnterpriseService,
@@ -85,6 +91,7 @@ import { ApplicantsService } from './shared/services/applicants.service';
     CurrencyService,
     RatingListService,
     UserCommentsService,
+    UserService,
     ApplicantsService
 ],
   bootstrap: [AppComponent]

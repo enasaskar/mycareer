@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { JobOffer } from '../../shared/classes/jobOffer.model';
 import { EnterpriseService } from '../../shared/services/enterprise.service';
 import { VacancyService } from '../../shared/services/vacancy-service';
+import { JobOfferService } from '../../shared/services/jobOffer.service';
 
 @Component({
   selector: 'app-user-jobOffers',
@@ -13,7 +14,9 @@ export class UserJobOffersComponent implements OnInit {
   @Input() JobOffers: JobOffer[];
   private enterprises = [];
   private vacancies = [];
-  constructor(private enterpriseSevice: EnterpriseService, private vacancyService: VacancyService) { }
+  constructor(private enterpriseSevice: EnterpriseService,
+     private vacancyService: VacancyService,
+     private jobOfferService: JobOfferService) { }
 
   ngOnInit() {
     this.JobOffers.map( offer => {
@@ -25,8 +28,19 @@ export class UserJobOffersComponent implements OnInit {
       this.enterprises.push(enterprise);
     });
   }
-  jobOfferStatus(i: number, status: boolean) {
+  jobOfferStatus(offer: JobOffer, status: boolean) {
     // I want to reject the other offers so should I do it here or ajax or what??
-    this.JobOffers[i].accept = status;
+
+    offer.accept = status;
+    // if an offer was accepted reject all others
+    if (status) {
+      this.JobOffers.map(item => {
+        if (item !== offer) {
+          // notify enterprise that offer has been rejected
+          item.accept = false;
+        }
+      });
+    }
+    // else, notify enterprise that offer has been rejected
   }
 }

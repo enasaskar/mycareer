@@ -9,9 +9,13 @@ import { PathDetaileditemComponent } from './path-detaileditem/path-detaileditem
 import { PathAddEditComponent } from './path-add-edit/path-add-edit.component';
 import { PathsComponent } from './paths.component';
 import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-level-skill.component';
-import { PathEditInfoComponent } from './path-add-edit/path-edit-info/path-edit-info.component';
+import { PathEditInfoComponent, SuccessAddPopup } from './path-add-edit/path-edit-info/path-edit-info.component';
 import { ListComponent } from './path-list/list/list.component';
- 
+import { SkillsModule } from '../skills/skills.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
+
+
 @NgModule({
     declarations: [
         PathsComponent,
@@ -21,12 +25,21 @@ import { ListComponent } from './path-list/list/list.component';
         PathItemComponent,
         PathLevelSkillComponent,
         PathEditInfoComponent,
-        ListComponent
+        ListComponent,
+        SuccessAddPopup
+        ],
+    entryComponents: [
+        SuccessAddPopup
     ],
     imports: [
         CommonModule,
         FormsModule,
-        PathRoutingModule
+        PathRoutingModule,
+        SkillsModule
+    ],
+    exports: [
+        MatDialogModule,
+        BrowserAnimationsModule
     ]
 })
 

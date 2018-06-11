@@ -13,6 +13,9 @@ import { SkillsModule } from '../skills/skills.module';
 import { VacanciesModule } from '../vacancies/vacancies.module';
 import { InterviewsModule } from '../interviews/interviews.module';
 import { EnterprisesModule } from '../enterprise/enterprises.module';
+import { UserAddWorkExperienceModalComponent } from './user-add-workExperience-Modal/user-add-workExperience-Modal.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -23,6 +26,11 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     RouterModule.forChild([{path: 'user/:id', component: UsersComponent, children: [
       {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
       {path: 'userProfile', component: UserProfileComponent, children: [
@@ -38,8 +46,9 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
     UserDetailsEditComponent,
     UserDashBoardComponent,
     UserViewAllComponent,
-    UsersComponent
-  ],
+    UsersComponent,
+    UserAddWorkExperienceModalComponent
+],
   exports: [
     UserProfileComponent,
     UserDetailsComponent,
