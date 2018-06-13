@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
 import {ActivatedRoute} from '@angular/router';
+import { Skill } from '../../shared/classes/skill.model';
 
 
 @Component({
@@ -11,6 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class PathDetaileditemComponent implements OnInit {
 
+  @Input() skills: Skill[];
   constructor(private pathService: PathService, private route: ActivatedRoute) { }
 
 
@@ -34,6 +36,7 @@ export class PathDetaileditemComponent implements OnInit {
     this.Path.Id = this.route.snapshot.params['id'] || 1;
     this.Path = this.pathService.getById(this.Path.Id );
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
+    this.skills = this.pathService.getSkills(this.Path.Id);
   }
 
 }

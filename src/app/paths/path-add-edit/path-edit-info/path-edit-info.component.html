@@ -2,14 +2,14 @@
 <div class="row  PathProfileData">
     <!-- Save Icon -->
     <div class="row">
-        <div class="col-sm-1 col-sm-offset-11">
+        <!-- <div class="col-sm-1 col-sm-offset-11">
             <span class="thumb-info-social-icons right EditIconPathProfile">
                 <a id="edit-profile" data-tooltip data-placement="bottom" data-original-title="Save">
                     <i class="fa fa-check"></i>
                     <span>Save</span>
                 </a>
             </span>
-        </div>
+        </div> -->
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -35,26 +35,42 @@
                     <div class="col-xs-4 ">
                         <label class="  control-label">Name</label>
                     </div>
-                    <div class=" col-xs-8">
+                    <div class=" col-xs-7">
                         <!-- @Html.EditorFor(i => i.Name, "textbox") -->
                       
-                      <input type="text" name="path.Name" class="form-control"  required="required"  [(ngModel)]= "path.Name" >
+                      <input type="text" name="path.Name" #name="ngModel" class="form-control"  minlength="3"  required="required"  [(ngModel)]= "path.Name"  id ="name">
                       
+                    </div>
+                    <div class = "col-sx-1" *ngIf="(name.invalid && (name.dirty || name.touched)) || (name.invalid && addStart ) "   class="">
+                            <span class="thumb-info-social-icons dangerr left">
+                                    <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
+                                        <i class="fa fa-times"></i>
+                                        <span>Please enter a valid name</span>
+                                    </a>
+                                </span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class=" col-xs-4">
                       <span>Main Category</span>
                     </div>
-                    <div class=" col-xs-8">
+                    <div class=" col-xs-7">
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Main, Model.Categories) -->
                         
 
-                        <select   name="path.PathMainCategory" class="form-control" [(ngModel)]= "path.PathMainCategory" >
-                            <option value="" disabled selected> Select Main category</option>
+                        <select   name="path.PathMainCategory" #mainCat = "ngModel" class="form-control" [(ngModel)]= "path.PathMainCategory" required >
+                            <option value="default" disabled selected> Select Main category</option>
                             <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
                           </select>
 
+                    </div>
+                    <div class = "col-sx-1" *ngIf="(mainCat.invalid && (mainCat.dirty || mainCat.touched)) || (mainCat.invalid && addStart )  "   class="">
+                            <span class="thumb-info-social-icons dangerr left">
+                                    <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
+                                        <i class="fa fa-times"></i>
+                                        <span>Please choose a main category</span>
+                                    </a>
+                                </span>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -63,22 +79,38 @@
                        <span>Sub Category</span>
                        
                     </div>
-                    <div class=" col-xs-8">
+                    <div class=" col-xs-7">
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Sub, Model.Categories) -->
-                        <select [(ngModel)]= "path.PathSubCategory" name="path.PathSubCategory" class="form-control" >
+                        <select [(ngModel)]= "path.PathSubCategory" #subCat = "ngModel" name="path.PathSubCategory" class="form-control" required >
                             <option value="" disabled selected> Select Sub category</option>
                             <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
                           </select>
+                    </div>
+                    <div class = "col-sx-1" *ngIf="(subCat.invalid && (subCat.dirty || subCat.touched)) || (subCat.invalid && addStart )"   class="">
+                            <span class="thumb-info-social-icons dangerr left">
+                                    <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
+                                        <i class="fa fa-times"></i>
+                                        <span>Please choose a sub category</span>
+                                    </a>
+                                </span>
                     </div>
                 </div>
                 <div class="form-group row">
 
                     <label class="col-xs-4 control-label" for="textareaDefault">Path description</label>
-                    <div class="  col-xs-8">
+                    <div class="  col-xs-7">
                        
                         
-                        <textarea name="path.Description" class="form-control" rows="3" required="required"  [(ngModel)]= "path.Description"></textarea>
+                        <textarea name="path.Description" #desc = "ngModel" class="form-control" rows="3" required="required"  [(ngModel)]= "path.Description"></textarea>
                         
+                    </div>
+                    <div class = "col-sx-1" *ngIf="(desc.invalid && (desc.dirty || desc.touched)) || (desc.invalid && addStart )"   class="">
+                            <span class="thumb-info-social-icons dangerr left">
+                                    <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
+                                        <i class="fa fa-times"></i>
+                                        <span>Please enter a valid desciption</span>
+                                    </a>
+                                </span>
                     </div>
                 </div>
             </div>
