@@ -11,3 +11,7 @@
   .feature-box-info {
     margin-bottom: 25px;
 }
+
+.col-md-4[_ngcontent-c4] {
+  margin-bottom: 1%;
+}
