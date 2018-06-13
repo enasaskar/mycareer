@@ -65,7 +65,12 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-map-marker"></i>
-            <input class="form-control iconInput" id="address" type="text" formControlName = "district">
+            <!-- <input class="form-control iconInput" id="address" type="text" formControlName = "district"> -->
+            <select class="form-control mb-md iconInput" formControlName = "district">
+              <option>District...</option>
+              <option>Heliopolis</option>
+              <option>Nasr City</option>
+            </select>
           </div>
           <div class="col-md-4 col-xs-6">
             <select class="form-control mb-md" formControlName = "city">

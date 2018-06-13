@@ -1,273 +1,208 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { Applicant } from '../classes/applicant.model';
+import { User } from '../../users/users.model';
+import { Vacancy } from '../classes/vacancy.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicantsService {
-  private appllicants = [
+  public onDelete = new Subject(); 
+  applicants: Applicant[] = [
     {
-      id: 1,
-      fname: "Karim",
-      lname: "Sameh",
-      imagePath: "../../../assets/img/team/emp.jpg",
-      position: ".net-developer",
-      status: true,
-      appointment: {
-        date: null,
-        time: null
+      user: new User(0,
+        '../../../assets/img/team/emp2.jpg',
+        'Joe', 'Doe',
+        'Web Developer',
+        'Company',
+        'JoeDoe@gmail.com',
+        '01067439936',
+        'Heliopolis',
+        'Egypt',
+        'Cairo',
+        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+          'Iaculis vulputate id quis nisl.']),
+      vacancy: {
+        id: 1,
+        logoImg: '../../../assets/img/vodafone-icon.png',
+        logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
       },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 1,
-          rate: 0
-        }]
+      status: null
     },
     {
-      id: 2,
-      fname: "Sara",
-      lname: "Adel",
-      imagePath: "../../../assets/img/team/emp6.jpg",
-      position: "Full-stack-developer",
-      status: true,
-      appointment: {
-        date: null,
-        time: null
+      user: new User(0,
+        '../../../assets/img/team/emp2.jpg',
+        'Joe', 'Doe',
+        'Web Developer',
+        'Company',
+        'JoeDoe@gmail.com',
+        '01067439936',
+        'Heliopolis',
+        'Egypt',
+        'Cairo',
+        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+          'Iaculis vulputate id quis nisl.']),
+      vacancy: {
+        id: 1,
+        logoImg: '../../../assets/img/vodafone-icon.png',
+        logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
       },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 1,
-          rate: 0
-        }]
+      status: null
+    }, {
+      user: new User(0,
+        '../../../assets/img/team/emp2.jpg',
+        'Joe', 'Doe',
+        'Web Developer',
+        'Company',
+        'JoeDoe@gmail.com',
+        '01067439936',
+        'Heliopolis',
+        'Egypt',
+        'Cairo',
+        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+          'Iaculis vulputate id quis nisl.']),
+      vacancy: {
+        id: 1,
+        logoImg: '../../../assets/img/vodafone-icon.png',
+        logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
+    }, {
+      user: new User(0,
+        '../../../assets/img/team/emp2.jpg',
+        'Joe', 'Doe',
+        'Web Developer',
+        'Company',
+        'JoeDoe@gmail.com',
+        '01067439936',
+        'Heliopolis',
+        'Egypt',
+        'Cairo',
+        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+          'Iaculis vulputate id quis nisl.']),
+      vacancy: {
+        id: 1,
+        logoImg: '../../../assets/img/vodafone-icon.png',
+        logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
+    }, {
+      user: new User(0,
+        '../../../assets/img/team/emp2.jpg',
+        'Joe', 'Doe',
+        'Web Developer',
+        'Company',
+        'JoeDoe@gmail.com',
+        '01067439936',
+        'Heliopolis',
+        'Egypt',
+        'Cairo',
+        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
+          'Iaculis vulputate id quis nisl.']),
+      vacancy: {
+        id: 1,
+        logoImg: '../../../assets/img/vodafone-icon.png',
+        logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
     },
-    {
-      id: 3,
-      fname: "Bola",
-      lname: "Hany",
-      imagePath: "../../../assets/img/team/emp4.jpg",
-      position: "front-end-developer",
-      status: false,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 1,
-          rate: 0
-        }]
-    },
-    {
-      id: 4,
-      fname: "Ann",
-      lname: "Amgad",
-      imagePath: "../../../assets/img/team/emp5.jpg",
-      position: ". net-developer",
-      status: null,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 1,
-          rate: 0
-        }]
-    },
-    {
-      id: 5,
-      fname: "Ahmed",
-      lname: "Ayman",
-      imagePath: "../../../assets/img/team/emp3.jpg",
-      position: "Full-Stack-developer",
-      status: null,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 5,
-          rate: 0
-        }, {
-          id: 6,
-          rate: 0
-        }]
-    },
-    {
-      id:6,
-      fname: "Rana",
-      lname: "Osama",
-      imagePath: "../../../assets/img/team/emp7.jpg",
-      position: "front-end-developer",
-      status: true,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 2,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }]
-    },
-    {
-      id: 7,
-      fname: "Youssef",
-      lname: "Sameh",
-      imagePath: "../../../assets/img/team/emp.jpg",
-      position: ".net-developer",
-      status: true,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 2,
-          rate: 0
-        },
-        {
-          id: 3,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 5,
-          rate: 0
-        }, {
-          id: 6,
-          rate: 0
-        }]
-    },{
-      id: 8,
-      fname: "Jhon",
-      lname: "Doe",
-      imagePath: "../../../assets/img/team/emp.jpg",
-      position: ".net-developer",
-      status: null,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [
-        {
-          id: 2,
-          rate: 0
-        }, {
-          id: 3,
-          rate: 0
-        }, {
-          id: 5,
-          rate: 0
-        }, {
-          id: 6,
-          rate: 0
-        }]
-    },{
-      id: 9,
-      fname: "Youssef",
-      lname: "Sameh",
-      imagePath: "../../../assets/img/team/emp.jpg",
-      position: ".net-developer",
-      status: false,
-      appointment: {
-        date: null,
-        time: null
-      },
-      skills: [        // skills evaluation
-        {
-          id: 1,
-          rate: 0
-        }, {
-          id: 2,
-          rate: 0
-        }, {
-          id: 4,
-          rate: 0
-        }, {
-          id: 5,
-          rate: 0
-        }]
-    }
-  ]
-  
-  constructor() { }
 
-  public getAll() {
-   return this.appllicants;
-  }
-  
-  // public add() {
-  // }
-  public update(id:number,status:boolean) {
-    this.appllicants[id].status = status;
-    //console.log(this.appllicants[id].status);
-  }
-  public getById(id: number) {
-    for (let i = 0; i < this.appllicants.length; i++) {
-      if (this.appllicants[i].id === id) {
-        return this.appllicants[i];
-      }
-    }
+  ];
+
+  constructor(){
   }
 
-  public delete(id: number) {
-    //console.log("i delete user");
-    this.appllicants[id].status = false;
-    //console.log(this.appllicants[id]);
+  public add(){
+
   }
-  
-  
+  public update(){
+
+  }
+  public getAll():Applicant[]{
+    return this.applicants;
+  }
+
+  public getAllAccepted(): Applicant[]{
+    return this.applicants.filter(a => a.status === true);
+  }
+  public getAllRejected(): Applicant[]{
+    return this.applicants.filter(a => a.status === false);
+  }
+  public getAllPending(){
+    return this.applicants.filter(a => a.status === null);
+  }
+  public delete(){
+
+  }
 }

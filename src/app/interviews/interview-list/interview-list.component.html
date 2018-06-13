@@ -1,13 +1,7 @@
 <!-- List Type -->
 <div class="col-md-12"></div>
-<div [ngSwitch]="listType">
-<h3 *ngSwitchCase="'shortlist'">
-    <i class="fa fa-file-text"></i>
-    <strong>Accepted</strong> CV</h3>
-<h3 *ngSwitchCase="'pendingcv'">
-    <i class="fa fa-file-text"></i>
-    <strong>Pending</strong> CV</h3>
-</div>  
+<h3><i class="fa fa-file-text"></i>
+    <strong>{{listType === 'shortlist'? 'Accepted' : 'Pending'}}</strong> CV</h3>  
 
 <!-- Search -->
 <div class="row" *ngIf="seeMore">
@@ -30,12 +24,12 @@
 <!-- Card View depends on list Type -->
 <div [ngSwitch]="listType">
     <div *ngSwitchCase="'shortlist'">
-        <app-interview-applicantitem *ngFor="let acceptedapp of firstSlotAccepted" [applicant]="acceptedapp"></app-interview-applicantitem>
+        <app-interview-applicantitem *ngFor="let acceptedapp of firstSlotAccepted" [applicant]="acceptedapp" ></app-interview-applicantitem>
     </div>
     <div *ngSwitchCase="'pendingcv'">
         <app-view-one-item *ngFor="let pendapp of firstSlotPending" [applicant]="pendapp">
-            <i class="fa fa-check " style="color:green" (click)="acceptApplicant(pendapp.id,'first')"></i>
-            <i class="fa fa-close " style="color:red"(click)="rejectApplicant(pendapp.id,'first')"></i>
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
         </app-view-one-item>
     </div>
 </div>
@@ -51,8 +45,8 @@
     </div>
     <div *ngSwitchCase="'pendingcv'">
         <app-view-one-item *ngFor="let pendapp of secondSlotPending" [applicant]="pendapp">
-            <i class="fa fa-check " style="color:green" (click)="acceptApplicant(pendapp.id,'second')"></i>
-            <i class="fa fa-close " style="color:red"(click)="rejectApplicant(pendapp.id,'second')"></i>
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
         </app-view-one-item>
     </div>
 </div>
