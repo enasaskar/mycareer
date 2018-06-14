@@ -9,8 +9,6 @@ export class VacancyService {
     private vacancies: Vacancy[] = [
         {
            id: 1,
-           logoImg: '../../../assets/img/vodafone-icon.png',
-           logoImgbig: '../../../assets/img/vodafone.png',
            title: 'Software Engineer',
            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
            requirements: 'bla bla',
@@ -26,8 +24,6 @@ export class VacancyService {
         },
         {
             id: 2,
-            logoImg: '../../../assets/img/ITWORX.jpg',
-            logoImgbig: '../../../assets/img/ITWORX.jpg',
             title: 'Software Engineer 2',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
@@ -43,8 +39,6 @@ export class VacancyService {
         },
         {
             id: 3,
-            logoImg: '../../../assets/img/vodafone-icon.png',
-            logoImgbig: '../../../assets/img/vodafone.png',
             title: 'Software Engineer 3',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
@@ -60,8 +54,6 @@ export class VacancyService {
         },
         {
             id: 4,
-            logoImg: '../../../assets/img/vodafone-icon.png',
-            logoImgbig: '../../../assets/img/vodafone.png',
             title: 'Software Engineer 4',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
@@ -94,7 +86,6 @@ export class VacancyService {
     }
     public updateVacancy(id: number, v: Vacancy) {
         const vac = this.vacancies.find(i => i.id === id);
-        vac.logoImg = v.logoImg;
         vac.postdate = v.postdate;
         vac.requirements = v.requirements;
         vac.responsabilities = v.responsabilities;
@@ -107,11 +98,10 @@ export class VacancyService {
         // call function from back end to get by user ID
         return this.vacancies.filter(res => res.isDeleted === false);
     }
-    public getByEnterpriseId(eId : number) : Vacancy[]
-    {
-        let enterpriseVacancies : Vacancy[]= [];
-        for(let i = 0; i < this.vacancies.length; i++){
-            if(this.vacancies[i].fK_Enterprise_Id == eId){
+    public getByEnterpriseId(eId: number): Vacancy[] {
+        const enterpriseVacancies: Vacancy[] = [];
+        for (let i = 0; i < this.vacancies.length; i++) {
+            if (this.vacancies[i].fK_Enterprise_Id === eId) {
                     enterpriseVacancies.push(this.vacancies[i]);
             }
         }

@@ -9,24 +9,23 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
 export class InterviewViewAllComponent implements OnInit {
   applicants;
 
-  searchWord : string;
+  searchWord: string;
   constructor(private applicantsService:ApplicantsService) { }
-  
+
   ngOnInit() {
     this.applicants = this.applicantsService.getAll().filter(a => a.status === null);
   }
 
-  rejectApplicant(id:number){
+  rejectApplicant(id: number) {
     //console.log("rejected");
     this.applicants.splice(id,1);
     //this.applicantsService.delete(id);
     //console.log("isDeleted");
   }
-  acceptedApplicant(id:number){
-    this.applicantsService.update(id,true);
+  acceptedApplicant(id: number) {
+    // this.applicantsService.update(id,true);
   }
 
-  onSearch(){
-    
+  onSearch() {
   }
 }

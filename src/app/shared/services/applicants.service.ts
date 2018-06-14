@@ -8,7 +8,7 @@ import { Vacancy } from '../classes/vacancy.model';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  public onDelete = new Subject(); 
+  public onDelete = new Subject();
   applicants: Applicant[] = [
     {
       user: new User(0,
@@ -21,14 +21,15 @@ export class ApplicantsService {
         'Heliopolis',
         'Egypt',
         'Cairo',
+        // tslint:disable-next-line:max-line-length
         'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
         ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
           'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
           'Iaculis vulputate id quis nisl.']),
       vacancy: {
         id: 1,
-        logoImg: '../../../assets/img/vodafone-icon.png',
-        logoImgbig: '../../../assets/img/vodafone.png',
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
         title: 'Software Engineer',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         requirements: 'bla bla',
@@ -55,14 +56,15 @@ export class ApplicantsService {
         'Heliopolis',
         'Egypt',
         'Cairo',
+        // tslint:disable-next-line:max-line-length
         'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
         ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
           'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
           'Iaculis vulputate id quis nisl.']),
       vacancy: {
         id: 1,
-        logoImg: '../../../assets/img/vodafone-icon.png',
-        logoImgbig: '../../../assets/img/vodafone.png',
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
         title: 'Software Engineer',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         requirements: 'bla bla',
@@ -88,14 +90,15 @@ export class ApplicantsService {
         'Heliopolis',
         'Egypt',
         'Cairo',
+        // tslint:disable-next-line:max-line-length
         'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
         ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
           'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
           'Iaculis vulputate id quis nisl.']),
       vacancy: {
         id: 1,
-        logoImg: '../../../assets/img/vodafone-icon.png',
-        logoImgbig: '../../../assets/img/vodafone.png',
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
         title: 'Software Engineer',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         requirements: 'bla bla',
@@ -121,14 +124,15 @@ export class ApplicantsService {
         'Heliopolis',
         'Egypt',
         'Cairo',
+        // tslint:disable-next-line:max-line-length
         'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
         ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
           'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
           'Iaculis vulputate id quis nisl.']),
       vacancy: {
         id: 1,
-        logoImg: '../../../assets/img/vodafone-icon.png',
-        logoImgbig: '../../../assets/img/vodafone.png',
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
         title: 'Software Engineer',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         requirements: 'bla bla',
@@ -154,14 +158,15 @@ export class ApplicantsService {
         'Heliopolis',
         'Egypt',
         'Cairo',
+        // tslint:disable-next-line:max-line-length
         'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
         ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
           'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
           'Iaculis vulputate id quis nisl.']),
       vacancy: {
         id: 1,
-        logoImg: '../../../assets/img/vodafone-icon.png',
-        logoImgbig: '../../../assets/img/vodafone.png',
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
         title: 'Software Engineer',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         requirements: 'bla bla',
@@ -180,29 +185,29 @@ export class ApplicantsService {
 
   ];
 
-  constructor(){
+  constructor() {
   }
 
-  public add(){
+  public add() {
 
   }
-  public update(){
+  public update() {
 
   }
-  public getAll():Applicant[]{
+  public getAll(): Applicant[] {
     return this.applicants;
   }
 
-  public getAllAccepted(): Applicant[]{
+  public getAllAccepted(): Applicant[] {
     return this.applicants.filter(a => a.status === true);
   }
-  public getAllRejected(): Applicant[]{
+  public getAllRejected(): Applicant[] {
     return this.applicants.filter(a => a.status === false);
   }
-  public getAllPending(){
+  public getAllPending() {
     return this.applicants.filter(a => a.status === null);
   }
-  public delete(){
+  public delete() {
 
   }
 }

@@ -14,8 +14,6 @@
 
 export class Vacancy {
     id: number;
-    logoImg?: string;
-    logoImgbig?: string;
     title?: string;
     description?: string;
     requirements?: string;

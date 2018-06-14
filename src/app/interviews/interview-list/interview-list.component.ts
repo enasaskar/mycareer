@@ -19,15 +19,12 @@ export class InterviewListComponent implements OnInit {
 
 
   constructor(private appllicantsService: ApplicantsService) {
-    appllicantsService.onDelete.subscribe((applicant) => { appllicantsService.delete(applicant) });
+   // appllicantsService.onDelete.subscribe((applicant) => { appllicantsService.delete(applicant) });
   }
   ngOnInit() {
 
-    if (this.listType == "shortlist") {
-      
-    }
-    else if (this.listType == "pendingcv") {
-      
+    if (this.listType === 'shortlist') {
+    } else if (this.listType === 'pendingcv') {
     }
   }
   seeMoreclicked() {

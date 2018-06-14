@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Vacancy } from '../../../shared/classes/vacancy.model';
+import { Enterprise } from '../../../shared/classes/enterprise';
 
 @Component({
   selector: 'app-vacancy-item',
@@ -8,6 +9,8 @@ import { Vacancy } from '../../../shared/classes/vacancy.model';
 })
 export class VacancyItemComponent implements OnInit {
  @Input() vacancyitem: Vacancy;
+ @Input() enterprises: Enterprise[];
+ @Input() index: number;
   constructor() { }
 
   ngOnInit() {

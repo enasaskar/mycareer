@@ -39,13 +39,18 @@
             </div>
           
             <div class="form-group">
-                <label for="Vacancy.EnterpriseSmallLogo" class="control-label">EnterpriseSmallLogo</label>
-                <input #vimg = ngModel  [(ngModel)]="newvacancy.logoImg" name="VacancyEnterpriseSmallLogo" class="form-control" type="file" />
+                <label for="Vacancy.requirements" class="control-label">Job Requirments</label>
+                <textarea #vimg = ngModel  [(ngModel)]="newvacancy.requirements" name="JobRequirments" class="form-control" type="text" ></textarea>
                 <span  class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="VacancyEnterpriseBigLogo" class="control-label">EnterpriseBigLogo</label>
-                <input #vimgbig = ngModel  [(ngModel)]="newvacancy.logoImgbig" name="VacancyEnterpriseBigLogo" class="form-control"  type="file"/>
+                <label for="Vacancy.description" class="control-label">Job Description</label>
+                <textarea #vimgbig = ngModel  [(ngModel)]="newvacancy.description" name="description" class="form-control"  type="text"></textarea>
+                <span class="text-danger"></span>
+            </div>  
+            <div class="form-group">
+                <label for="Vacancy.responsabilities" class="control-label">Job Responsabilities</label>
+                <textarea #vimgbig = ngModel  [(ngModel)]="newvacancy.responsabilities" name="description" class="form-control"  type="text"></textarea>
                 <span class="text-danger"></span>
             </div>
             <div class="form-group">

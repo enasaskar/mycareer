@@ -48,7 +48,7 @@
         </div>
 
         <div class="row">
-            <app-vacancy-item *ngFor="let v of vacancies" [vacancyitem]="v"></app-vacancy-item>
+            <app-vacancy-item *ngFor="let v of vacancies ; let  e=index" [index]="e" [vacancyitem]="v" [enterprises]="enterprises"></app-vacancy-item>
         </div>
     </div>
     
