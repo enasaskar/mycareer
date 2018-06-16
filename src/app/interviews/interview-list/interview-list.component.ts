@@ -9,8 +9,7 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
 })
 export class InterviewListComponent implements OnInit {
   @Input() listType;
-  acceptedList:Applicant[];
-  pendingList:Applicant[];
+  list:Applicant[];
   seeMore = false;
 
 
@@ -19,21 +18,22 @@ export class InterviewListComponent implements OnInit {
   }
   ngOnInit() {
     if(this.listType === "shortlist"){
-      this.acceptedList = this.applicantsService.getAllAccepted();
+      this.list = this.applicantsService.getAllAccepted();
     }else if(this.listType ==="pendingcv"){
-      this.pendingList = this.applicantsService.getAllPending();
+      this.list = this.applicantsService.getAllPending();
     }
     
     
   }
+
   seeMoreclicked() {
     this.seeMore = !this.seeMore;
   }
 
-  rejectApplicant() {
+  // rejectApplicant() {
 
-  }
-  acceptApplicant() {
+  // }
+  // acceptApplicant() {
 
-  }
+  // }
 }

@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicantsService } from '../shared/services/applicants.service';
-import { Applicant } from '../shared/classes/applicant.model';
-
-
 
 @Component({
   selector: 'app-interviews',
@@ -11,9 +7,7 @@ import { Applicant } from '../shared/classes/applicant.model';
 })
 export class InterviewsComponent implements OnInit {
   
-  constructor(private applicantsService:ApplicantsService) { }
- 
-  
+  constructor() { }
 
   ngOnInit() {
     
