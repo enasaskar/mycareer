@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicantsService } from '../shared/services/applicants.service';
+import { Applicant } from '../shared/classes/applicant.model';
 
 
 
@@ -8,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interviews.component.css']
 })
 export class InterviewsComponent implements OnInit {
- 
-  constructor() { }
+  
+  constructor(private applicantsService:ApplicantsService) { }
  
   
 

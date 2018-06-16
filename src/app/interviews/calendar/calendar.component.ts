@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { addDays, startOfDay, endOfDay, isSameMonth, isSameDay } from 'date-fns';
 import {
@@ -7,13 +7,14 @@ import {
   CalendarEventAction,
 } from 'angular-calendar';
 import { colors } from '../../calendar-utils/colors';
+import { CalendarService } from '../../shared/services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'calendar.component.html'
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
   view: string = 'month';
   
   viewDate: Date = new Date();
@@ -22,11 +23,17 @@ export class CalendarComponent {
 
   activeDayIsOpen: boolean;
 
-  events: CalendarEvent[]=[];
+  events: CalendarEvent[];
 
   refresh: Subject<any> = new Subject();
+ 
+  constructor(private calendarService:CalendarService){
+  }
 
-  // selectedMonthViewDay: CalendarMonthViewDay;
+  ngOnInit(){
+    this.events = this.calendarService.getAll();
+    console.log(this.events);
+  }
 
   dayClicked({ date, events}: { date: Date; events: CalendarEvent[];}): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -41,27 +48,7 @@ export class CalendarComponent {
         this.viewDate = date;  
       }
     }
-
-    // if (this.selectedMonthViewDay) {
-    //   debugger;
-    //   delete this.selectedMonthViewDay.cssClass;
-    // }
-    // day.cssClass = 'cal-day-selected';
-    // this.selectedMonthViewDay = day;
   }
-
-  // beforeMonthViewRender({ body }: { body: CalendarMonthViewDay[] }): void {
-  //   body.forEach(day => {
-  //     if (
-  //       this.selectedMonthViewDay &&
-  //       day.date.getTime() === this.selectedMonthViewDay.date.getTime()
-  //     ) {
-  //       day.cssClass = 'cal-day-selected';
-  //       this.selectedMonthViewDay = day;
-  //     }
-  //   });
-  // }
-  
 
   eventTimesChanged({
     event,
@@ -74,8 +61,9 @@ export class CalendarComponent {
   }
   
   addEvent(): void {
-    console.log(this.clickedDate.toLocaleDateString());
-    this.events.push({
+    console.log(this.events);
+    //console.log(this.clickedDate.toLocaleDateString());
+    const event:CalendarEvent = {
       title: "interviews",
       start: startOfDay(this.clickedDate),
       end: endOfDay(this.clickedDate),
@@ -89,13 +77,15 @@ export class CalendarComponent {
         {
           label: '<i class="fa fa-fw fa-times"></i>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
+            console.log(this.events);
             this.events = this.events.filter(iEvent => iEvent !== event);
+            console.log(this.events);
             this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
           }
         }
       ]
-    });
+    };
+    this.calendarService.add(event);
     this.refresh.next();
   }
  

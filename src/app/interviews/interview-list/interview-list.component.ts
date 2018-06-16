@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Applicant } from '../../shared/classes/applicant.model';
 import { ApplicantsService } from '../../shared/services/applicants.service';
 
 @Component({
@@ -8,27 +9,22 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
 })
 export class InterviewListComponent implements OnInit {
   @Input() listType;
-
-  secondSlotAccepted;
-  secondSlotPending;
-  firstSlotPending;
-  firstSlotAccepted;
-  pendingList;
-  acceptedList;
+  acceptedList:Applicant[];
+  pendingList:Applicant[];
   seeMore = false;
 
 
-  constructor(private appllicantsService: ApplicantsService) {
-    appllicantsService.onDelete.subscribe((applicant) => { appllicantsService.delete(applicant) });
+  constructor(private applicantsService:ApplicantsService) {
+    //appllicantsService.onDelete.subscribe((applicant) => { appllicantsService.delete(applicant) });
   }
   ngOnInit() {
-
-    if (this.listType == "shortlist") {
-      
+    if(this.listType === "shortlist"){
+      this.acceptedList = this.applicantsService.getAllAccepted();
+    }else if(this.listType ==="pendingcv"){
+      this.pendingList = this.applicantsService.getAllPending();
     }
-    else if (this.listType == "pendingcv") {
-      
-    }
+    
+    
   }
   seeMoreclicked() {
     this.seeMore = !this.seeMore;

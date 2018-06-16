@@ -5,6 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { ApplicantsService } from '../../shared/services/applicants.service';
 import { SkillsService } from '../../shared/services/skills.service';
+import { Applicant } from '../../shared/classes/applicant.model';
 
 @Component({
   selector: 'app-interview-applicantitem',
@@ -12,30 +13,13 @@ import { SkillsService } from '../../shared/services/skills.service';
   styleUrls: ['./interview-applicantitem.component.css']
 })
 export class InterviewApplicantitemComponent implements OnInit {
-  @Input() applicant: {
-    id: number,
-    fname: string,
-    lname: string,
-    imagePath: string,
-    position: string,
-    status,
-    appointment: {
-      date: string,
-      time: string
-    },
-    skills: [
-      {
-        id: number,
-        rate: number
-      }]
-  };
+  @Input() applicant: Applicant;
   @Output() removeApplicant = new EventEmitter<void>();
   modalRef: BsModalRef;
   max = 10;
   isReadonly = false;
 
   constructor(private modalService: BsModalService, private applicantsService: ApplicantsService, private skillsService: SkillsService) {
-    //this.applicantsService.onDelete.subscribe((applicant: any) => this.applicantsService.delete(applicant));
   }
 
   openModal(template: TemplateRef<any>) {
@@ -55,11 +39,6 @@ export class InterviewApplicantitemComponent implements OnInit {
   }
 
   public deleteApplicant() {
-    console.log("in deleteApplicant function");
-    console.log(this.applicant);
-    this.applicantsService.onDelete.next(this.applicant);
-    console.log('here');
-    //this.removeApplicant.emit();
-    //this.applicantsService.delete(id);
+    
   }
 }

@@ -1,7 +1,3 @@
-<!-- List Type -->
-<div class="col-md-12"></div>
-<h3><i class="fa fa-file-text"></i>
-    <strong>{{listType === 'shortlist'? 'Accepted' : 'Pending'}}</strong> CV</h3>  
 
 <!-- Search -->
 <div class="row" *ngIf="seeMore">
@@ -23,14 +19,29 @@
 
 <!-- Card View depends on list Type -->
 <div [ngSwitch]="listType">
-    <div *ngSwitchCase="'shortlist'">
-        <app-interview-applicantitem *ngFor="let acceptedapp of firstSlotAccepted" [applicant]="acceptedapp" ></app-interview-applicantitem>
+    <div *ngSwitchCase="'shortlist'"  >
+        <div *ngIf="acceptedList; else noList">
+            <!-- <app-interview-applicantitem [applicant]="acceptedList[0]" ></app-interview-applicantitem>
+            <app-interview-applicantitem [applicant]="acceptedList[1]" ></app-interview-applicantitem>
+            <app-interview-applicantitem [applicant]="acceptedList[2]" ></app-interview-applicantitem> -->
+        </div>
     </div>
-    <div *ngSwitchCase="'pendingcv'">
-        <app-view-one-item *ngFor="let pendapp of firstSlotPending" [applicant]="pendapp">
+    <div *ngSwitchCase="'pendingcv'" >
+        <div *ngIf="pendingList; else noList">
+        <app-view-one-item [applicant]="pendingList[0]">
             <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
             <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
         </app-view-one-item>
+        <app-view-one-item [applicant]="pendingList[1]">
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
+        </app-view-one-item>
+        <app-view-one-item [applicant]="pendingList[2]">
+            <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
+            <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
+        </app-view-one-item>
+        </div>
+       
     </div>
 </div>
 
@@ -41,10 +52,10 @@
 <!-- the rest of applicants card -->
 <div [ngSwitch]="listType" *ngIf="seeMore">
     <div *ngSwitchCase="'shortlist'"  >
-        <app-interview-applicantitem *ngFor="let acceptedapp of secondSlotAccepted" [applicant]="acceptedapp"></app-interview-applicantitem>
+        <app-interview-applicantitem *ngFor="let applicant of acceptedList" [applicant]="applicant"></app-interview-applicantitem>
     </div>
     <div *ngSwitchCase="'pendingcv'">
-        <app-view-one-item *ngFor="let pendapp of secondSlotPending" [applicant]="pendapp">
+        <app-view-one-item *ngFor="let applicant of pendingList" [applicant]="applicant">
             <i class="fa fa-check " style="color:green" (click)="acceptApplicant()"></i>
             <i class="fa fa-close " style="color:red"(click)="rejectApplicant()"></i>
         </app-view-one-item>
@@ -52,3 +63,6 @@
 </div>
 <a class="SeeMore" (click)="seeMoreclicked()" *ngIf="seeMore">See Less</a>
 <p class="clear"></p>
+<ng-template #noList>
+    <P><strong>No list</strong></P>
+</ng-template>

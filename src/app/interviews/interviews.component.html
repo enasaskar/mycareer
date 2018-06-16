@@ -22,11 +22,13 @@
         <hr class="mini">
         
         <!-- shortList -->
+        <div class="col-md-12"></div><h3><i class="fa fa-file-text"></i><strong>Accepted</strong> CV</h3> 
         <app-interview-list [listType]="'shortlist'"></app-interview-list>
         <hr class="mini">
 
         <!-- Waiting List -->
-        <app-interview-list [listType]="'pendingcv'"></app-interview-list>
+        <div class="col-md-12"></div><h3><i class="fa fa-file-text"></i><strong>Pending</strong> CV</h3> 
+        <app-interview-list [listType]="'pendingcv'" ></app-interview-list>
         
     </div>
 </div>
