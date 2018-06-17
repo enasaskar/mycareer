@@ -53,7 +53,13 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.details = this.enterpriseService.getById(+this.id);
     this.sizes = this.sizeService.getAll();   
     this.countries = this.countryService.getAll();
-    this.cities = this.cityService.getAll();
+    for(let i = 0; i < this.details.branches.length; i++){
+     this.cities = this.cityService.getByCountryName(this.details.branches[i].country); 
+    }
+    this.countryService.onChange.subscribe(
+      (c : string) => {this.cities = this.cityService.getByCountryName(c);
+      console.log("oninit");}
+    );
   }
   
   onClick(){
@@ -68,6 +74,45 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.edit = document.getElementById("edit");  
     this.e.style.display = "block";
     this.edit.style.display = "none";
+  }
+  onChange(country : string){
+    console.log(country);
+    this.countryService.onChange.next(country);
+  }
+
+  onAddBranch(){
+    const branches = document.getElementsByClassName("appendBranch")[0];
+    branches.innerHTML += `<div class="row branches">
+    <div class="form-group col-md-3 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <select (change) = "onChange($event.target.value)"  class="form-control" required [name] = "b.country" [(ngModel)] = "b.country"> 
+                <option *ngFor=let co of ${this.countries}">{{co.name}}</option>
+              </select>                            													
+          </div>
+    </div>
+
+    <div class="form-group col-md-3 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <select class="form-control" required [name] = "b.city" [(ngModel)] = "b.city"> 
+              <option *ngFor="let ci of cities">{{ci.name}}</option>
+            </select>                            													
+          </div>                    
+    </div>
+    <div class="form-group col-md-4 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+          </div>
+    </div>
+  </div>`;
   }
 
   OnAddSubmit(form : NgForm){

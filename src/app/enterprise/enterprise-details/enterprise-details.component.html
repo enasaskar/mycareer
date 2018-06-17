@@ -316,40 +316,43 @@
 											</div>  
                   </div>
                 </div>
-                <div class="row branches">
-                  <div class="form-group col-md-3 input-group-sm">
-                      <div class="input-group input-group-icon">
-													<span class="input-group-addon">
-														<span class="icon"><i class="fa fa-location-arrow"></i></span>
-													</span>
-                          <select  class="form-control" required name = "country"> 
-                              <!-- <option *ngFor="let s of sizes">{{s.text}}</option> -->
+                <div class = "appendBranch">
+                  <div *ngFor = "let b of details.branches"  class="row branches">
+                    <div class="form-group col-md-3 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <select (change) = "onChange($event.target.value)"  class="form-control" required [name] = "b.country" [(ngModel)] = "b.country"> 
+                                <option *ngFor="let co of countries">{{co.name}}</option>
+                              </select>                            													
+                          </div>
+                    </div>
+            
+                    <div class="form-group col-md-3 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <select class="form-control" required [name] = "b.city" [(ngModel)] = "b.city"> 
+                              <option *ngFor="let ci of cities">{{ci.name}}</option>
                             </select>                            													
-												</div>
-                  </div>
-          
-                  <div class="form-group col-md-3 input-group-sm">
-                      <div class="input-group input-group-icon">
-													<span class="input-group-addon">
-														<span class="icon"><i class="fa fa-location-arrow"></i></span>
-													</span>
-                          <select  class="form-control" required name = "city"> 
-                              <!-- <option *ngFor="let s of sizes">{{s.text}}</option> -->
-                            </select>                            													
-												</div>                    
-                  </div>
-                  <div class="form-group col-md-4 input-group-sm">
-                      <div class="input-group input-group-icon">
-													<span class="input-group-addon">
-														<span class="icon"><i class="fa fa-location-arrow"></i></span>
-													</span>
-                          <input type="text" required class="form-control" name="enterpriseLoc" placeholder="Location">                              													
-												</div>
-                  </div>
-                  <div class="col-md-2">
-                    <i class="fa fa-plus" id="addBranch"></i>
+                          </div>                    
+                    </div>
+                    <div class="form-group col-md-4 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+                          </div>
+                    </div>
                   </div>
                 </div>
+                
+                <!-- <div class="col-md-2"> -->
+                  <i class="fa fa-plus" id="addBranch" (click) = "onAddBranch()"></i>
+                <!-- </div> -->
                 <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
                 <input type="submit" class="btn btn-primary right" value="Save" />
     
