@@ -41,7 +41,7 @@
           </div>
           <div class="col-sm-1">
               <span class="thumb-info-social-icons left EditIconPathProfile">
-                <a id="edit-profile" data-tooltip data-placement="bottom" data-original-title="Edit">
+                <a id="edit-profile" [routerLink]="['/paths','edit', Path.Id ]" data-tooltip data-placement="bottom" data-original-title="Edit">
                   <i class="fa fa-pencil"></i>
                   <span>Edit</span>
                 </a>

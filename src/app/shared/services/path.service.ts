@@ -582,6 +582,14 @@ private enetrprises: Enterprise[] = [
         return path.Id;
     }
 
+    public edit(path: IPath) {
+        // this.paths.find(p => p.Id === path.Id);
+        const index = this.paths.indexOf(path);
+        if (index !== -1) {
+            this.paths[index] = path;
+        }
+    }
+
     public getSkills(id: number): Skill[] {
         return this.skills;
     }
