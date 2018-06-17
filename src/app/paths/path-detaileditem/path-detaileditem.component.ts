@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject} from '@angular/core';
 import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Skill } from '../../shared/classes/skill.model';
 import { User } from '../../users/users.model';
 import { Enterprise } from '../../shared/classes/enterprise';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 
 
 @Component({
@@ -16,7 +17,10 @@ export class PathDetaileditemComponent implements OnInit {
 
   @Input() skills: Skill[];
   @Input() EnterprisesRecommendPath: Enterprise[];
-  constructor(private pathService: PathService, private route: ActivatedRoute) { }
+
+  dialogRef: MatDialogRef<ConfirmDeletePopup>;
+
+  constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
 
   public Path = this.pathService.defaultPath;
 
@@ -50,5 +54,43 @@ export class PathDetaileditemComponent implements OnInit {
   public RecommendPath() {
     // TODO: get enterprise id
     this.pathService.addEnterpriseRecommendPath(1, this.Path.Id);
+  }
+
+  public deleteClicked() {
+    // let confirmDelete: boolean;
+    // are you sure ?
+     this.dialogRef = this.dialog.open(ConfirmDeletePopup, {
+      disableClose: false,
+      data: {
+        name:  this.Path.Name
+      }
+    });
+    this.dialogRef.afterClosed().subscribe(result => {
+      if ( result ) {
+        // do confirmation actions
+        // emit delete event/subject
+        this.pathService.onDelete.next(this.Path);
+        // Go to all Paths page
+      this.router.navigate(['/paths']);
+      }
+      this.dialogRef = null;
+    });
+
+  }
+}
+
+@Component({
+  selector: 'app-confirm-delete-popup',
+  templateUrl: './confirm-delete-popup.html',
+  styleUrls: ['./path-detaileditem.component.css']
+})
+// tslint:disable-next-line:component-class-suffix
+export class ConfirmDeletePopup {
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmDeletePopup>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

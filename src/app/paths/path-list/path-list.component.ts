@@ -16,7 +16,14 @@ export class PathListComponent implements OnInit {
   public PathCategories: IPathCategory[];
   public paths: IPath[];
     constructor(private pathCategoryService: PathCategoryService,
-      private pathService: PathService) { }
+      private pathService: PathService) {
+        pathService.onDelete.subscribe(
+          (p : IPath) => {
+            pathService.delete(p.Id);
+            this.paths = this.pathService.getAll();
+          }
+        );
+      }
 
   ngOnInit() {
     this.PathCategories = this.pathCategoryService.getAll();

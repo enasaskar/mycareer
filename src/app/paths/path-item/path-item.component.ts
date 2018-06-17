@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IPath } from '../../shared/interfaces/IPath';
+import { PathService } from '../../shared/services/path.service';
 
 @Component({
   selector: 'app-path-item',
@@ -11,9 +12,13 @@ export class PathItemComponent implements OnInit {
 
 
   @Input() Path: IPath;
-  constructor() { }
+  constructor(private pathService: PathService) { }
 
   ngOnInit() {
+  }
+
+  public trashClicked() {
+    this.pathService.onDelete.next(this.Path);
   }
 
 }

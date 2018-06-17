@@ -1,6 +1,7 @@
 import { IPath } from '../interfaces/IPath';
 import { Skill } from '../classes/skill.model';
 import { Enterprise } from '../classes/enterprise';
+import { Subject } from 'rxjs';
 
 export class PathService {
     constructor() {
@@ -552,6 +553,11 @@ private enetrprises: Enterprise[] = [
    
 
     //  =============================================================================================================
+    //  ================================================ Subjects ==================================================
+    //  =============================================================================================================
+    public onDelete =  new Subject<IPath>();
+
+    //  =============================================================================================================
     //  ================================================ Functions ==================================================
     //  =============================================================================================================
     public getAll(): IPath[] {
@@ -566,7 +572,8 @@ private enetrprises: Enterprise[] = [
     }
 
     public getSimilarPaths(id: number): IPath[] {
-        return this.similarPaths;
+        // ckeck if they are not deleted first
+        return this.similarPaths.filter(p => p.IsDeleted === false);
     }
 
     public addPath(path: IPath): number {
@@ -585,6 +592,10 @@ private enetrprises: Enterprise[] = [
         // send skill object to api
         this.skills.find(s => s.Name === skillName);
         return true; // true if succssesfully inserted
+    }
+
+    public delete(pathId: number) {
+        this.paths.find( p => p.Id === pathId).IsDeleted = true;
     }
 
     public enrollUserToPath(userId: number, pathId: number) {
