@@ -1,3 +1,4 @@
+import { EnterpriseBranches } from './enterprise-branches';
 // import { Sizes } from './sizes';
 export class EnterpriseDetails {
     id : number;
@@ -10,4 +11,9 @@ export class EnterpriseDetails {
     website: string;
     facebookAccount:string;
     twitterAccount : string;
+    profileViewsNumber : number;
+    reviewsTotalNumber : number;
+    applicatntsNumber : number;
+    branches : EnterpriseBranches[];
+
 }

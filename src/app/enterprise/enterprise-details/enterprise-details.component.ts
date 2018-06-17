@@ -1,3 +1,6 @@
+import { EnterpriseBranches } from './../../shared/classes/enterprise-branches';
+import { CityService } from './../../shared/services/city.service';
+import { City } from './../../shared/classes/city';
 import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { Component, OnInit, Input } from '@angular/core';
@@ -11,6 +14,8 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';  
 import { Sizes } from '../../shared/classes/sizes';
 import { SizeService } from '../../shared/services/size.service';
+import { Country } from '../../shared/classes/country';
+import { CountryService } from '../../shared/services/country.service';
 
 
 
@@ -31,19 +36,39 @@ export class EnterpriseDetailsComponent implements OnInit {
   public  edit;
 
   sizes : Sizes [];
+  countries : Country[];
+  cities : City[];
+  
 
   newEnterprise  = new EnterpriseDetails();
+  newBranch = new EnterpriseBranches();
   
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
-    private sizeService : SizeService,private dialog: MatDialog) {
-  
+    private sizeService : SizeService,private dialog: MatDialog,
+    private countryService : CountryService, private cityService : CityService) {
+      this.newEnterprise.branches = [];
    }
  
   ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
     this.sizes = this.sizeService.getAll();   
+    this.countries = this.countryService.getAll();
+    console.log(this.id);
+    if(this.id != null){
+      for(let i = 0; i < this.details.branches.length; i++){
+        this.cities = this.cityService.getByCountryName(this.details.branches[i].country); 
+       }
+    }
+    else{
+      this.cities = this.cityService.getAll();
+    }
+    
+    this.countryService.onChange.subscribe(
+      (c : string) => {this.cities = this.cityService.getByCountryName(c);
+      console.log("oninit");}
+    );
   }
   
   onClick(){
@@ -59,10 +84,52 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.e.style.display = "block";
     this.edit.style.display = "none";
   }
+  onChange(country : string){
+    console.log(country);
+    this.countryService.onChange.next(country);
+  }
+  onFileChange(event){
+    console.log(event);
+  }
+
+  onAddBranch(){
+    this.newEnterprise.branches.push(this.newBranch);
+    const branches = document.getElementsByClassName("appendBranch")[0];
+    branches.innerHTML += `<div class="row branches">
+    <div class="form-group col-md-3 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <select (change) = "onChange($event.target.value)"  class="form-control" required [name] = "b.country" [(ngModel)] = "b.country"> 
+                <option *ngFor=let co of ${this.countries}">{{co.name}}</option>
+              </select>                            													
+          </div>
+    </div>
+
+    <div class="form-group col-md-3 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <select class="form-control" required [name] = "b.city" [(ngModel)] = "b.city"> 
+              <option *ngFor="let ci of cities">{{ci.name}}</option>
+            </select>                            													
+          </div>                    
+    </div>
+    <div class="form-group col-md-4 input-group-sm">
+        <div class="input-group input-group-icon">
+            <span class="input-group-addon">
+              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+            </span>
+            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+          </div>
+    </div>
+  </div>`;
+  }
 
   OnAddSubmit(form : NgForm){
-    if(form.valid)
-    {
+    if(form.valid){
       this.newEnterprise.id = this.newId;
       //console.log(this.newEnterprise);
       this.enterpriseService.add(this.newEnterprise);
@@ -76,11 +143,15 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   OnEditSubmit(form : NgForm){
       //To Do:call update function
-      this.enterpriseService.update(this.details.id-1,this.details);
-      this.e = document.getElementById("e");
-      this.edit = document.getElementById("edit");  
-      this.e.style.display = "block";
-      this.edit.style.display = "none";
+      if(form.valid){
+        this.enterpriseService.update(this.details.id-1,this.details);
+        this.e = document.getElementById("e");
+        this.edit = document.getElementById("edit");  
+        this.e.style.display = "block";
+        this.edit.style.display = "none";
+
+      }
+      
       
   }
 

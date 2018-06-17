@@ -358,18 +358,14 @@ ul.comments .comment-block strong
 
 
 
-p.short{
-  /* margin-left: 80px; */
-  margin-left: 115px;
-}
 
 a h4{
   color: blue
 }
-
+/* 
 .row >div.col-md-6{
   margin-bottom: 30px
-}
+} */
 
 div h3{
   color: black
@@ -378,7 +374,24 @@ div h3{
 
 
 
+.feature-box.secundary.bordered {
+  border: 1.1px solid lightgrey;
+  border-radius: 10px;
+  padding: 16px 0px 0px 20px;
+}
+.info.counters {
+  margin-top: -10px;
+}
+.counters .fa {
+  display: block;
+  font-size: 22px;
+  line-height: 0px;
+  margin-bottom: 5px;
+}
 
-
-
-
+.counters strong {
+  display: block;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 30px;
+}

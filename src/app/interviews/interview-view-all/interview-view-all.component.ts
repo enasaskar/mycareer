@@ -8,6 +8,8 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
 })
 export class InterviewViewAllComponent implements OnInit {
   applicants;
+
+  searchWord : string;
   constructor(private applicantsService:ApplicantsService) { }
   
   ngOnInit() {
@@ -21,6 +23,10 @@ export class InterviewViewAllComponent implements OnInit {
     //console.log("isDeleted");
   }
   acceptedApplicant(id:number){
-    this.applicantsService.update(id,true);
+    //this.applicantsService.update(id,true);
+  }
+
+  onSearch(){
+    
   }
 }
