@@ -34,7 +34,7 @@
 
     <!-- view details -->
     <div *ngIf="details" class="row enterprise-view-one" id = "e">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
             <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
@@ -43,7 +43,7 @@
         </div>
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-8">
         <span class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
             <a data-tooltip data-placement="top" data-original-title="Edit">
@@ -159,15 +159,16 @@
     <!-- add view -->
     <form action="enterprises/enterprise/details/{{newEnterprise.id}}" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
       <div class="row form-group">
-          <div class="col-md-3">
+          <div class="col-md-4">
               <div class="portfolio-item">
-                <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
-                  <img class="img-responsive" [src]="newEnterprise.bigLogo" alt="" id="enterprise_logo">
+                <a class="thumb-info lightbox"  data-plugin-options='{"type":"inline", preloader: false}'>
+                  <img class="img-responsive" src="../../../assets/img/default.png" alt="" id="enterprise_logo">
                 </a>
-      
+                <input type="file"  required class="form-control" name="newenterpriseLogo"  (change) = "onFileChange($event)">													                  
+                
               </div>
             </div>
-      <div class="col-md-9" >
+      <div class="col-md-8" >
           <div class="input-group form-group">
               <div class="row">
                 <div class="form-group col-md-6 input-group-sm">
@@ -289,7 +290,7 @@
       
       <div class="form-group">
         <!-- Button -->
-        <div class="col-md-offset-3 col-md-9">
+        <div class="right">
           <button id="btn-signup" type="submit" class="btn btn-info" [disabled] = "addForm.invalid">
             <i class="icon-hand-right"></i>Submit</button>
         </div>
@@ -301,15 +302,16 @@
     <!-- edit view -->
     <form *ngIf="details" action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
       <div id = "edit" class="enterpriseEdit">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="portfolio-item">
               <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
                 <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
               </a>
-    
+              <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
+              <label for="file-upload" class="btn btn-primary file-upload">Change Logo</label>
             </div>
           </div>
-        <div class="col-md-9" >
+        <div class="col-md-8" >
             <div class="input-group form-group">
                 <div class="row">
                   <div class="form-group col-md-6 input-group-sm">

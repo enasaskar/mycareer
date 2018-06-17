@@ -88,6 +88,9 @@ export class EnterpriseDetailsComponent implements OnInit {
     console.log(country);
     this.countryService.onChange.next(country);
   }
+  onFileChange(event){
+    console.log(event);
+  }
 
   onAddBranch(){
     this.newEnterprise.branches.push(this.newBranch);
