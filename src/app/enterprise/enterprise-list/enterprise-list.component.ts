@@ -1,7 +1,8 @@
 import { Enterprise } from './../../shared/classes/enterprise';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EnterpriseService } from '../../shared/services/enterprise.service';
 import { NgForm } from '@angular/forms';
+import { PathService } from '../../shared/services/path.service';
 
 @Component({
   selector: 'app-enterprise-list',
@@ -10,12 +11,13 @@ import { NgForm } from '@angular/forms';
 })
 export class EnterpriseListComponent implements OnInit {
 
-  @Input() enterprises: Enterprise[];
+   @Input() pathId: number;
+   public enterprises: Enterprise[];
 
-  constructor(private enterpriseService: EnterpriseService) { }
+  constructor(private enterpriseService: EnterpriseService, private pathService: PathService) { }
 
   ngOnInit() {
-    // this.enterprises = this.enterpriseService.getAll();
+    this.enterprises = this.pathService.getEnterpriseRecommendPath(this.pathId);
 
   }
 
