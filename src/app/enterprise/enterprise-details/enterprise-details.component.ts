@@ -1,3 +1,4 @@
+import { EnterpriseBranches } from './../../shared/classes/enterprise-branches';
 import { CityService } from './../../shared/services/city.service';
 import { City } from './../../shared/classes/city';
 import { EnterpriseService } from './../../shared/services/enterprise.service';
@@ -40,12 +41,13 @@ export class EnterpriseDetailsComponent implements OnInit {
   
 
   newEnterprise  = new EnterpriseDetails();
+  newBranch = new EnterpriseBranches();
   
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
     private sizeService : SizeService,private dialog: MatDialog,
     private countryService : CountryService, private cityService : CityService) {
-  
+      this.newEnterprise.branches = [];
    }
  
   ngOnInit() {     
@@ -53,9 +55,16 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.details = this.enterpriseService.getById(+this.id);
     this.sizes = this.sizeService.getAll();   
     this.countries = this.countryService.getAll();
-    for(let i = 0; i < this.details.branches.length; i++){
-     this.cities = this.cityService.getByCountryName(this.details.branches[i].country); 
+    console.log(this.id);
+    if(this.id != null){
+      for(let i = 0; i < this.details.branches.length; i++){
+        this.cities = this.cityService.getByCountryName(this.details.branches[i].country); 
+       }
     }
+    else{
+      this.cities = this.cityService.getAll();
+    }
+    
     this.countryService.onChange.subscribe(
       (c : string) => {this.cities = this.cityService.getByCountryName(c);
       console.log("oninit");}
@@ -81,6 +90,7 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   onAddBranch(){
+    this.newEnterprise.branches.push(this.newBranch);
     const branches = document.getElementsByClassName("appendBranch")[0];
     branches.innerHTML += `<div class="row branches">
     <div class="form-group col-md-3 input-group-sm">
@@ -116,8 +126,7 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   OnAddSubmit(form : NgForm){
-    if(form.valid)
-    {
+    if(form.valid){
       this.newEnterprise.id = this.newId;
       //console.log(this.newEnterprise);
       this.enterpriseService.add(this.newEnterprise);
@@ -131,11 +140,15 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   OnEditSubmit(form : NgForm){
       //To Do:call update function
-      this.enterpriseService.update(this.details.id-1,this.details);
-      this.e = document.getElementById("e");
-      this.edit = document.getElementById("edit");  
-      this.e.style.display = "block";
-      this.edit.style.display = "none";
+      if(form.valid){
+        this.enterpriseService.update(this.details.id-1,this.details);
+        this.e = document.getElementById("e");
+        this.edit = document.getElementById("edit");  
+        this.e.style.display = "block";
+        this.edit.style.display = "none";
+
+      }
+      
       
   }
 

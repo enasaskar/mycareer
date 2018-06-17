@@ -158,62 +158,134 @@
 
     <!-- add view -->
     <form action="enterprises/enterprise/details/{{newEnterprise.id}}" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
-      <div class="form-group">
-        <label for="name" class="col-md-3 control-label">Name</label>
-        <div class="col-md-9">
-          <input type="text" #eName = ngModel required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">
-        </div>
+      <div class="row form-group">
+          <div class="col-md-3">
+              <div class="portfolio-item">
+                <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+                  <img class="img-responsive" [src]="newEnterprise.bigLogo" alt="" id="enterprise_logo">
+                </a>
+      
+              </div>
+            </div>
+      <div class="col-md-9" >
+          <div class="input-group form-group">
+              <div class="row">
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-building"></i></span>
+                        </span>
+                        <input type="text" #eName = ngModel required class="form-control" name="newenterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">													
+                      </div>
+                </div>
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><img width = "15" src="../../../assets/img/header.png" alt=""></span>
+                        </span>
+                        <input type="text" #eHeadline = ngModel required class="form-control" name="newheadLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">                  
+                    </div>
+                </div>
+        
+              </div>
+        
+              <div class="row">
+                <div class="form-group col-md-12 input-group-lg">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><img width = "15" src="../../../assets/img/headline.png" alt=""></span>
+                        </span>
+                        <input type="textarea" #eDesc = ngModel  required class="form-control" name="newdescription" placeholder="Description" [(ngModel)] = "newEnterprise.des">
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-globe"></i></span>
+                        </span>
+                        <input type="text" #eSite = ngModel required class="form-control" name="newwebsite" placeholder="website" [(ngModel)] = "newEnterprise.website">               
+                    </div>
+                </div>
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-facebook-f"></i></span>
+                        </span>
+                        <input type="text" #eFb = ngModel required class="form-control" name="newfacebook" placeholder="Facebook Account" [(ngModel)] = "newEnterprise.facebookAccount">                                              
+                    </div>
+                </div>
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-twitter"></i></span>
+                        </span>
+                        <input type="text" #eTwitter = ngModel required class="form-control" name="newtwitter" placeholder="Twitter Account" [(ngModel)] = "newEnterprise.twitterAccount">                                              													
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+        
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-building"></i></span>
+                        </span>
+                        <input type="text" #eHead = ngModel  required class="form-control" name="newheadquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">                                  													
+                      </div>
+                </div>
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-sitemap"></i></span>
+                        </span>
+                        <select  class="form-control" required name = "newsize" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
+                            <option value="" disabled>Select the company size range</option>
+                            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
+                        </select>      
+                    </div>  
+                </div>
+              </div>
+              <div class = "appendBranch">
+                <div class="row branches">
+                  <div class="form-group col-md-3 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <select class="form-control" required name = "newBranch.country" [(ngModel)] = "newBranch.country"> 
+                              <option *ngFor="let co of countries">{{co.name}}</option>
+                          </select>                            													
+                        </div>
+                  </div>
+          
+                  <div class="form-group col-md-3 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <select class="form-control" required name = "newBranch.city" [(ngModel)] = "newBranch.city"> 
+                            <option *ngFor="let ci of cities">{{ci.name}}</option>
+                          </select>                            													
+                        </div>                    
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <input type="text" required class="form-control" placeholder="Loaction details" name = "newBranch.locationDetails" [(ngModel)] = "newBranch.locationDetails"  >                              													
+                        </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- <div class="col-md-2"> -->
+                <i class="fa fa-plus" id="addBranch" (click) = "onAddBranch()"></i>
+              <!-- </div> -->
+            </div>
       </div>
-
-      <div class="form-group">
-        <label for="headline" class="col-md-3 control-label">HeadLine</label>
-        <div class="col-md-9">
-          <input type="text" #eHeadline = ngModel required class="form-control" name="headLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="description" class="col-md-3 control-label">Description</label>
-        <div class="col-md-9">
-          <input type="textarea" #eDesc = ngModel  required class="form-control" name="description" placeholder="Description" [(ngModel)] = "newEnterprise.des">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="headquarters" class="col-md-3 control-label">Headquarters</label>
-        <div class="col-md-9">
-          <input type="text" #eHead = ngModel  required class="form-control" name="headquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="website" class="col-md-3 control-label">Website</label>
-        <div class="col-md-9">
-          <input type="text" #eSite = ngModel required class="form-control" name="website" placeholder="website" [(ngModel)] = "newEnterprise.website">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="facebook" class="col-md-3 control-label">Facebook Account</label>
-        <div class="col-md-9">
-          <input type="text" #eFb = ngModel required class="form-control" name="facebook" placeholder="Facebook Account" [(ngModel)] = "newEnterprise.facebookAccount">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="twitter" class="col-md-3 control-label">Twitter Account</label>
-        <div class="col-md-9">
-          <input type="text" #eTwitter = ngModel required class="form-control" name="twitter" placeholder="Twitter Account" [(ngModel)] = "newEnterprise.twitterAccount">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-3 control-label">Size</label>
-        <div class="col-md-9">
-          <select  class="form-control" required name = "size" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
-            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
-          </select>
-        </div>
-      </div>
-
       
       <div class="form-group">
         <!-- Button -->
@@ -222,10 +294,10 @@
             <i class="icon-hand-right"></i>Submit</button>
         </div>
       </div>
+      </div>
+      </form>
 
-    </form>
-
-
+  
     <!-- edit view -->
     <form *ngIf="details" action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
       <div id = "edit" class="enterpriseEdit">
