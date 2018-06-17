@@ -22,6 +22,7 @@ import {
     MatNativeDateModule,
     MatDialogModule,
   } from '@angular/material';
+import { EnterprisesModule } from '../enterprise/enterprises.module';
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import {
         FormsModule,
         PathRoutingModule,
         SkillsModule,
+        EnterprisesModule,
         ReactiveFormsModule,
         MatAutocompleteModule,
         MatFormFieldModule,

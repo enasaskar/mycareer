@@ -4,6 +4,7 @@ import { PathService } from '../../shared/services/path.service';
 import {ActivatedRoute} from '@angular/router';
 import { Skill } from '../../shared/classes/skill.model';
 import { User } from '../../users/users.model';
+import { Enterprise } from '../../shared/classes/enterprise';
 
 
 @Component({
@@ -14,23 +15,9 @@ import { User } from '../../users/users.model';
 export class PathDetaileditemComponent implements OnInit {
 
   @Input() skills: Skill[];
+  @Input() EnterprisesRecommendPath: Enterprise[];
   constructor(private pathService: PathService, private route: ActivatedRoute) { }
 
-
-
-  // public Path: IPath = {
-  //   Id : 1,
-  //   Name: 'No Data',
-  //   Description: 'No data yet',
-  //   EntPathCreator: null,
-  //   ImgURL: null,
-  //   NoOfInterestedUsers: 0,
-  //   IsDeleted: false,
-  //   PathMainCategory: null,
-  //   RequiredSkillsCount: 0,
-  //   PathSubCategory: null,
-  //   SimilarPaths: null
-  // };
   public Path = this.pathService.defaultPath;
 
   public isEnterprise = true;
@@ -62,6 +49,6 @@ export class PathDetaileditemComponent implements OnInit {
 
   public RecommendPath() {
     // TODO: get enterprise id
-    this.pathService.enterpriseRecommendPath(1, this.Path.Id);
+    this.pathService.addEnterpriseRecommendPath(1, this.Path.Id);
   }
 }

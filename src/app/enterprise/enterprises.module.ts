@@ -24,6 +24,7 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
+import { EnterpriseListComponent } from './enterprise-list/enterprise-list.component';
 
 
 
@@ -43,9 +44,9 @@ import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.
         WorkExperienceComponent,
         WorkExpItemComponent,
         ReviewModalContentComponent,
-        LandingPageComponent
-,
-    JobPostingPlansComponent
+        LandingPageComponent,
+        JobPostingPlansComponent,
+        EnterpriseListComponent
 ],
     imports:
     [
@@ -64,6 +65,7 @@ import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.
         NgbModule,
         MatDialogModule,
         BrowserAnimationsModule,
+        EnterpriseListComponent
     ],
     entryComponents: [ReviewModalContentComponent]
 })

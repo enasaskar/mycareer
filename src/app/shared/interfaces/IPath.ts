@@ -19,7 +19,7 @@ export  interface IPath {
     SimilarPaths: IPath[];
     RequiredSkills: Skill[];
     // VacancyRelatedToPath: Vacancy[];
-    // EnterpriseRecommendPath: Enterprise[];
+    EnterpriseRecommendPath: Enterprise[];
     // UserFollowPaths: User[];
 
     
