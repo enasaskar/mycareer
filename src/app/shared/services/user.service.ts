@@ -8,12 +8,12 @@ import { Observable, Subject } from 'rxjs';
 })
 export class UserService {
 
-  private isUser : boolean;
-  isUserLoggedIn$ : Observable<boolean>;
+  private isUser: boolean;
+  isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
 
-  id$ :   Observable<number>; 
-  private numberSubject : Subject<number>
+  id$:   Observable<number>;
+  private numberSubject: Subject<number>;
 
   // replace this with data from API
   private users: User[] = [
@@ -30,13 +30,13 @@ export class UserService {
       lname : 'Osama',
       email : 'passant@gmail.com',
       password : '12345678',
-      telNumber :'',
+      telNumber : '',
       district : '',
       country : '',
       city : ''
     }
   ];
-  constructor() { 
+  constructor() {
     // this.isUserLoggedIn = false;
     this.boolSubject = new Subject<boolean>();
     this.boolSubject.next(false);
@@ -62,25 +62,25 @@ export class UserService {
   deleteUser(i: number) {
     this.users.splice(i, 1);
   }
-  setUserLoggedIn(){
+  setUserLoggedIn() {
     this.boolSubject.next(true);
   }
-  notSetUserLoggedIn(){
+  notSetUserLoggedIn() {
     this.boolSubject.next(false);
   }
-  setUserId(id : number){
+  setUserId(id: number)  {
     this.numberSubject.next(id);
   }
-  getIsUser(){
+  getIsUser() {
     return this.isUser;
   }
-  setIsUser(){
+  setIsUser() {
     this.isUser = true;
   }
-  notSetUser(){
+  notSetUser() {
     this.isUser = false;
   }
-  getUserByEmail(email : string){
-    return this.users.filter(u => u.email == email);
+  getUserByEmail(email: string) {
+    return this.users.filter(u => u.email === email);
   }
 }

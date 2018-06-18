@@ -9,15 +9,17 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'v.Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/cs.jpg'
     },
     {
         ID: 2,
-        Name: 'JavaScript',
+        Name: 'jQuery',
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/jquery.png'
     },
     {
         ID: 3,
@@ -25,7 +27,8 @@ private skills: Skill[] = [
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 20
+        NoEndorsments: 20,
+        Img: '../../../../assets/img/skills/js.png'
     },
     {
         ID: 4,
@@ -33,7 +36,8 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'Good',
-        NoEndorsments: 10
+        NoEndorsments: 10,
+        Img: '../../../../assets/img/skills/js.png'
     },
     {
         ID: 5,
@@ -41,7 +45,8 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/css.png'
     },
     {
         ID: 6,
@@ -49,7 +54,8 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/html.png'
     }
 ];
 
