@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Applicant } from '../../shared/classes/applicant.model';
 import { ApplicantsService } from '../../shared/services/applicants.service';
 
 @Component({
@@ -7,55 +8,42 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
   styleUrls: ['./interview-list.component.css']
 })
 export class InterviewListComponent implements OnInit {
- @Input() listType;
+  @Input() listType;
+  list:Applicant[];
+  seeMore = false;
+  searchWord:string;
 
- secondSlotAccepted;
- secondSlotPending;
- firstSlotPending;
- firstSlotAccepted;
- pendingList;
- acceptedList;
- seeMore = false;
- 
- 
-  constructor(private appllicantsService: ApplicantsService) { }
-  ngOnInit() {
-    //if (this.listType == "shortlist") {
-      this.acceptedList = this.appllicantsService.getAll().filter(a => a.status === true);
-      this.firstSlotAccepted = this.acceptedList.slice(0, 3);
-      this.secondSlotAccepted = this.acceptedList.slice(3, this.acceptedList.length);
-    //}
-    //else if (this.listType == "pendingcv") {
-      this.pendingList = this.appllicantsService.getAll().filter(a => a.status === null);
-      this.firstSlotPending = this.pendingList.slice(0, 3);
-      this.secondSlotPending = this.pendingList.slice(3, this.pendingList.length);
-    //}
+  constructor(private applicantsService:ApplicantsService) {
+    
   }
-  seeMoreclicked(){
+  ngOnInit() {
+    if(this.listType === "shortlist"){
+      this.list = this.applicantsService.getAllAccepted();
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getAllPending();
+    }
+  }
+
+  seeMoreclicked() {
     this.seeMore = !this.seeMore;
   }
 
-  rejectApplicant(id:number,slot:string){
-    //console.log("rejected");
-    if(slot =="first"){
-      console.log(this.firstSlotPending[id]);
-      this.firstSlotPending.splice(id,1);
-    }else if(slot =="second"){
-      console.log(this.firstSlotPending[id]);
-      this.secondSlotPending.splice(id,1);
-    }
-    
-    //this.applicantsService.delete(id);
-    //console.log("isDeleted");
+  rejectApplicant(item:Applicant){
+    const index = this.list.indexOf(item);
+    this.list.splice(index,1);
+    //this.applicantsService.onDelete.next(item);
   }
-  acceptApplicant(id:number,slot:string){
-    if (slot == "first") {
-      this.secondSlotAccepted.push(this.firstSlotPending[id]);
-      //this.firstSlotPending.update(id,true);
-    } else if (slot == "second") {
-      this.secondSlotAccepted.push(this.secondSlotPending[id]);
-      //this.firstSlotPending.update(id,true);
-    }
-    
+
+  
+  // acceptApplicant() {
+
+  // }
+
+  OnSearchSubmit(){
+    if(this.listType ==="shortlist"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,true);
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,null);
+    }   
   }
 }

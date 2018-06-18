@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth-guard.guard';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -31,13 +32,13 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    RouterModule.forChild([{path: 'user/:id', component: UsersComponent, children: [
+    RouterModule.forChild([{path: 'user/:id', component: UsersComponent,canActivate: [AuthGuard],children: [
       {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
       {path: 'userProfile', component: UserProfileComponent, children: [
         {path: '', component: UserDetailsComponent, pathMatch: 'full'},
         {path: 'edit', component: UserDetailsEditComponent}
       ]},
-      {path: 'userDashBoard', component: UserDashBoardComponent}
+      {path: 'userDashBoard', canActivate: [AuthGuard],component: UserDashBoardComponent}
     ]}])
   ],
   declarations: [

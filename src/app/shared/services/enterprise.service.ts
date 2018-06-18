@@ -96,7 +96,24 @@ export class EnterpriseService {
         size : "300+",
         website :'www.vodafone.com',
         facebookAccount:'',
-        twitterAccount:''
+        twitterAccount:'',
+        profileViewsNumber: 200,
+        reviewsTotalNumber : 100,
+        applicatntsNumber : 100,
+        branches : [
+            {
+                country : 'Egypt',
+                city : 'Cairo',
+                locationDetails : 'blah blah blah'
+            },
+            {
+                country : 'Egypt',
+                city : 'Giza',
+                locationDetails : 'blah blah'
+            }
+
+
+        ]
         },
         {
         id : 2,
@@ -108,7 +125,18 @@ export class EnterpriseService {
         size : '100-200',
         website :'',
         facebookAccount:'',
-        twitterAccount:''
+        twitterAccount:'',
+        profileViewsNumber: 200,
+        reviewsTotalNumber : 100,
+        applicatntsNumber : 100,
+        branches : [
+            {
+                country : 'Egypt',
+                city : 'cairo',
+                locationDetails : 'blah blah blah'
+            }
+
+        ]
         }
 ];
 

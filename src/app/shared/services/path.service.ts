@@ -1,4 +1,7 @@
 import { IPath } from '../interfaces/IPath';
+import { Skill } from '../classes/skill.model';
+import { Enterprise } from '../classes/enterprise';
+import { Subject } from 'rxjs';
 
 export class PathService {
     constructor() {
@@ -8,9 +11,113 @@ export class PathService {
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
+    
+    private skills: Skill[] = [{
+            ID: 1,
+            Name: 'C#',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 2,
+            Name: 'Angular',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intermediate',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 3,
+            Name: 'Time Management',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Advanced',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 4,
+            Name: 'OS',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 5,
+            Name: 'OOP',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+}];
+private enetrprises: Enterprise[] = [
+        {
+            id : 1,
+            name : 'Vodafone',
+            logo : '../assets/img/logos/vodafone.png',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'USA'
+        },
+
+        {
+            id : 2,
+            name : 'ITWORX',
+            logo : '../assets/img/logos/itworx.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 3,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 4,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 5,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id : 6,
+            name : 'ITWORX',
+            logo : '../assets/img/ITWORX.jpg',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+        {
+            id: 7,
+            name: 'Information Technology Institute',
+            logo: '../../../assets/img/school.png',
+            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headquarters : 'Egypt'
+        },
+];
     public defaultPath: IPath = {
-        Id : 0,
-        Name: 'tst',
+        Id: 0,
+        Name: '',
         Description: '',
         EntPathCreator: null,
         ImgURL: '../../../assets/img/avatar-2.jpg',
@@ -19,8 +126,10 @@ export class PathService {
         PathMainCategory: null,
         RequiredSkillsCount: 0,
         PathSubCategory: null,
-        SimilarPaths: null
-      };
+        SimilarPaths: [],
+        RequiredSkills: [...this.skills],
+        EnterpriseRecommendPath:[...this.enetrprises],
+    };
     private paths: IPath[] = [
         {
             Id: 1,
@@ -41,7 +150,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [...this.skills],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 2,
@@ -62,7 +173,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [...this.skills],
+            EnterpriseRecommendPath: [...this.enetrprises],
 
         }, {
             Id: 3,
@@ -83,7 +196,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [...this.skills],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 4,
@@ -104,7 +219,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [...this.skills],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 5,
@@ -125,7 +242,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [...this.skills],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 6,
@@ -146,7 +265,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 7,
@@ -167,7 +288,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 8,
@@ -188,7 +311,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 9,
@@ -209,7 +334,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 10,
@@ -230,7 +357,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 11,
@@ -251,7 +380,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 12,
@@ -272,7 +403,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 13,
@@ -293,7 +426,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 14,
@@ -314,7 +449,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 15,
@@ -335,7 +472,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }];
 
@@ -359,7 +498,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 2,
@@ -380,7 +521,9 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }, {
             Id: 3,
@@ -401,16 +544,25 @@ export class PathService {
             },
             EntPathCreator: null,
             NoOfInterestedUsers: 55,
-            SimilarPaths: null
+            SimilarPaths: null,
+            RequiredSkills: [],
+            EnterpriseRecommendPath:[...this.enetrprises],
 
         }];
+
+   
+
+    //  =============================================================================================================
+    //  ================================================ Subjects ==================================================
+    //  =============================================================================================================
+    public onDelete =  new Subject<IPath>();
 
     //  =============================================================================================================
     //  ================================================ Functions ==================================================
     //  =============================================================================================================
     public getAll(): IPath[] {
         const pathArr = this.paths.filter(p => p.IsDeleted === false);
-        console.log(this.paths);
+        // console.log(this.paths);
         return pathArr;
     }
 
@@ -420,12 +572,49 @@ export class PathService {
     }
 
     public getSimilarPaths(id: number): IPath[] {
-        return this.similarPaths;
+        // ckeck if they are not deleted first
+        return this.similarPaths.filter(p => p.IsDeleted === false);
     }
 
     public addPath(path: IPath): number {
         path.Id = this.paths.length + 1;
         this.paths.push(path);
         return path.Id;
+    }
+
+    public edit(path: IPath) {
+        // this.paths.find(p => p.Id === path.Id);
+        const index = this.paths.indexOf(path);
+        if (index !== -1) {
+            this.paths[index] = path;
+        }
+    }
+
+    public getSkills(id: number): Skill[] {
+        return this.skills;
+    }
+
+    public addSkillToPath(skillName: string): boolean {
+        // send name to api
+        // OR
+        // send skill object to api
+        this.skills.find(s => s.Name === skillName);
+        return true; // true if succssesfully inserted
+    }
+
+    public delete(pathId: number) {
+        this.paths.find( p => p.Id === pathId).IsDeleted = true;
+    }
+
+    public enrollUserToPath(userId: number, pathId: number) {
+
+    }
+
+    public addEnterpriseRecommendPath (enterpriseId: number, pathId: number) {
+
+    }
+
+    public getEnterpriseRecommendPath (pathId: number): Enterprise[] {
+        return this.paths.find( p => p.Id === pathId).EnterpriseRecommendPath;
     }
 }

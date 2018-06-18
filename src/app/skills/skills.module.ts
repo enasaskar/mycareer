@@ -19,6 +19,7 @@ import { PathSkillsComponent } from './path-skills/path-skills.component';
     CommonModule,
     NgbModule,
     BsDatepickerModule,
+    // SkillItemSmallComponent,
     RouterModule.forChild(
     [
       {path: 'skills', component: SkillListComponent , children: [
@@ -49,6 +50,7 @@ import { PathSkillsComponent } from './path-skills/path-skills.component';
   exports: [
     SkillListComponent,
     SkillDetailsPopupComponent,
+    SkillItemSmallComponent,
     SkillDetailsEditComponent
   ]
 })

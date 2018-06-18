@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth-guard.guard';
+import { AuthModule } from './authentication/auth.module';
 import { UserCommentsService } from './shared/services/user-comments.service';
 import { EnterprisesModule } from './enterprise/enterprises.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -5,7 +7,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JobfairsModule } from './jobfairs/jobfairs.module';
+
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
@@ -34,7 +36,7 @@ import { CalendarModule } from 'angular-calendar';
 
 
 
-// import { RouterModule } from '@angular/router';
+
 import { SkillsService } from 'src/app/shared/services/skills.service';
 import { SizeService } from 'src/app/shared/services/size.service';
 import { VacancyService } from 'src/app/shared/services/vacancy-service';
@@ -46,13 +48,14 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ServicesitemComponent,
     JobofferitemComponent,
-    CompanylogoitemComponent
+    CompanylogoitemComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,11 @@ import { ApplicantsService } from './shared/services/applicants.service';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AuthModule
+  ],
+  exports: [
+    // SkillItemSmallComponent
   ],
   providers: [
     EnterpriseService,
@@ -88,7 +95,8 @@ import { ApplicantsService } from './shared/services/applicants.service';
     RatingListService,
     UserCommentsService,
     UserService,
-    ApplicantsService
+    ApplicantsService,
+    AuthGuard
 ],
   bootstrap: [AppComponent]
 })

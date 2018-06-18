@@ -1,3 +1,7 @@
+import { OneCommentComponent } from './landing-page/reviews-view-only/comments-view-only/one-comment/one-comment.component';
+import { CommentsViewOnlyComponent } from './landing-page/reviews-view-only/comments-view-only/comments-view-only.component';
+import { RatingItemComponent } from './landing-page/reviews-view-only/ratings-view-only/rating-item/rating-item.component';
+import { RatingsViewOnlyComponent } from './landing-page/reviews-view-only/ratings-view-only/ratings-view-only.component';
 import { EnterpriseRoutingModule } from './enterprises-routing.module';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -24,6 +28,8 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
+import { EnterpriseListComponent } from './enterprise-list/enterprise-list.component';
+import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/reviews-view-only.component';
 
 
 
@@ -43,9 +49,14 @@ import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.
         WorkExperienceComponent,
         WorkExpItemComponent,
         ReviewModalContentComponent,
-        LandingPageComponent
-,
-    JobPostingPlansComponent
+        LandingPageComponent,
+        JobPostingPlansComponent,
+        EnterpriseListComponent,
+        ReviewsViewOnlyComponent,
+        RatingsViewOnlyComponent,
+        RatingItemComponent,
+        CommentsViewOnlyComponent,
+        OneCommentComponent
 ],
     imports:
     [
@@ -64,6 +75,7 @@ import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.
         NgbModule,
         MatDialogModule,
         BrowserAnimationsModule,
+        EnterpriseListComponent
     ],
     entryComponents: [ReviewModalContentComponent]
 })

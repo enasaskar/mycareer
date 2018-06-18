@@ -13,7 +13,7 @@ private skills: Skill[] = [
     },
     {
         ID: 2,
-        Name: 'JAvaScript',
+        Name: 'JavaScript',
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',

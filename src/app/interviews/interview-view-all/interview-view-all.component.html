@@ -17,9 +17,9 @@
     <div class="row">
         <div class="col-md-4 pull-right search">
             <aside class="sidebar">
-                <form method="POST" role="form">
+                <form method="POST" role="form" (ngSubmit) = "OnSearchSubmit()">
                     <div class="input-group input-group-lg">
-                        <input class="form-control" placeholder="Search...">
+                        <input class="form-control" placeholder="Search by Vacancy or by applicant name" name=" " [(ngModel)]= searchWord >
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-search"></i>
@@ -31,14 +31,16 @@
         </div>
     </div> 
     <!-- Applicants -->
-    <div class="row class1">
+    <div class="row class1" *ngIf="applicants.length != 0; else noList">
         <app-view-one-item *ngFor="let applicant of applicants" [applicant]="applicant">
-                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant.id)"></i>
-                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant.id)"></i>
+                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant)"></i>
+                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant)"></i>
                 <i class="fa fa-hourglass-end" style="color:blue"></i>
         </app-view-one-item>
         
     </div>
-    
+    <ng-template #noList>
+        <h3 class="text-center"><strong>No list</strong></h3>
+     </ng-template>
     <button type="button" class="btn btn-primary pull-right" routerLink ="/interviews">Schedual An Interview</button>
 </div>

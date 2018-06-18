@@ -1,6 +1,6 @@
 <li class="col-md-3 col-sm-4 col-xs-6 isotope-item {{Path.PathMainCategory.Name}} product path-item">
   <span class="product-thumb-info">
-    <a class="add-to-cart-product" name="deletePath"  >
+    <a class="add-to-cart-product" name="deletePath" (click)="trashClicked()" >
       <span>
         <i class="fa fa-5x fa-trash"></i>
       </span>
@@ -15,7 +15,7 @@
         </span>
       </a>
       <span class="thumb-info-caption">
-        <p>{{Path.Description}}</p>
+        <p class ="block-with-text">{{Path.Description}}</p>
       </span>
     </span>
   </span>

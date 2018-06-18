@@ -28,7 +28,7 @@ export class VacancyService {
             id: 2,
             logoImg: '../../../assets/img/ITWORX.jpg',
             logoImgbig: '../../../assets/img/ITWORX.jpg',
-            title: 'Software Engineer 2',
+            title: 'Web Developer',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
             responsabilities: 'bla2 bla2',
@@ -45,7 +45,7 @@ export class VacancyService {
             id: 3,
             logoImg: '../../../assets/img/vodafone-icon.png',
             logoImgbig: '../../../assets/img/vodafone.png',
-            title: 'Software Engineer 3',
+            title: 'Front-end Developer',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
             responsabilities: 'bla2 bla2',
@@ -62,7 +62,7 @@ export class VacancyService {
             id: 4,
             logoImg: '../../../assets/img/vodafone-icon.png',
             logoImgbig: '../../../assets/img/vodafone.png',
-            title: 'Software Engineer 4',
+            title: 'UI Developer',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             requirements: 'bla bla',
             responsabilities: 'bla2 bla2',
@@ -107,11 +107,10 @@ export class VacancyService {
         // call function from back end to get by user ID
         return this.vacancies.filter(res => res.isDeleted === false);
     }
-    public getByEnterpriseId(eId : number) : Vacancy[]
-    {
-        let enterpriseVacancies : Vacancy[]= [];
-        for(let i = 0; i < this.vacancies.length; i++){
-            if(this.vacancies[i].fK_Enterprise_Id == eId){
+    public getByEnterpriseId(eId: number): Vacancy[] {
+        const enterpriseVacancies: Vacancy[] = [];
+        for (let i = 0; i < this.vacancies.length; i++) {
+            if (this.vacancies[i].fK_Enterprise_Id === eId) {
                     enterpriseVacancies.push(this.vacancies[i]);
             }
         }

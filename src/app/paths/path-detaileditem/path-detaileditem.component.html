@@ -15,7 +15,7 @@
         </div>
         <div class="portfolio-nav col-md-1">
           <a href="" class="portfolio-nav-prev" data-tooltip data-original-title="Previous">
-            <i class="fa fa-chevron-left"></i>
+            <i class="fa fa-chevron-left"></i>ss
           </a>
           <a href="" class="portfolio-nav-next" data-tooltip data-original-title="Next">
             <i class="fa fa-chevron-right"></i>
@@ -31,14 +31,22 @@
       <!-- Edit Icon -->
       <div class="col-md-12 ">
         <div class="row">
-          <div class="col-sm-1 col-sm-offset-11">
-            <span class="thumb-info-social-icons right EditIconPathProfile">
-              <a id="edit-profile" data-tooltip data-placement="bottom" data-original-title="Edit">
-                <i class="fa fa-pencil"></i>
-                <span>Edit</span>
+          <div class="col-sm-1 col-sm-offset-10">
+            <span class="thumb-info-social-icons right">
+              <a id="delete-profile" data-tooltip data-placement="bottom" data-original-title="Delete" (click)="deleteClicked()">
+                <i class="fa fa-close"></i>
+                <span>Delete</span>
               </a>
             </span>
           </div>
+          <div class="col-sm-1">
+              <span class="thumb-info-social-icons left EditIconPathProfile">
+                <a id="edit-profile" [routerLink]="['/paths','edit', Path.Id ]" data-tooltip data-placement="bottom" data-original-title="Edit">
+                  <i class="fa fa-pencil"></i>
+                  <span>Edit</span>
+                </a>
+              </span>
+            </div>
         </div>
       </div>
       <!-- data -->
@@ -77,10 +85,19 @@
              {{ Path.Description }}
             </p>
 
-            <a href="#" class="btn btn-primary btn-icon">
-              <i class="fa fa-external-link"></i>Enroll
-            </a>
-            <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+            <div *ngIf="!isEnterprise" >
+              <a href="#" class="btn btn-primary btn-icon" (click)="enrollUser()">
+                <i class="fa fa-external-link"></i>Enroll
+              </a>
+              <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+            </div>
+
+            <div *ngIf="isEnterprise" >
+                <a href="#" class="btn btn-primary btn-icon" (click)="RecommendPath()">
+                  <i class="fa fa-external-link"></i>Recommend
+                </a>
+                <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+              </div>
 
 
           </div>
@@ -91,23 +108,23 @@
     <hr class="tall" />
 
     <!-- Intro level skills -->
-    <app-path-level-skill [levelName]="'Intro'"></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Intro'" [skills]="skills" ></app-path-level-skill>
 
     <hr class="tall" />
 
     <!-- Intermediate  level skills -->
-    <app-path-level-skill [levelName]="'Intermediate'"></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Intermediate'" [skills]="skills" ></app-path-level-skill>
 
     <hr class="tall" />
 
     <!-- Advanced level skills -->
-    <app-path-level-skill [levelName]="'Advanced'"></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Advanced'" [skills]="skills" ></app-path-level-skill>
     <hr class="tall" />
 
     <!--   Title-->
     <div class="col-md-12">
       <div class="row">
-        <div class="col-md-12">
+        <div class="">
           <h3>
             Recommended By
             <strong>Enterprises </strong>
@@ -116,9 +133,11 @@
       </div>
     </div>
   </div>
-  <!-- @Html.Partial("Enterprise/_EnterpriseViewAll",Model.EnterprisesRecommendPath) -->
-  TODO : add Enterprise components
-   <hr class="tall" />
+  <!-- TODO : add Enterprise components -->
+  <div class="container">
+    <app-enterprise-list [pathId]="Path.Id" ></app-enterprise-list>
+  </div>
+  <hr class="tall" />
   <div class="container">
     <!--   Title-->
     <div class="">

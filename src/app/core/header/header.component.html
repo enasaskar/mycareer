@@ -2,7 +2,7 @@
   <div class="container">
     <div class="logo">
       <a href="">
-        <img alt="Porto" width="200" height="50" src="../../../assets/img/logo.png">
+        <img alt="Porto" width="150" height="50" src="../../../assets/img/logo.png">
       </a>
     </div>
     <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
@@ -22,8 +22,11 @@
       <nav class="nav-main mega-menu">
         <ul class="nav nav-pills nav-main" id="mainMenu">
           <li class="active">
-            <a routerLink="/home">
+            <a *ngIf="!isLoggedIn" routerLink="/home">
               Home
+            </a>
+            <a *ngIf="isLoggedIn" [routerLink]="['user',id,'userDashBoard']">
+              Dashboard
             </a>
           </li>
           <li>
@@ -32,7 +35,7 @@
           <li>
             <a routerLink='/enterprises'>Enterprises </a>
           </li>
-          <li class="dropdown">
+          <li *ngIf="isLoggedIn" class="dropdown">
             <a class="dropdown-toggle">
               Career Paths
               <i class="fa fa-angle-down"></i>
@@ -66,16 +69,21 @@
               </li>
             </ul>
           </li>
-          <li>
-            <a>
-              Sign Up
-            </a>
+          <li *ngIf="!isLoggedIn">
+              <a routerLink = "/login" class="dropdown-toggle">
+                  Login
+                 </a>
           </li>
-          <li>
-            <a>
-              Sign In
-            </a>
+          <li *ngIf="!isLoggedIn">
+              <a routerLink = "/signUp" class="dropdown-toggle">
+                  Sign Up
+                 </a>          </li>
+          <li *ngIf="isLoggedIn">
+            <a [routerLink]="['user',id,'userProfile']">My Profile</a>
           </li>
+          <li *ngIf="isLoggedIn">
+              <a style = "cursor : pointer" (click) = "onLogOut()">Logout</a>
+            </li>
         </ul>
       </nav>
     </div>
