@@ -65,6 +65,9 @@ export class UserService {
   setUserLoggedIn(){
     this.boolSubject.next(true);
   }
+  notSetUserLoggedIn(){
+    this.boolSubject.next(false);
+  }
   setUserId(id : number){
     this.numberSubject.next(id);
   }
@@ -73,6 +76,9 @@ export class UserService {
   }
   setIsUser(){
     this.isUser = true;
+  }
+  notSetUser(){
+    this.isUser = false;
   }
   getUserByEmail(email : string){
     return this.users.filter(u => u.email == email);

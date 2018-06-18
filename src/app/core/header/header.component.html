@@ -82,6 +82,9 @@
           <li *ngIf="isLoggedIn">
             <a [routerLink]="['user',id,'userProfile']">My Profile</a>
           </li>
+          <li *ngIf="isLoggedIn">
+              <a style = "cursor : pointer" (click) = "onLogOut()">Logout</a>
+            </li>
         </ul>
       </nav>
     </div>

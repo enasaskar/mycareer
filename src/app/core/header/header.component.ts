@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   id: number;
   isLoggedIn : boolean ;
+  isLogOut:boolean = false;
    
   constructor(private route: ActivatedRoute,
     private router: Router,private userService : UserService) {
@@ -38,8 +39,16 @@ export class HeaderComponent implements OnInit {
     //   }
     // });
    
+   if(!this.isLogOut){
     this.userService.isUserLoggedIn$.subscribe((bool : boolean) => {this.isLoggedIn = bool;console.log("obs")});
     this.userService.id$.subscribe((id : number) => {this.id = id; console.log(id);})
+   }
+    
+
+    if(this.isLogOut){
+    this.userService.isUserLoggedIn$.subscribe((b : boolean) => {this.isLoggedIn = b;console.log("notlogged")})
+
+    }
   }
 
   
@@ -54,6 +63,13 @@ export class HeaderComponent implements OnInit {
      elems.classList.remove('active');
     }
    e.target.classList.add('active');
+  }
+
+  public onLogOut(){
+    this.userService.notSetUser();
+    this.isLogOut = true;
+    this.userService.notSetUserLoggedIn();
+    this.router.navigate(['/login']);
   }
 
 }
