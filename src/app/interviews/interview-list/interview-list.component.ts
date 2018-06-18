@@ -14,25 +14,28 @@ export class InterviewListComponent implements OnInit {
 
 
   constructor(private applicantsService:ApplicantsService) {
-    //appllicantsService.onDelete.subscribe((applicant) => { appllicantsService.delete(applicant) });
+    
   }
   ngOnInit() {
     if(this.listType === "shortlist"){
-      this.list = this.applicantsService.getAllAccepted();
+      this.list = this.applicantsService.getAll().filter(a => a.status === true);
     }else if(this.listType ==="pendingcv"){
-      this.list = this.applicantsService.getAllPending();
+      this.list = this.applicantsService.getAll().filter(a => a.status === null);
     }
-    
-    
   }
 
   seeMoreclicked() {
     this.seeMore = !this.seeMore;
   }
 
-  // rejectApplicant() {
+  rejectApplicant(item:Applicant){
+    console.log("rejected");
+    const index = this.list.indexOf(item);
+    this.list.splice(index,1);
+    //this.applicantsService.onDelete.next(item);
+  }
 
-  // }
+  
   // acceptApplicant() {
 
   // }

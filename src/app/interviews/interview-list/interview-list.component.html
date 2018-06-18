@@ -32,32 +32,47 @@
 </div>
 
 <!-- Card View depends on list Type -->
-<div *ngIf="list.length >= 3">
-    <div [ngSwitch]="listType" *ngIf="!seeMore">
-        <div *ngSwitchCase="'shortlist'"  >
-            <app-interview-applicantitem [applicant]="list[0]"></app-interview-applicantitem>
-            <app-interview-applicantitem [applicant]="list[1]"></app-interview-applicantitem>
-            <app-interview-applicantitem [applicant]="list[2]"></app-interview-applicantitem>
-        </div>
-        <div *ngSwitchCase="'pendingcv'" >
-            <app-view-one-item [applicant]="list[0]">
+<div *ngIf="list.length != 0; else noList">
+    <div *ngIf="list.length > 0 && list.length <=3;">
+        <div [ngSwitch]="listType" *ngIf="!seeMore">
+            <div *ngSwitchCase="'shortlist'">
+                <app-interview-applicantitem *ngFor="let item of list" [applicant]="item"></app-interview-applicantitem>
+            </div>
+            <div *ngSwitchCase="'pendingcv'">
+                <app-view-one-item *ngFor="let item of list" [applicant]="item">
                     <i class="fa fa-check " style="color:green"></i>
-                    <i class="fa fa-close " style="color:red"></i>
-            </app-view-one-item>
-            <app-view-one-item [applicant]="list[1]">
-                    <i class="fa fa-check " style="color:green" ></i>
-                    <i class="fa fa-close " style="color:red" ></i>
-            </app-view-one-item>
-            <app-view-one-item [applicant]="list[2]">
-                    <i class="fa fa-check " style="color:green"></i>
-                    <i class="fa fa-close " style="color:red"></i>
-            </app-view-one-item>
+                    <i class="fa fa-close " style="color:red" (click)=rejectApplicant(item) ></i>
+                </app-view-one-item>
+            </div>
         </div>
-    </div>
+    </div> 
+    <div *ngIf="list.length >3;">
+        <div [ngSwitch]="listType" *ngIf="!seeMore">
+            <div *ngSwitchCase="'shortlist'">
+                <app-interview-applicantitem [applicant]="list[0]"></app-interview-applicantitem>
+                <app-interview-applicantitem [applicant]="list[1]"></app-interview-applicantitem>
+                <app-interview-applicantitem [applicant]="list[2]"></app-interview-applicantitem>
+            </div>
+            <div *ngSwitchCase="'pendingcv'">
+                <app-view-one-item [applicant]="list[0]">
+                    <i class="fa fa-check " style="color:green"></i>
+                    <i class="fa fa-close " style="color:red" (click)=rejectApplicant(list[0])></i>
+                </app-view-one-item>
+                <app-view-one-item [applicant]="list[1]">
+                    <i class="fa fa-check " style="color:green"></i>
+                    <i class="fa fa-close " style="color:red"(click)=rejectApplicant(list[1])></i>
+                </app-view-one-item>
+                <app-view-one-item [applicant]="list[2]">
+                    <i class="fa fa-check " style="color:green"></i>
+                    <i class="fa fa-close " style="color:red"(click)=rejectApplicant(list[2])></i>
+                </app-view-one-item>
+            </div>
+        </div>
+    </div> 
 </div>
 
 <!-- see more button -->
-<a class="SeeMore" (click)="seeMoreclicked()" *ngIf="!seeMore">See More</a>
+<a class="SeeMore" (click)="seeMoreclicked()" *ngIf="!seeMore && list.length > 3">See More</a>
 <p class="clear"></p>
 
 <!-- the rest of applicants card -->
@@ -67,13 +82,13 @@
     </div>
     <div *ngSwitchCase="'pendingcv'">
             <app-view-one-item *ngFor="let item of list" [applicant]="item">
-                    <i class="fa fa-check " style="color:green"></i>
-                    <i class="fa fa-close " style="color:red"></i>
+                <i class="fa fa-check " style="color:green"></i>
+                <i class="fa fa-close " style="color:red" (click)=rejectApplicant(item)></i>
             </app-view-one-item>
     </div>
 </div>
 <a class="SeeMore" (click)="seeMoreclicked()" *ngIf="seeMore">See Less</a>
 <p class="clear"></p>
 <ng-template #noList>
-    <P><strong>No list</strong></P>
+   <h3 class="text-center"><strong>No list</strong></h3>
 </ng-template>
