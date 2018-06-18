@@ -25,7 +25,7 @@
             <a *ngIf="!isLoggedIn" routerLink="/home">
               Home
             </a>
-            <a *ngIf="isLoggedIn" [routerLink]="['user',id,'userDashBoard']">
+            <a *ngIf="isLoggedIn && !isEnterprise" [routerLink]="['user',id,'userDashBoard']">
               Dashboard
             </a>
           </li>
@@ -49,7 +49,7 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown">
+          <li *ngIf="isEnterprise" class="dropdown">
             <a class="dropdown-toggle">
               For Enterprises
               <i class="fa fa-angle-down"></i>
