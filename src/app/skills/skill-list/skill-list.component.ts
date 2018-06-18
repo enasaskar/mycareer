@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SkillsService } from '../../shared/services/skills.service';
 import { Skill } from '../../shared/classes/skill.model';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,13 +11,20 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillListComponent implements OnInit {
 
-  constructor(public skillsService: SkillsService) {
-    this.skillsList = skillsService.getAll();
-    this.skillsNo = this.skillsList.length;
+  constructor(private skillsService: SkillsService , private route: ActivatedRoute) {
+    // this.skillsNo = this.skillsList.length;
+    if (this.id == null) {
+      this.skillsList = skillsService.getAll();
+    } else {  this.skillsList = skillsService.getAllByPathID(this.id); }
    }
-  public skillsList: Skill[] ;
-  public skillsNo;
+   skillsList: Skill[];
+   skillsNo;
+  // pathSkillsList;
+  id;
+
   ngOnInit() {
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
   }
 
 }
