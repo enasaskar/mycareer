@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router, Params, NavigationEnd, ChildActivationEnd } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -10,16 +12,18 @@ import { ActivatedRoute, Router, Params, NavigationEnd, ChildActivationEnd } fro
 export class HeaderComponent implements OnInit {
 
   id: number;
+  isLoggedIn : boolean ;
+   
   constructor(private route: ActivatedRoute,
-    private router: Router) {
-      router.events.subscribe((event) => {
-        if ( event instanceof ChildActivationEnd) {
-          this.id = +event.snapshot.firstChild.params['id'];
-          if (isNaN(this.id)) {
-            this.id = null;
-          }
-        }
-      });
+    private router: Router,private userService : UserService) {
+      // router.events.subscribe((event) => {
+      //   if ( event instanceof ChildActivationEnd) {
+      //     this.id = +event.snapshot.firstChild.params['id'];
+      //     if (isNaN(this.id)) {
+      //       this.id = null;
+      //     }
+      //   }
+      // });
     }
 
   ngOnInit() {
@@ -33,7 +37,16 @@ export class HeaderComponent implements OnInit {
     //     this.id = null;
     //   }
     // });
+   
+    this.userService.isUserLoggedIn$.subscribe((bool : boolean) => {this.isLoggedIn = bool;console.log("obs")});
+    this.userService.id$.subscribe((id : number) => {this.id = id; console.log(id);})
   }
+
+  
+    // You can also use categoryId.previousValue and 
+    // categoryId.firstChange for comparing old and new values
+
+
 
   public makeActive(e) {
     const elems = document.querySelector('.active');

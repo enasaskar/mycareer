@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../users/users.model';
 import { WorkExperience } from '../classes/userWorkExperienceModel';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  private isUser : boolean;
+  isUserLoggedIn$ : Observable<boolean>;
+  private boolSubject: Subject<boolean>;
+
+  id$ :   Observable<number>; 
+  private numberSubject : Subject<number>
 
   // replace this with data from API
   private users: User[] = [
@@ -15,9 +23,29 @@ export class UserService {
     'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
     ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
     'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-    'Iaculis vulputate id quis nisl.'])
+    'Iaculis vulputate id quis nisl.']),
+    {
+      id : 1,
+      fname : 'Passant',
+      lname : 'Osama',
+      email : 'passant@gmail.com',
+      password : '12345678',
+      telNumber :'',
+      district : '',
+      country : '',
+      city : ''
+    }
   ];
-  constructor() { }
+  constructor() { 
+    // this.isUserLoggedIn = false;
+    this.boolSubject = new Subject<boolean>();
+    this.boolSubject.next(false);
+    this.isUserLoggedIn$ = this.boolSubject.asObservable();
+    this.numberSubject = new Subject<number>();
+    this.id$ = this.numberSubject.asObservable();
+    this.isUser = false;
+
+  }
   // CRUD ops here
   getUsers() {
     return this.users.slice();
@@ -33,5 +61,20 @@ export class UserService {
   }
   deleteUser(i: number) {
     this.users.splice(i, 1);
+  }
+  setUserLoggedIn(){
+    this.boolSubject.next(true);
+  }
+  setUserId(id : number){
+    this.numberSubject.next(id);
+  }
+  getIsUser(){
+    return this.isUser;
+  }
+  setIsUser(){
+    this.isUser = true;
+  }
+  getUserByEmail(email : string){
+    return this.users.filter(u => u.email == email);
   }
 }
