@@ -35,7 +35,7 @@
           <li>
             <a routerLink='/enterprises'>Enterprises </a>
           </li>
-          <li class="dropdown">
+          <li *ngIf="isLoggedIn" class="dropdown">
             <a class="dropdown-toggle">
               Career Paths
               <i class="fa fa-angle-down"></i>
@@ -73,7 +73,6 @@
               <a routerLink = "/login" class="dropdown-toggle">
                   Login
                  </a>
-            <!-- <app-registration></app-registration> -->
           </li>
           <li *ngIf="!isLoggedIn">
               <a routerLink = "/signUp" class="dropdown-toggle">
