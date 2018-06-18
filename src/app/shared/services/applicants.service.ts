@@ -8,7 +8,7 @@ import { Vacancy } from '../classes/vacancy.model';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  public onDelete = new Subject(); 
+  public onDelete = new Subject();
   applicants: Applicant[] = [
     {
       user: new User(0,
@@ -17,6 +17,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -42,7 +43,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -51,6 +52,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -84,6 +86,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -117,6 +120,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -150,6 +154,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -176,13 +181,14 @@ export class ApplicantsService {
         fK_Level_Id: 1
       },
       status: null
-    },, {
+    }, , {
       user: new User(0,
         '../../../assets/img/team/emp2.jpg',
         'Osama', 'Ahmed',
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -216,6 +222,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -241,7 +248,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -250,6 +257,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -283,6 +291,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -308,7 +317,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -317,6 +326,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -347,39 +357,39 @@ export class ApplicantsService {
 
   ];
 
-  constructor(){
+  constructor() {
   }
 
-  public add(){
+  public add() {
 
   }
-  public update(){
+  public update() {
 
   }
-  public getAll():Applicant[]{
+  public getAll(): Applicant[] {
     return this.applicants;
   }
 
-  public getAllAccepted(): Applicant[]{
+  public getAllAccepted(): Applicant[] {
     return this.applicants.filter(a => a.status === true);
   }
-  public getAllRejected(): Applicant[]{
+  public getAllRejected(): Applicant[] {
     return this.applicants.filter(a => a.status === false);
   }
-  public getAllPending():Applicant[]{
+  public getAllPending(): Applicant[] {
     return this.applicants.filter(a => a.status === null);
   }
-  public getByVacancyId(id:number):Applicant[]{
-    return this.applicants.filter(a=>a.vacancy.id === id);
+  public getByVacancyId(id: number): Applicant[] {
+    return this.applicants.filter(a => a.vacancy.id === id);
   }
-  public getByEnterpriseId(id:number){
-    return this.applicants.filter(a=>a.vacancy.fK_Enterprise_Id === id);
+  public getByEnterpriseId(id: number) {
+    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id === id);
   }
 
-  public getBySearchWord(searchWord : string,status?:boolean) {
-    let applicants = []; 
-    let word = searchWord.toLowerCase();
-    switch(status){
+  public getBySearchWord(searchWord: string, status?: boolean) {
+    let applicants = [];
+    const word = searchWord.toLowerCase();
+    switch (status) {
       case true:
         if (searchWord.length > 0) {
           applicants = this.getAllAccepted().filter(a => a.user.fname.toLowerCase().includes(word) || a.user.lname.toLowerCase().includes(word));
@@ -405,9 +415,9 @@ export class ApplicantsService {
     return applicants;
   }
 
-  public delete(applicant:Applicant){
+  public delete(applicant: Applicant) {
     const index = this.applicants.indexOf(applicant);
-      this.applicants.splice(index,1);
-      console.log("pending is deleted",this.applicants);  
+      this.applicants.splice(index, 1);
+      console.log('pending is deleted', this.applicants);
   }
 }

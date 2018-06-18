@@ -34,6 +34,7 @@ export class UserDetailsEditComponent implements OnInit {
       this.userEditForm.value['title'],
       this.userEditForm.value['enterpriseName'],
       this.userEditForm.value['email'],
+      this.user.password,
       this.userEditForm.value['telNumber'],
       this.userEditForm.value['district'],
       this.userEditForm.value['country'],

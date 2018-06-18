@@ -12,7 +12,7 @@ import { SkillItemSmallComponent } from './skill-item-small/skill-item-small.com
 import { SkillUpdateComponent } from './skill-update/skill-update.component';
 import { SkillDetailsEditComponent } from './skill-details-edit/skill-details-edit.component';
 import { SkillPopupComponent } from './skill-popup/skill-popup.component';
-import { PathSkillsComponent } from './path-skills/path-skills.component';
+// import { PathSkillsComponent } from './path-skills/path-skills.component';
 
 @NgModule({
   imports: [
@@ -45,7 +45,7 @@ import { PathSkillsComponent } from './path-skills/path-skills.component';
     SkillUpdateComponent,
     SkillDetailsEditComponent,
     SkillPopupComponent,
-    PathSkillsComponent
+    // PathSkillsComponent
 ],
   exports: [
     SkillListComponent,
