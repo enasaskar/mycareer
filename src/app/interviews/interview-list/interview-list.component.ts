@@ -11,16 +11,16 @@ export class InterviewListComponent implements OnInit {
   @Input() listType;
   list:Applicant[];
   seeMore = false;
-
+  searchWord:string;
 
   constructor(private applicantsService:ApplicantsService) {
     
   }
   ngOnInit() {
     if(this.listType === "shortlist"){
-      this.list = this.applicantsService.getAll().filter(a => a.status === true);
+      this.list = this.applicantsService.getAllAccepted();
     }else if(this.listType ==="pendingcv"){
-      this.list = this.applicantsService.getAll().filter(a => a.status === null);
+      this.list = this.applicantsService.getAllPending();
     }
   }
 
@@ -29,7 +29,6 @@ export class InterviewListComponent implements OnInit {
   }
 
   rejectApplicant(item:Applicant){
-    console.log("rejected");
     const index = this.list.indexOf(item);
     this.list.splice(index,1);
     //this.applicantsService.onDelete.next(item);
@@ -39,4 +38,12 @@ export class InterviewListComponent implements OnInit {
   // acceptApplicant() {
 
   // }
+
+  OnSearchSubmit(){
+    if(this.listType ==="shortlist"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,true);
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,null);
+    }   
+  }
 }
