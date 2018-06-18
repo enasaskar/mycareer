@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import {MatDialog, MatDialogConfig} from "@angular/material";
+import {Router} from "@angular/router";
 
 import {  
   NgbModal,  
@@ -46,7 +47,7 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
     private sizeService : SizeService,private dialog: MatDialog,
-    private countryService : CountryService, private cityService : CityService) {
+    private countryService : CountryService, private cityService : CityService,private router: Router) {
       this.newEnterprise.branches = [];
    }
  
@@ -134,9 +135,10 @@ export class EnterpriseDetailsComponent implements OnInit {
       //console.log(this.newEnterprise);
       this.enterpriseService.add(this.newEnterprise);
       //console.log(this.enterpriseService.getAllDetails());
-      console.log(this.newEnterprise.size);
+      //console.log(this.newEnterprise.size);
       
       this.newId++;
+      this.router.navigate(['/enterprises/enterprise/details',this.newEnterprise.id]);
   
     }
   }

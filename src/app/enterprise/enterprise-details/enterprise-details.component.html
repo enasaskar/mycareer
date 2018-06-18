@@ -123,6 +123,7 @@
               </div>
             </div>
           </div>
+         
           <div class="col-sm-4">
             <div class="business-card b3">
               <div class="media">
@@ -139,6 +140,27 @@
               </div>
             </div>
           </div>
+          <div class="row">
+              <div class="col-sm-8">
+                  <div class="business-card b3">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                            <i class="fas fa-sitemap"></i>
+                        </i>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">Branches</h4>
+                        <ul>
+                          <li *ngFor="let branch of details.branches">{{branch.country}},{{branch.city}},{{branch.locationDetails}}</li>
+                        </ul>
+      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          
         </div>
         <div class="seeMore">
           <div class="row">
@@ -157,7 +179,7 @@
 
 
     <!-- add view -->
-    <form action="enterprises/enterprise/details/{{newEnterprise.id}}" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
+    <form action="" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
       <div class="row form-group">
           <div class="col-md-4">
               <div class="portfolio-item">
