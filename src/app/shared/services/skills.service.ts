@@ -61,4 +61,9 @@ public getAll(): Skill[] {
 public getByID(id: number): Skill {
     return this.skills.find(s => s.ID === id);
 }
+
+public getAllByPathID(pid: number): Skill[] {
+    return this.skills.filter(s => s.ID === pid);
+}
+
 }
