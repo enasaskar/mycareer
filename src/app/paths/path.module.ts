@@ -1,11 +1,11 @@
 import { PathRoutingModule } from './path-routing.module';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
 
 import { PathItemComponent } from './path-item/path-item.component';
 import { PathListComponent } from './path-list/path-list.component';
-import { PathDetaileditemComponent } from './path-detaileditem/path-detaileditem.component';
+import { PathDetaileditemComponent, ConfirmDeletePopup } from './path-detaileditem/path-detaileditem.component';
 import { PathAddEditComponent } from './path-add-edit/path-add-edit.component';
 import { PathsComponent } from './paths.component';
 import { PathLevelSkillComponent } from './path-add-edit/path-level-skill/path-level-skill.component';
@@ -13,8 +13,16 @@ import { PathEditInfoComponent, SuccessAddPopup } from './path-add-edit/path-edi
 import { ListComponent } from './path-list/list/list.component';
 import { SkillsModule } from '../skills/skills.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material';
 
+import {
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+  } from '@angular/material';
+import { EnterprisesModule } from '../enterprise/enterprises.module';
 
 @NgModule({
     declarations: [
@@ -26,20 +34,35 @@ import { MatDialogModule } from '@angular/material';
         PathLevelSkillComponent,
         PathEditInfoComponent,
         ListComponent,
-        SuccessAddPopup
+        SuccessAddPopup,
+        ConfirmDeletePopup,
         ],
     entryComponents: [
-        SuccessAddPopup
+        SuccessAddPopup,
+        ConfirmDeletePopup,
+
     ],
     imports: [
         CommonModule,
         FormsModule,
         PathRoutingModule,
-        SkillsModule
+        SkillsModule,
+        EnterprisesModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ],
     exports: [
         MatDialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
     ]
 })
 

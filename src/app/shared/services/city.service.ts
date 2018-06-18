@@ -18,6 +18,22 @@ export class CityService {
     {
       name : 'Giza',
       country : {name : 'Egypt'}
+    },
+    {
+      name : 'New York',
+      country : {name : 'USA'}
+    },
+    {
+      name : 'Denver',
+      country : {name : 'USA'}
+    },
+    {
+      name : 'Paris',
+      country : {name : 'France'}
+    },
+    {
+      name : 'Cann',
+      country : {name : 'France'}
     }
   ]
 constructor() { }

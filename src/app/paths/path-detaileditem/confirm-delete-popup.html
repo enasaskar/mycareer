@@ -1,0 +1,8 @@
+<h1 mat-dialog-title> Delete {{data.name}} Path !</h1>
+<div mat-dialog-content>
+  <p> Are you sure ?</p>
+</div>
+<div mat-dialog-actions class="btns">
+        <button md-button class="btn btn-danger dialog-btn" (click)="dialogRef.close(true)">Confirm</button>
+        <button md-button class="btn btn-default dialog-btn" (click)="dialogRef.close(false)">Cancel</button>
+</div>

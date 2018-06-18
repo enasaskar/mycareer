@@ -103,9 +103,15 @@ export class EnterpriseService {
         branches : [
             {
                 country : 'Egypt',
-                city : 'cairo',
+                city : 'Cairo',
                 locationDetails : 'blah blah blah'
+            },
+            {
+                country : 'Egypt',
+                city : 'Giza',
+                locationDetails : 'blah blah'
             }
+
 
         ]
         },

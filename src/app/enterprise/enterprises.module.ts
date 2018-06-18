@@ -28,6 +28,7 @@ import { VacanciesModule } from '../vacancies/vacancies.module';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
+import { EnterpriseListComponent } from './enterprise-list/enterprise-list.component';
 import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/reviews-view-only.component';
 
 
@@ -50,6 +51,7 @@ import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/revie
         ReviewModalContentComponent,
         LandingPageComponent,
         JobPostingPlansComponent,
+        EnterpriseListComponent,
         ReviewsViewOnlyComponent,
         RatingsViewOnlyComponent,
         RatingItemComponent,
@@ -73,6 +75,7 @@ import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/revie
         NgbModule,
         MatDialogModule,
         BrowserAnimationsModule,
+        EnterpriseListComponent
     ],
     entryComponents: [ReviewModalContentComponent]
 })
