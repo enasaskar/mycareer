@@ -15,6 +15,7 @@ export class User {
   public interests?: string[];
   public username? : string;
   public password? : string;
+  public role? :string;
 
   constructor(id: number, imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
      email: string, telNumber: string, district: string, country: string, city: string, description: string,

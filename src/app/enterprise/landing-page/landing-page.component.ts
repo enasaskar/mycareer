@@ -1,3 +1,5 @@
+import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
+import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +12,11 @@ export class LandingPageComponent implements OnInit {
   public doughnutChartData:number[] = [200, 50, 100,50];
   public doughnutChartType:string = 'doughnut';
 
-  constructor() { }
+  enterprise : EnterpriseDetails;
+  constructor(private enterpriseService : EnterpriseService) { }
 
   ngOnInit() {
-    
+    this.enterprise = this.enterpriseService.getById(1);
   }
 
   public chartClicked(e:any):void {

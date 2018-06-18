@@ -13,6 +13,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
 import { FormsModule } from '@angular/forms';
 import { InterviewViewAllComponent } from './interview-view-all/interview-view-all.component';
 import { ViewOneItemComponent } from './interview-view-all/view-one-item/view-one-item.component';
+// tslint:disable-next-line:max-line-length
+import { UserPendingInterviewItemComponent } from './user-pending-interviews/user-pending-interview-item/user-pending-interview-item.component';
 
 @NgModule({
   imports: [
@@ -29,6 +31,7 @@ import { ViewOneItemComponent } from './interview-view-all/view-one-item/view-on
     InterviewApplicantitemComponent,
     InterviewListComponent,
     UserPendingInterviewsComponent,
+    UserPendingInterviewItemComponent,
     CalendarComponent,
     ViewOneItemComponent,
 ],
@@ -38,6 +41,7 @@ import { ViewOneItemComponent } from './interview-view-all/view-one-item/view-on
     InterviewApplicantitemComponent,
     InterviewListComponent,
     UserPendingInterviewsComponent,
+    UserPendingInterviewItemComponent,
     CalendarComponent
   ]
 })

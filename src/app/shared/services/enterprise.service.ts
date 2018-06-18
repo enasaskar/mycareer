@@ -92,10 +92,11 @@ export class EnterpriseService {
         headLine : 'Telecommunications',
         headquarters : 'USA',
         bigLogo : '../assets/img/vodafone.png',
+        smallLogo : '../assets/img/logos/vodafone.png',
         des :'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         size : "300+",
         website :'www.vodafone.com',
-        facebookAccount:'',
+        facebookAccount: '',
         twitterAccount:'',
         profileViewsNumber: 200,
         reviewsTotalNumber : 100,
@@ -140,15 +141,15 @@ export class EnterpriseService {
         }
 ];
 
-    public getAllDetails() : EnterpriseDetails[] {
+    public getAllDetails(): EnterpriseDetails[] {
         return this.enterprisesDetails;
     }
 
-    public getAll() : Enterprise[] {
+    public getAll(): Enterprise[] {
         return this.enetrprises;
     }
 
-    public add(enterprise : EnterpriseDetails) {
+    public add(enterprise: EnterpriseDetails) {
         this.enterprisesDetails.push(enterprise);
     }
 
@@ -182,15 +183,15 @@ export class EnterpriseService {
         this.enetrprises.splice(index, 1);
     }
 
-    public update(i : number, e: EnterpriseDetails) {
+    public update(i: number, e: EnterpriseDetails) {
         this.enterprisesDetails[i] = e;
     }
 
-    public getBySearchWord(searchWord : string) {
-        let enterprises = []
-        if(searchWord.length > 0 ){
-            enterprises = this.getAll().filter(a=> a.name.toLowerCase().includes(searchWord.toLowerCase()));
-            
+    public getBySearchWord(searchWord: string) {
+        let enterprises = [];
+        if (searchWord.length > 0 ) {
+            enterprises = this.getAll().filter(a => a.name.toLowerCase().includes(searchWord.toLowerCase()));
+
           } else {
             enterprises = this.getAll();
           }
@@ -198,12 +199,12 @@ export class EnterpriseService {
           return enterprises;
     }
 
-    public getRatingItem(ratingList : RatingList[], id : number){
-            return ratingList.find(a => a.id == id);
+    public getRatingItem(ratingList: RatingList[], id: number) {
+            return ratingList.find(a => a.id === id);
     }
 
-    public getRatingAvg(id : number){
-        return this.userRatingService.getAll().filter(a => a.enterpriesId == id);
+    public getRatingAvg(id: number) {
+        return this.userRatingService.getAll().filter(a => a.enterpriesId === id);
     }
 
 }

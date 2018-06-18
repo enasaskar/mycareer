@@ -33,7 +33,8 @@ export class UserService {
       telNumber : '',
       district : '',
       country : '',
-      city : ''
+      city : '',
+      role : 'enterprise'
     }
   ];
   constructor() {
