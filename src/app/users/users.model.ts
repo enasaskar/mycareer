@@ -13,6 +13,8 @@ export class User {
   public city: string;
   public description?: string;
   public interests?: string[];
+  public username? : string;
+  public password? : string;
 
   constructor(id: number, imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
      email: string, telNumber: string, district: string, country: string, city: string, description: string,
@@ -31,4 +33,6 @@ export class User {
        this.description = description;
        this.interests = interests;
     }
+  
   }
+
