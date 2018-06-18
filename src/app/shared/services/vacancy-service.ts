@@ -6,6 +6,7 @@ import { Vacancy } from '../classes/vacancy.model';
 export class VacancyService {
 
     private vacanciesFilled = new Subject<Vacancy[]>();
+    public onDelete = new Subject();
     private vacancies: Vacancy[] = [
         {
            id: 1,
@@ -77,8 +78,9 @@ export class VacancyService {
     public getById(id: number): Vacancy {
         return this.vacancies.find(i => i.id === id);
     }
-    public deleteVacancy(i: number) {
-        this.vacancies.splice(i, 1);
+    public deleteVacancy(i: Vacancy) {
+      const index = this.vacancies.indexOf(i);
+        this.vacancies.splice(index, 1);
     }
 
     public addVacancy(v: Vacancy) {

@@ -1,9 +1,9 @@
 <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="feature-box secundary bordered">
-        <a class="right" routerLink='deletevacancy/{{vacancyitem.id}}'>
-            <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
+        <a class="right">
+            <i class="fa fa-trash" aria-hidden="true" data-id="1" (click) = "onTrashClick()"></i>
         </a>
-        <a class="thumb-info lightbox right" routerLink='detailsvacancy/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+        <a class="thumb-info lightbox right" routerLink='vacancydetails/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
             data-toggle="tooltip" data-placement="top" title="more info">
             <i class="fa fa-info"></i>
         </a>
@@ -17,9 +17,9 @@
         </div>
         <div class="feature-box-info">
             <a href="index-2.html">
-                <h4 class="shorter">{{vacancyitem.title}}</h4>
+                <h5 class="shorter">{{vacancyitem.title}}</h5>
             </a>
-            <h6 class="short">location</h6>
+            <h6 class="short">{{enterprises[index].headquarters}}</h6>
             <p class="short">{{vacancyitem.description}}</p>
             <p class="short">posted {{vacancyitem.postdate}} ago</p>
 

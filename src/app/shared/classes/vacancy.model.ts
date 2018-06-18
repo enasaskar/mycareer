@@ -20,6 +20,7 @@ export class Vacancy {
     responsabilities?: string;
     postdate: string; // date??
     salary: string;
+    availablesnumber?: number;
     isDeleted?: boolean;
     fK_Currency_Id: number;
     fK_Enterprise_Id: number;

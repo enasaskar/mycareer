@@ -8,11 +8,11 @@ import { VacancyItemDetailsComponent } from './vacancy-item-details/vacancy-item
 import { VacancyListComponent } from './vacancy-list/vacancy-list.component';
 
 const vacancyRoutes: Routes = [
-  { path: 'vacancy', component: VacancyListComponent },
-  { path: 'vacancy/addvacancy', component: VacancyAddEditComponent },
-  { path: 'vacancy/editvacancy/:id', component: VacancyAddEditComponent },
-  { path: 'vacancy/detailsvacancy/:id', component: VacancyItemDetailsComponent }
-]
+  { path: 'vacancies', component: VacancyListComponent },
+  { path: 'vacancies/addvacancy', component: VacancyAddEditComponent },
+  { path: 'vacancies/editvacancy/:id', component: VacancyAddEditComponent },
+  { path: 'vacancies/vacancydetails/:id', component: VacancyItemDetailsComponent }
+];
 @NgModule({
   imports: [
     RouterModule.forChild(vacancyRoutes)
