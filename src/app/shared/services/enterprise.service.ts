@@ -92,6 +92,7 @@ export class EnterpriseService {
         headLine : 'Telecommunications',
         headquarters : 'USA',
         bigLogo : '../assets/img/vodafone.png',
+        smallLogo : '../assets/img/logos/vodafone.png',
         des :'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         size : "300+",
         website :'www.vodafone.com',
