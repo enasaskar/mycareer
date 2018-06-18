@@ -69,7 +69,7 @@ export class UserService {
   notSetUserLoggedIn() {
     this.boolSubject.next(false);
   }
-  setUserId(id: number) {
+  setUserId(id: number)  {
     this.numberSubject.next(id);
   }
   getIsUser() {
