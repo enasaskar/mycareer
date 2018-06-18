@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApplicantsService } from '../../shared/services/applicants.service';
+import { Applicant } from '../../shared/classes/applicant.model';
 
 @Component({
   selector: 'app-interview-view-all',
@@ -7,25 +8,27 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
   styleUrls: ['./interview-view-all.component.css']
 })
 export class InterviewViewAllComponent implements OnInit {
-  applicants;
+  applicants: Applicant[];
 
   searchWord: string;
   constructor(private applicantsService:ApplicantsService) { }
 
   ngOnInit() {
-    this.applicants = this.applicantsService.getAll().filter(a => a.status === null);
+    this.applicants = this.applicantsService.getAllPending();
   }
 
-  rejectApplicant(id: number) {
+  rejectApplicant(item: Applicant) {
     //console.log("rejected");
-    this.applicants.splice(id,1);
+    const id = this.applicants.indexOf(item);
+    this.applicants.splice(id, 1);
     //this.applicantsService.delete(id);
     //console.log("isDeleted");
   }
-  acceptedApplicant(id: number) {
-    // this.applicantsService.update(id,true);
+  acceptedApplicant(item: Applicant) {
+    //this.applicantsService.update(id,true);
   }
 
-  onSearch() {
-  }
+  OnSearchSubmit() {
+    this.applicants = this.applicantsService.getBySearchWord(this.searchWord, null); 
+}
 }

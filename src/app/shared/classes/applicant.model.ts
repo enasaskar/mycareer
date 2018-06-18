@@ -7,9 +7,8 @@ export class Applicant {
     vacancy:Vacancy;
     status?:boolean;
 
-    constructor(user:User,vacancy:Vacancy,status?:boolean){
+    constructor(user:User,vacancy:Vacancy){
         this.user = user;
         this.vacancy = vacancy;
-        this.status = status;
     }
 }

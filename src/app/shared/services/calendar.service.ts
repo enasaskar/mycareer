@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { startOfDay, endOfDay } from 'date-fns';
 import { colors } from '../../calendar-utils/colors';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarService {
+  public onDelete = new Subject();
   events:CalendarEvent[]=[
     {
       title: "interviews",
@@ -24,7 +26,6 @@ export class CalendarService {
           onClick: ({ event }: { event: CalendarEvent }): void => {
             this.events = this.events.filter(iEvent => iEvent !== event);
             this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
           }
         }
       ]
@@ -94,10 +95,12 @@ export class CalendarService {
     }
   ]
   activeDayIsOpen: boolean;
+  
   constructor() { }
 
   public add(event:CalendarEvent){
     this.events.push(event);
+    console.log('Event Added');
   }
   public update(){
 
@@ -106,6 +109,6 @@ export class CalendarService {
     return this.events;
   }
   public delete(event:CalendarEvent){
-    
+
   }
 }
