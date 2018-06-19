@@ -31,6 +31,7 @@ export class PathDetaileditemComponent implements OnInit {
     fname: 'John',
     lname: 'Doe',
     email: 'jogn@gmail',
+    password : '12345678',
     city: 'Cairo',
     country: 'Egypt',
     telNumber: '010000',

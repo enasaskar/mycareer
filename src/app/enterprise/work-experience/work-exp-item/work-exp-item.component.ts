@@ -3,6 +3,7 @@ import { EnterpriseService } from '../../../shared/services/enterprise.service';
 import { Enterprise } from '../../../shared/classes/enterprise';
 import { WorkExperienceService } from '../../../shared/services/workExperience.service';
 import { EducationalBackgroundService } from '../../../shared/services/educationalBackground.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-work-exp-item',
@@ -16,21 +17,27 @@ export class WorkExpItemComponent implements OnInit {
   @Input() workExpIndex: number;
   @Input() type: string;
   enterprise: Enterprise;
+  id: number;
 
   constructor(private enterpriseService: EnterpriseService,
     private workExpService: WorkExperienceService,
-    private eduService: EducationalBackgroundService) { }
+    private eduService: EducationalBackgroundService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    this.route.parent.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+    });
     this.enterprise = this.enterpriseService.getEnterpriseById(this.workExpItem.enterpriseID);
   }
 
   deleteExperience() {
     if (this.type === 'edu') {
-      this.eduService.deleteEducation(0, this.workExpIndex);
+      this.eduService.deleteEducation(this.id, this.workExpIndex);
 
     } else {
-      this.workExpService.deleteExperience(0, this.workExpIndex);
+      this.workExpService.deleteExperience(this.id, this.workExpIndex);
     }
   }
 }

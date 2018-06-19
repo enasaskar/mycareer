@@ -82,16 +82,24 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     } else {
       endDate = 'Present';
     }
-    const experience = new WorkExperience(
-      // this.addWorkExpForm.value['enterprise'],
-      this.enterpriseService.getByName(this.myControl.value).id,
-      this.addWorkExpForm.value['title'],
-      startDate,
-      endDate
-    );
     if (this.type === 'work') {
+      const experience = new WorkExperience(
+        // this.addWorkExpForm.value['enterprise'],
+        this.enterpriseService.getByName(this.myControl.value).id,
+        this.addWorkExpForm.value['title'],
+        startDate,
+        endDate
+      );
       this.workExpService.addExperience(this.id, experience);
     } else {
+      const experience = new WorkExperience(
+        // this.addWorkExpForm.value['enterprise'],
+        this.enterpriseService.getByName(this.myControl.value).id,
+        this.degreeControl.value,
+        startDate,
+        endDate
+      );
+      console.log(this.degreeControl.value);
       this.eduExpService.addEducation(this.id, experience);
     }
       // to route back to userProfile
