@@ -7,19 +7,17 @@ export class User {
   // swap this with object from enterprise when available
   public enterpriseName?: string;
   public email: string;
-  public telNumber: string;
-  public district: string;
-  public country: string;
-  public city: string;
+  public telNumber?: string;
+  public district?: string;
+  public country?: string;
+  public city?: string;
   public description?: string;
   public interests?: string[];
-  public username?: string;
   public password: string;
   public role?: string;
 
-  constructor(id: number, imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
-     email: string, password: string, telNumber: string, district: string, country: string, city: string, description: string,
-     interests: string[]) {
+  constructor(id: number, imagePath: string, fname: string, lname: string, title: string,
+     enterpriseName: string, email: string, password: string) {
        this.id = id;
        this.imagePath = imagePath;
        this.fname = fname;
@@ -28,13 +26,6 @@ export class User {
        this.enterpriseName = enterpriseName;
        this.email = email;
        this.password = password;
-       this.telNumber = telNumber;
-       this.district = district;
-       this.country = country;
-       this.city = city;
-       this.description = description;
-       this.interests = interests;
     }
-  
   }
 
