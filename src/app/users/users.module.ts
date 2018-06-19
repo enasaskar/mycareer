@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth-guard.guard';
 import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -37,6 +38,7 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
         {path: '', component: UserDetailsComponent, pathMatch: 'full'},
         {path: 'edit', component: UserDetailsEditComponent}
       ]},
+      // {path: 'userDashBoard', canActivate: [AuthGuard],component: UserDashBoardComponent}
       {path: 'userDashBoard', component: UserDashBoardComponent}
     ]}])
   ],

@@ -4,8 +4,8 @@
   </a>
   <p class="clear"></p>
   <div class="portfolio-item img-thumbnail">
-    <a class="thumb-info lightbox" [href]="'#'+skillDetails.ID" data-plugin-options='{"type":"inline", preloader: false}'>
-      <img alt="" class="img-responsive" src="../../../../assets/img/project.jpg">
+      <a class="thumb-info lightbox" [href]="'#'+skillDetails.ID" data-plugin-options='{"type":"inline", preloader: false}'>
+      <img alt="" class="img-responsive" [src]="skillDetails.Img">
       <span class="thumb-info-title">
         <span class="thumb-info-inner">{{skillDetails.Name}}</span>
         <span class="thumb-info-type">
@@ -22,7 +22,7 @@
   <!--Description-->
   <div [id]="skillDetails.ID" class="popup-inline-content skillsFull">
     <!-- {{skil.Level}} -->
-    
-      <app-skill-popup [skillDetails]="skillDetails"></app-skill-popup>
+
+      <app-skill-popup *ngIf="toShow" [skillDetails]="skillDetails"></app-skill-popup>
   </div>
 </div>

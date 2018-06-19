@@ -1,7 +1,7 @@
 import { PathRoutingModule } from './path-routing.module';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 
 import { PathItemComponent } from './path-item/path-item.component';
 import { PathListComponent } from './path-list/path-list.component';

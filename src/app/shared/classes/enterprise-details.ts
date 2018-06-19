@@ -6,6 +6,7 @@ export class EnterpriseDetails {
     headLine : string;
     des : string;
     bigLogo? : string;
+    smallLogo? :string;
     headquarters : string;
     size? : string;
     website: string;

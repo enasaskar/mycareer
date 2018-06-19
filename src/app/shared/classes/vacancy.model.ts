@@ -14,14 +14,13 @@
 
 export class Vacancy {
     id: number;
-    logoImg?: string;
-    logoImgbig?: string;
     title?: string;
     description?: string;
     requirements?: string;
     responsabilities?: string;
     postdate: string; // date??
     salary: string;
+    availablesnumber?: number;
     isDeleted?: boolean;
     fK_Currency_Id: number;
     fK_Enterprise_Id: number;
@@ -29,5 +28,4 @@ export class Vacancy {
     fK_VacancyType_Id: number;
     fK_Level_Id: number;
 
-    constructor () {}
 }
