@@ -22,7 +22,7 @@
     <div class="row push-top" id="projects">
       <div id="popupProject" class="popup-inline-content">
           <h2> Name : {{vacancieyDetailsEnterprise.name}}</h2>
-          <h2>Branches : {{vacancieyDetailsEnterprise.branches}}</h2>
+          <h2 *ngFor="let item of vacancieyDetailsEnterprise.branches">Branches : {{item.city}}  {{item.locationDetails}}</h2>
         <h2>Description : {{vacancieyDetailsEnterprise.des}}</h2>
         <h2>size : {{vacancieyDetailsEnterprise.size}}</h2>
         <div class="row">
@@ -162,10 +162,9 @@
                   href="/vacancy/addvacancy">
                    Computer Software</a>
                    <br>
-                  <a   role="button" routerlink="/vacancy/addvacancy" 
-                  ng-reflect-router-link="/vacancy/addvacancy"
-                  href="/vacancy/addvacancy">
-                  See all Careers and Jobs at Vodafone
+                  <a   role="button" routerLink='{{vacancieyDetailsEnterprise.name}}'> 
+                      <!-- ../../ -->
+                  See all Careers and Jobs at {{vacancieyDetailsEnterprise.name}}
                 </a>
                       
               </div>
@@ -182,7 +181,7 @@
             <a   role="button" routerlink="/vacancy/addvacancy" 
               ng-reflect-router-link="/vacancy/addvacancy"
               href="/vacancy/addvacancy">
-              All Careers and Jobs at Vodafone</a>
+              All Careers and Jobs at {{vacancieyDetailsEnterprise.name}}</a>
               <a   role="button" routerlink="/vacancy/addvacancy" 
               ng-reflect-router-link="/vacancy/addvacancy"
               href="/vacancy/addvacancy">

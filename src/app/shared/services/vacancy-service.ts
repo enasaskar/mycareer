@@ -3,13 +3,14 @@ import { Vacancy } from '../classes/vacancy.model';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
+import { EnterpriseService } from './enterprise.service';
 
 @Injectable()
 export class VacancyService {
 
     public vacanciesChanged: Subject<Vacancy[]>;
     private vacancies: Vacancy[] ;
-     constructor() {
+     constructor(private enterpriseServices: EnterpriseService ) {
     this.vacanciesChanged = new Subject();
     this.vacancies = [
         {
@@ -152,7 +153,7 @@ export class VacancyService {
             salary: '5000',
             isDeleted: false,
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 2,
+            fK_Enterprise_Id: 6,
             fK_Branch_Id: 2,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 1
@@ -344,14 +345,28 @@ export class VacancyService {
         return v;
 
     }
+    public getVacanciesByEnterpriseName(searchtext: string) {
+        const e = this.enterpriseServices.getByName(searchtext);
+       return this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(a => a.fK_Enterprise_Id == e.id));
+    }
+    public getVacanciesByEnterpriseIdGeneral(searchtext: string) {
+        return this.vacanciesChanged.startWith(this.getAllNotDeleted()
+                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase()) 
+                   ||
+                    a.description.toLowerCase().includes(searchtext.toLowerCase())    ));
+    }
     public delete(id: number) {
         this.getById(id).isDeleted = true;
         this.vacanciesChanged.next(this.getAllNotDeleted());
     }
     public addVacancy(v: Vacancy) {
+        debugger
         this.vacancies.push(v);
+        this.vacanciesChanged.next(this.getAllNotDeleted());
+
     }
     public updateVacancy(id: number, v: Vacancy) {
+        debugger
         const vac = this.vacancies.find(i => i.id === id);
         vac.postdate = v.postdate;
         vac.requirements = v.requirements;
@@ -360,10 +375,15 @@ export class VacancyService {
         vac.title = v.title;
         vac.description = v.description;
         this.vacancies.push(vac);
+        this.vacanciesChanged.next(this.getAllNotDeleted());
+
     }
     public getUserVacancies (id: number): Vacancy[] {
         // call function from back end to get by user ID
         return this.vacancies.filter(res => res.isDeleted === false);
+    }
+    public getVacanciesByEnterpriseId(eId: number){
+        return this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(v => v.fK_Enterprise_Id == eId));
     }
     public getByEnterpriseId(eId: number): Vacancy[] {
         const enterpriseVacancies: Vacancy[] = [];

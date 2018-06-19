@@ -16,7 +16,7 @@
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-md-11"></div>
         <div class="col-md-1">
-            <a href="#" class="btn btn-primary right" routerLink='addvacancy'>Add New Vacancy</a>
+            <a href="#" class="btn btn-primary right" routerLink='./addvacancy'>Add New Vacancy</a>
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
                 <aside class="sidebar">
                     <form method="POST" role="form" (ngSubmit) = "OnSearchSubmit(searchForm)" #searchForm = ngForm>
                         <div class="input-group input-group-lg">
-                            <input class="form-control" placeholder="Search..." name="s" id="s" type="text" [(ngModel)] = searchWord>
+                            <input class="form-control" placeholder="Search..." name="s" id="s" type="text" [(ngModel)] = searchtext >
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-search"></i>
