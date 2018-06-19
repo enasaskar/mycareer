@@ -590,7 +590,11 @@ private enetrprises: Enterprise[] = [
         }
     }
 
-    public getSkills(id: number): Skill[] {
+    public getSkills(pathId: number): Skill[] {
+        return this.skills;
+    }
+
+    public getSkillsByLevel(pathId: number, levelName: String): Skill[] {
         return this.skills;
     }
 

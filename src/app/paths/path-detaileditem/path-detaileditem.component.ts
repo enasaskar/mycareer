@@ -15,12 +15,14 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 })
 export class PathDetaileditemComponent implements OnInit {
 
-  @Input() skills: Skill[];
+  // @Input() skills: Skill[];
+  public skills: Skill[];
   @Input() EnterprisesRecommendPath: Enterprise[];
 
   dialogRef: MatDialogRef<ConfirmDeletePopup>;
 
-  constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog, private router: Router) { }
+  constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog,
+    private router: Router) { }
 
   public Path = this.pathService.defaultPath;
 
@@ -43,7 +45,7 @@ export class PathDetaileditemComponent implements OnInit {
     this.Path = this.pathService.getById(this.Path.Id );
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
     this.skills = this.pathService.getSkills(this.Path.Id);
-    console.log( this.skills);
+    console.log( 'skills=', this.skills);
   }
 
   public enrollUser() {
