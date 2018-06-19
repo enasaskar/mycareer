@@ -16,7 +16,6 @@ export class InterviewListComponent implements OnInit {
   seeMore = false;
   searchWord:string;
 
-<<<<<<< HEAD
   constructor(private applicantsService:ApplicantsService,private route:ActivatedRoute) {
     
   }
@@ -27,15 +26,6 @@ export class InterviewListComponent implements OnInit {
       this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
     }else if(this.listType ==="pendingcv"){
       this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
-=======
-  constructor(private applicantsService:ApplicantsService) {
-  }
-  ngOnInit() {
-    if(this.listType === 'shortlist') {
-      this.list = this.applicantsService.getAllAccepted();
-    } else if (this.listType === 'pendingcv') {
-      this.list = this.applicantsService.getAllPending();
->>>>>>> 59ed5135464dc70dedc643d435189691354cbe29
     }
   }
 
@@ -53,20 +43,11 @@ export class InterviewListComponent implements OnInit {
 
   // }
 
-<<<<<<< HEAD
   OnSearchSubmit(){
     if(this.listType ==="shortlist"){
       this.list = this.applicantsService.getBySearchWord(this.searchWord,this.enterprise_id).filter(a=>a.status == true);;
     }else if(this.listType ==="pendingcv"){
       this.list = this.applicantsService.getBySearchWord(this.searchWord,this.enterprise_id).filter(a=>a.status == null);;
     }   
-=======
-  OnSearchSubmit() {
-    if (this.listType === 'shortlist') {
-      this.list = this.applicantsService.getBySearchWord(this.searchWord, true);
-    } else if (this.listType === 'pendingcv') {
-      this.list = this.applicantsService.getBySearchWord(this.searchWord, null);
-    }
->>>>>>> 59ed5135464dc70dedc643d435189691354cbe29
   }
 }
