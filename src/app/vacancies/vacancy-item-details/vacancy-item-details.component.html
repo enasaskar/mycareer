@@ -21,10 +21,13 @@
 
     <div class="row push-top" id="projects">
       <div id="popupProject" class="popup-inline-content">
-        <h2>Lorem Ipsum Dolor</h2>
+          <h2> Name : {{vacancieyDetailsEnterprise.name}}</h2>
+          <h2 *ngFor="let item of vacancieyDetailsEnterprise.branches">Branches : {{item.city}}  {{item.locationDetails}}</h2>
+        <h2>Description : {{vacancieyDetailsEnterprise.des}}</h2>
+        <h2>size : {{vacancieyDetailsEnterprise.size}}</h2>
         <div class="row">
           <div class="col-md-4">
-            <img class="img-thumbnail img-responsive" alt="" src="../../../assets/img/vodafone.png">
+            <img class="img-thumbnail img-responsive" alt="" [src]='vacancieyDetailsEnterprise.bigLogo'>
           </div>
 
         </div>
@@ -35,7 +38,7 @@
       <div class="col-md-3">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
-            <img class="img-responsive" src="../../../assets/img/vodafone.png" alt="" id="enterprise_logo">
+            <img class="img-responsive" src='{{vacancieyDetailsEnterprise.bigLogo}}' alt="" id="enterprise_logo">
           </a>
           <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
         </div>
@@ -44,7 +47,7 @@
       <div class="col-md-6">
         <span class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
-            <a class="thumb-info lightbox right" routerLink='/vacancy/editvacancy/1' data-plugin-options='{"type":"inline", preloader: false}'
+            <a class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{vacancieyDetails.id}}' data-plugin-options='{"type":"inline", preloader: false}'
               data-toggle="tooltip" data-placement="top" title="edit">
               <i class="fa fa-pencil" aria-hidden="true"></i>
               <span>Edit</span>
@@ -53,10 +56,9 @@
         </span>
 
         <h2 class="shorter arabic-titile">
-          Software Engineer
-        </h2>
+{{vacancieyDetails.title}}        </h2>
 
-        <h4 class="arabic-headline">Vodafone Global Enterprise</h4>
+        <h4 class="arabic-headline">{{vacancieyDetailsEnterprise.name}}</h4>
         <div class="col-md-3" style="float: right;">
           <div class="info counters">
             <i class="fa fa-user">
@@ -75,9 +77,7 @@
               <h4>
                 <strong>Job Description</strong>
               </h4>
-              <p class="editablePara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta.
-                Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget
-                diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+              <p class="editablePara">{{vacancieyDetails.description}}</p>
             </div>
           </div>
         </div>
@@ -87,9 +87,7 @@
               <h4>
                 <strong>Job Requirments</strong>
               </h4>
-              <p class="editablePara">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta.
-                Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, Curabitur pellentesque neque eget
-                diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus,</p>
+              <p class="editablePara">{{vacancieyDetails.requirements}}</p>
             </div>
           </div>
         </div>
@@ -108,7 +106,7 @@
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Type</h4>
-                  <h6>Full-time</h6>
+                  <h6>{{vacancieyDetailsType.name}}</h6>
                 </div>
               </div>
             </div>
@@ -121,7 +119,7 @@
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Level</h4>
-                  <h6>Senior</h6>
+                  <h6>{{vacancieyDetailslevel.name}}</h6>
 
                 </div>
               </div>
@@ -135,7 +133,7 @@
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Salary</h4>
-                  <h6>Negotiable</h6>
+                  <h6>{{vacancieyDetails.salary}}</h6>
                 </div>
               </div>
             </div>
@@ -164,10 +162,9 @@
                   href="/vacancy/addvacancy">
                    Computer Software</a>
                    <br>
-                  <a   role="button" routerlink="/vacancy/addvacancy" 
-                  ng-reflect-router-link="/vacancy/addvacancy"
-                  href="/vacancy/addvacancy">
-                  See all Careers and Jobs at Vodafone
+                  <a   role="button" routerLink='{{vacancieyDetailsEnterprise.name}}'> 
+                      <!-- ../../ -->
+                  See all Careers and Jobs at {{vacancieyDetailsEnterprise.name}}
                 </a>
                       
               </div>
@@ -184,7 +181,7 @@
             <a   role="button" routerlink="/vacancy/addvacancy" 
               ng-reflect-router-link="/vacancy/addvacancy"
               href="/vacancy/addvacancy">
-              All Careers and Jobs at Vodafone</a>
+              All Careers and Jobs at {{vacancieyDetailsEnterprise.name}}</a>
               <a   role="button" routerlink="/vacancy/addvacancy" 
               ng-reflect-router-link="/vacancy/addvacancy"
               href="/vacancy/addvacancy">
@@ -228,110 +225,10 @@
     </div>
   </div>
   <div class="container vacancy">
-    <div class="row">
-      <!-- <div class="col-md-4 col-sm-4 col-xs-12" id="1">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="1"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/ITWORX.jpg" alt="">
-            </div>
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-  
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12" id="2">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="2"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/vodafone-icon.png" alt="">
-            </div>
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-  
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12" id="3">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="3"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/vodafone-icon.png" alt="">
-            </div>
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-  
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-md-4 col-sm-4 col-xs-12" id="4">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="4"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/vodafone-icon.png" alt="">
-            </div>
-  
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-  
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-            </div>
-  
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12" id="5">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="5"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/vodafone-icon.png" alt="">
-            </div>
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-  
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-4 col-xs-12" id="6">
-          <div class="feature-box secundary bordered">
-            <i class="fa fa-trash right" aria-hidden="true" data-id="6"></i>
-            <div class="feature-box-icon">
-              <img src="../../../assets/img/vodafone-icon.png" alt="">
-            </div>
-            <div class="feature-box-info">
-              <a href="index-2.html">
-                <h4 class="shorter">Software Engineer</h4>
-              </a>
-  
-              <p class="short">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <p class="short">posted 2 days ago</p>
-            </div>
-          </div>
-        </div> -->
       <div class="row">
-        <app-vacancy-item *ngFor="let v of vacancies" [vacancyitem]="v"></app-vacancy-item>
-      </div>
+        <app-vacancy-item *ngFor="let v of vacancies ; let  e=index" [index]="e" [vacancyitem]="v" [enterprises]="enterprises"></app-vacancy-item>
     </div>
+    
   </div>
 
 

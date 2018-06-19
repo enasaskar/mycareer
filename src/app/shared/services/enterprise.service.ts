@@ -163,7 +163,7 @@ export class EnterpriseService {
 
     public getEnterpriseById(id: number) {
         for (let i = 0 ; i < this.enetrprises.length ; i++) {
-            if (this.enetrprises[i].id === id) {
+            if (this.enetrprises[i].id == id) {
                 return this.enetrprises[i];
             }
         }
@@ -191,7 +191,6 @@ export class EnterpriseService {
         let enterprises = [];
         if (searchWord.length > 0 ) {
             enterprises = this.getAll().filter(a => a.name.toLowerCase().includes(searchWord.toLowerCase()));
-
           } else {
             enterprises = this.getAll();
           }
