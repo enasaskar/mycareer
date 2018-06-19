@@ -10,7 +10,7 @@ import { AuthGuard } from '../auth-guard.guard';
 
 const enterpriseRoutes: Routes = [
     {path : 'enterprises', component : EnterpriseViewAllComponent } ,
-    {path : 'enterprises/enterprise/details/:id', canActivate : [AuthGuard],component: EnterpriseDetailsComponent},
+    {path : 'enterprises/enterprise/details/:id',component: EnterpriseDetailsComponent},
     {path : 'enterprises/enterprise/details',canActivate : [AuthGuard] ,component: EnterpriseDetailsComponent},
     {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
     {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent},

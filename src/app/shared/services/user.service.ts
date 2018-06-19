@@ -15,6 +15,9 @@ export class UserService {
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
 
+  isEnterprise$: Observable<boolean>;
+  private isEnterpriseSub : Subject<boolean>;
+
   // replace this with data from API
   private users: User[] = [
     {
@@ -45,7 +48,8 @@ export class UserService {
       district : '',
       country : '',
       city : '',
-      role : 'enterprise'
+      role : 'enterprise',
+      enterpriseId : 1
     }
   ];
   constructor() {
@@ -56,7 +60,8 @@ export class UserService {
     this.numberSubject = new Subject<number>();
     this.id$ = this.numberSubject.asObservable();
     this.isUser = false;
-
+    this.isEnterpriseSub = new Subject<boolean>();
+    this.isEnterprise$ = this.isEnterpriseSub.asObservable();
   }
   // CRUD ops here
   getUsers() {
@@ -89,6 +94,9 @@ export class UserService {
   }
   setIsUser() {
     this.isUser = true;
+  }
+  setIsEnterprise(flag : boolean) {
+    this.isEnterpriseSub.next(flag);
   }
   notSetUser() {
     this.isUser = false;

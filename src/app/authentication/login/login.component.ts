@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
           this.userService.setIsUser();
           const u = this.userService.getUserByEmail(form.value.email)[0];
           this.userService.setUserId(u.id);
-          this.router.navigate(['/user', u.id, 'userProfile']);
+          if(u.role == "enterprise"){
+            this.router.navigate(['/enterprises/landingPage',u.enterpriseId]);
+          }
+          else{
+          this.router.navigate(['/user', u.id]);
+          }
           break;
         } else {
           this.router.navigate(['/login']);
