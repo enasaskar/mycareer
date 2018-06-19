@@ -28,5 +28,4 @@ export class Vacancy {
     fK_VacancyType_Id: number;
     fK_Level_Id: number;
 
-    constructor () {}
 }

@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Vacancy } from '../classes/vacancy.model';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
 
 @Injectable()
 export class VacancyService {
 
-    private vacanciesFilled = new Subject<Vacancy[]>();
-    public onDelete = new Subject();
-    private vacancies: Vacancy[] = [
+    public vacanciesChanged: Subject<Vacancy[]>;
+    // private vacanciesFilled = new Subject<Vacancy[]>();
+    // public onDelete = new Subject();
+    private vacancies: Vacancy[] ;
+     constructor() {
+    this.vacanciesChanged = new Subject();
+    this.vacancies = [
         {
            id: 1,
            title: 'Senior ASP.NET / MVC',
@@ -28,6 +34,7 @@ export class VacancyService {
            postdate: '2 days',
            salary: '2000',
            isDeleted: false,
+           availablesnumber: 2,
            fK_Currency_Id: 1,
            fK_Enterprise_Id: 1,
            fK_Branch_Id: 1,
@@ -323,19 +330,29 @@ export class VacancyService {
              fK_Level_Id: 2
          },
     ];
-
-    public getAll(): Vacancy[] {
-      return this.vacancies.filter(res => res.isDeleted === false);
+}
+    public getAll(): Observable<Vacancy[]> {
+        debugger
+       return  this.vacanciesChanged.startWith(this.vacancies.slice());
     }
-
-    public getById(id: number): Vacancy {
-        return this.vacancies.find(i => i.id === id);
+    private getAllNotDeleted() {
+        debugger
+        return this.vacancies.filter(a => a.isDeleted == false).slice();
     }
-    public deleteVacancy(i: Vacancy) {
-      const index = this.vacancies.indexOf(i);
-        this.vacancies.splice(index, 1);
+    public getNotDeleted() {
+        debugger
+        return  this.vacanciesChanged.startWith(this.getAllNotDeleted());
     }
+    public getById(id: number) {
+        const v = this.vacancies.find(a => a.id == id);
+        console.log(v);
+        return v;
 
+    }
+    public delete(id: number) {
+        this.getById(id).isDeleted = true;
+        this.vacanciesChanged.next(this.getAllNotDeleted());
+    }
     public addVacancy(v: Vacancy) {
         this.vacancies.push(v);
     }
