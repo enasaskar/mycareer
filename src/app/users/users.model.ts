@@ -6,6 +6,7 @@ export class User {
   public title?: string;
   // swap this with object from enterprise when available
   public enterpriseName?: string;
+  public enterpriseId? : number;
   public email: string;
   public telNumber: string;
   public district: string;
