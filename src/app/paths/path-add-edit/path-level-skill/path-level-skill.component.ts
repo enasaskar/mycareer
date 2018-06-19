@@ -15,6 +15,7 @@ export class PathLevelSkillComponent implements OnInit {
 
   @Input() levelName: string;
   @Input() skills: Skill[];
+  @Input() pathId: number;
   showSearch = true;
   constructor(private pathService: PathService, private skillService: SkillsService) { }
 
@@ -30,6 +31,7 @@ export class PathLevelSkillComponent implements OnInit {
       startWith(''),
       map(val => this.filter(val))
     );
+    // this.skills = this.pathService.getSkillsByLevel(this.pathId, 'intro');
   }
 
   filter(val: string): Skill[] {

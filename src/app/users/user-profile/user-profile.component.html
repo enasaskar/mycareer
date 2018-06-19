@@ -3,17 +3,13 @@
 <div class="row">
       <!--Profile Pic-->
       <div class="col-md-4" data-appear-animation="fadeIn">
-        <div class="owl-carousel" data-plugin-options='{"items": 1}'>
-          <div>
-            <div class="thumbnail">
-              <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
-                <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
-                <span class="thumb-info-action">
-                  <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
-                </span>
-              </a>
-            </div>
-          </div>
+        <div class="profilePic">
+          <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
+            <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
+            <span class="thumb-info-action">
+              <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
+            </span>
+          </a>
         </div>
         <div id="popupImageEdit" class="popup-inline-content">
           <div class="row">

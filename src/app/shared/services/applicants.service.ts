@@ -23,16 +23,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        // tslint:disable-next-line:max-line-length
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -60,16 +51,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        // tslint:disable-next-line:max-line-length
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -96,16 +78,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        // tslint:disable-next-line:max-line-length
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -132,16 +105,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        // tslint:disable-next-line:max-line-length
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -168,15 +132,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -203,16 +159,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        // tslint:disable-next-line:max-line-length
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -239,15 +186,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -275,15 +214,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -294,7 +225,7 @@ export class ApplicantsService {
         responsabilities: 'bla2 bla2',
         postdate: '2 days',
         salary: '2000',
-        isDeleted: false,  
+        isDeleted: false,
         RequiredSkills: [...this.skills],
         fK_Currency_Id: 1,
         fK_Enterprise_Id: 1,
@@ -310,15 +241,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -346,15 +269,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
-        '12345678',
-        '01067439936',
-        'Heliopolis',
-        'Egypt',
-        'Cairo',
-        'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-        ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
-          'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-          'Iaculis vulputate id quis nisl.']),
+        '12345678'),
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -379,8 +294,8 @@ export class ApplicantsService {
   ];
 
 
-  public add() {
-
+  public add(applicant: Applicant) {
+    this.applicants.push(applicant);
   }
   public update() {
 
@@ -390,56 +305,36 @@ export class ApplicantsService {
   }
 
   public getAllAccepted(): Applicant[] {
-    return this.applicants.filter(a => a.status === true);
+    return this.applicants.filter(a => a.status == true);
   }
   public getAllRejected(): Applicant[] {
     return this.applicants.filter(a => a.status === false);
   }
   public getAllPending(): Applicant[] {
-    return this.applicants.filter(a => a.status === null);
+    return this.applicants.filter(a => a.status == null);
   }
   public getByVacancyId(id: number): Applicant[] {
     return this.applicants.filter(a => a.vacancy.id === id);
   }
-  public getByEnterpriseId(id: number) {
+  public getByEnterpriseId(id: number): Applicant[] {
     return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id === id);
   }
 
-  public getBySearchWord(searchWord: string, status?: boolean) {
+  public getBySearchWord(searchWord: string, id: number) {
     let applicants = [];
-    let word = searchWord.toLowerCase();
-    switch (status) {
-      case true:
-        if (searchWord.length > 0) {
-          // tslint:disable-next-line:max-line-length
-          applicants = this.getAllAccepted().filter(a => a.user.fname.toLowerCase().includes(word) || a.user.lname.toLowerCase().includes(word));
-        } else {
-          applicants = this.getAllAccepted();
-        }
-        break;
-      case false:
-        if (searchWord.length > 0) {
-          // tslint:disable-next-line:max-line-length
-          applicants = this.getAllRejected().filter(a => a.user.fname.toLowerCase().includes(word) || a.user.lname.toLowerCase().includes(word));
-        } else {
-          applicants = this.getAllRejected();
-        }
-        break;
-      case null:
-        if (searchWord.length > 0) {
-          // tslint:disable-next-line:max-line-length
-          applicants = this.getAllPending().filter(a => a.user.fname.toLowerCase().includes(word) || a.user.lname.toLowerCase().includes(word) || a.vacancy.title.toLowerCase().includes(word));
-        } else {
-          applicants = this.getAllPending();
-        }
-        break;
+    const word = searchWord.toLowerCase();
+    if (searchWord.length > 0) {
+      applicants = this.getByEnterpriseId(id).filter(a => a.user.fname.toLowerCase().includes(word)
+      || a.user.lname.toLowerCase().includes(word) || a.vacancy.title.toLowerCase().includes(word));
+    } else {
+      applicants = this.getByEnterpriseId(id);
     }
     return applicants;
   }
 
   public delete(applicant: Applicant) {
-    const index = this.applicants.indexOf(applicant);
-    this.applicants.splice(index, 1);
-    console.log('pending is deleted', this.applicants);
+      const index = this.applicants.indexOf(applicant);
+      this.applicants.splice(index, 1);
+      console.log('pending is deleted', this.applicants);
   }
 }

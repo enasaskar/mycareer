@@ -49,7 +49,7 @@
               </li>
             </ul>
           </li>
-          <li *ngIf="isEnterprise" class="dropdown">
+          <li *ngIf="isLoggedIn && isEnterprise" class="dropdown">
             <a class="dropdown-toggle">
               For Enterprises
               <i class="fa fa-angle-down"></i>
@@ -62,7 +62,7 @@
                 <a routerLink="/paths/add">Add New Career Path</a>
               </li>
               <li>
-                <a routerLink="/interviews/applicants">Vacancies Interviews Details</a>
+                <a routerLink="/interviews/applicants/1">Vacancies Interviews Details</a>
               </li>
               <li>
                 <a routerLink = "/enterprises/enterprise/goPremium">Go Premium</a>

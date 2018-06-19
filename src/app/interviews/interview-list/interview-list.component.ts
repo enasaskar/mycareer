@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Applicant } from '../../shared/classes/applicant.model';
 import { ApplicantsService } from '../../shared/services/applicants.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-interview-list',
@@ -10,16 +11,21 @@ import { ApplicantsService } from '../../shared/services/applicants.service';
 export class InterviewListComponent implements OnInit {
   @Input() listType;
   list:Applicant[];
+  enterprise_id:number;
+  
   seeMore = false;
   searchWord:string;
 
-  constructor(private applicantsService:ApplicantsService) {
+  constructor(private applicantsService:ApplicantsService,private route:ActivatedRoute) {
+    
   }
   ngOnInit() {
-    if(this.listType === 'shortlist') {
-      this.list = this.applicantsService.getAllAccepted();
-    } else if (this.listType === 'pendingcv') {
-      this.list = this.applicantsService.getAllPending();
+    this.enterprise_id = this.route.snapshot.params['id']; 
+    console.log(this.enterprise_id);
+    if(this.listType === "shortlist"){
+      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
     }
   }
 
@@ -37,11 +43,11 @@ export class InterviewListComponent implements OnInit {
 
   // }
 
-  OnSearchSubmit() {
-    if (this.listType === 'shortlist') {
-      this.list = this.applicantsService.getBySearchWord(this.searchWord, true);
-    } else if (this.listType === 'pendingcv') {
-      this.list = this.applicantsService.getBySearchWord(this.searchWord, null);
-    }
+  OnSearchSubmit(){
+    if(this.listType ==="shortlist"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,this.enterprise_id).filter(a=>a.status == true);;
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getBySearchWord(this.searchWord,this.enterprise_id).filter(a=>a.status == null);;
+    }   
   }
 }
