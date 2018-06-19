@@ -11,7 +11,7 @@ export class UserService {
   private isUser: boolean;
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
-
+  idCount = 2;
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
 
@@ -20,13 +20,24 @@ export class UserService {
 
   // replace this with data from API
   private users: User[] = [
-    new User(0, '../assets/img/team/emp2.jpg', 'Joe', 'Doe', 'Web Developer', 'Company', 'JoeDoe@gmail.com', '12345678',
-    '01067439936', 'Heliopolis', 'Egypt', 'Cairo',
+    {
+      id: 0,
+      imagePath: '../../../assets/img/team/emp2.jpg',
+      fname: 'Joe',
+      lname: 'Doe',
+      title: 'Web Developer',
+      enterpriseName: 'Company',
+      email: 'JoeDoe@gmail.com',
+      password: '12345678',
+      telNumber: '01067439936',
+      district: 'Heliopolis',
+      country: 'Egypt',
+      city: 'Cairo',
     // tslint:disable-next-line:max-line-length
-    'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
-    ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
+      description: 'Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet. In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus.',
+      interests: ['Fusce sit amet orci quis arcu vestibulum vestibulum sed ut felis.',
     'Phasellus in risus quis lectus iaculis vulputate id quis nisl.',
-    'Iaculis vulputate id quis nisl.']),
+    'Iaculis vulputate id quis nisl.']},
     {
       id : 1,
       fname : 'Passant',
@@ -60,6 +71,7 @@ export class UserService {
     return this.users[id];
   }
   addUser(user: User) {
+    this.idCount++;
     this.users.push(user);
   }
   updateUser(i: number, user: User) {

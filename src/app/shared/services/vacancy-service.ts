@@ -363,7 +363,7 @@ export class VacancyService {
         debugger
         this.vacancies.push(v);
         this.vacanciesChanged.next(this.getAllNotDeleted());
-
+ 
     }
     public updateVacancy(id: number, v: Vacancy) {
         debugger
@@ -380,9 +380,9 @@ export class VacancyService {
     }
     public getUserVacancies (id: number): Vacancy[] {
         // call function from back end to get by user ID
-        return this.vacancies.filter(res => res.isDeleted === false);
+        return this.vacancies.filter(res => res.isDeleted === false).slice(0, 4);
     }
-    public getVacanciesByEnterpriseId(eId: number){
+    public getVacanciesByEnterpriseId(eId: number) {
         return this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(v => v.fK_Enterprise_Id == eId));
     }
     public getByEnterpriseId(eId: number): Vacancy[] {

@@ -34,13 +34,13 @@ export class UserDetailsEditComponent implements OnInit {
       this.userEditForm.value['title'],
       this.userEditForm.value['enterpriseName'],
       this.userEditForm.value['email'],
-      this.user.password,
-      this.userEditForm.value['telNumber'],
-      this.userEditForm.value['district'],
-      this.userEditForm.value['country'],
-      this.userEditForm.value['city'],
-      this.userEditForm.value['description'],
-      this.userEditForm.value['interests']);
+      this.user.password);
+      newUser.telNumber = this.userEditForm.value['telNumber'];
+      newUser.district = this.userEditForm.value['district'];
+      newUser.country = this.userEditForm.value['country'];
+      newUser.city = this.userEditForm.value['city'];
+      newUser.description = this.userEditForm.value['description'];
+      newUser.interests = this.userEditForm.value['interests'];
       this.userService.updateUser(this.id, newUser);
       // to route back to userProfile
       this.onCancel();
@@ -73,14 +73,15 @@ export class UserDetailsEditComponent implements OnInit {
       'enterpriseName': new FormControl(enterpriseName),
       'email': new FormControl(email, [Validators.required, Validators.email]),
       'telNumber': new FormControl(telNumber,
-        [ Validators.required,
+        [
+          // Validators.required,
           Validators.pattern(/^[0-9]*$/),
           Validators.minLength(11),
           Validators.maxLength(13)
         ]),
       'district': new FormControl(district),
-      'country': new FormControl(country, Validators.required),
-      'city': new FormControl(city, Validators.required),
+      'country': new FormControl(country),
+      'city': new FormControl(city),
       'description': new FormControl(description, Validators.maxLength(300)),
       'interests': interests
     });

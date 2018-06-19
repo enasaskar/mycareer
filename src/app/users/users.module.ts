@@ -32,13 +32,14 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    RouterModule.forChild([{path: 'user/:id', component: UsersComponent,canActivate: [AuthGuard],children: [
+    RouterModule.forChild([{path: 'user/:id', component: UsersComponent, children: [
       {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
       {path: 'userProfile', component: UserProfileComponent, children: [
         {path: '', component: UserDetailsComponent, pathMatch: 'full'},
         {path: 'edit', component: UserDetailsEditComponent}
       ]},
-      {path: 'userDashBoard', canActivate: [AuthGuard],component: UserDashBoardComponent}
+      // {path: 'userDashBoard', canActivate: [AuthGuard],component: UserDashBoardComponent}
+      {path: 'userDashBoard', component: UserDashBoardComponent}
     ]}])
   ],
   declarations: [
