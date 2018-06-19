@@ -34,6 +34,7 @@
     "jquery": "^3.3.1",
     "ng2-charts": "^1.6.0",
     "ngx-bootstrap": "^3.0.0",
+    "ngx-drag-scroll": "^1.8.2",
     "rxjs": "^6.0.0",
     "script-loader": "^0.7.2",
     "zone.js": "^0.8.26"
