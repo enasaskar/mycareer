@@ -98,6 +98,14 @@
         </div>
       </div>
       <p><b>Main Interests</b></p>
+      <span class="thumb-info-social-icons right">
+        <a  data-tooltip data-placement="bottom" 
+            data-original-title="Add" 
+            style="cursor: pointer;"
+            (click)="addInterest()">
+            <i class="fa fa-plus"></i><span>Add interest</span>
+        </a>
+      </span>
       <ul class="list icons list-unstyled" formArrayName="interests">
         <li *ngFor="let interestctrl of userEditForm.get('interests').controls; let i = index; ">
           <i class="fa fa-check"></i>

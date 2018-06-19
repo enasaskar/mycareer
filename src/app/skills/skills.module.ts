@@ -12,6 +12,10 @@ import { SkillItemSmallComponent } from './skill-item-small/skill-item-small.com
 import { SkillUpdateComponent } from './skill-update/skill-update.component';
 import { SkillDetailsEditComponent } from './skill-details-edit/skill-details-edit.component';
 import { SkillPopupComponent } from './skill-popup/skill-popup.component';
+import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-list-drag-scroll.component';
+
+import { DragScrollModule } from 'ngx-drag-scroll';
+
 
 @NgModule({
   imports: [
@@ -35,7 +39,8 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
       // ]},
     ]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragScrollModule,
   ],
   declarations: [
     SkillListComponent,
@@ -43,13 +48,15 @@ import { SkillPopupComponent } from './skill-popup/skill-popup.component';
     SkillItemSmallComponent,
     SkillUpdateComponent,
     SkillDetailsEditComponent,
-    SkillPopupComponent
+    SkillPopupComponent,
+    SkillListDragScrollComponent
 ],
   exports: [
     SkillListComponent,
     SkillDetailsPopupComponent,
     SkillItemSmallComponent,
-    SkillDetailsEditComponent
+    SkillDetailsEditComponent,
+    SkillListDragScrollComponent,
   ]
 })
 export class SkillsModule { }

@@ -26,6 +26,8 @@ export class UserDetailsEditComponent implements OnInit {
     });
   }
   onSubmit() {
+    const interests = this.userEditForm.value['interests']
+                      .filter(interest => (interest !== '' && interest !== null));
     const newUser = new User(
       this.id,
       this.user.imagePath,
@@ -40,7 +42,7 @@ export class UserDetailsEditComponent implements OnInit {
       newUser.country = this.userEditForm.value['country'];
       newUser.city = this.userEditForm.value['city'];
       newUser.description = this.userEditForm.value['description'];
-      newUser.interests = this.userEditForm.value['interests'];
+      newUser.interests = interests;
       this.userService.updateUser(this.id, newUser);
       // to route back to userProfile
       this.onCancel();
@@ -86,5 +88,9 @@ export class UserDetailsEditComponent implements OnInit {
       'interests': interests
     });
 
+  }
+  addInterest() {
+    const control = new FormControl(null);
+    (<FormArray>this.userEditForm.get('interests')).push(control);
   }
 }
