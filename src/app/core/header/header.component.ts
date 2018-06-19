@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router, Params, NavigationEnd, ChildActivationEnd } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -10,16 +12,20 @@ import { ActivatedRoute, Router, Params, NavigationEnd, ChildActivationEnd } fro
 export class HeaderComponent implements OnInit {
 
   id: number;
+  isLoggedIn : boolean ;
+  isLogOut:boolean = false;
+  isEnterprise : boolean;
+   
   constructor(private route: ActivatedRoute,
-    private router: Router) {
-      router.events.subscribe((event) => {
-        if ( event instanceof ChildActivationEnd) {
-          this.id = +event.snapshot.firstChild.params['id'];
-          if (isNaN(this.id)) {
-            this.id = null;
-          }
-        }
-      });
+    private router: Router,private userService : UserService) {
+      // router.events.subscribe((event) => {
+      //   if ( event instanceof ChildActivationEnd) {
+      //     this.id = +event.snapshot.firstChild.params['id'];
+      //     if (isNaN(this.id)) {
+      //       this.id = null;
+      //     }
+      //   }
+      // });
     }
 
   ngOnInit() {
@@ -33,7 +39,29 @@ export class HeaderComponent implements OnInit {
     //     this.id = null;
     //   }
     // });
+   
+   if(!this.isLogOut){
+    this.userService.isUserLoggedIn$.subscribe((bool : boolean) => {this.isLoggedIn = bool;});
+    this.userService.id$.subscribe((id : number) => {this.id = id;
+      let currentUser = this.userService.getUserById(this.id);
+      if(currentUser.role == "enterprise"){
+        this.isEnterprise = true;
+      }})
+    
+   }
+    
+
+    if(this.isLogOut){
+    this.userService.isUserLoggedIn$.subscribe((b : boolean) => {this.isLoggedIn = b;console.log("notlogged")})
+
+    }
   }
+
+  
+    // You can also use categoryId.previousValue and 
+    // categoryId.firstChange for comparing old and new values
+
+
 
   public makeActive(e) {
     const elems = document.querySelector('.active');
@@ -41,6 +69,13 @@ export class HeaderComponent implements OnInit {
      elems.classList.remove('active');
     }
    e.target.classList.add('active');
+  }
+
+  public onLogOut(){
+    this.userService.notSetUser();
+    this.isLogOut = true;
+    this.userService.notSetUserLoggedIn();
+    this.router.navigate(['/login']);
   }
 
 }

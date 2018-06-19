@@ -18,16 +18,16 @@
           <div class="card hovercard">
             <div class="cardheader"></div>
             <div class="avatar">
-              <img alt="" src="../../../assets/img/logos/vodafone.png">
+              <img alt="" [src]="enterprise.smallLogo">
             </div>
             <div class="info counters">
               <div class="title">
-                <a href="">Vodafone</a>
+                <a href="">{{enterprise.name}}</a>
               </div>
-              <div class="desc">Telecommunications</div>
+              <div class="desc">{{enterprise.headLine}}</div>
               <div>
                 <i class="fa fa-eye"></i>
-                <strong data-to="100">100</strong>
+                <strong>{{enterprise.profileViewsNumber}}</strong>
                 <label>Profile Views</label>
               </div>
               <div>

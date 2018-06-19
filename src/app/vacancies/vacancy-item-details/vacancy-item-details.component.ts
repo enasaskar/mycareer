@@ -4,6 +4,7 @@ import { VacancyService } from '../../shared/services/vacancy-service';
 import { Enterprise } from '../../shared/classes/enterprise';
 import { EnterpriseService } from '../../shared/services/enterprise.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vacancy-item-details',
@@ -16,11 +17,12 @@ export class VacancyItemDetailsComponent implements OnInit {
   enterprises: Enterprise[];
   searchWord: any;
 
-  constructor(private vacancyServiec: VacancyService, private enterpriseService: EnterpriseService) {
+  constructor(private vacancyServiec: VacancyService, private enterpriseService: EnterpriseService, private activeRoute: ActivatedRoute) {
 
    }
   ngOnInit() {
-    
+    const id = this.activeRoute.snapshot.params['id'];
+    console.log(id);
     // similar vacancies
     this.vacancyServiec.getNotDeleted().subscribe((d) => {this.vacancies = d ; });
     console.log(this.vacancies);

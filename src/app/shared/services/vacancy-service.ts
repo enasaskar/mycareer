@@ -8,8 +8,6 @@ import 'rxjs/add/operator/startWith';
 export class VacancyService {
 
     public vacanciesChanged: Subject<Vacancy[]>;
-    // private vacanciesFilled = new Subject<Vacancy[]>();
-    // public onDelete = new Subject();
     private vacancies: Vacancy[] ;
      constructor() {
     this.vacanciesChanged = new Subject();
@@ -332,15 +330,12 @@ export class VacancyService {
     ];
 }
     public getAll(): Observable<Vacancy[]> {
-        debugger
        return  this.vacanciesChanged.startWith(this.vacancies.slice());
     }
     private getAllNotDeleted() {
-        debugger
         return this.vacancies.filter(a => a.isDeleted == false).slice();
     }
     public getNotDeleted() {
-        debugger
         return  this.vacanciesChanged.startWith(this.getAllNotDeleted());
     }
     public getById(id: number) {

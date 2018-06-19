@@ -17,6 +17,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -43,7 +44,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -52,6 +53,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -86,6 +88,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -120,6 +123,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -154,6 +158,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -180,13 +185,14 @@ export class ApplicantsService {
         fK_Level_Id: 1
       },
       status: null
-    },, {
+    }, , {
       user: new User(0,
         '../../../assets/img/team/emp2.jpg',
         'Osama', 'Ahmed',
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -221,6 +227,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -246,7 +253,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -255,6 +262,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -288,6 +296,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -313,7 +322,7 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status:true
+      status: true
     },
     {
       user: new User(0,
@@ -322,6 +331,7 @@ export class ApplicantsService {
         'Web Developer',
         'Company',
         'JoeDoe@gmail.com',
+        '12345678',
         '01067439936',
         'Heliopolis',
         'Egypt',
@@ -371,10 +381,10 @@ export class ApplicantsService {
   public getAllRejected(): Applicant[] {
     return this.applicants.filter(a => a.status === false);
   }
-  public getAllPending(): Applicant[]{
+  public getAllPending(): Applicant[] {
     return this.applicants.filter(a => a.status === null);
   }
-  public getByVacancyId(id:number): Applicant[]{
+  public getByVacancyId(id: number): Applicant[] {
     return this.applicants.filter(a => a.vacancy.id === id);
   }
   public getByEnterpriseId(id: number) {
@@ -415,6 +425,7 @@ export class ApplicantsService {
 
   public delete(applicant: Applicant) {
     const index = this.applicants.indexOf(applicant);
-      this.applicants.splice(index,1);
-      console.log("pending is deleted",this.applicants);    }
+      this.applicants.splice(index, 1);
+      console.log('pending is deleted', this.applicants);
+  }
 }
