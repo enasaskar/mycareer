@@ -30,7 +30,7 @@ import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
 import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
-
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 
@@ -70,7 +70,8 @@ import { ApplicantsService } from './shared/services/applicants.service';
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    DragScrollModule,
   ],
   exports: [
     // SkillItemSmallComponent

@@ -62,7 +62,115 @@ export class PathService {
             Level: 'Intro',
             Review: 'great skill, you should all get it',
             NoEndorsments: 4
-}];
+        },
+        {
+            ID: 7,
+            Name: 'Interviewing Skills',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Rate: 3,
+            IsDeleted: false,
+            Review: 'v.Good',
+            NoEndorsments: 50
+        },
+        {
+            ID: 8,
+            Img: '../../../assets/img/avatar-2.jpg',
+            Name: 'TypeScript',
+            Rate: 5,
+            IsDeleted: false,
+            Review: 'Excellent',
+            NoEndorsments: 30
+        },
+        {
+            ID: 9,
+            Name: 'AngularJS',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Rate: 5,
+            IsDeleted: false,
+            Review: 'Excellent',
+            NoEndorsments: 20
+        },
+        {
+            ID: 10,
+            Img: '../../../assets/img/avatar-2.jpg',
+            Name: 'Web Api Core',
+            Rate: 3,
+            IsDeleted: false,
+            Review: 'Good',
+            NoEndorsments: 10
+        },
+        {
+            ID: 11,
+            Name: 'UX',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Rate: 4,
+            IsDeleted: false,
+            Review: 'Very Good',
+            NoEndorsments: 50
+        },
+        {
+            ID: 12,
+            Name: 'HTML5',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Rate: 4,
+            IsDeleted: false,
+            Review: 'Very Good',
+            NoEndorsments: 30
+        },
+        {
+            ID: 13,
+            Name: 'C++',
+            Rate: 3,
+            IsDeleted: false,
+            Review: 'v.Good',
+            Img: '../../../assets/img/avatar-2.jpg',
+            NoEndorsments: 50
+        },
+        {
+            ID: 14,
+            Name: 'MVC',
+            Rate: 5,
+            Img: '../../../assets/img/avatar-2.jpg',
+            IsDeleted: false,
+            Review: 'Excellent',
+            NoEndorsments: 30
+        },
+        {
+            ID: 15,
+            Name: 'Mongo DB',
+            Rate: 5,
+            Img: '../../../assets/img/avatar-2.jpg',
+            IsDeleted: false,
+            Review: 'Excellent',
+            NoEndorsments: 20
+        },
+        {
+            ID: 16,
+            Name: 'Communication skills',
+            Rate: 3,
+            Img: '../../../assets/img/avatar-2.jpg',
+            IsDeleted: false,
+            Review: 'Good',
+            NoEndorsments: 10
+        },
+        {
+            ID: 17,
+            Name: 'Photoshop',
+            Rate: 4,
+            Img: '../../../assets/img/avatar-2.jpg',
+            IsDeleted: false,
+            Review: 'Very Good',
+            NoEndorsments: 50
+        },
+        {
+            ID: 18,
+            Name: 'Dynamic HTML',
+            Rate: 4,
+            Img: '../../../assets/img/avatar-2.jpg',
+            IsDeleted: false,
+            Review: 'Very Good',
+            NoEndorsments: 30
+    }];
 private enetrprises: Enterprise[] = [
         {
             id : 1,
