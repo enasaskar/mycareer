@@ -11,6 +11,7 @@ import { VacancyService } from '../../shared/services/vacancy-service';
 import { Vacancy } from '../../shared/classes/vacancy.model';
 import { VacancyLevel } from '../../shared/classes/vacancyLevel';
 import { VacancyType } from '../../shared/classes/VacancyType';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vacancy-add-edit',
@@ -18,7 +19,11 @@ import { VacancyType } from '../../shared/classes/VacancyType';
   styleUrls: ['./vacancy-add-edit.component.css']
 })
 export class VacancyAddEditComponent implements OnInit {
-  newvacancy: Vacancy = new Vacancy();
+
+  index: number;
+  newvacancy: Vacancy;
+  title: string;
+  // newvacancy: Vacancy = new Vacancy();
   newvlevel: VacancyLevel = new VacancyLevel();
   newvtype: VacancyType = new VacancyType();
   newcurrency: ICurrency = new ICurrency();
@@ -29,23 +34,44 @@ export class VacancyAddEditComponent implements OnInit {
   currency: ICurrency[];
   branch: IBranch[];
 
-  id = 5;
 
   constructor(private vacancy: VacancyService, private vlevels: VacancyLevelService,
     private vtypes: VacancyTypeService, private currencies: CurrencyService,
-    private branchs: BranchService) { }
+    private branchs: BranchService, private activedRout: ActivatedRoute) { }
 
   ngOnInit() {
-    this.vlevel = this.vlevels.getAll();
-    this.vtype = this.vtypes.getAll();
-    this.currency = this.currencies.getAll();
-    this.branch = this.branchs.getAll();
+    debugger
+    const id = this.activedRout.snapshot.params['id'];
+    console.log(id);
+    if (id >= 1 ) {
+      console.log(id);
+      this.title = 'Edit';
+      this.newvacancy = this.vacancy.getById(id);
+      console.log(this.newvacancy);
+      this.vlevel = this.vlevels.getAll();
+      this.vtype = this.vtypes.getAll();
+      this.currency = this.currencies.getAll();
+      this.branch = this.branchs.getAll();
+
+      this.newvlevel = this.vlevels.getById(this.newvacancy.fK_Level_Id);
+      this.newvtype = this.vtypes.getById(this.newvacancy.fK_VacancyType_Id);
+      this.newcurrency = this.currencies.getById(this.newvacancy.fK_Currency_Id);
+      this.newbranch = this.branchs.getById(this.newvacancy.fK_Branch_Id);
+    } else {
+      this.title = 'Add';
+      this.newvacancy = new Vacancy();
+      this.vlevel = this.vlevels.getAll();
+      this.vtype = this.vtypes.getAll();
+      this.currency = this.currencies.getAll();
+      this.branch = this.branchs.getAll();
+    }
 
   }
   OnSubmit(form: NgForm) {
     if (form.valid) {
-
-      this.newvacancy.id = this.id;
+      debugger
+       this.vacancy.getAll().subscribe((s) => {this.index = s.length ; });
+       this.newvacancy.id = this.index + 1 ;
       this.newvacancy.isDeleted = false;
       this.newvacancy.fK_Branch_Id = this.newbranch.id;
       this.newvacancy.fK_Currency_Id = this.newcurrency.id;
@@ -56,7 +82,7 @@ export class VacancyAddEditComponent implements OnInit {
       console.log(this.newvacancy);
       console.log(this.vacancy.getAll());
 
-      this.id++;
 
-    }  }
+    }
+  }
 }

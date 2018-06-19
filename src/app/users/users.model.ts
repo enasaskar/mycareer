@@ -13,12 +13,12 @@ export class User {
   public city: string;
   public description?: string;
   public interests?: string[];
-  public username? : string;
-  public password? : string;
-  public role? :string;
+  public username?: string;
+  public password: string;
+  public role?: string;
 
   constructor(id: number, imagePath: string, fname: string, lname: string, title: string, enterpriseName: string,
-     email: string, telNumber: string, district: string, country: string, city: string, description: string,
+     email: string, password: string, telNumber: string, district: string, country: string, city: string, description: string,
      interests: string[]) {
        this.id = id;
        this.imagePath = imagePath;
@@ -27,6 +27,7 @@ export class User {
        this.title = title;
        this.enterpriseName = enterpriseName;
        this.email = email;
+       this.password = password;
        this.telNumber = telNumber;
        this.district = district;
        this.country = country;

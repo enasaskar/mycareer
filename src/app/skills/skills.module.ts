@@ -13,7 +13,6 @@ import { SkillUpdateComponent } from './skill-update/skill-update.component';
 import { SkillDetailsEditComponent } from './skill-details-edit/skill-details-edit.component';
 import { SkillPopupComponent } from './skill-popup/skill-popup.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

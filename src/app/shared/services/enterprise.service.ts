@@ -82,7 +82,7 @@ export class EnterpriseService {
 
     ];
 
-    constructor(private userRatingService : UserRatingsService){
+    constructor(private userRatingService: UserRatingsService) {
 
     }
 
@@ -93,11 +93,11 @@ export class EnterpriseService {
         headquarters : 'USA',
         bigLogo : '../assets/img/vodafone.png',
         smallLogo : '../assets/img/logos/vodafone.png',
-        des :'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        size : "300+",
-        website :'www.vodafone.com',
+        des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        size : '300+',
+        website : 'www.vodafone.com',
         facebookAccount: '',
-        twitterAccount:'',
+        twitterAccount: '',
         profileViewsNumber: 200,
         reviewsTotalNumber : 100,
         applicatntsNumber : 100,
@@ -122,11 +122,11 @@ export class EnterpriseService {
         headLine : '',
         headquarters : '',
         bigLogo : '',
-        des :'',
+        des : '',
         size : '100-200',
-        website :'',
-        facebookAccount:'',
-        twitterAccount:'',
+        website : '',
+        facebookAccount: '',
+        twitterAccount: '',
         profileViewsNumber: 200,
         reviewsTotalNumber : 100,
         applicatntsNumber : 100,
@@ -163,7 +163,7 @@ export class EnterpriseService {
 
     public getEnterpriseById(id: number) {
         for (let i = 0 ; i < this.enetrprises.length ; i++) {
-            if (this.enetrprises[i].id === id) {
+            if (this.enetrprises[i].id == id) {
                 return this.enetrprises[i];
             }
         }
@@ -191,7 +191,6 @@ export class EnterpriseService {
         let enterprises = [];
         if (searchWord.length > 0 ) {
             enterprises = this.getAll().filter(a => a.name.toLowerCase().includes(searchWord.toLowerCase()));
-
           } else {
             enterprises = this.getAll();
           }
