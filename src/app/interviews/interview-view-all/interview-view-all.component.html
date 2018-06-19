@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h1>Interviews</h1>
+                <h1>Interviews|{{enterprise.name}}</h1>
             </div>
         </div>
     </div>
@@ -42,5 +42,5 @@
     <ng-template #noList>
         <h3 class="text-center"><strong>No list</strong></h3>
      </ng-template>
-    <button type="button" class="btn btn-primary pull-right" routerLink ="/interviews">Schedual An Interview</button>
+    <a class="btn btn-primary pull-right" [routerLink] ="['/interviews', enterprise_id, enterprise.name]">Schedual An Interview</a>
 </div>

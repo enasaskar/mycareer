@@ -9,8 +9,8 @@ import { VacancyListComponent } from './vacancy-list/vacancy-list.component';
 
 const vacancyRoutes: Routes = [
   { path: 'vacancies', component: VacancyListComponent },
-  // { path: 'vacancies/:search', component: VacancyListComponent },
   { path: 'vacancies/addvacancy', component: VacancyAddEditComponent },
+  { path: 'vacancies/:search', component: VacancyListComponent },
   { path: 'vacancies/editvacancy/:id', component: VacancyAddEditComponent },
   { path: 'vacancies/vacancydetails/:id', component: VacancyItemDetailsComponent }
 ];
