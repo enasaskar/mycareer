@@ -26,13 +26,17 @@ export class UserDetailsEditComponent implements OnInit {
     });
   }
   onSubmit() {
+    const interests = this.userEditForm.value['interests']
+                      .filter(interest => (interest !== '' && interest !== null));
     const newUser = new User(
       this.id,
       this.user.imagePath,
       this.userEditForm.value['firstname'],
       this.userEditForm.value['lastname'],
-      this.userEditForm.value['title'],
-      this.userEditForm.value['enterpriseName'],
+      // this.userEditForm.value['title'],
+      // this.userEditForm.value['enterpriseName'],
+      this.user.title,
+      this.user.enterpriseName,
       this.userEditForm.value['email'],
       this.user.password);
       newUser.telNumber = this.userEditForm.value['telNumber'];
@@ -40,7 +44,7 @@ export class UserDetailsEditComponent implements OnInit {
       newUser.country = this.userEditForm.value['country'];
       newUser.city = this.userEditForm.value['city'];
       newUser.description = this.userEditForm.value['description'];
-      newUser.interests = this.userEditForm.value['interests'];
+      newUser.interests = interests;
       this.userService.updateUser(this.id, newUser);
       // to route back to userProfile
       this.onCancel();
@@ -86,5 +90,9 @@ export class UserDetailsEditComponent implements OnInit {
       'interests': interests
     });
 
+  }
+  addInterest() {
+    const control = new FormControl(null);
+    (<FormArray>this.userEditForm.get('interests')).push(control);
   }
 }

@@ -14,7 +14,7 @@ import { SkillsModule } from '../skills/skills.module';
 import { VacanciesModule } from '../vacancies/vacancies.module';
 import { InterviewsModule } from '../interviews/interviews.module';
 import { EnterprisesModule } from '../enterprise/enterprises.module';
-import { UserAddWorkExperienceModalComponent } from './user-add-workExperience-Modal/user-add-workExperience-Modal.component';
+// import { UserAddWorkExperienceModalComponent } from './user-add-workExperience-Modal/user-add-workExperience-Modal.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
@@ -48,8 +48,7 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     UserDetailsEditComponent,
     UserDashBoardComponent,
     UserViewAllComponent,
-    UsersComponent,
-    UserAddWorkExperienceModalComponent
+    UsersComponent
 ],
   exports: [
     UserProfileComponent,

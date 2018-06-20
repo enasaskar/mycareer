@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
 import { EventEmitter } from 'events';
 import { User } from '../users.model';
+import { WorkExperienceService } from '../../shared/services/workExperience.service';
+import { EnterpriseService } from '../../shared/services/enterprise.service';
 
 @Component({
   selector: 'app-user-details',
@@ -15,6 +17,8 @@ export class UserDetailsComponent implements OnInit {
   // when getting user by id
   id: number;
   constructor(private userService: UserService,
+    private workExpService: WorkExperienceService,
+    private enterpriseService: EnterpriseService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -22,6 +26,9 @@ export class UserDetailsComponent implements OnInit {
     this.route.parent.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
+      const currentEmpoyment = this.workExpService.getUserExperiences(this.id).filter(exp => exp.endDate === 'present');
+      this.user.title = currentEmpoyment[0].content;
+      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(currentEmpoyment[0].enterpriseID).name;
     });
   }
 }

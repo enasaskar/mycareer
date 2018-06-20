@@ -4,13 +4,13 @@ import { ActivatedRoute, Router, Params} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { EnterpriseService } from '../../shared/services/enterprise.service';
-import { Enterprise } from '../../shared/classes/enterprise';
-import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
-import { WorkExperienceService } from '../../shared/services/workExperience.service';
-import { EducationalBackgroundService } from '../../shared/services/educationalBackground.service';
-
+import { Enterprise } from '../../../shared/classes/enterprise';
+import { EnterpriseService } from '../../../shared/services/enterprise.service';
+import { WorkExperienceService } from '../../../shared/services/workExperience.service';
+import { EducationalBackgroundService } from '../../../shared/services/educationalBackground.service';
+import { WorkExperience } from '../../../shared/classes/userWorkExperienceModel';
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-user-add-workExperience-Modal',
   templateUrl: './user-add-workExperience-Modal.component.html',
   styleUrls: ['./user-add-workExperience-Modal.component.css']
@@ -69,16 +69,15 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
   }
 
   onSubmit() {
-    const startDate = this.addWorkExpForm.value['startDate'].getDate() + '-'
-                      + this.addWorkExpForm.value['startDate'].getMonth() + '-'
-                      + this.addWorkExpForm.value['startDate'].getYear();
-
+    const startDate = this.addWorkExpForm.value['startDate'].getDate() + '/'
+                      + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                      + this.addWorkExpForm.value['startDate'].getFullYear();
     const endDateForm = this.addWorkExpForm.value['endDate'];
     let endDate;
     if (endDateForm) {
-      endDate = endDateForm.getDate() + '-'
-                + endDateForm.getMonth() + '-'
-                + endDateForm.getYear();
+      endDate = endDateForm.getDate() + '/'
+                + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                + endDateForm.getFullYear();
     } else {
       endDate = 'Present';
     }
@@ -99,7 +98,6 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
         startDate,
         endDate
       );
-      console.log(this.degreeControl.value);
       this.eduExpService.addEducation(this.id, experience);
     }
       // to route back to userProfile

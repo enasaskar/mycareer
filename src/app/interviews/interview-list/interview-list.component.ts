@@ -17,16 +17,19 @@ export class InterviewListComponent implements OnInit {
   searchWord:string;
 
   constructor(private applicantsService:ApplicantsService,private route:ActivatedRoute) {
-    
   }
   ngOnInit() {
     this.enterprise_id = this.route.snapshot.params['id']; 
-    console.log(this.enterprise_id);
-    if(this.listType === "shortlist"){
-      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
-    }else if(this.listType ==="pendingcv"){
-      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
-    }
+    // if(this.listType === "shortlist"){
+    //   this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
+    // }else if(this.listType ==="pendingcv"){
+    //   this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
+    // }
+     this.list = this.applicantsService.getAll();
+    // console.log(this.list)
+    this.applicantsService.onInterviewDelete.subscribe((applicant:Applicant)=>{this.applicantsService.delete(applicant)} );
+    //console.log(this.list)
+
   }
 
   seeMoreclicked() {

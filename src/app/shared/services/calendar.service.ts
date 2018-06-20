@@ -8,99 +8,53 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CalendarService {
-  public onDelete = new Subject();
-  events:CalendarEvent[]=[
+  public onEventDelete = new Subject();
+  events: CalendarEvent[] = [
     {
-      title: "interviews",
-      start: startOfDay("2018-06-18"),
-      end: endOfDay("2018-06-18"),
-      color: colors.yellow,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-times"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            this.activeDayIsOpen = false;
+        title: "interview",
+        start: new Date("2018-06-20T10:00:00"),
+        end: new Date("2018-06-20T16:00:00"),
+        color: colors.yellow,
+        draggable: true,
+        resizable: {
+          beforeStart: true,
+          afterEnd: true
+        },
+        actions: [
+          {
+            label: '<i class="fa fa-fw fa-times"></i>',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+              this.onEventDelete.next(event);
+            }
           }
-        }
-      ]
-    },
-    {
-      title: "interviews",
-      start: startOfDay("2018-06-19"),
-      end: endOfDay("2018-06-19"),
-      color: colors.yellow,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
+        ]
       },
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-times"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
+      {
+        title: "interview",
+        start: new Date("2018-06-21T10:00:00"),
+        end: new Date("2018-06-21T16:00:00"),
+        color: colors.yellow,
+        draggable: true,
+        resizable: {
+          beforeStart: true,
+          afterEnd: true
+        },
+        actions: [
+          {
+            label: '<i class="fa fa-fw fa-times"></i>',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+              this.onEventDelete.next(event);   
+            }
           }
-        }
-      ]
-    },
-    {
-      title: "interviews",
-      start: startOfDay("2018-06-20"),
-      end: endOfDay("2018-06-20"),
-      color: colors.yellow,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-times"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
-          }
-        }
-      ]
-    },
-    {
-      title: "interviews",
-      start: startOfDay("2018-06-21"),
-      end: endOfDay("2018-06-21"),
-      color: colors.yellow,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      },
-      actions: [
-        {
-          label: '<i class="fa fa-fw fa-times"></i>',
-          onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
-          }
-        }
-      ]
-    }
-  ]
-  activeDayIsOpen: boolean;
-  
+        ]
+      }
+    ]
+ 
+
   constructor() { }
 
   public add(event:CalendarEvent){
     this.events.push(event);
-    console.log('Event Added');
   }
   public update(){
 
@@ -109,6 +63,12 @@ export class CalendarService {
     return this.events;
   }
   public delete(event:CalendarEvent){
-
+    
+    // const id = this.events.indexOf(event);
+    // this.events.splice(id,1);
+    this.events = this.events.filter(iEvent => iEvent !== event);
+    //this.activeDayIsOpen = false;
+    console.log(this.events);
+    return this.events;
   }
 }
