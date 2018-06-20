@@ -1,10 +1,14 @@
-<div>
+<div (click)="openModal(popup)">
+    <!-- (click)="openModal(test)" -->
+  <a class="remove " (click)="onDelete(skillDetails.ID)">
+<div class="skill-item">
   <a href="#" class="remove edit-skills-display">
     <i class="fa fa-trash"></i>
   </a>
   <p class="clear"></p>
   <div class="portfolio-item img-thumbnail">
-      <a class="thumb-info lightbox" [href]="'#'+skillDetails.ID" data-plugin-options='{"type":"inline", preloader: false}'>
+      <!-- [href]="'#'+skillDetails.ID"  -->
+    <a class="thumb-info lightbox" data-plugin-options='{"type":"inline", preloader: false}'>
       <img alt="" class="img-responsive" [src]="skillDetails.Img">
       <span class="thumb-info-title">
         <span class="thumb-info-inner">{{skillDetails.Name}}</span>
@@ -20,9 +24,14 @@
     </a>
   </div>
   <!--Description-->
-  <div [id]="skillDetails.ID" class="popup-inline-content skillsFull">
+  <!-- <div [id]="skillDetails.ID" *ngIf="toShow" class="popup-inline-content skillsFull"> -->
     <!-- {{skil.Level}} -->
 
-      <app-skill-popup *ngIf="toShow" [skillDetails]="skillDetails"></app-skill-popup>
-  </div>
+    <ng-template #popup>
+    <app-skill-popup [skillDetails]="skillDetails" [modalRef]="modalRef"></app-skill-popup>
+  </ng-template>
+  <!-- </div> -->
+  <!-- <ng-template #test>
+    <app-skill-add-new [modalRef]="modalRef"> </app-skill-add-new>
+  </ng-template> -->
 </div>

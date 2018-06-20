@@ -32,7 +32,7 @@ import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
 import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
-
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 
@@ -47,6 +47,7 @@ import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
+import { BarRatingModule } from 'ngx-bar-rating';
 
 
 @NgModule({
@@ -73,7 +74,9 @@ import { ApplicantsService } from './shared/services/applicants.service';
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     ModalModule.forRoot(),
-    AuthModule
+    DragScrollModule,
+    AuthModule,
+    BarRatingModule
   ],
   exports: [
     // SkillItemSmallComponent

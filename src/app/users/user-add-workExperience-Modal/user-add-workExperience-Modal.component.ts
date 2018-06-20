@@ -69,16 +69,15 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
   }
 
   onSubmit() {
-    const startDate = this.addWorkExpForm.value['startDate'].getDate() + '-'
-                      + this.addWorkExpForm.value['startDate'].getMonth() + '-'
-                      + this.addWorkExpForm.value['startDate'].getYear();
-
+    const startDate = this.addWorkExpForm.value['startDate'].getDate() + '/'
+                      + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                      + this.addWorkExpForm.value['startDate'].getFullYear();
     const endDateForm = this.addWorkExpForm.value['endDate'];
     let endDate;
     if (endDateForm) {
-      endDate = endDateForm.getDate() + '-'
-                + endDateForm.getMonth() + '-'
-                + endDateForm.getYear();
+      endDate = endDateForm.getDate() + '/'
+                + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                + endDateForm.getFullYear();
     } else {
       endDate = 'Present';
     }
@@ -99,7 +98,6 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
         startDate,
         endDate
       );
-      console.log(this.degreeControl.value);
       this.eduExpService.addEducation(this.id, experience);
     }
       // to route back to userProfile

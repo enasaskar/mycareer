@@ -8,19 +8,22 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillPopupComponent implements OnInit {
 
-  constructor() {  }
+  constructor() { }
   @Input() public skillDetails: Skill;
   openMode: Boolean = true;
   editIcon: Boolean = true;
-  ngOnInit() {
+  @Input() modalRef;
 
+  ngOnInit() {
   }
-onClick() {
-  this.openMode = false;
-  this.editIcon = false;
-}
-back() {
-  this.openMode = true;
-  this.editIcon = true;
-}
+  onClick() {
+    console.log('Click');
+    this.openMode = false;
+    this.editIcon = false;
+  }
+  back() {
+    console.log('back');
+    this.openMode = true;
+    this.editIcon = true;
+  }
 }
