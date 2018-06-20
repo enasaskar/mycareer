@@ -29,8 +29,8 @@
     <!-- Path Profile Data  -->
     <div class="row  PathProfileData">
       <!-- Edit Icon -->
-      <div class="col-md-12 ">
-        <div class="row">
+      <div class="col-md-12 " *ngIf="isCreatorEnterprise">
+        <div class="row"  >
           <div class="col-sm-1 col-sm-offset-10">
             <span class="thumb-info-social-icons right">
               <a id="delete-profile" data-tooltip data-placement="bottom" data-original-title="Delete" (click)="deleteClicked()">
@@ -85,14 +85,14 @@
              {{ Path.Description }}
             </p>
 
-            <div *ngIf="!isEnterprise" >
+            <div *ngIf="!isCreatorEnterprise" >
               <a href="#" class="btn btn-primary btn-icon" (click)="enrollUser()">
                 <i class="fa fa-external-link"></i>Enroll
               </a>
               <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
             </div>
 
-            <div *ngIf="isEnterprise" >
+            <div *ngIf="isCreatorEnterprise" >
                 <a href="#" class="btn btn-primary btn-icon" (click)="RecommendPath()">
                   <i class="fa fa-external-link"></i>Recommend
                 </a>

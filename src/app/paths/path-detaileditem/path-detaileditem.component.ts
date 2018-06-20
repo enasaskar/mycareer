@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Inject} from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from '../../shared/classes/skill.model';
 import { User } from '../../users/users.model';
 import { Enterprise } from '../../shared/classes/enterprise';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -22,18 +23,21 @@ export class PathDetaileditemComponent implements OnInit {
   dialogRef: MatDialogRef<ConfirmDeletePopup>;
 
   constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog,
-    private router: Router) { }
+    private router: Router, private userService: UserService) { }
 
   public Path = this.pathService.defaultPath;
 
-  public isEnterprise = true;
+  public isCreatorEnterprise = false;
+  public isLoggedIn: boolean;
+  public isLogOut = false;
+  public eId: number;
 
   public User: User = {
     id: 0,
     fname: 'John',
     lname: 'Doe',
     email: 'jogn@gmail',
-    password : '12345678',
+    password: '12345678',
     city: 'Cairo',
     country: 'Egypt',
     telNumber: '010000',
@@ -41,12 +45,19 @@ export class PathDetaileditemComponent implements OnInit {
   };
 
   ngOnInit() {
-
+    // Get currunt path data
     this.Path.Id = this.route.snapshot.params['id'] || 1;
-    this.Path = this.pathService.getById(this.Path.Id );
+    this.Path = this.pathService.getById(this.Path.Id);
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
     this.skills = this.pathService.getSkills(this.Path.Id);
-    console.log( 'skills=', this.skills);
+
+    // check if current user is the creator enterprise
+    this.pathService.isEntPathCreator.subscribe((isEnt: boolean) => {
+      if (isEnt) {
+        this.isCreatorEnterprise = this.pathService.isCreatorOrAdmin(this.User.id);
+      }
+    }
+    );
   }
 
   public enrollUser() {
@@ -62,19 +73,19 @@ export class PathDetaileditemComponent implements OnInit {
   public deleteClicked() {
     // let confirmDelete: boolean;
     // are you sure ?
-     this.dialogRef = this.dialog.open(ConfirmDeletePopup, {
+    this.dialogRef = this.dialog.open(ConfirmDeletePopup, {
       disableClose: false,
       data: {
-        name:  this.Path.Name
+        name: this.Path.Name
       }
     });
     this.dialogRef.afterClosed().subscribe(result => {
-      if ( result ) {
+      if (result) {
         // do confirmation actions
         // emit delete event/subject
         this.pathService.onDelete.next(this.Path);
         // Go to all Paths page
-      this.router.navigate(['/paths']);
+        this.router.navigate(['/paths']);
       }
       this.dialogRef = null;
     });

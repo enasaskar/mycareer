@@ -11,7 +11,9 @@ export class PathService {
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
-    
+    public isEntPathCreator = new Subject<boolean>();
+
+
     private skills: Skill[] = [{
             ID: 1,
             Name: 'C#',
@@ -675,8 +677,7 @@ private enetrprises: Enterprise[] = [
     }
 
     public getById(id: number): IPath {
-        //   this.path = this.paths.find(i => i.Id == id);
-        return this.paths.find(i => i.Id === id);
+        return this.paths.find(i => i.Id == id);
     }
 
     public getSimilarPaths(id: number): IPath[] {
@@ -728,5 +729,9 @@ private enetrprises: Enterprise[] = [
 
     public getEnterpriseRecommendPath (pathId: number): Enterprise[] {
         return this.paths.find( p => p.Id === pathId).EnterpriseRecommendPath;
+    }
+
+    public isCreatorOrAdmin(userId: number): boolean {
+        return true;
     }
 }
