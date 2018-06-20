@@ -4,13 +4,13 @@ import { ActivatedRoute, Router, Params} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { EnterpriseService } from '../../shared/services/enterprise.service';
-import { Enterprise } from '../../shared/classes/enterprise';
-import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
-import { WorkExperienceService } from '../../shared/services/workExperience.service';
-import { EducationalBackgroundService } from '../../shared/services/educationalBackground.service';
-
+import { Enterprise } from '../../../shared/classes/enterprise';
+import { EnterpriseService } from '../../../shared/services/enterprise.service';
+import { WorkExperienceService } from '../../../shared/services/workExperience.service';
+import { EducationalBackgroundService } from '../../../shared/services/educationalBackground.service';
+import { WorkExperience } from '../../../shared/classes/userWorkExperienceModel';
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-user-add-workExperience-Modal',
   templateUrl: './user-add-workExperience-Modal.component.html',
   styleUrls: ['./user-add-workExperience-Modal.component.css']

@@ -4,7 +4,7 @@ import { RatingItemComponent } from './landing-page/reviews-view-only/ratings-vi
 import { RatingsViewOnlyComponent } from './landing-page/reviews-view-only/ratings-view-only/ratings-view-only.component';
 import { EnterpriseRoutingModule } from './enterprises-routing.module';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDialogModule } from '@angular/material';
@@ -30,6 +30,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { JobPostingPlansComponent } from './job-posting-plans/job-posting-plans.component';
 import { EnterpriseListComponent } from './enterprise-list/enterprise-list.component';
 import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/reviews-view-only.component';
+// tslint:disable-next-line:max-line-length
+import { UserAddWorkExperienceModalComponent } from './work-experience/user-add-workExperience-Modal/user-add-workExperience-Modal.component';
+import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -56,12 +60,19 @@ import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/revie
         RatingsViewOnlyComponent,
         RatingItemComponent,
         CommentsViewOnlyComponent,
-        OneCommentComponent
+        OneCommentComponent,
+        UserAddWorkExperienceModalComponent
 ],
     imports:
     [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         EnterpriseRoutingModule,
         NgbModule,
         VacanciesModule,
@@ -75,7 +86,8 @@ import { ReviewsViewOnlyComponent } from './landing-page/reviews-view-only/revie
         NgbModule,
         MatDialogModule,
         BrowserAnimationsModule,
-        EnterpriseListComponent
+        EnterpriseListComponent,
+        UserAddWorkExperienceModalComponent
     ],
     entryComponents: [ReviewModalContentComponent]
 })
