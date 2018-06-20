@@ -16,7 +16,6 @@ import { SkillUpdateComponent } from './skill-update/skill-update.component';
 import { SkillDetailsEditComponent } from './skill-details-edit/skill-details-edit.component';
 import { SkillPopupComponent } from './skill-popup/skill-popup.component';
 import { SkillAddNewComponent } from './skill-add-new/skill-add-new.component';
-// import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-list-drag-scroll.component';
 import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-list-drag-scroll.component';
 
 
