@@ -77,7 +77,6 @@ private skills: Skill[] = [
         Review: 'Very Good',
         NoEndorsments: 30,
         Img: '../../../../assets/img/skills/angular.png'
-        NoEndorsments: 30
     },
     {
         ID: 7,
@@ -85,7 +84,9 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'v.Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 8,
@@ -93,7 +94,9 @@ private skills: Skill[] = [
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 9,
@@ -101,7 +104,9 @@ private skills: Skill[] = [
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 20
+        NoEndorsments: 20,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 10,
@@ -109,7 +114,9 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'Good',
-        NoEndorsments: 10
+        NoEndorsments: 10,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 11,
@@ -117,7 +124,9 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 12,
@@ -125,7 +134,9 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 13,
@@ -133,7 +144,9 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'v.Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 14,
@@ -141,7 +154,9 @@ private skills: Skill[] = [
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 15,
@@ -149,7 +164,9 @@ private skills: Skill[] = [
         Rate: 5,
         IsDeleted: false,
         Review: 'Excellent',
-        NoEndorsments: 20
+        NoEndorsments: 20,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 16,
@@ -157,7 +174,9 @@ private skills: Skill[] = [
         Rate: 3,
         IsDeleted: false,
         Review: 'Good',
-        NoEndorsments: 10
+        NoEndorsments: 10,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 17,
@@ -165,7 +184,9 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 50
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     },
     {
         ID: 18,
@@ -173,7 +194,9 @@ private skills: Skill[] = [
         Rate: 4,
         IsDeleted: false,
         Review: 'Very Good',
-        NoEndorsments: 30
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
     }
 ];
 

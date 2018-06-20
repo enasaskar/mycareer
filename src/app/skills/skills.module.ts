@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule,
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatDialogModule,
 } from '@angular/material';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { BarRatingModule } from 'ngx-bar-rating';
@@ -15,6 +16,7 @@ import { SkillUpdateComponent } from './skill-update/skill-update.component';
 import { SkillDetailsEditComponent } from './skill-details-edit/skill-details-edit.component';
 import { SkillPopupComponent } from './skill-popup/skill-popup.component';
 import { SkillAddNewComponent } from './skill-add-new/skill-add-new.component';
+// import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-list-drag-scroll.component';
 import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-list-drag-scroll.component';
 
 
@@ -26,27 +28,29 @@ import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-lis
     BsDatepickerModule,
     // SkillItemSmallComponent,
     RouterModule.forChild(
-    [
-      {path: 'skills', component: SkillListComponent , children: [
-        {path: 'edit', component: SkillDetailsEditComponent}
-      ] },
-      {path: 'oneSkill' , component: SkillItemSmallComponent},
+      [
+        {
+          path: 'skills', component: SkillListComponent, children: [
+            { path: 'edit', component: SkillDetailsEditComponent }
+          ]
+        },
+        { path: 'oneSkill', component: SkillItemSmallComponent },
 
-      // {path: 'edit', component: SkillDetailsEditComponent}
-      // {path: 'skillPopup', component: SkillPopupComponent, children: [
-      // {path: '', component: SkillDetailsComponent},
-      // {path: 'edit', component: SkillDetailsEditComponent}
-      // ]},
-    ]),
+        // {path: 'edit', component: SkillDetailsEditComponent}
+        // {path: 'skillPopup', component: SkillPopupComponent, children: [
+        // {path: '', component: SkillDetailsComponent},
+        // {path: 'edit', component: SkillDetailsEditComponent}
+        // ]},
+      ]),
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        DragScrollModule,
-        BarRatingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DragScrollModule,
+    BarRatingModule,
     DragScrollModule
   ],
   declarations: [
@@ -58,7 +62,7 @@ import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-lis
     SkillPopupComponent,
     SkillAddNewComponent,
     SkillListDragScrollComponent
-],
+  ],
   exports: [
     SkillListComponent,
     SkillDetailsPopupComponent,
@@ -68,5 +72,9 @@ import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-lis
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    SkillListDragScrollComponent,
+    SkillListDragScrollComponent
+  ]
 })
+
+
+export class SkillsModule { }
