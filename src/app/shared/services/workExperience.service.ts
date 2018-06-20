@@ -8,16 +8,16 @@ export class WorkExperienceService {
   private userExperiences: WorkExperience[] = [
     new WorkExperience( 1,
     'Web Developer',
-    '10-5-2015',
+    '10-7-2018',
     'present'),
     new WorkExperience(2,
     'Systems Developer',
     '10-5-2010',
-    '20-6-2014'),
+    '12-6-2014'),
     new WorkExperience(3,
     'Software Developer',
     '10-5-2009',
-    '20-6-2010')
+    '2-6-2010')
   ];
   constructor() { }
 

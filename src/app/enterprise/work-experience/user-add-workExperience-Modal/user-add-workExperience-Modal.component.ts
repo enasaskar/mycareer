@@ -20,8 +20,11 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
   id: number;
   @Input() modalRef;
   @Input() type;
+  @Input() workExpItem: WorkExperience;
+  @Input() workExpIndex: number;
   myControl: FormControl = new FormControl();
   degreeControl: FormControl = new FormControl();
+  editMode = false;
 
   options: Enterprise[] = [];
   degreeOptions = ['Highschool degree', `Associate's degree`, `Bachelor's degree`,
@@ -69,14 +72,14 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
   }
 
   onSubmit() {
-    const startDate = this.addWorkExpForm.value['startDate'].getDate() + '/'
-                      + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+    const startDate = (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                      + this.addWorkExpForm.value['startDate'].getDate() + '/'
                       + this.addWorkExpForm.value['startDate'].getFullYear();
     const endDateForm = this.addWorkExpForm.value['endDate'];
     let endDate;
     if (endDateForm) {
-      endDate = endDateForm.getDate() + '/'
-                + (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+      endDate = (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+                + endDateForm.getDate()  + '/'
                 + endDateForm.getFullYear();
     } else {
       endDate = 'Present';
@@ -89,7 +92,11 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
         startDate,
         endDate
       );
-      this.workExpService.addExperience(this.id, experience);
+      if (this.editMode) {
+        this.workExpService.updateExperience(this.id, this.workExpIndex, experience);
+      } else {
+        this.workExpService.addExperience(this.id, experience);
+      }
     } else {
       const experience = new WorkExperience(
         // this.addWorkExpForm.value['enterprise'],
@@ -98,7 +105,11 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
         startDate,
         endDate
       );
-      this.eduExpService.addEducation(this.id, experience);
+      if (this.editMode) {
+        this.eduExpService.updateEducation(this.id, this.workExpIndex, experience);
+      } else {
+        this.eduExpService.addEducation(this.id, experience);
+      }
     }
       // to route back to userProfile
     this.modalRef.hide();
@@ -108,12 +119,30 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     this.router.navigate(['../userProfile'], {relativeTo: this.route});
   }
   private initForm() {
-    this.addWorkExpForm = new FormGroup({
-      'enterprise': new FormControl(Validators.required),
-      'title': new FormControl(),
-      'startDate': new FormControl(Validators.required),
-      'endDate': new FormControl()
-    });
+    if (this.workExpItem) {
+      this.editMode = true;
+      const enterprise = this.enterpriseService.getEnterpriseById(this.workExpItem.enterpriseID);
+      this.myControl = new FormControl(enterprise.name);
+      const title = this.workExpItem.content;
+      if (this.type === 'edu') {
+        this.degreeControl = new FormControl(title);
+      }
+      const startDate = new Date(this.workExpItem.startDate);
+      const endDate = new Date(this.workExpItem.endDate);
+      this.addWorkExpForm = new FormGroup({
+        'enterprise': new FormControl(enterprise, Validators.required),
+        'title': new FormControl(title),
+        'startDate': new FormControl(startDate, Validators.required),
+        'endDate': new FormControl(endDate)
+      });
+    } else {
+      this.addWorkExpForm = new FormGroup({
+        'enterprise': new FormControl(Validators.required),
+        'title': new FormControl(),
+        'startDate': new FormControl(Validators.required),
+        'endDate': new FormControl()
+      });
+    }
   }
 
 }
