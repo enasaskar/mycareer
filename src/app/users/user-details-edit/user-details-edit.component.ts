@@ -33,8 +33,10 @@ export class UserDetailsEditComponent implements OnInit {
       this.user.imagePath,
       this.userEditForm.value['firstname'],
       this.userEditForm.value['lastname'],
-      this.userEditForm.value['title'],
-      this.userEditForm.value['enterpriseName'],
+      // this.userEditForm.value['title'],
+      // this.userEditForm.value['enterpriseName'],
+      this.user.title,
+      this.user.enterpriseName,
       this.userEditForm.value['email'],
       this.user.password);
       newUser.telNumber = this.userEditForm.value['telNumber'];
