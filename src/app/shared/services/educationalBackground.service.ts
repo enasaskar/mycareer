@@ -11,18 +11,18 @@ export class EducationalBackgroundService {
     new WorkExperience(
       7,
       '9 Months Program',
-      '10/2017',
+      '1-10-2017',
       'present'),
       new WorkExperience(
         8,
         `Bachelor's Degree`,
-        '09/2012',
-        '07/2017'),
+        '10-9-2012',
+        '11-7-2017'),
       new WorkExperience(
         9,
         `HighSchool`,
         '',
-        '09/2013')
+        '10-7-2012')
   ];
 
   constructor() { }
