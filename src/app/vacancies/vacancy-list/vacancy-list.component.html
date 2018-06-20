@@ -16,7 +16,7 @@
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-md-11"></div>
         <div class="col-md-1">
-            <a href="#" class="btn btn-primary right" routerLink='addvacancy'>Add New Vacancy</a>
+            <a href="#" class="btn btn-primary right" routerLink='/vacancies/addvacancy'>Add New Vacancy</a>
         </div>
     </div>
 </div>
@@ -40,15 +40,25 @@
 
     <div class="container vacancy">
         <div class="row">
-            <div class="form-group">
-                <div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6">
-                    <input type="search" name="" class="form-control" value="" title="" placeholder="Search">
-                </div>
+            <div class="col-md-4 left search">
+                <aside class="sidebar">
+                    <form method="POST" role="form" (ngSubmit) = "OnSearchSubmit(searchForm)" #searchForm = ngForm>
+                        <div class="input-group input-group-lg">
+                            <input class="form-control" placeholder="Search..." name="s" id="s" type="text" [(ngModel)] = searchtext >
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </aside>
             </div>
         </div>
 
+
         <div class="row">
-            <app-vacancy-item *ngFor="let v of vacancies" [vacancyitem]="v"></app-vacancy-item>
+            <app-vacancy-item *ngFor="let v of vacancies ; let  e=index" [index]="e" [vacancyitem]="v" [enterprises]="enterprises"></app-vacancy-item>
         </div>
     </div>
     

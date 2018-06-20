@@ -25,44 +25,39 @@
             <a *ngIf="!isLoggedIn" routerLink="/home">
               Home
             </a>
-            <a *ngIf="isLoggedIn && !isEnterprise" [routerLink]="['user',id,'userDashBoard']">
+            <a *ngIf="isLoggedIn" [routerLink]="['user',id,'userDashBoard']">
               Dashboard
             </a>
           </li>
           <li>
-            <a routerLink='/vacancy'>Vacancies</a>
+            <a routerLink='/vacancies'>Vacancies</a>
           </li>
           <li>
             <a routerLink='/enterprises'>Enterprises </a>
           </li>
-          <li *ngIf="isLoggedIn" class="dropdown">
-            <a class="dropdown-toggle">
-              Career Paths
-              <i class="fa fa-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a routerLink="/paths/list">All Paths</a>
-              </li>
-              <li>
-                <a routerLink="/paths/add">Add Path</a>
-              </li>
-            </ul>
+          <li>
+            <a routerLink="/paths/list">Career Paths </a>
           </li>
-          <li *ngIf="isEnterprise" class="dropdown">
+          <li *ngIf="isLoggedIn && isEnterprise" class="dropdown">
             <a class="dropdown-toggle">
               For Enterprises
               <i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown-menu">
+                <li>
+                  <a [routerLink]="['enterprises/enterprise/details',eId]">Profile</a>
+                </li>
+                <li>
+                  <a [routerLink]="['enterprises/landingPage',eId]">New Feeds</a>
+                </li>
               <li>
-                <a routerLink="/vacancy/addvacancy">Post New Vacancy</a>
+                <a routerLink="/vacancies/addvacancy">Post New Vacancy</a>
               </li>
               <li>
                 <a routerLink="/paths/add">Add New Career Path</a>
               </li>
               <li>
-                <a routerLink="/interviews/applicants">Vacancies Interviews Details</a>
+                <a routerLink="/interviews/applicants/1">Vacancies Interviews Details</a>
               </li>
               <li>
                 <a routerLink = "/enterprises/enterprise/goPremium">Go Premium</a>

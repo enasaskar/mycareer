@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../../users/users.model';
 import { UserService } from '../../shared/services/user.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,20 +11,24 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  newUser : User = new User(1,'','','','','','','','','','','',['']);
-  constructor(private userService : UserService,private router: Router) { }
+  newUser: User;
+  // newUser: User;
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.newUser = new User(this.userService.idCount, '', '', '', '', '', '', '');
   }
 
-  OnSubmit(form : NgForm){
-    if(form.valid){
-      this.newUser.username = form.value.username;
+  OnSubmit(form: NgForm) {
+    if (form.valid) {
+      this.newUser.fname = form.value.fname;
       this.newUser.email = form.value.email;
       this.newUser.password = form.value.password;
       this.userService.addUser(this.newUser);
-      this.router.navigate(['/user',this.newUser.id,'userProfile']);
-
+      console.log('form valid');
+      this.router.navigate(['/login']);
+    } else {
+      console.log('form invalid');
     }
   }
 }

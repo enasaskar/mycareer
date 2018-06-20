@@ -8,30 +8,30 @@ import { NgForm } from '@angular/forms';
   selector: 'app-enterprise-view-all',
   templateUrl: './enterprise-view-all.component.html',
   styleUrls: ['./enterprise-view-all.component.css'],
-  
+
 })
 export class EnterpriseViewAllComponent implements OnInit {
 
-  enterprises : Enterprise[];
+  enterprises: Enterprise[];
 
-  searchWord : string;
-  
+  searchWord: string;
 
-  constructor(private enterpriseService : EnterpriseService) {
+
+  constructor(private enterpriseService: EnterpriseService) {
 
         enterpriseService.onDelete.subscribe(
-          (e : Enterprise) => {
+          (e: Enterprise) => {
             enterpriseService.delete(e);
           }
-        )
+        );
 
       }
 
   ngOnInit() {
-    this.enterprises = this.enterpriseService.getAll(); 
+    this.enterprises = this.enterpriseService.getAll();
   }
 
-  OnSearchSubmit(form : NgForm){
+  OnSearchSubmit(form: NgForm) {
     this.enterprises = this.enterpriseService.getBySearchWord(this.searchWord);
   }
 }

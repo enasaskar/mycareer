@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn : boolean ;
   isLogOut:boolean = false;
   isEnterprise : boolean;
+  eId : number;
    
   constructor(private route: ActivatedRoute,
     private router: Router,private userService : UserService) {
@@ -40,26 +41,17 @@ export class HeaderComponent implements OnInit {
     //   }
     // });
    
-   if(!this.isLogOut){
     this.userService.isUserLoggedIn$.subscribe((bool : boolean) => {this.isLoggedIn = bool;});
     this.userService.id$.subscribe((id : number) => {this.id = id;
       let currentUser = this.userService.getUserById(this.id);
       if(currentUser.role == "enterprise"){
-        this.isEnterprise = true;
+        this.userService.setIsEnterprise(true);
+        this.eId = currentUser.enterpriseId;
       }})
-    
-   }
-    
 
-    if(this.isLogOut){
-    this.userService.isUserLoggedIn$.subscribe((b : boolean) => {this.isLoggedIn = b;console.log("notlogged")})
-
-    }
+      this.userService.isEnterprise$.subscribe((b : boolean) => {this.isEnterprise = b;})
   }
 
-  
-    // You can also use categoryId.previousValue and 
-    // categoryId.firstChange for comparing old and new values
 
 
 
@@ -73,8 +65,9 @@ export class HeaderComponent implements OnInit {
 
   public onLogOut(){
     this.userService.notSetUser();
-    this.isLogOut = true;
+    //this.userService.setIsLoggedOut();
     this.userService.notSetUserLoggedIn();
+    this.userService.setIsEnterprise(false);
     this.router.navigate(['/login']);
   }
 

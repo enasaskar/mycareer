@@ -36,7 +36,7 @@ export class VacancyLevelService {
     }
 
     public getById(id: number): VacancyLevel {
-        return this.vacanciesLevel.find(i => i.id === id);
+        return this.vacanciesLevel.find(i => i.id == id);
     }
     public deleteVacancyLevel(i: number) {
         this.vacanciesLevel.splice(i, 1);

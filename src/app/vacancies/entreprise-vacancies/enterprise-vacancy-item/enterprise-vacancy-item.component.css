@@ -5,3 +5,13 @@ a h4{
 .col-md-4{
     margin-bottom: 1%;
 }
+p{
+    margin:0  2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 17px;
+    max-height: 50px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }

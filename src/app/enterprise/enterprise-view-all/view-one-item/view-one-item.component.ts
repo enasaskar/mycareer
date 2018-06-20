@@ -11,17 +11,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ViewOneItemComponent implements OnInit {
 
-  @Input() public item : Enterprise;
+  @Input() public item: Enterprise;
 
-  constructor(private enterpriseService : EnterpriseService) { }
+  constructor(private enterpriseService: EnterpriseService) { }
 
   ngOnInit() {
   }
 
- 
 
-  public onTrashClick()
-  {
+  public onTrashClick() {
     this.enterpriseService.onDelete.next(this.item);
   }
 
