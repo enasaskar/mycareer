@@ -152,7 +152,7 @@
                       <div class="media-body">
                         <h4 class="media-heading">Branches</h4>
                         <ul>
-                          <li *ngFor="let branch of details.branches">{{branch.country}},{{branch.city}},{{branch.locationDetails}}</li>
+                          <li *ngFor="let branch of details.branches">{{branch.country.name}},{{branch.city.name}},{{branch.locationDetails}}</li>
                         </ul>
       
                       </div>
@@ -419,7 +419,7 @@
                             <span class="input-group-addon">
                               <span class="icon"><i class="fa fa-location-arrow"></i></span>
                             </span>
-                            <select (change) = "onChange($event.target.value)"  class="form-control" required [name] = "b.country" [(ngModel)] = "b.country"> 
+                            <select (change) = "onChange()"  class="form-control" required [name] = "b.country.name" [(ngModel)] = "b.country.name"> 
                                 <option *ngFor="let co of countries">{{co.name}}</option>
                               </select>                            													
                           </div>
@@ -430,8 +430,8 @@
                             <span class="input-group-addon">
                               <span class="icon"><i class="fa fa-location-arrow"></i></span>
                             </span>
-                            <select class="form-control" required [name] = "b.city" [(ngModel)] = "b.city"> 
-                              <option *ngFor="let ci of cities">{{ci.name}}</option>
+                            <select class="form-control" required [name] = "b.city.name" [(ngModel)] = "b.city.name"> 
+                              <option *ngFor="let ci of b.country.cities">{{ci}}</option>
                             </select>                            													
                           </div>                    
                     </div>

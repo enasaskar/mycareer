@@ -1,5 +1,7 @@
+import { Country } from './country';
+import { City } from './city';
 export class EnterpriseBranches {
-    country : string;
-    city : string;
+    country : Country;
+    city : City;
     locationDetails : string;
 }

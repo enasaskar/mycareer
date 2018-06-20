@@ -103,13 +103,27 @@ export class EnterpriseService {
         applicatntsNumber : 100,
         branches : [
             {
-                country : 'Egypt',
-                city : 'Cairo',
+                country :{ id : 1,
+                    name : 'Egypt',
+                    cities : [
+                      'Cairo','Giza','Alex'
+                    ]},
+                city : {id : 1,
+                    name : 'Cairo',
+                    countryId : 1,
+                countryName:'Egypt'},
                 locationDetails : 'blah blah blah'
             },
             {
-                country : 'Egypt',
-                city : 'Giza',
+                country : { id : 1,
+                    name : 'Egypt',
+                    cities : [
+                      'Cairo','Giza','Alex'
+                    ]},
+                city :{id : 2,
+                    name : 'Giza',
+                    countryId : 1,
+                    countryName:'Egypt'},
                 locationDetails : 'blah blah'
             }
 
@@ -129,15 +143,7 @@ export class EnterpriseService {
         twitterAccount: '',
         profileViewsNumber: 200,
         reviewsTotalNumber : 100,
-        applicatntsNumber : 100,
-        branches : [
-            {
-                country : 'Egypt',
-                city : 'cairo',
-                locationDetails : 'blah blah blah'
-            }
-
-        ]
+        applicatntsNumber : 100
         }
 ];
 
@@ -205,5 +211,4 @@ export class EnterpriseService {
     public getRatingAvg(id: number) {
         return this.userRatingService.getAll().filter(a => a.enterpriesId === id);
     }
-
 }

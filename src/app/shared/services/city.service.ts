@@ -8,32 +8,46 @@ export class CityService {
 
   private cities : City[] = [
     {
+      id : 1,
       name : 'Cairo',
-      country : {name : 'Egypt'}
+      countryId : 1,
+      countryName : 'Egypt'
     },
     {
+      id : 2,
       name : 'Alex',
-      country : {name : 'Egypt'}
+      countryId : 1,
+      countryName : 'Egypt'
     },
     {
+      id : 3,
       name : 'Giza',
-      country : {name : 'Egypt'}
+      countryId : 1,
+      countryName : 'Egypt'
     },
     {
+      id : 4,
       name : 'New York',
-      country : {name : 'USA'}
+      countryId : 2,
+      countryName : 'USA'
     },
     {
+      id : 5,
       name : 'Denver',
-      country : {name : 'USA'}
+      countryId : 2,
+      countryName : 'USA'
     },
     {
+      id : 6,
       name : 'Paris',
-      country : {name : 'France'}
+      countryId : 3,
+      countryName : 'France'
     },
     {
+      id : 7,
       name : 'Cann',
-      country : {name : 'France'}
+      countryId : 3,
+      countryName : 'France'
     }
   ]
 constructor() { }
@@ -41,9 +55,18 @@ constructor() { }
 public getAll(){
   return this.cities;
 }
-public getByCountryName(countryName : string){
-  return this.cities.filter(c => c.country.name == countryName);
+// public getByCountryName(countryName : string){
+//   return this.cities.filter(c => c.country.name == countryName);
+// }
+
+public getById(id : number){
+  return this.cities.filter(q => q.id == id)[0];
 }
 
+public getByCountryName(co : string){
+  let  c = this.cities.filter(c => c.countryName == co);
+  return c.map(a => a.name);
+
+}
 
 }
