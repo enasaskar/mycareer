@@ -8,7 +8,7 @@ import { Vacancy } from '../classes/vacancy.model';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  public onDelete = new Subject();
+  public onInterviewDelete = new Subject();
   applicants: Applicant[] = [
     {
       user: new User(0,
@@ -294,16 +294,16 @@ export class ApplicantsService {
     return this.applicants.filter(a => a.status == true);
   }
   public getAllRejected(): Applicant[] {
-    return this.applicants.filter(a => a.status === false);
+    return this.applicants.filter(a => a.status == false);
   }
   public getAllPending(): Applicant[] {
     return this.applicants.filter(a => a.status == null);
   }
   public getByVacancyId(id: number): Applicant[] {
-    return this.applicants.filter(a => a.vacancy.id === id);
+    return this.applicants.filter(a => a.vacancy.id == id);
   }
   public getByEnterpriseId(id: number): Applicant[] {
-    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id === id);
+    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id == id);
   }
 
   public getBySearchWord(searchWord: string, id: number) {
@@ -320,6 +320,5 @@ export class ApplicantsService {
   public delete(applicant: Applicant) {
       const index = this.applicants.indexOf(applicant);
       this.applicants.splice(index, 1);
-      console.log('pending is deleted', this.applicants);
   }
 }
