@@ -1,14 +1,11 @@
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { FormControl } from '@angular/forms';
-
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { User } from '../users.model';
 import { UserService } from '../../shared/services/user.service';
 import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
-import { Enterprise } from '../../shared/classes/enterprise';
 import { WorkExperienceService } from '../../shared/services/workExperience.service';
 import { EducationalBackgroundService } from '../../shared/services/educationalBackground.service';
 

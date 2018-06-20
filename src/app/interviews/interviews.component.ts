@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
 export class InterviewsComponent implements OnInit {
   enterprise_name:string;
   constructor(private applicantsService:ApplicantsService,private route:ActivatedRoute) { 
-    applicantsService.onDelete.subscribe((applicant:Applicant) => { applicantsService.delete(applicant) });
   }
 
   ngOnInit() {
