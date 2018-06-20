@@ -421,7 +421,7 @@ private enetrprises: Enterprise[] = [
             NoOfInterestedUsers: 55,
             SimilarPaths: null,
             RequiredSkills: [],
-            EnterpriseRecommendPath:[...this.enetrprises],
+            EnterpriseRecommendPath: [...this.enetrprises],
 
         }, {
             Id: 9,
@@ -676,7 +676,7 @@ private enetrprises: Enterprise[] = [
 
     public getById(id: number): IPath {
         //   this.path = this.paths.find(i => i.Id == id);
-        return this.paths.find(i => i.Id == id);
+        return this.paths.find(i => i.Id === id);
     }
 
     public getSimilarPaths(id: number): IPath[] {

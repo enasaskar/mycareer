@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn : boolean ;
   isLogOut:boolean = false;
   isEnterprise : boolean;
+  eId : number;
    
   constructor(private route: ActivatedRoute,
     private router: Router,private userService : UserService) {
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit {
       let currentUser = this.userService.getUserById(this.id);
       if(currentUser.role == "enterprise"){
         this.userService.setIsEnterprise(true);
+        this.eId = currentUser.enterpriseId;
       }})
 
       this.userService.isEnterprise$.subscribe((b : boolean) => {this.isEnterprise = b;})

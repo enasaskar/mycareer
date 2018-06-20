@@ -42,6 +42,7 @@
               "src/assets/css/pathStyle.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
+              
             ],
             "scripts": [
               "src/assets/vendor/modernizr/modernizr.js",                        

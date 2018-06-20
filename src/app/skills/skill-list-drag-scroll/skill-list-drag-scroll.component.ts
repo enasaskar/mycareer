@@ -2,9 +2,6 @@ import {Component, ViewChild, Input, OnInit} from '@angular/core';
 import { DragScrollDirective  } from 'ngx-drag-scroll';
 import { Skill } from '../../shared/classes/skill.model';
 
-
-
-
 @Component({
   selector: 'app-skill-list-drag-scroll',
   templateUrl: './skill-list-drag-scroll.component.html',
