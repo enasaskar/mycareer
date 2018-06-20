@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
 import { Subject } from 'rxjs';
 import { addDays, startOfDay, endOfDay, isSameMonth, isSameDay } from 'date-fns';
 import {
@@ -14,7 +14,7 @@ import { CalendarService } from '../../shared/services/calendar.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'calendar.component.html'
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit{
   view: string = 'month';
   
   viewDate: Date = new Date();
@@ -32,7 +32,7 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(){
     this.events = this.calendarService.getAll();
-    console.log(this.events);
+    this.calendarService.onEventDelete.subscribe((event:CalendarEvent)=>{this.events = this.calendarService.delete(event);this.activeDayIsOpen = false});       
   }
 
   dayClicked({ date, events}: { date: Date; events: CalendarEvent[];}): void {
@@ -61,7 +61,7 @@ export class CalendarComponent implements OnInit {
   }
   
   addEvent(): void {
-    console.log(this.events);
+    //console.log(this.events);
     //console.log(this.clickedDate.toLocaleDateString());
     const event:CalendarEvent = {
       title: "interviews",
@@ -78,8 +78,9 @@ export class CalendarComponent implements OnInit {
           label: '<i class="fa fa-fw fa-times"></i>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
             console.log(this.events);
-            this.events = this.events.filter(iEvent => iEvent !== event);
-            console.log(this.events);
+            //this.events = this.events.filter(iEvent => iEvent !== event);
+            this.calendarService.onEventDelete.next(event);
+            //console.log(this.events);
             this.activeDayIsOpen = false;
           }
         }
@@ -87,6 +88,8 @@ export class CalendarComponent implements OnInit {
     };
     this.calendarService.add(event);
     this.refresh.next();
+   // console.log(this.events);
+
   }
  
 }

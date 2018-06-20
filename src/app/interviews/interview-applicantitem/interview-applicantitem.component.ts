@@ -4,8 +4,8 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { ApplicantsService } from '../../shared/services/applicants.service';
-import { SkillsService } from '../../shared/services/skills.service';
 import { Applicant } from '../../shared/classes/applicant.model';
+import { EvaluationService } from '../../shared/services/evaluation.service';
 
 @Component({
   selector: 'app-interview-applicantitem',
@@ -14,12 +14,11 @@ import { Applicant } from '../../shared/classes/applicant.model';
 })
 export class InterviewApplicantitemComponent implements OnInit {
   @Input() applicant: Applicant;
-  @Output() removeApplicant = new EventEmitter<void>();
   modalRef: BsModalRef;
   max = 10;
   isReadonly = false;
 
-  constructor(private modalService: BsModalService, private applicantsService: ApplicantsService, private skillsService: SkillsService) {
+  constructor(private modalService: BsModalService, private applicantsService: ApplicantsService,private evaluationService:EvaluationService) {
   }
 
   openModal(template: TemplateRef<any>) {
@@ -34,11 +33,14 @@ export class InterviewApplicantitemComponent implements OnInit {
   ngOnInit() {
 
   }
-  getSkillName(id: number): string {
-    return this.skillsService.getByID(id).Name;
-  }
+  // getSkillName(id: number): string {
+  //   return this.skillsService.getByID(id).Name;
+  // }
 
   public deleteApplicant() {
-    
+    this.applicantsService.onInterviewDelete.next(this.applicant);
+  }
+  onSubmit(){
+    this.evaluationService.AddEvaluation({applicant_id:2,skill_id:6,rate:10});
   }
 }

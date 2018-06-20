@@ -15,6 +15,9 @@ export class EnterpriseDetails {
     profileViewsNumber : number;
     reviewsTotalNumber : number;
     applicatntsNumber : number;
-    branches : EnterpriseBranches[];
+    branches? : EnterpriseBranches[];
 
 }
+
+
+

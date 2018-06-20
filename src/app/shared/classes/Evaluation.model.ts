@@ -2,13 +2,13 @@ import { Applicant } from "./applicant.model";
 import { Skill } from "./skill.model";
 
 export class Evaluation{
-    applicant:Applicant;
-    skill:Skill;
+    applicant_id:number;
+    skill_id:number;
     rate:number;
 
-    constructor(applicant:Applicant,skill:Skill,rate:number){
-        this.applicant = applicant;
-        this.skill = skill;
+    constructor(applicant_id:number,skill_id:number,rate:number){
+        this.applicant_id = applicant_id;
+        this.skill_id = skill_id;
         this.rate = rate;
     }
 }

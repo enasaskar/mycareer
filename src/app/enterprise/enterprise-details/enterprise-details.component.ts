@@ -39,9 +39,10 @@ export class EnterpriseDetailsComponent implements OnInit {
   sizes : Sizes [];
   countries : Country[];
   cities : City[];
-  
+ 
 
   newEnterprise  = new EnterpriseDetails();
+  oldEnterprise : EnterpriseDetails;
   newBranch = new EnterpriseBranches();
   
   
@@ -54,20 +55,14 @@ export class EnterpriseDetailsComponent implements OnInit {
   ngOnInit() {     
     this.id = this.active.snapshot.params["id"]; 
     this.details = this.enterpriseService.getById(+this.id);
+    this.oldEnterprise = Object.assign({}, this.details);
+    console.log(this.oldEnterprise);
     this.sizes = this.sizeService.getAll();   
     this.countries = this.countryService.getAll();
     console.log(this.id);
-    if(this.id != null){
-      for(let i = 0; i < this.details.branches.length; i++){
-        this.cities = this.cityService.getByCountryName(this.details.branches[i].country); 
-       }
-    }
-    else{
-      this.cities = this.cityService.getAll();
-    }
-    
+    this.cities = this.cityService.getAll();
     this.countryService.onChange.subscribe(
-      (c : string) => {this.cities = this.cityService.getByCountryName(c);
+      () => {this.details.branches.map(co => co.country.cities = this.cityService.getByCountryName(co.country.name));
       console.log("oninit");}
     );
   }
@@ -80,14 +75,16 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   onCancle(){
+    this.details = Object.assign({}, this.oldEnterprise);
     this.e = document.getElementById("e");
     this.edit = document.getElementById("edit");  
     this.e.style.display = "block";
     this.edit.style.display = "none";
+   this.router.navigate(['/enterprises/enterprise/details/',this.id])
   }
-  onChange(country : string){
-    console.log(country);
-    this.countryService.onChange.next(country);
+  onChange(){
+    // console.log();
+    this.countryService.onChange.next();
   }
   onFileChange(event){
     console.log(event);
@@ -102,7 +99,7 @@ export class EnterpriseDetailsComponent implements OnInit {
             <span class="input-group-addon">
               <span class="icon"><i class="fa fa-location-arrow"></i></span>
             </span>
-            <select (change) = "onChange($event.target.value)"  class="form-control" required [name] = "b.country" [(ngModel)] = "b.country"> 
+            <select (change) = ${this.onChange()}  class="form-control" required [name] = ${this.newBranch.country} [(ngModel)] =${this.newBranch.country}> 
                 <option *ngFor=let co of ${this.countries}">{{co.name}}</option>
               </select>                            													
           </div>
@@ -113,8 +110,8 @@ export class EnterpriseDetailsComponent implements OnInit {
             <span class="input-group-addon">
               <span class="icon"><i class="fa fa-location-arrow"></i></span>
             </span>
-            <select class="form-control" required [name] = "b.city" [(ngModel)] = "b.city"> 
-              <option *ngFor="let ci of cities">{{ci.name}}</option>
+            <select class="form-control" required [name] = ${this.newBranch.city} [(ngModel)] = ${this.newBranch.city}> 
+              <option *ngFor="let ci of ${this.cities}">{{ci.name}}</option>
             </select>                            													
           </div>                    
     </div>
@@ -123,7 +120,7 @@ export class EnterpriseDetailsComponent implements OnInit {
             <span class="input-group-addon">
               <span class="icon"><i class="fa fa-location-arrow"></i></span>
             </span>
-            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+            <input type="text" required class="form-control" [name]=${this.newBranch.locationDetails} placeholder="Location" [(ngModel)] = ${this.newBranch.locationDetails}>                              													
           </div>
     </div>
   </div>`;
