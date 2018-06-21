@@ -23,11 +23,23 @@ export class PathDetaileditemComponent implements OnInit {
   dialogRef: MatDialogRef<ConfirmDeletePopup>;
 
   constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog,
-    private router: Router, private userService: UserService) { }
+    private router: Router, private userService: UserService) {
+      // check if current user is the creator enterprise
+    this.userService.isEnterprise$.subscribe((isEnt: boolean) => {
+      debugger;
+      this.isEnterprise = isEnt;
+      console.log( 'isEnt = ', this.isEnterprise );
+      if (isEnt) {
+        this.isCreatorEnterprise = this.pathService.isCreatorOrAdmin(this.User.id);
+      }
+    }
+    );
+     }
 
   public Path = this.pathService.defaultPath;
 
-  public isCreatorEnterprise = false;
+  public isCreatorEnterprise = true;
+  public isEnterprise = false;
   public isLoggedIn: boolean;
   public isLogOut = false;
   public eId: number;
@@ -51,13 +63,7 @@ export class PathDetaileditemComponent implements OnInit {
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
     this.skills = this.pathService.getSkills(this.Path.Id);
 
-    // check if current user is the creator enterprise
-    this.pathService.isEntPathCreator.subscribe((isEnt: boolean) => {
-      if (isEnt) {
-        this.isCreatorEnterprise = this.pathService.isCreatorOrAdmin(this.User.id);
-      }
-    }
-    );
+    
   }
 
   public enrollUser() {
