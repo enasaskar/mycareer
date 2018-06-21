@@ -24,10 +24,12 @@ export class LoginComponent implements OnInit {
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].email === form.value.email && this.users[i].password === form.value.password) {
           console.log('loggedIn');
+          debugger;
           this.userService.setUserLoggedIn();
           this.userService.setIsUser();
           const u = this.userService.getUserByEmail(form.value.email)[0];
           this.userService.setUserId(u.id);
+          this.userService.currentUserId = u.id;
           if (u.role == 'enterprise') {
             this.router.navigate(['/enterprises/landingPage', u.enterpriseId]);
           } else {
