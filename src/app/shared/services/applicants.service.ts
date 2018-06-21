@@ -11,13 +11,11 @@ import { Skill } from '../classes/skill.model';
 })
 export class ApplicantsService {
 
-  public onDeleteAccepted = new Subject();
+  public onDelete = new Subject();
+  public onUpdate = new Subject();
 
-  skills: Skill[];
-  constructor(private skillsService: SkillsService) {
-    this.skills = this.skillsService.getAll();
-  }
-  applicants: Applicant[] = [
+  skills: Skill[] = this.skillsService.getAll();
+  applicants: Applicant[] =[
     {
       user: new User(0,
         '../../../assets/img/team/emp2.jpg',
@@ -291,16 +289,18 @@ export class ApplicantsService {
         fK_Level_Id: 1
       },
       status: true
-    }
-
-  ];
-
-
+    }];
+    
+  constructor(private skillsService: SkillsService) {
+    //this.skills = this.skillsService.getAll();
+    //console.log(this.skills)
+  }
+  
   public add(applicant: Applicant) {
     this.applicants.push(applicant);
   }
-  public update() {
-
+  public update(applicant:Applicant) {
+    applicant.status = true;
   }
   public getAll(): Applicant[] {
     return this.applicants;
@@ -319,7 +319,7 @@ export class ApplicantsService {
     return this.applicants.filter(a => a.vacancy.id === id);
   }
   public getByEnterpriseId(id: number): Applicant[] {
-    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id === id);
+    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id == id);
   }
 
   public getBySearchWord(searchWord: string, id: number) {
@@ -334,9 +334,8 @@ export class ApplicantsService {
     return applicants;
   }
 
-  public deleteAccepted(applicant: Applicant) {
-      const index = this.applicants.indexOf(applicant);
-      this.applicants.splice(index, 1);
-      console.log('pending is deleted', this.applicants);
+  public delete(applicant: Applicant) {
+     applicant.status = false;  
   }
+
 }

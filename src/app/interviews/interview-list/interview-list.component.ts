@@ -20,16 +20,30 @@ export class InterviewListComponent implements OnInit {
   }
   ngOnInit() {
     this.enterprise_id = this.route.snapshot.params['id']; 
-    // if(this.listType === "shortlist"){
-    //   this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
-    // }else if(this.listType ==="pendingcv"){
-    //   this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
-    // }
-     this.list = this.applicantsService.getAll();
-    // console.log(this.list)
-    this.applicantsService.onDeleteAccepted.subscribe((applicant:Applicant)=>{this.applicantsService.deleteAccepted(applicant)} );
-    //console.log(this.list)
+    if(this.listType === "shortlist"){
+      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
+    }else if(this.listType ==="pendingcv"){
+      this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
+    }   
+    this.applicantsService.onDelete.subscribe((applicant:Applicant)=>{
+      if(this.listType === "shortlist"){
+        this.applicantsService.delete(applicant);
+        this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
+      }else if(this.listType ==="pendingcv"){
+        this.applicantsService.delete(applicant);
+        this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
+      };
+      }
+     );
 
+     this.applicantsService.onUpdate.subscribe((applicant:Applicant)=>{
+       this.applicantsService.update(applicant);
+       if(this.listType ==="shortlist"){
+          this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == true);
+       }else if(this.listType ==="pendingcv"){
+        this.list = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a=>a.status == null);
+       }
+       });
   }
 
   seeMoreclicked() {
@@ -37,14 +51,12 @@ export class InterviewListComponent implements OnInit {
   }
 
   rejectApplicant(item: Applicant) {
-    const index = this.list.indexOf(item);
-    this.list.splice(index, 1);
-    //this.applicantsService.onDelete.next(item);
+    this.applicantsService.onDelete.next(item);
   }
 
-  // acceptApplicant() {
-
-  // }
+  acceptApplicant(item: Applicant) {
+    this.applicantsService.onUpdate.next(item);
+  }
 
   OnSearchSubmit(){
     if(this.listType ==="shortlist"){
