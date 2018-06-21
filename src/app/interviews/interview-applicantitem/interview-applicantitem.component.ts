@@ -38,7 +38,7 @@ export class InterviewApplicantitemComponent implements OnInit {
   // }
 
   public deleteApplicant() {
-    this.applicantsService.onInterviewDelete.next(this.applicant);
+    this.applicantsService.onDeleteAccepted.next(this.applicant);
   }
   onSubmit(){
     this.evaluationService.AddEvaluation({applicant_id:2,skill_id:6,rate:10});

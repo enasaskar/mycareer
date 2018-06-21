@@ -8,7 +8,7 @@ import { Vacancy } from '../classes/vacancy.model';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  public onInterviewDelete = new Subject();
+  public onDeleteAccepted = new Subject();
   applicants: Applicant[] = [
     {
       user: new User(0,
@@ -317,7 +317,7 @@ export class ApplicantsService {
     return applicants;
   }
 
-  public delete(applicant: Applicant) {
+  public deleteAccepted(applicant: Applicant) {
       const index = this.applicants.indexOf(applicant);
       this.applicants.splice(index, 1);
   }

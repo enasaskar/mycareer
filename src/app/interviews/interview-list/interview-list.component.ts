@@ -27,7 +27,7 @@ export class InterviewListComponent implements OnInit {
     // }
      this.list = this.applicantsService.getAll();
     // console.log(this.list)
-    this.applicantsService.onInterviewDelete.subscribe((applicant:Applicant)=>{this.applicantsService.delete(applicant)} );
+    this.applicantsService.onDeleteAccepted.subscribe((applicant:Applicant)=>{this.applicantsService.deleteAccepted(applicant)} );
     //console.log(this.list)
 
   }
