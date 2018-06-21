@@ -10,19 +10,34 @@ export class CountryService {
 
   private countries : Country[] = [
     {
-      name : 'Egypt'
+      id : 1,
+      name : 'Egypt',
+      cities : [
+        'Cairo','Giza','Alex'
+      ]
     },
     {
-      name : 'USA'
+      id : 2,
+      name : 'USA',
+      cities : [
+        'New York','Denver'
+      ]
     },
     {
-      name : 'France'
+      id : 3,
+      name : 'France',
+      cities : [
+        'Paris', 'Cann'
+      ]
     }
   ]
 constructor() { }
 
 public getAll(){
   return this.countries;
+}
+public getById(id : number){
+  return this.countries.filter(a => a.id == id)[0];
 }
 
 }
