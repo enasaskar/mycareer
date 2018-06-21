@@ -57,6 +57,8 @@ export class VacancyItemDetailsComponent implements OnInit {
     if (this.uId !== null && this.uId !== undefined) {
       const user = this.userService.getUserById(this.uId);
       this.applicantService.add(new Applicant(user, v));
+      this.router.navigate(['/interviews/applicants/1']);
+
     } else {
         this.router.navigate(['/login']);
       }

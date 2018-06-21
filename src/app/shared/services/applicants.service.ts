@@ -297,6 +297,7 @@ export class ApplicantsService {
 
   public add(applicant: Applicant) {
     this.applicants.push(applicant);
+    this.getAll();
   }
   public update() {
 
