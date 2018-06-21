@@ -355,9 +355,7 @@ export class VacancyService {
         return  this.vacanciesChanged.startWith(this.getAllNotDeleted());
     }
     public getById(id: number) {
-        console.log(id)
         const v = this.vacancies.find(a => a.id == id);
-        console.log(v);
         return v;
 
     }
@@ -378,13 +376,10 @@ export class VacancyService {
 
     }
     public addVacancy(v: Vacancy) {
-        debugger
         this.vacancies.push(v);
         this.vacanciesChanged.next(this.getAllNotDeleted());
- 
     }
     public updateVacancy(id: number, v: Vacancy) {
-        debugger
         const vac = this.vacancies.find(i => i.id === id);
         vac.postdate = v.postdate;
         vac.requirements = v.requirements;
