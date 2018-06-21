@@ -17,6 +17,6 @@ export class VacancyItemComponent implements OnInit {
   ngOnInit() {
   }
   onTrashClick(id: number) {
-    this.vacancyService.delete(id);
+    this.vacancyService.deletev(id);
   }
 }

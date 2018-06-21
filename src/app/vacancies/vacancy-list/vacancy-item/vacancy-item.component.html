@@ -1,7 +1,7 @@
 <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="feature-box secundary bordered">
         <a class="right">
-            <i class="fa fa-trash" aria-hidden="true" data-id="1" (click) = "onTrashClick(vacancyitem.id)"></i>
+            <i class="fa fa-trash" aria-hidden="true" data-id="{{vacancyitem.id}}" (click) = "onTrashClick(vacancyitem.id)"></i>
         </a>
         <a class="thumb-info lightbox right" routerLink='/vacancies/vacancydetails/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
             data-toggle="tooltip" data-placement="top" title="more info">
@@ -19,7 +19,7 @@
             <a href="index-2.html">
                 <h5 class="shorter">{{vacancyitem.title}}</h5>
             </a>
-            <h6 class="short">{{enterprises[index].headquarters}}</h6>
+            <h6 class="short">{{enterprises[index].headquarters}} + {{vacancyitem.id}}</h6>
             <p class="short2">posted {{vacancyitem.postdate}} ago</p>
 
             <p class="short">{{vacancyitem.description}}</p>

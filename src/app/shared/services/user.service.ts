@@ -9,11 +9,15 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
 
   private isUser: boolean;
+
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
+
   idCount = 2;
+
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
+  currentUserId : number;
 
   isEnterprise$: Observable<boolean>;
   private isEnterpriseSub : Subject<boolean>;
@@ -86,8 +90,11 @@ export class UserService {
   notSetUserLoggedIn() {
     this.boolSubject.next(false);
   }
-  setUserId(id: number)  {
+  setUserId(id: number) {
     this.numberSubject.next(id);
+  }
+  getUserId(){
+    return this.currentUserId;
   }
   getIsUser() {
     return this.isUser;

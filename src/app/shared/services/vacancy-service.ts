@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Vacancy } from '../classes/vacancy.model';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/startWith';
+import { Vacancy } from '../classes/vacancy.model';
 import { EnterpriseService } from './enterprise.service';
+import { SkillsService } from './skills.service';
+import { Skill } from '../classes/skill.model';
 
 @Injectable()
 export class VacancyService {
 
+    skills: Skill[];
     public vacanciesChanged: Subject<Vacancy[]>;
     private vacancies: Vacancy[] ;
-     constructor(private enterpriseServices: EnterpriseService ) {
+     constructor(private enterpriseServices: EnterpriseService , private skillsService: SkillsService) {
     this.vacanciesChanged = new Subject();
+    this.skills = this.skillsService.getAll();
     this.vacancies = [
         {
            id: 1,
@@ -32,6 +36,7 @@ export class VacancyService {
            responsabilities: 'bla2 bla2',
            postdate: '2 days',
            salary: '2000',
+           RequiredSkills: [...this.skills],
            isDeleted: false,
            availablesnumber: 2,
            fK_Currency_Id: 1,
@@ -59,6 +64,7 @@ export class VacancyService {
             postdate: '4 days',
             salary: '4000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 2,
             fK_Branch_Id: 1,
@@ -83,6 +89,7 @@ export class VacancyService {
             postdate: '6 days',
             salary: '4000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 9,
             fK_Branch_Id: 1,
@@ -117,6 +124,7 @@ export class VacancyService {
             postdate: '4 days',
             salary: '5000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 1,
             fK_Branch_Id: 1,
@@ -152,6 +160,7 @@ export class VacancyService {
             postdate: '20 days',
             salary: '5000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 6,
             fK_Branch_Id: 2,
@@ -186,6 +195,7 @@ export class VacancyService {
             postdate: '20 days',
             salary: '7000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 9,
             fK_Branch_Id: 1,
@@ -220,6 +230,7 @@ export class VacancyService {
             postdate: '4 days',
             salary: '5000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 7,
             fK_Branch_Id: 1,
@@ -245,6 +256,7 @@ export class VacancyService {
             responsabilities: 'bla2 bla2',
             postdate: '2 days',
             salary: '2000',
+            RequiredSkills: [...this.skills],
             isDeleted: false,
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 1,
@@ -253,7 +265,7 @@ export class VacancyService {
             fK_Level_Id: 2
          },
          {
-             id: 8,
+             id: 9,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -271,13 +283,14 @@ export class VacancyService {
              postdate: '4 days',
              salary: '4000',
              isDeleted: false,
+             RequiredSkills: [...this.skills],
              fK_Currency_Id: 1,
              fK_Enterprise_Id: 2,
              fK_Branch_Id: 1,
              fK_VacancyType_Id: 2,
              fK_Level_Id: 2
          }, {
-            id: 9,
+            id: 10,
             title: 'Senior ASP.NET / MVC',
             description: `
             Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
@@ -297,6 +310,7 @@ export class VacancyService {
             postdate: '2 days',
             salary: '2000',
             isDeleted: false,
+            RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
             fK_Enterprise_Id: 1,
             fK_Branch_Id: 1,
@@ -304,7 +318,7 @@ export class VacancyService {
             fK_Level_Id: 1
          },
          {
-             id: 10,
+             id: 11,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -322,6 +336,7 @@ export class VacancyService {
              postdate: '4 days',
              salary: '4000',
              isDeleted: false,
+             RequiredSkills: [...this.skills],
              fK_Currency_Id: 1,
              fK_Enterprise_Id: 2,
              fK_Branch_Id: 1,
@@ -341,7 +356,6 @@ export class VacancyService {
     }
     public getById(id: number) {
         const v = this.vacancies.find(a => a.id == id);
-        console.log(v);
         return v;
 
     }
@@ -351,22 +365,21 @@ export class VacancyService {
     }
     public getVacanciesByEnterpriseIdGeneral(searchtext: string) {
         return this.vacanciesChanged.startWith(this.getAllNotDeleted()
-                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase()) 
+                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase())
                    ||
                     a.description.toLowerCase().includes(searchtext.toLowerCase())    ));
     }
-    public delete(id: number) {
+    public deletev(id: number) {
         this.getById(id).isDeleted = true;
-        this.vacanciesChanged.next(this.getAllNotDeleted());
+         this.vacanciesChanged.next(this.getAllNotDeleted());
+         console.log(this.vacancies);
+
     }
     public addVacancy(v: Vacancy) {
-        debugger
         this.vacancies.push(v);
         this.vacanciesChanged.next(this.getAllNotDeleted());
- 
     }
     public updateVacancy(id: number, v: Vacancy) {
-        debugger
         const vac = this.vacancies.find(i => i.id === id);
         vac.postdate = v.postdate;
         vac.requirements = v.requirements;

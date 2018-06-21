@@ -6,7 +6,7 @@
       </span>
     </a>
     <span class="team-item thumbnail product-thumb-info-content"  >
-      <a  class="thumb-info team" [routerLink]="['/paths','profile', Path.Id ]">
+      <a  class="thumb-info team" [routerLink]="['/paths','profile', Path.Id ]" (click)="redirectToPath(Path)" >
         <img class="img-responsive" alt="" src="{{Path.ImgURL}}">
         <span class="thumb-info-title">
           <span class="thumb-info-inner">{{Path.Name}}</span>
