@@ -26,7 +26,7 @@ export class PathDetaileditemComponent implements OnInit {
     private router: Router, private userService: UserService) {
       // check if current user is the creator enterprise
     this.userService.isEnterprise$.subscribe((isEnt: boolean) => {
-      debugger;
+      // debugger;
       this.isEnterprise = isEnt;
       console.log( 'isEnt = ', this.isEnterprise );
       if (isEnt) {
@@ -63,7 +63,6 @@ export class PathDetaileditemComponent implements OnInit {
     this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
     this.skills = this.pathService.getSkills(this.Path.Id);
 
-    
   }
 
   public enrollUser() {

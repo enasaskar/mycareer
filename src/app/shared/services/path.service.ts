@@ -734,4 +734,8 @@ private enetrprises: Enterprise[] = [
     public isCreatorOrAdmin(userId: number): boolean {
         return true;
     }
+
+    public isAdmin( userId: number): boolean {
+        return true;
+    }
 }

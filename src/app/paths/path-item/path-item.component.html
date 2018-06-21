@@ -1,10 +1,9 @@
 <li class="col-md-3 col-sm-4 col-xs-6 isotope-item {{Path.PathMainCategory.Name}} product path-item">
   <span class="product-thumb-info">
-    <a class="add-to-cart-product" name="deletePath" (click)="trashClicked()" >
+    <a class="add-to-cart-product" name="deletePath" (click)="trashClicked()" *ngIf= "isAdmin" >
       <span>
         <i class="fa fa-5x fa-trash"></i>
       </span>
-
     </a>
     <span class="team-item thumbnail product-thumb-info-content"  >
       <a  class="thumb-info team" [routerLink]="['/paths','profile', Path.Id ]">
