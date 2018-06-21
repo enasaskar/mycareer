@@ -10,6 +10,7 @@ import { VacancyLevelService } from '../../shared/services/vacancyLevel-service'
 import { VacancyType } from '../../shared/classes/VacancyType';
 import { EnterpriseDetails } from '../../shared/classes/enterprise-details';
 import { VacancyLevel } from '../../shared/classes/vacancyLevel';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-vacancy-item-details',
@@ -25,8 +26,9 @@ export class VacancyItemDetailsComponent implements OnInit {
   enterprises: Enterprise[];
   searchWord: any;
   vacancieyDetails: Vacancy;
+  idUser: number;
   constructor(private vacancyServiec: VacancyService, private enterpriseService: EnterpriseService,
-     private typeService: VacancyTypeService, private levelsService: VacancyLevelService,
+     private typeService: VacancyTypeService, private levelsService: VacancyLevelService, private userServices: UserService,
      private activeRoute: ActivatedRoute) {
 
    }
@@ -42,9 +44,12 @@ export class VacancyItemDetailsComponent implements OnInit {
      // similar vacancies
     this.vacancyServiec.getNotDeleted().subscribe((d) => {this.vacancies = d ; });
     const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
-    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+    // this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
     console.log(this.vacancies);
   }
   OnSearchSubmit(searchForm: NgForm) {}
-
+  onApplyClick(id: number) {
+       this.userServices.id$.subscribe((idUser) => this.idUser = idUser);
+       console.log(this.idUser);
+  }
 }

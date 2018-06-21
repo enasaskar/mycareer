@@ -265,7 +265,7 @@ export class VacancyService {
             fK_Level_Id: 2
          },
          {
-             id: 8,
+             id: 9,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -290,7 +290,7 @@ export class VacancyService {
              fK_VacancyType_Id: 2,
              fK_Level_Id: 2
          }, {
-            id: 9,
+            id: 10,
             title: 'Senior ASP.NET / MVC',
             description: `
             Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
@@ -318,7 +318,7 @@ export class VacancyService {
             fK_Level_Id: 1
          },
          {
-             id: 10,
+             id: 11,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -355,6 +355,7 @@ export class VacancyService {
         return  this.vacanciesChanged.startWith(this.getAllNotDeleted());
     }
     public getById(id: number) {
+        console.log(id)
         const v = this.vacancies.find(a => a.id == id);
         console.log(v);
         return v;
@@ -366,13 +367,15 @@ export class VacancyService {
     }
     public getVacanciesByEnterpriseIdGeneral(searchtext: string) {
         return this.vacanciesChanged.startWith(this.getAllNotDeleted()
-                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase()) 
+                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase())
                    ||
                     a.description.toLowerCase().includes(searchtext.toLowerCase())    ));
     }
-    public delete(id: number) {
+    public deletev(id: number) {
         this.getById(id).isDeleted = true;
-        this.vacanciesChanged.next(this.getAllNotDeleted());
+         this.vacanciesChanged.next(this.getAllNotDeleted());
+         console.log(this.vacancies);
+
     }
     public addVacancy(v: Vacancy) {
         debugger
