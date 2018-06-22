@@ -64,6 +64,22 @@ export class EnterpriseService {
 
             In 2017, the Group generated sales of 18.6 billion euros and invested over 19% of its original equipment sales in Research and Development. Valeo has 184 plants, 55 Research and Development centers and 15 distribution platforms, and employs 111,600 people in 33 countries worldwide. `,
             headquarters : 'Egypt'
+        },
+        {
+            id: 5,
+            name: 'Sunrise Language School',
+            headline: 'Education',
+            logo: '../../../assets/img/school.png',
+            des: 'Sunrise Language School founded in 1984 is ......etc',
+            headquarters: 'Egypt'
+        },
+        {
+            id: 6,
+            name: 'Ain Shams University',
+            headline: 'Education',
+            logo: '../../../assets/img/school.png',
+            des: 'Ain Shams University founded in 1884 is ......etc',
+            headquarters: 'Egypt'
         }
 
     ];
