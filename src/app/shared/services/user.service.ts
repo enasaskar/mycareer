@@ -18,10 +18,10 @@ export class UserService {
 
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
-  currentUserId : number;
+  currentUserId: number;
 
   isEnterprise$: Observable<boolean>;
-  private isEnterpriseSub : Subject<boolean>;
+  private isEnterpriseSub: Subject<boolean>;
 
   // replace this with data from API
   private users: User[] = [
@@ -94,7 +94,7 @@ export class UserService {
   setUserId(id: number) {
     this.numberSubject.next(id);
   }
-  getUserId(){
+  getUserId() {
     return this.currentUserId;
   }
   getIsUser() {
@@ -103,7 +103,7 @@ export class UserService {
   setIsUser() {
     this.isUser = true;
   }
-  setIsEnterprise(flag : boolean) {
+  setIsEnterprise(flag: boolean) {
     this.isEnterpriseSub.next(flag);
   }
   getIsEnterprise()

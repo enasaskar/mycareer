@@ -37,7 +37,11 @@ export class UserProfileComponent implements OnInit {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
     });
-    this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+    // this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+    this.workService.getUserExperiences(this.id)
+    .subscribe(data => {
+      this.userWorkExperiences = data;
+    });
     this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
   }
   openModal(template: TemplateRef<any>) {

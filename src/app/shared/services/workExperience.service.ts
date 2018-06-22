@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { WorkExperience } from '../classes/userWorkExperienceModel';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,18 +20,23 @@ export class WorkExperienceService {
     '10-5-2009',
     '2-6-2010')
   ];
+  private workExperienceChanged = new Subject<WorkExperience[]>();
   constructor() { }
 
   getUserExperiences(i: number) {
-    return this.userExperiences;
+    // return this.userExperiences;
+    return this.workExperienceChanged.startWith(this.userExperiences.slice());
   }
   addExperience(userID: number, workExperience: WorkExperience) {
     this.userExperiences.push(workExperience);
+    this.workExperienceChanged.next(this.userExperiences);
   }
   updateExperience(userID: number, i: number, workExperience: WorkExperience) {
     this.userExperiences[i] = workExperience;
+    this.workExperienceChanged.next(this.userExperiences);
   }
   deleteExperience(userID: number, i: number) {
     this.userExperiences.splice(i, 1);
+    this.workExperienceChanged.next(this.userExperiences);
   }
 }

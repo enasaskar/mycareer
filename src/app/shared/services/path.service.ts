@@ -739,4 +739,9 @@ export class PathService {
     public isAdmin( userId: number): boolean {
         return true;
     }
+    getUserPaths(userID: number) {
+        const pathArr = this.paths.filter(p => p.IsDeleted === false).slice(0, 2);
+        // console.log(this.paths);
+        return pathArr;
+    }
 }
