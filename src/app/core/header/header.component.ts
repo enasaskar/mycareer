@@ -73,9 +73,12 @@ export class HeaderComponent implements OnInit {
     // this.userService.setIsLoggedOut();
     this.userService.notSetUserLoggedIn();
     this.userService.setIsEnterprise(false);
-    this.userService.setIsAdmin(false);
+   // this.userService.setIsAdmin(false);
     this.userService.currentUserId = null;
     this.isEnterprise = false;
+    this.isAdmin = false;
+    this.userService.isAdmin = false;
+    this.userService.isEnterprise = false;
     this.router.navigate(['/login']);
   }
 
