@@ -91,7 +91,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 9,
+            fK_Enterprise_Id: 2,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 2
@@ -162,7 +162,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 6,
+            fK_Enterprise_Id: 1,
             fK_Branch_Id: 2,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 1
@@ -197,7 +197,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 9,
+            fK_Enterprise_Id: 2,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 1
@@ -232,7 +232,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 7,
+            fK_Enterprise_Id: 1,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 2,
             fK_Level_Id: 1

@@ -33,7 +33,10 @@ export class UserPendingInterviewItemComponent implements OnInit {
       this.id = +params['id'];
     });
     this.vacancy = this.vacancyService.getById(this.interview.vacancyId);
+    console.log(this.vacancy);
+
     this.enterprise = this.enterpriseService.getEnterpriseById(this.vacancy.fK_Enterprise_Id);
+    console.log(this.enterprise);
   }
   cancelInterview() {
     console.log(this.i);
