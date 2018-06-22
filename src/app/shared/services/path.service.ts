@@ -11,6 +11,12 @@ export class PathService {
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
+<<<<<<< HEAD
+=======
+    public isEntPathCreator = new Subject<boolean>();
+
+
+>>>>>>> 2b4b3a121152998309e81536bcc7db61ab957c4b
     private skills: Skill[] = [{
             ID: 1,
             Name: 'C#',
@@ -170,58 +176,59 @@ export class PathService {
             Review: 'Very Good',
             NoEndorsments: 30
     }];
-private enetrprises: Enterprise[] = [
-        {
-            id : 1,
-            name : 'Vodafone',
-            logo : '../assets/img/logos/vodafone.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'USA'
-        },
+    private enetrprises: Enterprise[] = [];
+// private enetrprises: Enterprise[] = [
+//         {
+//             id : 1,
+//             name : 'Vodafone',
+//             logo : '../assets/img/logos/vodafone.png',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'USA'
+//         },
 
-        {
-            id : 2,
-            name : 'ITWORX',
-            logo : '../assets/img/logos/itworx.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 3,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 4,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 5,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 6,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id: 7,
-            name: 'Information Technology Institute',
-            logo: '../../../assets/img/school.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-];
+//         {
+//             id : 2,
+//             name : 'ITWORX',
+//             logo : '../assets/img/logos/itworx.jpg',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+//         {
+//             id : 3,
+//             name : 'ITWORX',
+//             logo : '../assets/img/ITWORX.jpg',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+//         {
+//             id : 4,
+//             name : 'ITWORX',
+//             logo : '../assets/img/ITWORX.jpg',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+//         {
+//             id : 5,
+//             name : 'ITWORX',
+//             logo : '../assets/img/ITWORX.jpg',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+//         {
+//             id : 6,
+//             name : 'ITWORX',
+//             logo : '../assets/img/ITWORX.jpg',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+//         {
+//             id: 7,
+//             name: 'Information Technology Institute',
+//             logo: '../../../assets/img/school.png',
+//             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//             headquarters : 'Egypt'
+//         },
+// ];
     public defaultPath: IPath = {
         Id: 0,
         Name: '',

@@ -41,7 +41,7 @@ export class PathItemComponent implements OnInit {
     this.pathService.onDelete.next(this.Path);
   }
 
-  public redirectToPath(path: Path) {
+  public redirectToPath(path: IPath) {
     //redirect code todo
   }
 }
