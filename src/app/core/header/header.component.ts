@@ -49,13 +49,9 @@ export class HeaderComponent implements OnInit {
         this.userService.setIsEnterprise(true);
         this.eId = currentUser.enterpriseId;
         console.log('I am an enterprise');
-      } else if (currentUser.role == 'admin') {
-        this.userService.setIsAdmin(true);
-        console.log('I am an admin');
-        // this.adminId = currentUser.id;
       }
       console.log('currentUser.role =', currentUser.role );
-    })
+    });
 
       this.userService.isEnterprise$.subscribe((b : boolean) => {this.isEnterprise = b;})
       this.userService.isAdmin$.subscribe((b: boolean) => {this.isAdmin = b; });
