@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CityService {
 
-  private cities : City[] = [
+  private cities: City[] = [
     {
       id : 1,
       name : 'Cairo',
@@ -49,24 +49,25 @@ export class CityService {
       countryId : 3,
       countryName : 'France'
     }
-  ]
-constructor() { }
+  ];
+  constructor() { }
 
-public getAll(){
-  return this.cities;
-}
-// public getByCountryName(countryName : string){
-//   return this.cities.filter(c => c.country.name == countryName);
-// }
+  public getAll() {
+    return this.cities;
+  }
+  // to return city object
+  public getCityByCountryName(countryName: string) {
+    return this.cities.filter(c => c.countryName === countryName);
+  }
 
-public getById(id : number){
-  return this.cities.filter(q => q.id == id)[0];
-}
+  public getById(id: number) {
+    return this.cities.filter(q => q.id === id)[0];
+  }
 
-public getByCountryName(co : string){
-  let  c = this.cities.filter(c => c.countryName == co);
-  return c.map(a => a.name);
-
-}
+  // to return city names
+  public getByCountryName(co: string) {
+    const  c = this.cities.filter(c => c.countryName === co);
+    return c.map(a => a.name);
+  }
 
 }
