@@ -1,13 +1,13 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
   <div class="feature-box secundary bordered">
-      <a class="right">
+      <a *ngIf = "currentId == e.id" class="right">
           <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
       </a>
       <a class="thumb-info lightbox right" routerLink='/vacancies/vacancydetails/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
           data-toggle="tooltip" data-placement="top" title="more info">
           <i class="fa fa-info"></i>
       </a>
-      <a class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+      <a *ngIf = "currentId == e.id" class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
           data-toggle="tooltip" data-placement="top" title="edit">
           <i class="fa fa-pencil"></i>
       </a>

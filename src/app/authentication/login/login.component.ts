@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
           this.userService.setUserId(u.id);
           this.userService.currentUserId = u.id;
           if (u.role == 'enterprise') {
-            this.router.navigate(['/enterprises/landingPage', u.enterpriseId]);
+            this.userService.isEnterprise = true;
+            this.router.navigate(['/enterprises/NewFeed', u.enterpriseId]);
           } else {
           this.router.navigate(['/user', u.id]);
           }

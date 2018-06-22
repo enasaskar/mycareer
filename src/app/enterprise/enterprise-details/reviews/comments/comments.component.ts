@@ -1,3 +1,4 @@
+import { UserService } from './../../../../shared/services/user.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -16,11 +17,21 @@ export class CommentsComponent implements OnInit {
   enterpriseId : number;
   comments : UserComments[] = [];
   newComment = new UserComments();
-  constructor(private commentService : UserCommentsService,private active : ActivatedRoute) { }
+  currentId : number;
+  isEnterprise : boolean;
+  currentUserId : number;
+  constructor(private commentService : UserCommentsService,private active : ActivatedRoute,
+              private userService : UserService) { }
 
   ngOnInit() {
-    this.enterpriseId = this.active.snapshot.params["id"]; 
-    this.comments = this.commentService.getByEnterpriseId(+this.enterpriseId);
+    this.enterpriseId = +this.active.snapshot.params["id"]; 
+    this.currentUserId = this.userService.currentUserId;
+    if(this.userService.currentUserId != null){
+      this.currentId = this.userService.getUserById(this.currentUserId).enterpriseId;
+      this.isEnterprise = this.userService.getIsEnterprise();
+    }
+  
+    this.comments = this.commentService.getByEnterpriseId(this.enterpriseId);
     this.commentService.commentsChanged.subscribe(
       (comments : UserComments[]) => {
         this.comments = comments;
@@ -30,7 +41,7 @@ export class CommentsComponent implements OnInit {
 
   AddComment(){
     this.newComment.enterpriseId = +this.enterpriseId;
-    this.newComment.userId = 0;
+    this.newComment.userId = this.currentUserId;
     this.commentService.addComment(this.newComment);
   }
 

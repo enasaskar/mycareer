@@ -1,3 +1,4 @@
+import { UserService } from './../../shared/services/user.service';
 import { EnterpriseBranches } from './../../shared/classes/enterprise-branches';
 import { CityService } from './../../shared/services/city.service';
 import { City } from './../../shared/classes/city';
@@ -27,7 +28,8 @@ import { CountryService } from '../../shared/services/country.service';
 })
 export class EnterpriseDetailsComponent implements OnInit {
 
-  public id : string; 
+  public id : number; 
+  public currentId : number;
 
   public newId = 3;
 
@@ -48,13 +50,17 @@ export class EnterpriseDetailsComponent implements OnInit {
   
   constructor(private enterpriseService : EnterpriseService,private active : ActivatedRoute,
     private sizeService : SizeService,private dialog: MatDialog,
-    private countryService : CountryService, private cityService : CityService,private router: Router) {
+    private countryService : CountryService, private cityService : CityService,private router: Router,
+    private userService : UserService) {
       this.newEnterprise.branches = [];
    }
  
   ngOnInit() {     
-    this.id = this.active.snapshot.params["id"]; 
-    this.details = this.enterpriseService.getById(+this.id);
+    if(this.userService.currentUserId != null){
+    this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
+    }
+    this.id = +this.active.snapshot.params["id"]; 
+    this.details = this.enterpriseService.getById(this.id);
     this.oldEnterprise = Object.assign({}, this.details);
     console.log(this.oldEnterprise);
     this.sizes = this.sizeService.getAll();   
