@@ -9,6 +9,7 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
 
   private isUser: boolean;
+  public isEnterprise : boolean;
 
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
@@ -104,6 +105,10 @@ export class UserService {
   }
   setIsEnterprise(flag: boolean) {
     this.isEnterpriseSub.next(flag);
+  }
+  getIsEnterprise()
+  {
+    return this.isEnterprise;
   }
   notSetUser() {
     this.isUser = false;
