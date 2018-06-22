@@ -11,6 +11,12 @@ export class PathService {
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
+<<<<<<< HEAD
+    public isEntPathCreator = new Subject<boolean>();
+
+
+=======
+>>>>>>> 9086a6f0ad6a35290b3025316d413e2f0d717ace
     private skills: Skill[] = [{
             ID: 1,
             Name: 'C#',
@@ -674,8 +680,7 @@ private enetrprises: Enterprise[] = [
     }
 
     public getById(id: number): IPath {
-        //   this.path = this.paths.find(i => i.Id == id);
-        return this.paths.find(i => i.Id === id);
+        return this.paths.find(i => i.Id == id);
     }
 
     public getSimilarPaths(id: number): IPath[] {
@@ -727,5 +732,13 @@ private enetrprises: Enterprise[] = [
 
     public getEnterpriseRecommendPath (pathId: number): Enterprise[] {
         return this.paths.find( p => p.Id === pathId).EnterpriseRecommendPath;
+    }
+
+    public isCreatorOrAdmin(userId: number): boolean {
+        return true;
+    }
+
+    public isAdmin( userId: number): boolean {
+        return true;
     }
 }

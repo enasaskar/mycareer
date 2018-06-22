@@ -7,7 +7,7 @@
                     <strong>{{levelName}} </strong> Level
                 </h3>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4" *ngIf= "isCreatorEnterprise" >
                 <div class="form-group col-md-10 searchSkillInPath" [ngClass]="{'hide': showSearch}">
                     <div class="col-md-12">
                         <mat-form-field class="example-full-width">
@@ -34,11 +34,11 @@
         <div class="row" id="SkillsUser">
             <div class="col-md-12">
                 <div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}' id="hideDots">
-                    <app-skill-item-small *ngFor="let skill of skills" [skillDetails]=skill></app-skill-item-small>
+                    <!-- <app-skill-item-small *ngFor="let skill of skills" [skillDetails]=skill></app-skill-item-small> -->
                 </div>
             </div>
         </div>
     </div>
 
     <app-skill-list-drag-scroll [skills]="skills" ></app-skill-list-drag-scroll>
-</div>-->
+</div>
