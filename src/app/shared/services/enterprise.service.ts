@@ -32,49 +32,21 @@ export class EnterpriseService {
             headquarters : 'Egypt'
         },
         {
-            id : 3,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 4,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 5,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 6,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id: 7,
+            id: 3,
             name: 'Information Technology Institute',
             logo: '../../../assets/img/school.png',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'Egypt'
         },
         {
-            id: 8,
+            id: 4,
             name: 'Engineering Ain Shams University',
             logo: '../../../assets/img/school.png',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             headquarters : 'Egypt'
         },
         {
-            id: 9,
+            id: 5,
             name: 'Al-Farouk Language School',
             logo: '../../../assets/img/school.png',
             des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
