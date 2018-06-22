@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
           if (u.role == 'enterprise') {
             this.userService.isEnterprise = true;
             this.router.navigate(['/enterprises/NewFeed', u.enterpriseId]);
+          } else  if (u.role == 'admin') {
+            this.userService.setIsAdmin(true);
+            this.userService.isAdmin = true;
+            this.router.navigate(['/home']);
           } else {
           this.router.navigate(['/user', u.id]);
           }

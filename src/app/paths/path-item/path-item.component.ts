@@ -3,6 +3,7 @@ import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
 import { UserService } from '../../shared/services/user.service';
 import { User } from 'src/app/users/users.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-path-item',
@@ -26,13 +27,14 @@ export class PathItemComponent implements OnInit {
     telNumber: '010000',
     district: 'Haram',
   };
-  constructor(private pathService: PathService, private userService: UserService) { }
+  constructor(private pathService: PathService, private userService: UserService, private route: Router) { }
 
   ngOnInit() {
+    this.isAdmin = this.userService.getIsAdmin();
+    console.log('isAdmin = ', this.isAdmin);
     this.userService.isUserLoggedIn$.subscribe( (isLoggedIn: boolean) => {
       if (isLoggedIn) {
-         this.isAdmin = this.pathService.isAdmin(this.User.id);
-         console.log('isAdmin = ', this.isAdmin);
+        //  this.isAdmin = this.pathService.isAdmin(this.User.id);
       }
    });
   }
@@ -42,6 +44,7 @@ export class PathItemComponent implements OnInit {
   }
 
   public redirectToPath(path: IPath) {
-    //redirect code todo
+    // redirect code
+    this.route.navigate(['/paths', 'profile', this.Path.Id ]);
   }
 }

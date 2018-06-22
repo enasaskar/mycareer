@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { IPath } from '../../shared/interfaces/IPath';
 import { PathService } from '../../shared/services/path.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Skill } from '../../shared/classes/skill.model';
 import { User } from '../../users/users.model';
 import { Enterprise } from '../../shared/classes/enterprise';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { UserService } from '../../shared/services/user.service';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,6 +18,7 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class PathDetaileditemComponent implements OnInit {
 
+  Id$: Observable<{}>;
   // @Input() skills: Skill[];
   public skills: Skill[];
   @Input() EnterprisesRecommendPath: Enterprise[];
@@ -24,21 +27,12 @@ export class PathDetaileditemComponent implements OnInit {
 
   constructor(private pathService: PathService, private route: ActivatedRoute, public dialog: MatDialog,
     private router: Router, private userService: UserService) {
-      // check if current user is the creator enterprise
-    this.userService.isEnterprise$.subscribe((isEnt: boolean) => {
-      // debugger;
-      this.isEnterprise = isEnt;
-      console.log( 'isEnt = ', this.isEnterprise );
-      if (isEnt) {
-        this.isCreatorEnterprise = this.pathService.isCreatorOrAdmin(this.User.id);
-      }
-    }
-    );
+
      }
 
   public Path = this.pathService.defaultPath;
 
-  public isCreatorEnterprise = true;
+  public isCreatorEnterprise = false;
   public isEnterprise = false;
   public isLoggedIn: boolean;
   public isLogOut = false;
@@ -58,10 +52,25 @@ export class PathDetaileditemComponent implements OnInit {
 
   ngOnInit() {
     // Get currunt path data
-    this.Path.Id = this.route.snapshot.params['id'] || 1;
-    this.Path = this.pathService.getById(this.Path.Id);
-    this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
-    this.skills = this.pathService.getSkills(this.Path.Id);
+    // this.Path.Id = this.route.snapshot.params['id'] || 1;
+
+    this.route.params.subscribe ( (params) => {
+      this.Path.Id = params['id'];
+      this.Path = this.pathService.getById(this.Path.Id);
+      console.log( 'current path = ', this.Path);
+      this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
+      this.skills = this.pathService.getSkills(this.Path.Id);
+    });
+
+    // this.Path = this.pathService.getById(this.Path.Id);
+    // this.Path.SimilarPaths = this.pathService.getSimilarPaths(this.Path.Id);
+    // this.skills = this.pathService.getSkills(this.Path.Id);
+
+    // check if current user is the creator enterprise
+    this.isEnterprise =  this.userService.getIsEnterprise();
+    if (this.isEnterprise) {
+      this.isCreatorEnterprise = this.pathService.isPathCreator(this.User.id, this.Path.Id);
+    }
 
   }
 

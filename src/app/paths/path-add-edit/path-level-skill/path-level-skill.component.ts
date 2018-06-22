@@ -36,7 +36,7 @@ export class PathLevelSkillComponent implements OnInit {
     // check if current user is the creator enterprise
   this.userService.isEnterprise$.subscribe((isEnt: boolean) => {
     if (isEnt) {
-      this.isCreatorEnterprise = this.pathService.isCreatorOrAdmin(this.User.id);
+      this.isCreatorEnterprise = this.pathService.isPathCreator(this.User.id, this.pathId);
     }
   }
   ); }
