@@ -37,17 +37,25 @@ export class UserDetailsEditComponent implements OnInit {
       this.initForm();
     });
     this.countries = this.countryService.getAll();
-    this.cities = this.cityService.getCityByCountryName(this.user.country);
-    this.districts = this.districtService.getByCityName(this.user.city);
+    this.cities = this.cityService.getCityByCountryName(this.user.country) || this.cityService.getAll();
+    this.districts = this.districtService.getByCityName(this.user.city) || this.districtService.getAll();
   }
   onCountrySelect() {
     const country = this.userEditForm.value['country'];
+    this.user.country = country;
     this.cities = this.cityService.getCityByCountryName(country);
+    this.user.city = this.cities[0].name;
     this.districts = this.districtService.getByCityName(this.cities[0].name);
+    if (this.districts.length > 0) {
+      this.user.district = this.districts[0].name;
+    } else {
+      this.user.district = '';
+    }
   }
   onCitySelect() {
     const city = this.userEditForm.value['city'];
     this.districts = this.districtService.getByCityName(city);
+    this.user.district = this.districts[0].name;
   }
   onSubmit() {
     const interests = this.userEditForm.value['interests']
@@ -64,9 +72,12 @@ export class UserDetailsEditComponent implements OnInit {
       this.userEditForm.value['email'],
       this.user.password);
       newUser.telNumber = this.userEditForm.value['telNumber'];
-      newUser.district = this.userEditForm.value['district'];
-      newUser.country = this.userEditForm.value['country'];
-      newUser.city = this.userEditForm.value['city'];
+      // newUser.district = this.userEditForm.value['district'];
+      // newUser.country = this.userEditForm.value['country'];
+      // newUser.city = this.userEditForm.value['city'];
+      newUser.district = this.user.district;
+      newUser.country = this.user.country;
+      newUser.city = this.user.city;
       newUser.description = this.userEditForm.value['description'];
       newUser.interests = interests;
       this.userService.updateUser(this.id, newUser);

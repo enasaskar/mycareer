@@ -30,6 +30,7 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   public id: number;
   public currentId: number;
+  public isEnterprise: boolean;
 
   public newId = 3;
 
@@ -58,6 +59,7 @@ export class EnterpriseDetailsComponent implements OnInit {
   ngOnInit() {
     if (this.userService.currentUserId != null) {
     this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
+    this.isEnterprise = this.userService.getIsEnterprise();
     }
     this.id = +this.active.snapshot.params['id'];
     this.details = this.enterpriseService.getById(this.id);

@@ -71,11 +71,13 @@
             <i class="fa fa-map-marker"></i>
             <!-- <input class="form-control iconInput" id="address" type="text" formControlName = "district"> -->
             <select class="form-control mb-md iconInput" formControlName = "district">
+              <option *ngIf="!user.district">District...</option>
               <option *ngFor="let district of districts">{{district.name}}</option>
             </select>
           </div>
           <div class="col-md-4 col-xs-6">
             <select class="form-control mb-md" formControlName = "city" (change)="onCitySelect()">
+              <option *ngIf="!user.city">City...</option>
               <option *ngFor="let city of cities">{{city.name}}</option>
               <!-- <option>Cairo</option>
               <option>Alexandria</option> -->
@@ -83,6 +85,8 @@
           </div>
           <div class="col-md-4 col-xs-6">
             <select class="form-control mb-md" formControlName = "country" (change)="onCountrySelect()">
+              <option *ngIf="user.country">{{user.country}}</option>
+              <option *ngIf="!user.country">Country...</option>
               <option *ngFor="let country of countries">{{country.name}}</option>
               <!-- <option>Egypt</option>
               <option>Lebanon</option> -->
