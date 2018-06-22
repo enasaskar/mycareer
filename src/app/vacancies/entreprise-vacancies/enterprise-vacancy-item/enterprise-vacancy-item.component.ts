@@ -1,3 +1,4 @@
+import { Enterprise } from './../../../shared/classes/enterprise';
 import { Component, OnInit, Input } from '@angular/core';
 import { Vacancy } from '../../../shared/classes/vacancy.model';
 
@@ -8,6 +9,7 @@ import { Vacancy } from '../../../shared/classes/vacancy.model';
 })
 export class EnterpriseVacancyItemComponent implements OnInit {
  @Input() eVacancyItem : Vacancy;
+ @Input() e : Enterprise;
   constructor() { }
 
   ngOnInit() {
