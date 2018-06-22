@@ -26,7 +26,12 @@ export class UserDetailsComponent implements OnInit {
     this.route.parent.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
-      const currentEmpoyment = this.workExpService.getUserExperiences(this.id).filter(exp => exp.endDate === 'present');
+      // const currentEmpoyment = this.workExpService.getUserExperiences(this.id).filter(exp => exp.endDate === 'present');
+      let currentEmpoyment;
+      this.workExpService.getUserExperiences(this.id)
+      .subscribe(data => {
+        currentEmpoyment = data.filter(exp => exp.endDate === 'present');
+      });
       this.user.title = currentEmpoyment[0].content;
       this.user.enterpriseName = this.enterpriseService.getEnterpriseById(currentEmpoyment[0].enterpriseID).name;
     });
