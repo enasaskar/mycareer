@@ -1,6 +1,7 @@
 export class Enterprise {
     id?: number;
     name: string;
+    headline : string;
     logo: string;
     des: string;
     headquarters: string;
