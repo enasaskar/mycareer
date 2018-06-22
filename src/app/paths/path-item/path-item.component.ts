@@ -30,11 +30,11 @@ export class PathItemComponent implements OnInit {
   constructor(private pathService: PathService, private userService: UserService, private route: Router) { }
 
   ngOnInit() {
-    this.isAdmin = this.userService.getIsEnterprise() && this.pathService.isAdmin(this.User.id);
+    this.isAdmin = this.userService.getIsAdmin();
+    console.log('isAdmin = ', this.isAdmin);
     this.userService.isUserLoggedIn$.subscribe( (isLoggedIn: boolean) => {
       if (isLoggedIn) {
-         this.isAdmin = this.pathService.isAdmin(this.User.id);
-         console.log('isAdmin = ', this.isAdmin);
+        //  this.isAdmin = this.pathService.isAdmin(this.User.id);
       }
    });
   }
