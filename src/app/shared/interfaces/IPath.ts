@@ -21,10 +21,4 @@ export  interface IPath {
     // VacancyRelatedToPath: Vacancy[];
     EnterpriseRecommendPath: Enterprise[];
     // UserFollowPaths: User[];
-<<<<<<< HEAD
-    // Enterprise_Creator_Id: number;
-
-
-=======
->>>>>>> 9086a6f0ad6a35290b3025316d413e2f0d717ace
 }
