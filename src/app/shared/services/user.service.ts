@@ -70,7 +70,6 @@ export class UserService {
       country : '',
       city : '',
       role : 'admin',
-      enterpriseId : 1
     },
   ];
   constructor() {

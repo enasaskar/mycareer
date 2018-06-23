@@ -16,6 +16,7 @@ export class EnterpriseViewAllComponent implements OnInit {
   enterprises: Enterprise[];
   currentUserId : number;
   isEnterprise : boolean;
+  isAdmin : boolean;
 
   searchWord: string;
 
@@ -35,6 +36,7 @@ export class EnterpriseViewAllComponent implements OnInit {
     this.currentUserId = this.userService.currentUserId;
     if(this.currentUserId != null){
       this.isEnterprise = this.userService.getIsEnterprise();
+      this.isAdmin = this.userService.getIsAdmin();
     }
   }
 

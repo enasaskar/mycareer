@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   users: User[];
+  validLogin = true;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
             this.userService.isEnterprise = true;
             this.router.navigate(['/enterprises/NewFeed', u.enterpriseId]);
           } else  if (u.role == 'admin') {
-            this.userService.setIsAdmin(true);
+            //this.userService.setIsAdmin(true);
             this.userService.isAdmin = true;
             this.router.navigate(['/home']);
           } else {
@@ -41,9 +42,11 @@ export class LoginComponent implements OnInit {
           }
           break;
         } else {
+          this.validLogin = false;
           this.router.navigate(['/login']);
         }
       }
     }
+    
   }
 }

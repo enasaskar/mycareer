@@ -14,6 +14,7 @@
 <form action="" method="POST" role="form" (ngSubmit) = "OnSubmit(signUp)" #signUp = ngForm>
     <div class="container">
         <div class="row">
+            <h4 *ngIf="!validMail" class="col-md-offset-4 col-sm-12">This e-mail already exists</h4>
             <div class="col-md-4 col-md-offset-4 col-sm-12">
                 <div class="form-group">
                     <label for="">First name</label>
