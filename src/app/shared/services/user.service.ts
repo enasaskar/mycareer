@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../users/users.model';
-import { WorkExperience } from '../classes/userWorkExperienceModel';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
