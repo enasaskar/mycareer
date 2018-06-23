@@ -17,7 +17,7 @@ export class InterviewApplicantitemComponent implements OnInit {
   modalRef: BsModalRef;
   max = 10;
   isReadonly = false;
-
+  skillsRate:number[]=[];
   constructor(private modalService: BsModalService, private applicantsService: ApplicantsService,private evaluationService:EvaluationService) {
   }
 
@@ -38,9 +38,16 @@ export class InterviewApplicantitemComponent implements OnInit {
   // }
 
   public deleteApplicant() {
-    this.applicantsService.onInterviewDelete.next(this.applicant);
+    this.applicantsService.onDelete.next(this.applicant);
   }
   onSubmit(){
-    this.evaluationService.AddEvaluation({applicant_id:2,skill_id:6,rate:10});
+    console.log(this.applicant.vacancy.RequiredSkills);
+    for(let skill of this.applicant.vacancy.RequiredSkills){
+      this.evaluationService.AddEvaluation({user_id:this.applicant.user.id,skill_id:skill.ID,rate:skill.Rate});
+    }
+    //
+    console.log(this.evaluationService.getEvaluationByUserId(this.applicant.user.id));
+    this.modalRef.hide();
+
   }
 }

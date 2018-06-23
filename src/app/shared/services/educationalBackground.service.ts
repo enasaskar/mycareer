@@ -9,17 +9,17 @@ export class EducationalBackgroundService {
   private userEducation: WorkExperience[] = [
 
     new WorkExperience(
-      7,
+      3,
       '9 Months Program',
       '1-10-2017',
       'present'),
       new WorkExperience(
-        8,
+        6,
         `Bachelor's Degree`,
         '10-9-2012',
         '11-7-2017'),
       new WorkExperience(
-        9,
+        5,
         `HighSchool`,
         '',
         '10-7-2012')

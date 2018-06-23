@@ -9,14 +9,22 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
 
   private isUser: boolean;
+  public isEnterprise: boolean;
+  public isAdmin: boolean;
+
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
+
   idCount = 2;
+
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
+  currentUserId: number;
 
   isEnterprise$: Observable<boolean>;
-  private isEnterpriseSub : Subject<boolean>;
+  private isEnterpriseSub: Subject<boolean>;
+  private isAdminSub: Subject<boolean>;
+  isAdmin$: Observable<boolean>;
 
   // replace this with data from API
   private users: User[] = [
@@ -50,7 +58,19 @@ export class UserService {
       city : '',
       role : 'enterprise',
       enterpriseId : 1
-    }
+    },
+    {
+      id : 2,
+      fname : 'Passant',
+      lname : 'Osama',
+      email : 'admin@gmail.com',
+      password : '12345678',
+      telNumber : '',
+      district : '',
+      country : '',
+      city : '',
+      role : 'admin',
+    },
   ];
   constructor() {
     // this.isUserLoggedIn = false;
@@ -61,7 +81,9 @@ export class UserService {
     this.id$ = this.numberSubject.asObservable();
     this.isUser = false;
     this.isEnterpriseSub = new Subject<boolean>();
+    this.isAdminSub = new Subject<boolean>();
     this.isEnterprise$ = this.isEnterpriseSub.asObservable();
+    this.isAdmin$ = this.isAdminSub.asObservable();
   }
   // CRUD ops here
   getUsers() {
@@ -89,14 +111,27 @@ export class UserService {
   setUserId(id: number) {
     this.numberSubject.next(id);
   }
+  getUserId() {
+    return this.currentUserId;
+  }
   getIsUser() {
     return this.isUser;
   }
   setIsUser() {
     this.isUser = true;
   }
-  setIsEnterprise(flag : boolean) {
+  setIsEnterprise(flag: boolean) {
     this.isEnterpriseSub.next(flag);
+  }
+  getIsEnterprise() {
+    return this.isEnterprise;
+  }
+  setIsAdmin(flag: boolean) {
+    this.isAdminSub.next(flag);
+  }
+  getIsAdmin()
+  {
+    return this.isAdmin;
   }
   notSetUser() {
     this.isUser = false;

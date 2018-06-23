@@ -11,18 +11,18 @@ export class RatingListService{
         },
         {
             id : 2,
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            icon : '../../assets/img/workplace.png',
+            name : 'Workplace'
         },
         {
             id : 3,
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            icon : '../../assets/img/appreciation.png',
+            name : 'Appreciation'
         },
         {
             id : 4,
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            icon : '../../assets/img/cv.png',
+            name : 'Experience'
         }
     ];
 

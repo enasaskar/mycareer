@@ -44,7 +44,7 @@
       </div>
 
       <div class="col-md-8">
-        <span class="thumb-info-social-icons" id="intro_edit">
+        <span *ngIf = "id == currentId && isEnterprise" class="thumb-info-social-icons" id="intro_edit">
           <div class="info_edit">
             <a data-tooltip data-placement="top" data-original-title="Edit">
               <i class="fa fa-pencil" aria-hidden="true" (click)="onClick()"></i>
@@ -476,12 +476,12 @@
   </div>
 
   <!-- floating-button -->
-  <div *ngIf="details" id="container-floating">
+  <div *ngIf="details && currentId == id && isEnterprise" id="container-floating">
 
-    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy" routerLink = "/vacancy/addvacancy">
+    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy" routerLink = "/vacancies/addvacancy">
       <img class="reminder" src="../../../assets/img/vacancy.png" alt="">
     </div>
-    <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New JobFair">
+    <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New CareerPath" routerLink="/paths/add">
       <img class="reminder" src="../../../assets/img/jobFair.png" alt="">
     </div>
 

@@ -17,6 +17,7 @@ export class UserPendingVacanciesComponent implements OnInit {
       const enterprise = this.enterpriseSevice.getEnterpriseById(vacancy.fK_Enterprise_Id);
       this.enterprises.push(enterprise);
     });
+    console.log(this.enterprises);
   }
 
 }

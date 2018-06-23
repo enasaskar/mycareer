@@ -2,6 +2,7 @@ import { Enterprise } from './../../shared/classes/enterprise';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { EnterpriseService } from '../../shared/services/enterprise.service';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../../shared/services/user.service';
 
 
 @Component({
@@ -13,11 +14,14 @@ import { NgForm } from '@angular/forms';
 export class EnterpriseViewAllComponent implements OnInit {
 
   enterprises: Enterprise[];
+  currentUserId : number;
+  isEnterprise : boolean;
+  isAdmin : boolean;
 
   searchWord: string;
 
 
-  constructor(private enterpriseService: EnterpriseService) {
+  constructor(private enterpriseService: EnterpriseService,private userService : UserService) {
 
         enterpriseService.onDelete.subscribe(
           (e: Enterprise) => {
@@ -29,6 +33,11 @@ export class EnterpriseViewAllComponent implements OnInit {
 
   ngOnInit() {
     this.enterprises = this.enterpriseService.getAll();
+    this.currentUserId = this.userService.currentUserId;
+    if(this.currentUserId != null){
+      this.isEnterprise = this.userService.getIsEnterprise();
+      this.isAdmin = this.userService.getIsAdmin();
+    }
   }
 
   OnSearchSubmit(form: NgForm) {

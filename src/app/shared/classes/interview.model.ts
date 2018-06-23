@@ -2,7 +2,7 @@ import { Vacancy } from './vacancy.model';
 import { Applicant } from './applicant.model';
 
 export class Interview {
-    applicant?:Applicant;
+    applicant?: Applicant;
     vacancyId: number;
     date: string;
     time: string;

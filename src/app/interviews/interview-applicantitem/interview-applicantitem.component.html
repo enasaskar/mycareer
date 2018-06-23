@@ -71,10 +71,10 @@
                         <div class="col-md-12 col-xs-12 center">
                             <i class="fa fa-css3"></i>Technical Skills</div>
                         <br>
-                        <!-- <div class="col-md-6 col-xs-6" *ngFor="let skill of applicant">
-                            <span>{{getSkillName(skill.id)+" :"}} </span>
-                            <rating [(ngModel)]="skill.rate" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
-                        </div> -->
+                        <div class="col-md-6 col-xs-6" *ngFor="let skill of applicant.vacancy.RequiredSkills;let i=index">
+                            <span>{{skill.Name +" :"}} </span>
+                            <rating [(ngModel)]="skill.Rate" [max]="max" [readonly]="isReadonly" (keyup)="confirmSelection($event)"></rating>
+                        </div>
                         <!-- Write feedback -->
                         <div class="ShapSquare col-md-12">
                             <label for="feedback" class="control-label feedback">

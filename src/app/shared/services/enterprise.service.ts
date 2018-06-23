@@ -19,66 +19,60 @@ export class EnterpriseService {
         {
             id : 1,
             name : 'Vodafone',
+            headline : 'Telecommunications',
             logo : '../assets/img/logos/vodafone.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            des : `Every great brand stands for something and at Vodafone we exist to connect everybody to live a better today and build a better tomorrow. At Vodafone, our people live the brand.
+
+            Working at Vodafone is all about helping people feel ready to benefit from new technology. We bring the future to even the most remote places, using technology to help families in disaster zones, showing young people that a phone is not just for fun and thinking about technology that doesn’t even exist yet. 
+            
+            Over 30 years ago, we made the first ever mobile phone call and sent the first SMS in Britain and have been changing the lives of billions of people ever since. We are taking 4G to the Moon and using big data for social good to intelligent transport systems and emergency drones, we are still shaking things up.`,
             headquarters : 'USA'
         },
 
         {
             id : 2,
             name : 'ITWORX',
+            headline : 'Cloud',
             logo : '../assets/img/logos/itworx.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            des : `ITWORX is a global IT Services firm providing Cloud-based and On-premise solutions to the world's leading organizations with an emphasis on Advanced Analytics, Enterprise Mobility, Performance Management, and CRM. ITWORX has a 20-year proven track record building award-winning solutions for Telco, Banking, Manufacturing, Agriculture, and Government; leveraging its vast pool of talent, wide range of partnerships, and global delivery capability. 
+
+            ITWORX has global offices in Cairo, Connecticut, Toronto, London, Zurich, Riyadh, Dubai, Abu Dhabi, Kuwait, & Doha. 
+            `,
             headquarters : 'Egypt'
         },
         {
-            id : 3,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 4,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 5,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id : 6,
-            name : 'ITWORX',
-            logo : '../assets/img/ITWORX.jpg',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
-        },
-        {
-            id: 7,
+            id: 3,
             name: 'Information Technology Institute',
-            logo: '../../../assets/img/school.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            headline : 'Education',
+            logo: '../../../assets/img/logos/images.jpg',
+            des :`Information Technology Institute is a pioneering national institute with a regional influence and international linkage. Since it was established in 1993, ITI has been devoted to provide a large pool of promising youth with world-class human capacity building programs and empirical learning approach to profoundly scale up the impact of the aspiring Egyptian youth in the ICT workplace. While moving to a future where everyone is acquainted with technology and is capable to contribute in shaping the future of the ICT industry, the ITI provides Egyptians from 12 year olds till 60 year olds with the needed support. It offers Egyptians free scholarships and training in the different areas of the market.`,
             headquarters : 'Egypt'
         },
         {
-            id: 8,
-            name: 'Engineering Ain Shams University',
-            logo: '../../../assets/img/school.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            id: 4,
+            name: 'Valeo',
+            headline : 'Automative',
+            logo: '../../../assets/img/logos/Valeo_Logo.svg.png',
+            des : `Valeo is an automotive supplier, partner to all automakers worldwide. As a technology company, Valeo proposes innovative products and systems that contribute to the reduction of CO2 emissions and to the development of intuitive driving. 
+
+            In 2017, the Group generated sales of 18.6 billion euros and invested over 19% of its original equipment sales in Research and Development. Valeo has 184 plants, 55 Research and Development centers and 15 distribution platforms, and employs 111,600 people in 33 countries worldwide. `,
             headquarters : 'Egypt'
         },
         {
-            id: 9,
-            name: 'Al-Farouk Language School',
+            id: 5,
+            name: 'Sunrise Language School',
+            headline: 'Education',
             logo: '../../../assets/img/school.png',
-            des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            headquarters : 'Egypt'
+            des: 'Sunrise Language School founded in 1984 is ......etc',
+            headquarters: 'Egypt'
+        },
+        {
+            id: 6,
+            name: 'Ain Shams University',
+            headline: 'Education',
+            logo: '../../../assets/img/school.png',
+            des: 'Ain Shams University founded in 1884 is ......etc',
+            headquarters: 'Egypt'
         }
 
     ];
@@ -94,7 +88,12 @@ export class EnterpriseService {
         headquarters : 'USA',
         bigLogo : '../assets/img/vodafone.png',
         smallLogo : '../assets/img/logos/vodafone.png',
-        des : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        des : `Every great brand stands for something and at Vodafone we exist to connect everybody to live a better today and build a better tomorrow. At Vodafone, our people live the brand.
+
+        Working at Vodafone is all about helping people feel ready to benefit from new technology. We bring the future to even the most remote places, using technology to help families in disaster zones, showing young people that a phone is not just for fun and thinking about technology that doesn’t even exist yet. 
+        
+        Over 30 years ago, we made the first ever mobile phone call and sent the first SMS in Britain and have been changing the lives of billions of people ever since. We are taking 4G to the Moon and using big data for social good to intelligent transport systems and emergency drones, we are still shaking things up.
+        `,
         size : '300+',
         website : 'www.vodafone.com',
         facebookAccount: '',
@@ -133,11 +132,14 @@ export class EnterpriseService {
         },
         {
         id : 2,
-        name : '',
-        headLine : '',
-        headquarters : '',
+        name : 'ITWorkX',
+        headLine : 'Cloud',
+        headquarters : 'Egypt',
         bigLogo : '',
-        des : '',
+        des : `ITWORX is a global IT Services firm providing Cloud-based and On-premise solutions to the world's leading organizations with an emphasis on Advanced Analytics, Enterprise Mobility, Performance Management, and CRM. ITWORX has a 20-year proven track record building award-winning solutions for Telco, Banking, Manufacturing, Agriculture, and Government; leveraging its vast pool of talent, wide range of partnerships, and global delivery capability. 
+
+        ITWORX has global offices in Cairo, Connecticut, Toronto, London, Zurich, Riyadh, Dubai, Abu Dhabi, Kuwait, & Doha. 
+        `,
         size : '100-200',
         website : '',
         facebookAccount: '',

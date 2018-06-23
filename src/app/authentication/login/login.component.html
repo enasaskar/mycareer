@@ -14,7 +14,9 @@
 <form action="" method="POST" role="form" (ngSubmit) = "OnSubmit(login)" #login = ngForm>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3  col-sm-12">
+            <h4 class="col-md-offset-4  col-sm-12" *ngIf="!validLogin">Either the email or the password is incorrect!</h4>
+
+            <div class="col-md-4 col-md-offset-4  col-sm-12">
                         <div class="form-group">
                             <label for="">E-mail</label>
                             <input type="email" ngModel class="form-control" name="email"  placeholder="E-mail" required email>
@@ -25,7 +27,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary right" [disabled]="login.invalid">Login</button>
                         <hr class = "tall"/>
-                        <span>You don't have an account? </span><a routerLink = "/signUp">Create one for free</a>
+                        <span>Not a member? </span><a routerLink = "/signUp">Create account for free</a>
                     </div>
             </div>
             

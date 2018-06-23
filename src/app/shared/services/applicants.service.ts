@@ -10,12 +10,12 @@ import { Skill } from '../classes/skill.model';
   providedIn: 'root'
 })
 export class ApplicantsService {
-  skills: Skill[];
+
   public onDelete = new Subject();
-  constructor(private skillsService: SkillsService) {
-    this.skills = this.skillsService.getAll();
-  }
-  applicants: Applicant[] = [
+  public onUpdate = new Subject();
+  
+  skills: Skill[] = this.skillsService.getAll();
+  applicants: Applicant[] =[
     {
       user: new User(0,
         '../../../assets/img/team/emp2.jpg',
@@ -101,87 +101,6 @@ export class ApplicantsService {
     }, {
       user: new User(0,
         '../../../assets/img/team/emp2.jpg',
-        'Ahmed', 'Yasser',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: null
-    }, {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'AbdelRahman', 'Mohamed',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: null
-    }, , {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Osama', 'Ahmed',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: null
-    }, {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
         'Ahmed', 'Adel',
         'Web Developer',
         'Company',
@@ -234,71 +153,18 @@ export class ApplicantsService {
         fK_Level_Id: 1
       },
       status: true
-    }, {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Ahmed', 'Adel',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: true
-    },
-    {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Mohamed', 'Osama',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: true
-    }
-
-  ];
-
+    }];
+    
+  constructor(private skillsService: SkillsService) {
+  }
+  
 
   public add(applicant: Applicant) {
     this.applicants.push(applicant);
+    this.getAll();
   }
-  public update() {
-
+  public update(applicant:Applicant) {
+    applicant.status = true;
   }
   public getAll(): Applicant[] {
     return this.applicants;
@@ -317,7 +183,7 @@ export class ApplicantsService {
     return this.applicants.filter(a => a.vacancy.id === id);
   }
   public getByEnterpriseId(id: number): Applicant[] {
-    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id === id);
+    return this.applicants.filter(a => a.vacancy.fK_Enterprise_Id == id);
   }
 
   public getBySearchWord(searchWord: string, id: number) {
@@ -333,8 +199,7 @@ export class ApplicantsService {
   }
 
   public delete(applicant: Applicant) {
-      const index = this.applicants.indexOf(applicant);
-      this.applicants.splice(index, 1);
-      console.log('pending is deleted', this.applicants);
+     applicant.status = false;  
   }
+
 }

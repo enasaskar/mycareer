@@ -17,6 +17,7 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
 // import { UserAddWorkExperienceModalComponent } from './user-add-workExperience-Modal/user-add-workExperience-Modal.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { PathsModule } from '../paths/path.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     VacanciesModule,
     InterviewsModule,
     EnterprisesModule,
+    PathsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

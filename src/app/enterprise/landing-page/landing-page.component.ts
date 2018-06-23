@@ -1,6 +1,7 @@
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,10 +14,13 @@ export class LandingPageComponent implements OnInit {
   public doughnutChartType:string = 'doughnut';
 
   enterprise : EnterpriseDetails;
-  constructor(private enterpriseService : EnterpriseService) { }
+  eId : number;
+  constructor(private enterpriseService : EnterpriseService,private router : ActivatedRoute) { }
 
   ngOnInit() {
-    this.enterprise = this.enterpriseService.getById(1);
+    this.eId = +this.router.snapshot.params["id"];
+    console.log(this.eId);
+    this.enterprise = this.enterpriseService.getById(this.eId);
   }
 
   public chartClicked(e:any):void {

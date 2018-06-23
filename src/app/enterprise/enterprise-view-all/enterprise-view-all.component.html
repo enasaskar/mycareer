@@ -22,7 +22,7 @@
     <div class="row" style="margin-bottom: 20px;">
         <div class="col-md-10"></div>
         <div class="col-md-2">
-            <a href="#" class="btn btn-primary right" routerLink='enterprise/details'>Add Account</a>
+            <a *ngIf="(!isEnterprise || isAdmin) && currentUserId != null" class="btn btn-primary right" routerLink='enterprise/details'>Add Account</a>
         </div>
     </div>
     <div class="container vacancy">

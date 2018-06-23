@@ -91,7 +91,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 9,
+            fK_Enterprise_Id: 2,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 2
@@ -162,7 +162,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 6,
+            fK_Enterprise_Id: 1,
             fK_Branch_Id: 2,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 1
@@ -197,7 +197,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 9,
+            fK_Enterprise_Id: 2,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 1,
             fK_Level_Id: 1
@@ -232,7 +232,7 @@ export class VacancyService {
             isDeleted: false,
             RequiredSkills: [...this.skills],
             fK_Currency_Id: 1,
-            fK_Enterprise_Id: 7,
+            fK_Enterprise_Id: 1,
             fK_Branch_Id: 1,
             fK_VacancyType_Id: 2,
             fK_Level_Id: 1
@@ -265,7 +265,7 @@ export class VacancyService {
             fK_Level_Id: 2
          },
          {
-             id: 8,
+             id: 9,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -290,7 +290,7 @@ export class VacancyService {
              fK_VacancyType_Id: 2,
              fK_Level_Id: 2
          }, {
-            id: 9,
+            id: 10,
             title: 'Senior ASP.NET / MVC',
             description: `
             Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
@@ -318,7 +318,7 @@ export class VacancyService {
             fK_Level_Id: 1
          },
          {
-             id: 10,
+             id: 11,
              title: 'UI / Web Designer',
              description: `Ability to collaborate closely with UX designers, UI developers, copywriters, and Business Analysts.
              Ability to translate the UX designers’ visions and user journeys into reality
@@ -356,7 +356,6 @@ export class VacancyService {
     }
     public getById(id: number) {
         const v = this.vacancies.find(a => a.id == id);
-        console.log(v);
         return v;
 
     }
@@ -366,22 +365,21 @@ export class VacancyService {
     }
     public getVacanciesByEnterpriseIdGeneral(searchtext: string) {
         return this.vacanciesChanged.startWith(this.getAllNotDeleted()
-                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase()) 
+                   .filter(a => a.title.toLowerCase().includes(searchtext.toLowerCase())
                    ||
                     a.description.toLowerCase().includes(searchtext.toLowerCase())    ));
     }
-    public delete(id: number) {
+    public deletev(id: number) {
         this.getById(id).isDeleted = true;
-        this.vacanciesChanged.next(this.getAllNotDeleted());
+         this.vacanciesChanged.next(this.getAllNotDeleted());
+         console.log(this.vacancies);
+
     }
     public addVacancy(v: Vacancy) {
-        debugger
         this.vacancies.push(v);
         this.vacanciesChanged.next(this.getAllNotDeleted());
- 
     }
     public updateVacancy(id: number, v: Vacancy) {
-        debugger
         const vac = this.vacancies.find(i => i.id === id);
         vac.postdate = v.postdate;
         vac.requirements = v.requirements;

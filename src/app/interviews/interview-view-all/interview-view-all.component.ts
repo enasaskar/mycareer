@@ -20,19 +20,23 @@ export class InterviewViewAllComponent implements OnInit {
   }
   ngOnInit() {
     this.enterprise_id = this.route.snapshot.params['id'];
-    this.applicants = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a => a.status === null);
+    this.applicants = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a => a.status == null);
     this.enterprise = this.enterpriseService.getEnterpriseById(this.enterprise_id);
+    this.applicantsService.onDelete.subscribe((applicant: Applicant) => {
+      this.applicantsService.delete(applicant);
+      this.applicants = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a => a.status == null);
+    })
+    this.applicantsService.onUpdate.subscribe((applicant: Applicant) => {
+      this.applicantsService.update(applicant);
+      this.applicants = this.applicantsService.getByEnterpriseId(this.enterprise_id).filter(a => a.status == null);
+    })
   }
 
   rejectApplicant(item: Applicant) {
-    //console.log("rejected");
-    const id = this.applicants.indexOf(item);
-    this.applicants.splice(id, 1);
-    //this.applicantsService.delete(id);
-    //console.log("isDeleted");
+    this.applicantsService.onDelete.next(item);
   }
   acceptedApplicant(item: Applicant) {
-    //this.applicantsService.update(id,true);
+    this.applicantsService.onUpdate.next(item);
   }
 
   OnSearchSubmit() {
