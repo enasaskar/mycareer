@@ -25,6 +25,7 @@ export class SignUpComponent implements OnInit {
     if (form.valid) {
       this.validMail = true;
       this.newUser.fname = form.value.fname;
+      this.newUser.lname = form.value.lname;
       this.newUser.email = form.value.email;
       this.newUser.password = form.value.password;
       for(let i = 0; i < this.users.length; i++){
