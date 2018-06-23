@@ -36,10 +36,12 @@ export class UserDetailsEditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.route.parent.parent.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-      this.initForm();
-    });
+    // this.route.parent.parent.params.subscribe((params: Params) => {
+    //   this.id = +params['id'];
+    //   this.initForm();
+    // });
+    this.id = this.userService.currentUserId;
+    this.initForm();
     this.countries = this.countryService.getAll();
     this.cities = this.cityService.getCityByCountryName(this.user.country) || this.cityService.getAll();
     this.districts = this.districtService.getByCityName(this.user.city) || this.districtService.getAll();

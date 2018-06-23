@@ -33,17 +33,18 @@ export class UserProfileComponent implements OnInit {
     private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.route.parent.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-      this.user = this.userService.getUserById(this.id);
-    });
+    // this.route.parent.params.subscribe((params: Params) => {
+    //   this.id = +params['id'];
+    //   this.user = this.userService.getUserById(this.id);
+    // });
     // this.userWorkExperiences = this.workService.getUserExperiences(this.id);
     // this.workService.getUserExperiences(this.id)
     // .subscribe(data => {
     //   this.userWorkExperiences = data;
     // });
+    this.id = this.userService.currentUserId;
+    this.user = this.userService.getUserById(this.id);
     this.userWorkExperiences = this.workService.getUserExperiences(this.id);
-    
     this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
   }
   openModal(template: TemplateRef<any>) {

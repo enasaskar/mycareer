@@ -26,7 +26,7 @@ export class UserDetailsComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.route.parent.parent.params.subscribe((params: Params) => {
+    /*this.route.parent.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.user = this.userService.getUserById(this.id);
       this.expChanged = this.workExpService.getUserExperiences(this.id);
@@ -41,9 +41,17 @@ export class UserDetailsComponent implements OnInit {
         this.expChanged = data;
         // currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present');
       });
-      console.log(this.expChanged);
       this.user.title = this.currentEmpoyment.content;
       this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
-    });
+    });*/
+    this.id = this.userService.currentUserId;
+    this.user = this.userService.getUserById(this.id);
+    this.expChanged = this.workExpService.getUserExperiences(this.id);
+    this.currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present')[0];
+    this.workExpService.workExperienceChanged.subscribe(data => {
+      this.expChanged = data; });
+    this.user.title = this.currentEmpoyment.content;
+    this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
+
   }
 }

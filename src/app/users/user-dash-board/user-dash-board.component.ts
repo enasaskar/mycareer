@@ -9,6 +9,7 @@ import { JobOfferService } from '../../shared/services/jobOffer.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { PathService } from '../../shared/services/path.service';
 import { IPath } from '../../shared/interfaces/IPath';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-user-dash-board',
@@ -23,16 +24,19 @@ export class UserDashBoardComponent implements OnInit {
   userPaths: IPath[];
   id: number;
 
-  constructor(private vacancyService: VacancyService,
+  constructor(
+    private userService: UserService,
+    private vacancyService: VacancyService,
     private jobOfferService: JobOfferService,
     private route: ActivatedRoute,
     private pathService: PathService
   ) { }
 
   ngOnInit() {
-    this.route.parent.params.subscribe((params: Params) => {
-      this.id = +params['id'];
-    });
+    // this.route.parent.params.subscribe((params: Params) => {
+    //   this.id = +params['id'];
+    // });
+    this.id = this.userService.currentUserId;
     this.userPendingVacancies = this.vacancyService.getUserVacancies(this.id);
     this.userJobOffers = this.jobOfferService.getUserJobOffers(this.id);
     this.userPaths = this.pathService.getUserPaths(this.id);
