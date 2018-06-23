@@ -6,6 +6,7 @@ import { WorkExperienceService } from '../../../shared/services/workExperience.s
 import { EducationalBackgroundService } from '../../../shared/services/educationalBackground.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { UserService } from '../../../shared/services/user.service';
 
 
 @Component({
@@ -22,8 +23,10 @@ export class WorkExpItemComponent implements OnInit {
   enterprise: Enterprise;
   id: number;
   modalRef: BsModalRef;
+  isUser = false;
 
   constructor(private enterpriseService: EnterpriseService,
+    private userService: UserService,
     private workExpService: WorkExperienceService,
     private eduService: EducationalBackgroundService,
     private route: ActivatedRoute,
@@ -33,6 +36,9 @@ export class WorkExpItemComponent implements OnInit {
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
+      if (this.id === this.userService.currentUserId) {
+        this.isUser = true;
+      }
     });
     this.enterprise = this.enterpriseService.getEnterpriseById(this.workExpItem.enterpriseID);
   }
