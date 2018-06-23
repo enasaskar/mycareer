@@ -13,6 +13,7 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillAddNewComponent implements OnInit {
 
+  addedSkill: Skill ;
   addForm: FormGroup;
   @Input() skills: Skill[];
   options: Skill[] = [];
@@ -39,7 +40,7 @@ export class SkillAddNewComponent implements OnInit {
       option.Name.toLowerCase().includes(val.toLowerCase()));
   }
   onSubmit(skillName: string) {
-    this.skillsService.addSkill({
+   this.skillsService.addSkill({
       ID: 0,
       Name: skillName,
       Img: '',
@@ -51,6 +52,7 @@ export class SkillAddNewComponent implements OnInit {
       Review: ''
     });
   console.log(skillName);
+
   }
 
 

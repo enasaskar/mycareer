@@ -1,9 +1,11 @@
 import { getAllDebugNodes } from '@angular/core/src/debug/debug_node';
 import { Skill } from '../classes/skill.model';
 import { Subject } from 'rxjs';
+import { EventEmitter } from '@angular/core';
 
 export class SkillsService {
-    public onDelete =  new Subject();
+    // public onDelete =  new Subject();
+    // onTrashClicked = new EventEmitter<number>();
 
 private skills: Skill[] = [
     {
@@ -202,7 +204,7 @@ private skills: Skill[] = [
 
 
  getAll(): Skill[] {
-    return this.skills.filter(s => s.IsDeleted === false);
+    return this.skills;
 }
 
  getByID(id: number): Skill {
@@ -213,12 +215,19 @@ private skills: Skill[] = [
     this.skills.push(skill);
 }
 
-deleteSkill(id: number) {
-    this.skills.find(s => s.ID === id).IsDeleted = true;
+deleteSkill(skill: number) {
+    // this.skills.find(s => s.ID === skill.ID).IsDeleted = true;
+
+    // const index = this.skills.indexOf(this.skills.find(s => s.ID  == skill));
+    console.log('skill index service' , skill);
+    this.skills.splice(skill, 1);
+
 }
 
  getAllByPathID(pid: number): Skill[] {
     return this.skills.filter(s => s.ID === pid - 1 + 1);
 }
-
+getAllByUserID(uid: number): Skill[] {
+return this.skills.splice(1, 3);
+}
 }
