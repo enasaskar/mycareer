@@ -18,11 +18,15 @@ import { DistrictService } from '../../shared/services/district.service';
 export class UserDetailsEditComponent implements OnInit {
 
   user: User;
+  oldUser: User;
   id: number;
   userEditForm: FormGroup;
   countries: Country[];
   cities: City[];
   districts: District[];
+  usercountry: string;
+  usercity: string;
+  userdistrict: string;
 
   constructor(private userService: UserService,
     private countryService: CountryService,
@@ -42,20 +46,20 @@ export class UserDetailsEditComponent implements OnInit {
   }
   onCountrySelect() {
     const country = this.userEditForm.value['country'];
-    this.user.country = country;
+    this.usercountry = country;
     this.cities = this.cityService.getCityByCountryName(country);
-    this.user.city = this.cities[0].name;
+    this.usercity = this.cities[0].name;
     this.districts = this.districtService.getByCityName(this.cities[0].name);
     if (this.districts.length > 0) {
-      this.user.district = this.districts[0].name;
+      this.userdistrict = this.districts[0].name;
     } else {
-      this.user.district = '';
+      this.userdistrict = '';
     }
   }
   onCitySelect() {
     const city = this.userEditForm.value['city'];
     this.districts = this.districtService.getByCityName(city);
-    this.user.district = this.districts[0].name;
+    this.userdistrict = this.districts[0].name;
   }
   onSubmit() {
     const interests = this.userEditForm.value['interests']
@@ -75,9 +79,9 @@ export class UserDetailsEditComponent implements OnInit {
       // newUser.district = this.userEditForm.value['district'];
       // newUser.country = this.userEditForm.value['country'];
       // newUser.city = this.userEditForm.value['city'];
-      newUser.district = this.user.district;
-      newUser.country = this.user.country;
-      newUser.city = this.user.city;
+      newUser.district = this.userdistrict;
+      newUser.country = this.usercountry;
+      newUser.city = this.usercity;
       newUser.description = this.userEditForm.value['description'];
       newUser.interests = interests;
       this.userService.updateUser(this.id, newUser);
@@ -85,6 +89,7 @@ export class UserDetailsEditComponent implements OnInit {
       this.onCancel();
   }
   onCancel() {
+    // this.user = Object.assign({}, this.oldUser);
     this.router.navigate(['../'], {relativeTo: this.route});
   }
   private initForm() {
