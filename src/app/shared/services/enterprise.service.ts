@@ -25,14 +25,7 @@ export class EnterpriseService {
 
             Working at Vodafone is all about helping people feel ready to benefit from new technology. We bring the future to even the most remote places, using technology to help families in disaster zones, showing young people that a phone is not just for fun and thinking about technology that doesn’t even exist yet. 
             
-            Over 30 years ago, we made the first ever mobile phone call and sent the first SMS in Britain and have been changing the lives of billions of people ever since. We are taking 4G to the Moon and using big data for social good to intelligent transport systems and emergency drones, we are still shaking things up.
-            
-            
-            We believe being different is good. We’re proud to offer equal opportunities regardless of race, nationality, cultural background, gender, age, marital status, sexual orientation, gender identity, disability, religious or political belief.
-            We can only leverage this diversity by building an inclusive culture where everyone is respected, can be themselves and strive to be their best. Your different perspectives help us to shape the future.
-            
-            No matter where you are, the way we see the future binds us together. We want our people to be at the top of their game by giving them the freedom and the opportunities to make a difference. We want our people to be pioneers, by adopting new technologies and being excited about the future. 
-            `,
+            Over 30 years ago, we made the first ever mobile phone call and sent the first SMS in Britain and have been changing the lives of billions of people ever since. We are taking 4G to the Moon and using big data for social good to intelligent transport systems and emergency drones, we are still shaking things up.`,
             headquarters : 'USA'
         },
 
@@ -100,12 +93,6 @@ export class EnterpriseService {
         Working at Vodafone is all about helping people feel ready to benefit from new technology. We bring the future to even the most remote places, using technology to help families in disaster zones, showing young people that a phone is not just for fun and thinking about technology that doesn’t even exist yet. 
         
         Over 30 years ago, we made the first ever mobile phone call and sent the first SMS in Britain and have been changing the lives of billions of people ever since. We are taking 4G to the Moon and using big data for social good to intelligent transport systems and emergency drones, we are still shaking things up.
-        
-        
-        We believe being different is good. We’re proud to offer equal opportunities regardless of race, nationality, cultural background, gender, age, marital status, sexual orientation, gender identity, disability, religious or political belief.
-        We can only leverage this diversity by building an inclusive culture where everyone is respected, can be themselves and strive to be their best. Your different perspectives help us to shape the future.
-        
-        No matter where you are, the way we see the future binds us together. We want our people to be at the top of their game by giving them the freedom and the opportunities to make a difference. We want our people to be pioneers, by adopting new technologies and being excited about the future. 
         `,
         size : '300+',
         website : 'www.vodafone.com',
