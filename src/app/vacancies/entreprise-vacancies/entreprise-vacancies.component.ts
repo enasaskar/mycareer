@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Vacancy } from '../../shared/classes/vacancy.model';
 import { VacancyService } from '../../shared/services/vacancy-service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-entreprise-vacancies',
@@ -11,13 +12,21 @@ import { VacancyService } from '../../shared/services/vacancy-service';
   styleUrls: ['./entreprise-vacancies.component.css']
 })
 export class EntrepriseVacanciesComponent implements OnInit {
-  eVacancies: Vacancy[];  
-  enterprise : Enterprise;
-  constructor(private eVacancyServiec: VacancyService,private active : ActivatedRoute,private eService : EnterpriseService) { }
+  eVacancies: Vacancy[];
+  enterprise: Enterprise;
+  uId: any;
+  currentUser: any;
+  constructor(private eVacancyServiec: VacancyService, private userService: UserService ,
+     private active: ActivatedRoute, private eService: EnterpriseService) { }
 
   ngOnInit() {
-    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(+this.active.snapshot.params["id"]); 
-    this.enterprise = this.eService.getEnterpriseById(+this.active.snapshot.params["id"]);
+    this.uId = this.userService.currentUserId;
+    if (this.uId) {
+      this.currentUser = this.userService.getUserById(this.uId);
+      console.log(this.uId);
+      console.log(this.currentUser.role);
+    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.uId);
+        this.enterprise = this.eService.getEnterpriseById(this.uId);
   }
-
+}
 }

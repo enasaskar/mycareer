@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(form: NgForm) {
     if (form.valid) {
+      debugger
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].email === form.value.email && this.users[i].password === form.value.password) {
           console.log('loggedIn');

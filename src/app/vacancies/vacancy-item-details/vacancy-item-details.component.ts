@@ -50,7 +50,7 @@ export class VacancyItemDetailsComponent implements OnInit {
     this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
     const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
     const ids2 =ids.filter( this.onlyUnique );
-    console.log(ids2)
+    console.log(ids2);
     this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
     const ids3 = this.enterprises.filter( this.onlyUnique );
     console.log(ids3);
