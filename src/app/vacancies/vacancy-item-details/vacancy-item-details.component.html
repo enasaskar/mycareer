@@ -197,10 +197,10 @@
             <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.name}}">
               All Careers and Jobs at {{vacancieyDetailsEnterprise.name}}</a>
             <a role="button" *ngFor="let item of vacancieyDetailsEnterprise.branches" routerLink="/vacancies/{{item.city}}">
-              UI/UX Web Developer Jobs in {{item.city}}
+              UI/UX Web Developer Jobs in {{item.city.name}}
             </a>
            
-            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.id}}">
+            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.headquarters}}">
               Jobs in Egypt
             </a>
 

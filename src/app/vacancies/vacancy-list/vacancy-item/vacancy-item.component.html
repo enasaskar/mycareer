@@ -1,6 +1,6 @@
 <div class="col-md-4 col-sm-4 col-xs-12">
     <div class="feature-box secundary bordered">
-            <a class="thumb-info lightbox right" routerLink='/vacancies/vacancydetails/{{vacancyitem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+            <a class="thumb-info lightbox right" (click)="onClickMoreDetails(vacancyitem.id)" data-plugin-options='{"type":"inline", preloader: false}'
                 data-toggle="tooltip" data-placement="top" title="more info">
                 <i class="fa fa-info"></i>
             </a>
@@ -8,7 +8,7 @@
             <img src="{{enterprises[index].logo}}" alt="">
         </div>
         <div class="feature-box-info">
-            <a href="index-2.html">
+            <a routerLink='/vacancies/vacancydetails/{{vacancyitem.id}}'>
                 <h5 class="shorter">{{vacancyitem.title}}</h5>
             </a>
             <h6 class="short">{{enterprises[index].headquarters}} + {{vacancyitem.id}}</h6>

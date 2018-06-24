@@ -30,6 +30,7 @@ export class VacancyItemDetailsComponent implements OnInit {
   vacancieyDetails: Vacancy;
   idUser: number;
   uId: any;
+  vid: any;
   constructor(private vacancyServiec: VacancyService, private enterpriseService: EnterpriseService,
      private typeService: VacancyTypeService, private levelsService: VacancyLevelService,
      private userService: UserService, private applicantService: ApplicantsService,
@@ -39,21 +40,28 @@ export class VacancyItemDetailsComponent implements OnInit {
  onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
+
   ngOnInit() {
-    const id = this.activeRoute.snapshot.params['id'];
-    this.vacancieyDetails = this.vacancyServiec.getById(id);
+    debugger
+     this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
+     console.log(this.vid);
+    this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
     this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
     this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
     this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
 
     // similar vacancies
     this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
-    const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
-    const ids2 =ids.filter( this.onlyUnique );
-    console.log(ids2);
+    this.vacancyServiec.getSimilarVacancy(this.vacancieyDetails.title).subscribe((d) => { this.vacancies = d; });
+    // const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
+    // console.log(ids);
+    // const ids2 = ids.filter( this.onlyUnique );
+    // console.log(ids2);
     this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
-    const ids3 = this.enterprises.filter( this.onlyUnique );
-    console.log(ids3);
+    // const ids3 = this.enterprises.filter( this.onlyUnique );
+    // console.log(ids3);
+    console.log(this.vacancies);
+    console.log(this.enterprises);
 
   }
   OnSearchSubmit(searchForm: NgForm) { }
