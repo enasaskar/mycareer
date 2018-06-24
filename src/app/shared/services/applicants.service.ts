@@ -154,10 +154,9 @@ export class ApplicantsService {
       },
       status: true
     }];
-    
+
   constructor(private skillsService: SkillsService) {
   }
-  
 
   public add(applicant: Applicant) {
     this.applicants.push(applicant);

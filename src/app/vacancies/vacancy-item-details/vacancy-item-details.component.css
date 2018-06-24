@@ -198,6 +198,7 @@
 
 .enterprise-view-one .des .featured-box
 {
+  margin-top: 60px;
   text-align: left;
   min-height : 150px !important;
 }
@@ -394,4 +395,8 @@ div h3{
   font-weight: 600;
   font-size: 19px;
   line-height: 30px;
+}
+input.apply{
+  width: 20%;
+  height: auto;
 }

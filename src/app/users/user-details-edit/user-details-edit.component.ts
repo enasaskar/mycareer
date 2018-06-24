@@ -59,9 +59,12 @@ export class UserDetailsEditComponent implements OnInit {
     }
   }
   onCitySelect() {
+    const country = this.userEditForm.value['country'];
+    this.usercountry = country;
     const city = this.userEditForm.value['city'];
+    this.usercity = city;
     this.districts = this.districtService.getByCityName(city);
-    this.userdistrict = this.districts[0].name;
+    this.userdistrict = this.districts[0].name || '';
   }
   onSubmit() {
     const interests = this.userEditForm.value['interests']

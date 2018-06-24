@@ -4,11 +4,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Vacancy } from '../../../shared/classes/vacancy.model';
 
 @Component({
-  selector: 'app-enterprise-vacancy-item',
-  templateUrl: './enterprise-vacancy-item.component.html',
-  styleUrls: ['./enterprise-vacancy-item.component.css']
+  selector: 'app-enterprise-vacancy-own-item',
+  templateUrl: './enterprise-vacancy-own-item.component.html',
+  styleUrls: ['./enterprise-vacancy-own-item.component.css']
 })
-export class EnterpriseVacancyItemComponent implements OnInit {
+export class EnterpriseVacancyItemOwnComponent implements OnInit {
  @Input() eVacancyItem: Vacancy;
  @Input() e: Enterprise;
  currentId: number;

@@ -4,12 +4,13 @@
       <!--Profile Pic-->
       <div class="col-md-4" data-appear-animation="fadeIn">
         <div class="profilePic">
-          <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
+          <a *ngIf="isUser" class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
             <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
             <span class="thumb-info-action">
               <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
             </span>
           </a>
+          <img *ngIf="!isUser" alt="" height="300" class="img-responsive" [src]="user.imagePath">
         </div>
         <div id="popupImageEdit" class="popup-inline-content">
           <div class="row">

@@ -29,7 +29,7 @@ import { JobOfferService } from './shared/services/job-offer.service';
 import { CompanylogoitemComponent } from './home/companylogoitem/companylogoitem.component';
 import { CompanyLogoService } from 'src/app/shared/services/company-logo.service';
 import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
-import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
+import { BsDatepickerModule, ModalModule,CarouselModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
 import { DragScrollModule } from 'ngx-drag-scroll';
@@ -45,6 +45,8 @@ import { BranchService } from 'src/app/shared/services/branch-service';
 import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
+import { RateitemComponent } from './home/rateitem/rateitem.component'
+import { RateService } from 'src/app/shared/services/rate.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
 import { BarRatingModule } from 'ngx-bar-rating';
@@ -76,7 +78,8 @@ import { BarRatingModule } from 'ngx-bar-rating';
     ModalModule.forRoot(),
     DragScrollModule,
     AuthModule,
-    BarRatingModule
+    BarRatingModule,
+    CarouselModule.forRoot()
   ],
   exports: [
     // SkillItemSmallComponent

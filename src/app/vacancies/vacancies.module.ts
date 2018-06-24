@@ -13,6 +13,9 @@ import { UserPendingVacanciesComponent } from './user-pending-vacancies/user-pen
 import { UserJobOffersComponent } from './user-jobOffers/user-jobOffers.component';
 import { EntrepriseVacanciesComponent } from './entreprise-vacancies/entreprise-vacancies.component';
 import { EnterpriseVacancyItemComponent } from './entreprise-vacancies/enterprise-vacancy-item/enterprise-vacancy-item.component';
+import { EntrepriseVacanciesOwmComponent } from './entreprise-vacancies-own/entreprise-vacancies-own.component';
+// tslint:disable-next-line:max-line-length
+import { EnterpriseVacancyItemOwnComponent } from './entreprise-vacancies-own/enterprise-vacancy-item/enterprise-vacancy-own-item.component';
 
 @NgModule({
   imports: [
@@ -32,7 +35,9 @@ import { EnterpriseVacancyItemComponent } from './entreprise-vacancies/enterpris
     UserJobOffersComponent,
     EntrepriseVacanciesComponent,
     EnterpriseVacancyItemComponent,
-    VacanciesComponent
+    VacanciesComponent,
+    EntrepriseVacanciesOwmComponent,
+    EnterpriseVacancyItemOwnComponent
 ],
   exports:
   [

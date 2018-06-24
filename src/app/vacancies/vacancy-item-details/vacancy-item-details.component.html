@@ -18,7 +18,10 @@
 <div role="main" class="main">
 
   <div class="container">
+    <div class="row" *ngIf="applystatues !=false" ><div  class="col-md-8 alert alert-success">
+      <strong>Congratualtions {{currentuser.fname}}!
 
+    </strong> You applied for this job wait for responding. </div></div>
     <div class="row push-top" id="projects">
       <div id="popupProject" class="popup-inline-content">
         <h2> Name : {{vacancieyDetailsEnterprise.name}}</h2>
@@ -45,7 +48,7 @@
       </div>
 
       <div class="col-md-6">
-        <span class="thumb-info-social-icons" id="intro_edit">
+        <!-- <span class="thumb-info-social-icons" id="intro_edit" *ngIf="currentuser != null">
           <div class="info_edit">
             <a class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{vacancieyDetails.id}}' data-plugin-options='{"type":"inline", preloader: false}'
               data-toggle="tooltip" data-placement="top" title="edit">
@@ -53,7 +56,7 @@
               <span>Edit</span>
             </a>
           </div>
-        </span>
+        </span> --> 
 
         <h2 class="shorter arabic-titile">
           {{vacancieyDetails.title}} </h2>
@@ -67,7 +70,7 @@
             <label>Applicants</label>
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" (click)="onApply(vacancieyDetails)" value="Apply" />
+        <input type="submit" class="btn apply btn-primary" *ngIf="applystatues !=true " (click)="onApply(vacancieyDetails)" value="Apply" />
 
 
 
@@ -197,10 +200,10 @@
             <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.name}}">
               All Careers and Jobs at {{vacancieyDetailsEnterprise.name}}</a>
             <a role="button" *ngFor="let item of vacancieyDetailsEnterprise.branches" routerLink="/vacancies/{{item.city}}">
-              UI/UX Web Developer Jobs in {{item.city}}
+              UI/UX Web Developer Jobs in {{item.city.name}}
             </a>
            
-            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.id}}">
+            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.headquarters}}">
               Jobs in Egypt
             </a>
 
