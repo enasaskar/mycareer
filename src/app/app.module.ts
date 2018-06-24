@@ -37,13 +37,17 @@ import { BranchService } from 'src/app/shared/services/branch-service';
 import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { RateitemComponent } from './home/rateitem/rateitem.component'
+import { RateService } from 'src/app/shared/services/rate.service';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ServicesitemComponent,
     JobofferitemComponent,
-    CompanylogoitemComponent
+    CompanylogoitemComponent,
+    RateitemComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     ModalModule.forRoot(),
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [
     EnterpriseService,
@@ -77,7 +82,8 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
     VacancyLevelService,
     VacancyTypeService,
     CurrencyService,
-    RatingListService
+    RatingListService,
+    RateService
 ],
   bootstrap: [AppComponent]
 })
