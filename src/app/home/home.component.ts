@@ -19,11 +19,17 @@ export class HomeComponent implements OnInit {
   servicessitem:IService[];
   jobofferitems:IOffer[]
   companylogoitems:ILogo[];
+  images: Array<string>=[
+      "../../assets/img/slides/slide-1.jpg",
+      "../../assets/img/slides/slide-2.jpg",
+      "../../assets/img/slides/slide-3.jpg",
+  ]
+  
   
   constructor(config: NgbCarouselConfig,private homeservice:HomeService,private offerservice:JobOfferService,private Logoservice:CompanyLogoService ) {
     // customize default values of carousels used by this component tree
     config.interval = 10000;
-    config.wrap = false;
+    config.wrap = true;
     config.keyboard = false;
    }
 

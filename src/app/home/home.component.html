@@ -120,33 +120,29 @@
         </ul>
       </div>
     </div>  -->
-    <div class="container">
-    <div class="row">
-    <ngb-carousel>
+    <ngb-carousel *ngIf="images">
       <ng-template ngbSlide>
-        <img src="../../assets/img/slides/slide-1.jpg" alt="Random first slide">
+        <img [src]="images[0]" alt="Random first slide">
         <div class="carousel-caption">
-          <h3>10 seconds between slides... Slide One</h3>
+          <h3>10 seconds between slides...</h3>
           <p>This carousel uses customized default values.</p>
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img src="../../assets/img/slides/slide-2.jpg"  alt="Random second slide">
+        <img [src]="images[1]"  alt="Random second slide">
         <div class="carousel-caption">
-          <h3>No keyboard... Slide Two</h3>
+          <h3>No keyboard...</h3>
           <p>This carousel uses customized default values.</p>
         </div>
       </ng-template>
       <ng-template ngbSlide>
-        <img src="../../assets/img/slides/slide-3.jpg" alt="Random third slide">
+        <img [src]="images[0]" alt="Random third slide">
         <div class="carousel-caption">
-          <h3>And no wrap after last slide. Slide Three</h3>
+          <h3>And no wrap after last slide. slide three</h3>
           <p>This carousel uses customized default values.</p>
         </div>
       </ng-template>
     </ngb-carousel>
-  </div>
-</div>
      <!-- <carousel >
       <slide>
         <img src="../../assets/img/slides/slide-1.jpg" alt="first slide" style="display: block; width: 100%;">
