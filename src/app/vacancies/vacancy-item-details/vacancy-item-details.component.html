@@ -18,7 +18,10 @@
 <div role="main" class="main">
 
   <div class="container">
+    <div class="row" *ngIf="applystatues !=false" ><div  class="col-md-8 alert alert-success">
+      <strong>Congratualtions {{currentuser.fname}}!
 
+    </strong> You applied for this job wait for responding. </div></div>
     <div class="row push-top" id="projects">
       <div id="popupProject" class="popup-inline-content">
         <h2> Name : {{vacancieyDetailsEnterprise.name}}</h2>
@@ -67,7 +70,7 @@
             <label>Applicants</label>
           </div>
         </div>
-        <input type="submit" class="btn btn-primary" (click)="onApply(vacancieyDetails)" value="Apply" />
+        <input type="submit" class="btn apply btn-primary" *ngIf="applystatues !=true " (click)="onApply(vacancieyDetails)" value="Apply" />
 
 
 
