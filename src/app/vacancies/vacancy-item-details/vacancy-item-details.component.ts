@@ -31,6 +31,7 @@ export class VacancyItemDetailsComponent implements OnInit {
   idUser: number;
   uId: any;
   vid: any;
+  currentuser = null;
   constructor(private vacancyServiec: VacancyService, private enterpriseService: EnterpriseService,
      private typeService: VacancyTypeService, private levelsService: VacancyLevelService,
      private userService: UserService, private applicantService: ApplicantsService,
@@ -42,7 +43,13 @@ export class VacancyItemDetailsComponent implements OnInit {
 }
 
   ngOnInit() {
-    debugger
+    // edit button
+    // this.uId = this.userService.currentUserId;
+    // if ( this.uId) {
+    //   this.currentuser = this.userService.getUserById(this.uId);
+    //   console.log('uccc' + this.uId);
+    //   console.log('uccc' + this.currentuser.role);
+    // }
      this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
      console.log(this.vid);
     this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
