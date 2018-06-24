@@ -31,6 +31,7 @@ export class EnterpriseDetailsComponent implements OnInit {
   public id: number;
   public currentId: number;
   public isEnterprise: boolean;
+  public curretntUesrId : number;
 
   public newId = 3;
 
@@ -58,8 +59,10 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.currentUserId != null) {
-    this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
-    this.isEnterprise = this.userService.getIsEnterprise();
+      this.curretntUesrId = this.userService.currentUserId;
+      console.log(this.curretntUesrId);
+      this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
+      this.isEnterprise = this.userService.getIsEnterprise();
     }
     this.id = +this.active.snapshot.params['id'];
     this.details = this.enterpriseService.getById(this.id);
@@ -137,12 +140,13 @@ export class EnterpriseDetailsComponent implements OnInit {
   OnAddSubmit(form: NgForm) {
     if (form.valid) {
       this.newEnterprise.id = this.newId;
-      // console.log(this.newEnterprise);
       this.enterpriseService.add(this.newEnterprise);
-      // console.log(this.enterpriseService.getAllDetails());
-      // console.log(this.newEnterprise.size);
-
       this.newId++;
+      let u = this.userService.getUserById(this.curretntUesrId);
+      u.role = "enterprise",
+      u.enterpriseId = this.newEnterprise.id;
+      //this.isEnterprise = true;
+      this.userService.isEnterprise = true;
       this.router.navigate(['/enterprises/enterprise/details', this.newEnterprise.id]);
 
     }
