@@ -45,6 +45,9 @@ import { BranchService } from 'src/app/shared/services/branch-service';
 import { VacancyTypeService } from 'src/app/shared/services/vacancyType-service';
 import { CurrencyService } from 'src/app/shared/services/currency-service';
 import { RatingListService } from 'src/app/shared/services/ratingList.service';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { RateitemComponent } from './home/rateitem/rateitem.component'
+import { RateService } from 'src/app/shared/services/rate.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
 import { BarRatingModule } from 'ngx-bar-rating';
