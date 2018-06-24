@@ -14,19 +14,17 @@ import { UserService } from '../../shared/services/user.service';
 export class EntrepriseVacanciesComponent implements OnInit {
   eVacancies: Vacancy[];
   enterprise: Enterprise;
-  uId: any;
+  eId: number;
   currentUser: any;
   constructor(private eVacancyServiec: VacancyService, private userService: UserService ,
      private active: ActivatedRoute, private eService: EnterpriseService) { }
 
   ngOnInit() {
-    this.uId = this.userService.currentUserId;
-    if (this.uId) {
-      this.currentUser = this.userService.getUserById(this.uId);
-      console.log(this.uId);
-      console.log(this.currentUser.role);
-    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.uId);
-        this.enterprise = this.eService.getEnterpriseById(this.uId);
-  }
+    this.eId = +this.active.snapshot.params['id'];
+      this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.eId);
+      console.log(this.eId);
+      console.log(this.eVacancies);
+        this.enterprise = this.eService.getEnterpriseById(this.eId);
+        console.log(this.enterprise);
 }
 }
