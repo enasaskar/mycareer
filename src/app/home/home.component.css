@@ -1,4 +1,35 @@
 .boxpadding
 {
-    padding-top: 135px;
+    padding-top: 90px;
+}
+/* Counters */
+.counters .fa {
+	display: block;
+	font-size: 35px;
+	line-height: 35px;
+	margin-bottom: 5px;
+}
+
+.counters strong {
+	display: block;
+	font-weight: 600;
+	font-size: 60px;
+	line-height: 60px;
+}
+
+.counters label {
+	display: block;
+	font-weight: 100;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.counters.dark .fa {
+	color: #0088cc;
+}
+
+.counters.dark strong {
+	color: #333;
+	font-size: 50px;
+	line-height: 50px;
 }
