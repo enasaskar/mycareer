@@ -60,16 +60,81 @@ export class UserService {
     },
     {
       id : 2,
-      fname : 'Passant',
+      fname : 'Rana',
       lname : 'Osama',
-      email : 'admin@gmail.com',
+      email : 'ranaOsama@gmail.com',
       password : '12345678',
-      telNumber : '',
-      district : '',
-      country : '',
-      city : '',
+      telNumber : '01007677393',
+      district : 'Heliopolis',
+      country : 'Egypt',
+      city : 'Cairo',
       role : 'admin',
+      enterpriseId: 1
     },
+    {
+      id: 3,
+      fname: 'Youstina',
+      lname: 'Hany',
+      email: 'youstinaHany@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'Shobra',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 4,
+      fname: 'Amel',
+      lname: 'Youssef',
+      email: 'amoulaYoussef@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'El-Marg',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 5,
+      fname: 'Mennatollah',
+      lname: 'El-Mesmary',
+      email: 'mennaElMesmary@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : 'El-Sheikh Zayed',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 6,
+      fname: 'Linah',
+      lname: 'Samy',
+      email: 'linahSamy@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 7,
+      fname: 'Mohammad',
+      lname: 'Ahmed',
+      imagePath: '../../../assets/img/team/emp3.jpg',
+      email: 'MohammedAhmed@yahoo.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza'
+    }
   ];
   constructor() {
     // this.isUserLoggedIn = false;
@@ -128,8 +193,7 @@ export class UserService {
   setIsAdmin(flag: boolean) {
     this.isAdminSub.next(flag);
   }
-  getIsAdmin()
-  {
+  getIsAdmin() {
     return this.isAdmin;
   }
   notSetUser() {
