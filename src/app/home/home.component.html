@@ -120,7 +120,7 @@
         </ul>
       </div>
     </div>  -->
-    <ngb-carousel *ngIf="images">
+    <!-- <ngb-carousel *ngIf="images">
       <ng-template ngbSlide>
         <img [src]="images[0]" alt="Random first slide">
         <div class="carousel-caption">
@@ -142,19 +142,30 @@
           <p>This carousel uses customized default values.</p>
         </div>
       </ng-template>
-    </ngb-carousel>
-     <!-- <carousel >
+    </ngb-carousel> -->
+    <carousel>
       <slide>
-        <img src="../../assets/img/slides/slide-1.jpg" alt="first slide" style="display: block; width: 100%;">
-        
-        </slide>
-      <slide>
-        <img src="../../assets/img/slides/slide-2.jpg" alt="second slide" style="display: block; width: 100%;">
+        <img [src]="images[0]" alt="first slide" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>First slide label</h3>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </div>
       </slide>
       <slide>
-        <img src="../../assets/img/slides/slide-1.jpg" alt="third slide" style="display: block; width: 100%;">
+        <img [src]="images[0]" alt="second slide" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Second slide label</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
       </slide>
-    </carousel>  -->
+      <slide>
+        <img [src]="images[0]" alt="third slide" style="display: block; width: 100%;">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Third slide label</h3>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        </div>
+      </slide>
+    </carousel>
   </div>
 </div>
 <br>
