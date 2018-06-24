@@ -6,13 +6,13 @@ import { VacanciesComponent } from './vacancies.component';
 import { VacancyAddEditComponent } from './vacancy-add-edit/vacancy-add-edit.component';
 import { VacancyItemDetailsComponent } from './vacancy-item-details/vacancy-item-details.component';
 import { VacancyListComponent } from './vacancy-list/vacancy-list.component';
-import { EntrepriseVacanciesComponent } from './entreprise-vacancies/entreprise-vacancies.component';
+import { EntrepriseVacanciesOwmComponent } from './entreprise-vacancies-own/entreprise-vacancies-own.component';
 
 const vacancyRoutes: Routes = [
   { path: 'vacancies', component: VacancyListComponent },
   { path: 'vacancies/addvacancy', component: VacancyAddEditComponent },
   { path: 'vacancies/:search', component: VacancyListComponent },
-  { path: 'vacancies/enterprise/own' , component: EntrepriseVacanciesComponent},
+  { path: 'vacancies/enterprise/own' , component: EntrepriseVacanciesOwmComponent},
   { path: 'vacancies/editvacancy/:id', component: VacancyAddEditComponent },
   { path: 'vacancies/vacancydetails/:id', component: VacancyItemDetailsComponent }
 ];

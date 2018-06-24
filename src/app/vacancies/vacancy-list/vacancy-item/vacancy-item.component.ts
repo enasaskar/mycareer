@@ -22,8 +22,7 @@ export class VacancyItemComponent implements OnInit {
     // this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
   }
   onClickMoreDetails(id: number) {
-    debugger
-    
+    debugger;
     console.log(id);
     this.router.navigate(['vacancies/vacancydetails/', id]);
     console.log(this.activeRoute.pathFromRoot.toString()); // Object {}
