@@ -129,8 +129,7 @@ export class UserService {
   setIsAdmin(flag: boolean) {
     this.isAdminSub.next(flag);
   }
-  getIsAdmin()
-  {
+  getIsAdmin() {
     return this.isAdmin;
   }
   notSetUser() {

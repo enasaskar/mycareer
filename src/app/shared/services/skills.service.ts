@@ -202,7 +202,73 @@ private skills: Skill[] = [
     }
 ];
 
+private pathSkills: Skill[] = [
+    {
+        ID: 4,
+        Name: 'SQL',
+        Rate: 3,
+        IsDeleted: false,
+        Review: 'Good',
+        NoEndorsments: 10,
+        Img: '../../../../assets/img/skills/sql.png'
+    },
+    {
+        ID: 5,
+        Name: 'Dynamic css',
+        Rate: 4,
+        IsDeleted: false,
+        Review: 'Very Good',
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/css.png'
+    },
+    {
+        ID: 6,
+        Name: 'HTML',
+        Rate: 4,
+        IsDeleted: false,
+        Review: 'Very Good',
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/html.png'
+    },
+    {
+        ID: 7,
+        Name: 'Bootstrap',
+        Rate: 4,
+        IsDeleted: false,
+        Review: 'Very Good',
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+    },
+    {
+        ID: 8,
+        Name: 'Angular',
+        Rate: 4,
+        IsDeleted: false,
+        Review: 'Very Good',
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/angular.png'
+    },
+    {
+        ID: 7,
+        Name: 'Interviewing Skills',
+        Rate: 3,
+        IsDeleted: false,
+        Review: 'v.Good',
+        NoEndorsments: 50,
+        Img: '../../../../assets/img/skills/bootstrap.png'
 
+    },
+    {
+        ID: 8,
+        Name: 'TypeScript',
+        Rate: 5,
+        IsDeleted: false,
+        Review: 'Excellent',
+        NoEndorsments: 30,
+        Img: '../../../../assets/img/skills/bootstrap.png'
+
+    }
+];
  getAll(): Skill[] {
     return this.skills;
 }
@@ -223,10 +289,15 @@ deleteSkill(skill: number) {
     this.skills.splice(skill, 1);
 
 }
+deletePathSkill(pathSkill: number) {
+    this.pathSkills.splice(pathSkill, 1);
+}
 
  getAllByPathID(pid: number): Skill[] {
-    return this.skills.filter(s => s.ID === pid - 1 + 1);
+    // return this.skills.filter(s => s.ID === pid - 1 + 1);
+    return this.skills.splice(pid, 3);
 }
+
 getAllByUserID(uid: number): Skill[] {
 return this.skills.splice(1, 3);
 }

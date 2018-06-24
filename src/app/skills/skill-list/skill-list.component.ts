@@ -36,11 +36,11 @@ export class SkillListComponent implements OnInit {
       //     skillsService.deleteSkill(e);
       //   }
       // );
-      
+
     }
-    
-    
-    
+
+
+
     ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     if (this.id == null) {
