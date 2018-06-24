@@ -5,10 +5,10 @@ import { City } from './../../shared/classes/city';
 import { EnterpriseService } from './../../shared/services/enterprise.service';
 import { EnterpriseDetails } from './../../shared/classes/enterprise-details';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, RoutesRecognized } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import {MatDialog, MatDialogConfig} from '@angular/material';
-import {Router} from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Router } from '@angular/router';
 
 import {
   NgbModal,
@@ -31,21 +31,21 @@ export class EnterpriseDetailsComponent implements OnInit {
   public id: number;
   public currentId: number;
   public isEnterprise: boolean;
-  public curretntUesrId : number;
+  public curretntUesrId: number;
 
   public newId = 3;
 
   details: EnterpriseDetails;
 
-  public  e: any;
-  public  edit;
+  public e: any;
+  public edit;
 
-  sizes: Sizes [];
+  sizes: Sizes[];
   countries: Country[];
   cities: City[];
 
 
-  newEnterprise  = new EnterpriseDetails();
+  newEnterprise = new EnterpriseDetails();
   oldEnterprise: EnterpriseDetails;
   newBranch = new EnterpriseBranches();
 
@@ -54,27 +54,39 @@ export class EnterpriseDetailsComponent implements OnInit {
     private sizeService: SizeService, private dialog: MatDialog,
     private countryService: CountryService, private cityService: CityService, private router: Router,
     private userService: UserService) {
-      this.newEnterprise.branches = [];
-   }
+    this.newEnterprise.branches = [];
+  }
 
   ngOnInit() {
     if (this.userService.currentUserId != null) {
       this.curretntUesrId = this.userService.currentUserId;
-      console.log(this.curretntUesrId);
+      //console.log(this.curretntUesrId);
       this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
       this.isEnterprise = this.userService.getIsEnterprise();
     }
-    this.id = +this.active.snapshot.params['id'];
-    this.details = this.enterpriseService.getById(this.id);
+    //this.id = +this.active.snapshot.params['id'];
+    this.active.params.subscribe((params: Params) => {
+      this.id = params['id'] ;
+      this.loadData();
+    });
+
+
+    
+  }
+
+  loadData(){
+    this.details = this.enterpriseService.getById(+this.id);
     this.oldEnterprise = Object.assign({}, this.details);
-    console.log(this.oldEnterprise);
+    // console.log(this.oldEnterprise);
     this.sizes = this.sizeService.getAll();
     this.countries = this.countryService.getAll();
-    console.log(this.id);
+    //console.log(this.id);
     this.cities = this.cityService.getAll();
     this.countryService.onChange.subscribe(
-      () => {this.details.branches.map(co => co.country.cities = this.cityService.getByCountryName(co.country.name));
-      console.log('oninit'); }
+      () => {
+        this.details.branches.map(co => co.country.cities = this.cityService.getByCountryName(co.country.name));
+        console.log('oninit');
+      }
     );
   }
 
@@ -91,14 +103,14 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.edit = document.getElementById('edit');
     this.e.style.display = 'block';
     this.edit.style.display = 'none';
-   this.router.navigate(['/enterprises/enterprise/details/', this.id]);
+    this.router.navigate(['/enterprises/enterprise/details/', this.id]);
   }
   onChange() {
     // console.log();
     this.countryService.onChange.next();
   }
   onFileChange(event) {
-    console.log(event);
+    //console.log(event);
   }
 
   onAddBranch() {
@@ -144,7 +156,7 @@ export class EnterpriseDetailsComponent implements OnInit {
       this.newId++;
       let u = this.userService.getUserById(this.curretntUesrId);
       u.role = "enterprise",
-      u.enterpriseId = this.newEnterprise.id;
+        u.enterpriseId = this.newEnterprise.id;
       //this.isEnterprise = true;
       this.userService.isEnterprise = true;
       this.router.navigate(['/enterprises/enterprise/details', this.newEnterprise.id]);
@@ -153,15 +165,15 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   OnEditSubmit(form: NgForm) {
-      // To Do:call update function
-      // if(form.valid){
-        this.enterpriseService.update(this.details.id - 1, this.details);
-        this.e = document.getElementById('e');
-        this.edit = document.getElementById('edit');
-        this.e.style.display = 'block';
-        this.edit.style.display = 'none';
+    // To Do:call update function
+    // if(form.valid){
+    this.enterpriseService.update(this.details.id - 1, this.details);
+    this.e = document.getElementById('e');
+    this.edit = document.getElementById('edit');
+    this.e.style.display = 'block';
+    this.edit.style.display = 'none';
 
-      // }
+    // }
 
 
   }
