@@ -1,0 +1,66 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="row">
+    <div class="col-md-4">
+            <div class="team-item thumbnail">
+              <!--link to profile-->
+              <a  class="thumb-info team">
+                <img alt="" [src]="skillDetails.Img">
+                <span class="thumb-info-title">
+                  <span class="thumb-info-inner">{{skillDetails.Name}}</span>
+                  <span class="thumb-info-type">{{skillDetails.Level}}</span>
+                </span>
+              </a>
+            </div>
+          </div>
+      
+          <div class="col-md-8">
+      
+            <h4>Reviews</h4>
+            <ul class="list icons list-unstyled">
+              <li>
+                <!-- <strong class="left">{{skillDetails.Rate}}</strong> -->
+                <!-- <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs"> -->
+                <bar-rating *ngIf="!editIcon" [(rate)]="skillDetails.Rate" [max]="5" [theme]="'stars'"></bar-rating>
+                <p class="clear"></p>
+              </li>
+              <li>
+                <strong>Endorsments</strong>
+                <div class="counters dark">
+                  <strong (data-to)="skillDetails.NoEndorsments">{{skillDetails.NoEndorsments}}</strong>
+                </div>
+              </li>
+            </ul>
+      </div>
+        </div>
+  </div>
+  <div class="modal-body">
+      <div class="row ">
+          <div class="col-md-3 col-xs-10">
+            <h4 class="left">Details</h4>
+          </div>
+          <div class="col-md-6 "></div>
+          <div class="col-md-3 col-xs-2 editIcon " *ngIf="editIcon">
+            <span class="thumb-info-social-icons right " id="edit-skills-details">
+    
+              <a class="ptr" data-tooltip data-placement="bottom" data-original-title="Edit" (click)="onClick()">
+                <i class="fa fa-pencil"></i>
+                <span>Edit</span>
+              </a>
+            </span>
+          </div>
+          <div (click)="back()" *ngIf="!editIcon">
+            <a class="ptr">back</a>
+          </div>
+        </div>
+        <app-skill-details-popup *ngIf="openMode" [skillDetails]="skillDetails"></app-skill-details-popup>
+        <app-skill-update *ngIf="!openMode" [skillDetails]="skillDetails"></app-skill-update>
+       
+  </div>
+  <div class="modal-footer" *ngIf="!editIcon">
+    
+          <button type="button" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+      
+  </div>
+</div>

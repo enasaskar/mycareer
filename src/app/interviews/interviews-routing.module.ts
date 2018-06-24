@@ -5,8 +5,10 @@ import { InterviewListComponent } from './interview-list/interview-list.componen
 import { InterviewViewAllComponent } from './interview-view-all/interview-view-all.component';
 
 const interviewsRoutes: Routes = [
-    {path : 'interviews', component : InterviewsComponent },
-    {path : 'interviews/view-all', component : InterviewViewAllComponent }
+    {path : 'interviews/applicants/:id', component : InterviewViewAllComponent },
+    {path : 'interviews/:id/:name', component : InterviewsComponent },
+    // {path : 'interviews', component : InterviewsComponent },
+    
 ];
 
 @NgModule({

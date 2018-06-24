@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from './../../../../../users/users.model';
+import { UserComments } from './../../../../../shared/classes/user-comments';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserCommentsService } from '../../../../../shared/services/user-comments.service';
+import { UserService } from '../../../../../shared/services/user.service';
 
 @Component({
   selector: 'app-comment',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentComponent implements OnInit {
 
-  constructor() { }
+  @Input() comment : UserComments;
+  user : User;
+  constructor(private userservice : UserService) { }
 
   ngOnInit() {
+    this.user = this.userservice.getUserById(this.comment.userId);
+
   }
 
 }

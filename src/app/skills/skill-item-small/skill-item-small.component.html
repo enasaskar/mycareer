@@ -1,15 +1,24 @@
-<div>
-  <a href="#" class="remove edit-skills-display">
+
+  <!-- <a class="remove " (click)="onTrash()"> -->
+
+<div class="skill-item">
+  <a class="remove "(click)="onTrash()">
     <i class="fa fa-trash"></i>
   </a>
   <p class="clear"></p>
+  <div (click)="openModal(popup)">
   <div class="portfolio-item img-thumbnail">
-    <a class="thumb-info lightbox" [href]="'#'+skillDetails.ID" data-plugin-options='{"type":"inline", preloader: false}'>
-      <img alt="" class="img-responsive" src="../../../../assets/img/project.jpg">
+      <!-- [href]="'#'+skillDetails.ID"  -->
+    <a class="thumb-info lightbox" data-plugin-options='{"type":"inline", preloader: false}'>
+      <img alt="" class="img-responsive" [src]="skillDetails.Img">
       <span class="thumb-info-title">
         <span class="thumb-info-inner">{{skillDetails.Name}}</span>
         <span class="thumb-info-type">
-          <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">.30
+          <!-- <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">.30 -->
+      <ngb-rating [rate]="skillDetails.Rate" [max]=5 [readonly]=" true"></ngb-rating>
+         
+          <!-- <bar-rating [(rate)]="skillDetails.Rate" [max]="5" [theme]="'stars'" [titles]="[]"></bar-rating> -->
+          
         </span>
       </span>
       <span class="thumb-info-action">
@@ -20,8 +29,15 @@
     </a>
   </div>
   <!--Description-->
-  <div [id]="skillDetails.ID" class="popup-inline-content skillsFull">
+  <!-- <div [id]="skillDetails.ID" *ngIf="toShow" class="popup-inline-content skillsFull"> -->
     <!-- {{skil.Level}} -->
-      <app-skill-details [skillDetails]="skillDetails"></app-skill-details>
-  </div>
+
+    <ng-template #popup>
+    <app-skill-popup [skillDetails]="skillDetails" [modalRef]="modalRef"></app-skill-popup>
+  </ng-template>
+  <!-- </div> -->
+  <!-- <ng-template #test>
+    <app-skill-add-new [modalRef]="modalRef"> </app-skill-add-new>
+  </ng-template> -->
+</div>
 </div>

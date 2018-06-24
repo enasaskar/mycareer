@@ -3,6 +3,7 @@ import { EnterpriseService } from './../../../shared/services/enterprise.service
 
 import { Enterprise } from './../../../shared/classes/enterprise';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-view-one-item',
@@ -11,17 +12,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ViewOneItemComponent implements OnInit {
 
-  @Input() public item : Enterprise;
+  @Input() public item: Enterprise;
+  isAdmin : boolean;
+  
 
-  constructor(private enterpriseService : EnterpriseService) { }
+  constructor(private enterpriseService: EnterpriseService, private userService : UserService) { }
 
   ngOnInit() {
+    if(this.userService.currentUserId != null){
+      this.isAdmin = this.userService.getIsAdmin();
+    }
   }
 
- 
 
-  public onTrashClick()
-  {
+  public onTrashClick() {
     this.enterpriseService.onDelete.next(this.item);
   }
 

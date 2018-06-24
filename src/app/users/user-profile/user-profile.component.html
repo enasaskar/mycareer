@@ -3,17 +3,14 @@
 <div class="row">
       <!--Profile Pic-->
       <div class="col-md-4" data-appear-animation="fadeIn">
-        <div class="owl-carousel" data-plugin-options='{"items": 1}'>
-          <div>
-            <div class="thumbnail">
-              <a class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
-                <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
-                <span class="thumb-info-action">
-                  <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
-                </span>
-              </a>
-            </div>
-          </div>
+        <div class="profilePic">
+          <a *ngIf="isUser" class="thumb-info lightbox" href="#popupImageEdit" data-plugin-options='{"type":"inline", preloader: false}'>
+            <img alt="" height="300" class="img-responsive" [src]="user.imagePath">
+            <span class="thumb-info-action">
+              <span title="Universal" class="thumb-info-action-icon"><i class="fa fa-camera"></i></span>
+            </span>
+          </a>
+          <img *ngIf="!isUser" alt="" height="300" class="img-responsive" [src]="user.imagePath">
         </div>
         <div id="popupImageEdit" class="popup-inline-content">
           <div class="row">
@@ -43,6 +40,10 @@
       <hr class="tall" />
 </div>
 
+<!--Skills-->
+<app-skill-list></app-skill-list>
+
+<!--PreviousExp-->
 <div class="row" id="PreviousExperience">
   <div class="container">
     <div class="row push-top" id="projects">
@@ -52,15 +53,41 @@
     </div>
     <!--Previous Exp-->
     <div class="row class1">
-        <div class="col-md-12"><h3><strong>Work</strong> Experience</h3></div>
+        <div class="col-md-6"><h3><strong>Work</strong> Experience</h3></div>
+        <span class="col-md-6 thumb-info-social-icons">
+          <a data-tooltip data-placement="bottom" 
+          data-original-title="Add" 
+          style="cursor: pointer;"
+          class="right"
+          (click)="openModal(addWorkExp)">
+          <i class="fa fa-plus"></i><span>Add</span>
+          </a>
+        </span>
     </div>
-    <app-work-experience [workExperiences]='userWorkExperiences'></app-work-experience>
+    <app-work-experience [workExperiences]='userWorkExperiences' [type]="'work'"></app-work-experience>
+    <ng-template #addWorkExp>
+      <app-user-add-workExperience-Modal [modalRef]="modalRef" [type]="'work'"></app-user-add-workExperience-Modal>
+    </ng-template>
+    <p class="clear"></p>
+    <hr class="mini"/>
 
     <!--Educational Background-->
     <div class="row class1">
-      <div class="col-md-12"><h3><strong>Educational</strong> Background</h3></div>
+      <div class="col-md-6"><h3><strong>Educational</strong> Background</h3></div>
+      <span class="col-md-6 thumb-info-social-icons">
+        <a data-tooltip data-placement="bottom" 
+        data-original-title="Add" 
+        style="cursor: pointer;"
+        class="right"
+        (click)="openModal(addEducationExp)">
+        <i class="fa fa-plus"></i><span>Add</span>
+        </a>
+      </span>
     </div>
-    <app-work-experience [workExperiences]='userEducationalBackground'></app-work-experience>
+    <app-work-experience [workExperiences]='userEducationalBackground' [type]="'edu'"></app-work-experience>
+    <ng-template #addEducationExp>
+      <app-user-add-workExperience-Modal [modalRef]="modalRef" [type]="'edu'"></app-user-add-workExperience-Modal>
+    </ng-template>
   </div>
     
 </div>

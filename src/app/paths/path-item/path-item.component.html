@@ -1,13 +1,12 @@
 <li class="col-md-3 col-sm-4 col-xs-6 isotope-item {{Path.PathMainCategory.Name}} product path-item">
   <span class="product-thumb-info">
-    <a class="add-to-cart-product" name="deletePath"  >
+    <a class="add-to-cart-product" name="deletePath" (click)="trashClicked()" *ngIf= "isAdmin" >
       <span>
         <i class="fa fa-5x fa-trash"></i>
       </span>
-
     </a>
-    <span class="team-item thumbnail product-thumb-info-content">
-      <a  class="thumb-info team">
+    <span class="team-item thumbnail product-thumb-info-content"  >
+      <a  class="thumb-info team" [routerLink]="['/paths','profile', Path.Id ]" (click)="redirectToPath(Path)" >
         <img class="img-responsive" alt="" src="{{Path.ImgURL}}">
         <span class="thumb-info-title">
           <span class="thumb-info-inner">{{Path.Name}}</span>
@@ -15,7 +14,7 @@
         </span>
       </a>
       <span class="thumb-info-caption">
-        <p>{{Path.Description}}</p>
+        <p class ="block-with-text">{{Path.Description}}</p>
       </span>
     </span>
   </span>

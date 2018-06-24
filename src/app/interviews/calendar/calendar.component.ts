@@ -1,57 +1,55 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit} from '@angular/core';
 import { Subject } from 'rxjs';
 import { addDays, startOfDay, endOfDay, isSameMonth, isSameDay } from 'date-fns';
 import {
   CalendarEvent,
   CalendarEventTimesChangedEvent,
-  CalendarEventAction
+  CalendarEventAction,
 } from 'angular-calendar';
 import { colors } from '../../calendar-utils/colors';
+import { CalendarService } from '../../shared/services/calendar.service';
 
 @Component({
   selector: 'app-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'calendar.component.html'
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit{
   view: string = 'month';
   
   viewDate: Date = new Date();
-
-  targetDate:string ="";
-  eventName:string ="";
+  
+  clickedDate: Date;
 
   activeDayIsOpen: boolean;
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+  events: CalendarEvent[];
+
+  refresh: Subject<any> = new Subject();
+ 
+  constructor(private calendarService:CalendarService){
+  }
+
+  ngOnInit(){
+    this.events = this.calendarService.getAll();
+    this.calendarService.onEventDelete.subscribe((event:CalendarEvent)=>{this.events = this.calendarService.delete(event);this.activeDayIsOpen = false});       
+  }
+
+  dayClicked({ date, events}: { date: Date; events: CalendarEvent[];}): void {
     if (isSameMonth(date, this.viewDate)) {
       if (
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
         events.length === 0
       ) {
         this.activeDayIsOpen = false;
+       
       } else {
         this.activeDayIsOpen = true;
-        this.viewDate = date;
+        this.viewDate = date;  
       }
     }
   }
-  events: CalendarEvent[] = [
-    // {
-    //   title: 'Interviews',
-    //   color: colors.yellow,
-    //   start: startOfDay(new Date()),
-    //   end: endOfDay(new Date()), // an end date is always required for resizable events to work
-    //   resizable: {
-    //     beforeStart: true, // this allows you to configure the sides the event is resizable from
-    //     afterEnd: true
-    //   },
-    //   draggable:true
-    // }
-  ];
 
-  refresh: Subject<any> = new Subject();
-  
   eventTimesChanged({
     event,
     newStart,
@@ -63,12 +61,12 @@ export class CalendarComponent {
   }
   
   addEvent(): void {
-    this.targetDate =  prompt("Enter the date of the event:in this format 2018-06-01");
-    this.eventName = prompt("Enter the event name:");
-    this.events.push({
-      title: this.eventName,
-      start: startOfDay(new Date(this.targetDate)),
-      end: endOfDay(new Date(this.targetDate)),
+    //console.log(this.events);
+    //console.log(this.clickedDate.toLocaleDateString());
+    const event:CalendarEvent = {
+      title: "interviews",
+      start: startOfDay(this.clickedDate),
+      end: endOfDay(this.clickedDate),
       color: colors.yellow,
       draggable: true,
       resizable: {
@@ -79,16 +77,20 @@ export class CalendarComponent {
         {
           label: '<i class="fa fa-fw fa-times"></i>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
-            this.events = this.events.filter(iEvent => iEvent !== event);
+            console.log(this.events);
+            //this.events = this.events.filter(iEvent => iEvent !== event);
+            this.calendarService.onEventDelete.next(event);
+            //console.log(this.events);
             this.activeDayIsOpen = false;
-            // console.log('Event deleted', event);
           }
         }
       ]
-    });
+    };
+    this.calendarService.add(event);
     this.refresh.next();
-  }
+   // console.log(this.events);
 
-  
+  }
+ 
 }
 

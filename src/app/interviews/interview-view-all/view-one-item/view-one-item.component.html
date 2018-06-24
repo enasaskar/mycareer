@@ -1,21 +1,19 @@
 <div class="col-md-4 col-sm-6 col-xs-12">
     <div class="feature-box secundary bordered">
         <div class="feature-box-icon">
-            <img src="../../../assets/img/team/emp.jpg">
+            <img [src]="applicant.user.imagePath">
         </div>
         <div class="feature-box-info VacancyInfo">
-            <a href="#">
-                <h4 class="shorter">Youssef Hany</h4>
+            <a href="#" routerLink="/user/0/userProfile">
+                <h4 class="shorter"> {{applicant.user.fname + " "+ applicant.user.lname}}</h4>
             </a>
             <ul class="list icons list-unstyled">
                 <li>
                     <i class="fa fa-suitcase"></i>
-                    <strong>Position:</strong> Front-End developper</li>
+                    <strong>Position:</strong> {{applicant.vacancy.title}}</li>
             </ul>
             <div class="right VacancyResponse">
-                <i class="fa fa-check " style="color:green"></i>
-                <i class="fa fa-close " style="color:red"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
+                <ng-content></ng-content>     
             </div>
             <p class="clear"></p>
         </div>

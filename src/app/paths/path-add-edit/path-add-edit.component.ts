@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-path-add-edit',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PathAddEditComponent implements OnInit {
 
-  constructor() { }
+  public isEdit: boolean;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.isEdit = this.route.snapshot.url[1].path === 'edit';
+
   }
 
 }

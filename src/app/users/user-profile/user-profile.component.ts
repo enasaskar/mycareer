@@ -1,10 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 import { User } from '../users.model';
 import { UserService } from '../../shared/services/user.service';
 import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
-import { Enterprise } from '../../shared/classes/enterprise';
+import { WorkExperienceService } from '../../shared/services/workExperience.service';
+import { EducationalBackgroundService } from '../../shared/services/educationalBackground.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -18,19 +21,36 @@ export class UserProfileComponent implements OnInit {
   id: number;
   userWorkExperiences: WorkExperience[];
   userEducationalBackground: WorkExperience[];
+  // for adding work exp
+  modalRef: BsModalRef;
+  isUser = false;
+
   constructor(
     private userService: UserService,
+    private workService: WorkExperienceService,
+    private educationService: EducationalBackgroundService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private modalService: BsModalService) { }
 
   ngOnInit() {
     this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
+      if (this.id === this.userService.currentUserId) {
+        this.isUser = true;
+      }
       this.user = this.userService.getUserById(this.id);
+      this.user = this.userService.getUserById(this.id);
+      this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+      this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
     });
-    // get this from api b3d kda
-    this.userWorkExperiences = this.userService.getUserExperiences(this.id);
-    // get this from api b3d kda
-    this.userEducationalBackground = this.userService.getUserEducationalBackground(this.id);
+    // this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+    // this.workService.getUserExperiences(this.id)
+    // .subscribe(data => {
+    //   this.userWorkExperiences = data;
+    // });
+  }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

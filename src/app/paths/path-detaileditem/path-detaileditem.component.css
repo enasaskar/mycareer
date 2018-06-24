@@ -1,0 +1,11 @@
+#delete-profile:hover {
+    background-color: #f44336;
+}
+.dialog-btn {
+    margin: 0 auto;
+    width: 40%;
+    min-width: 75px;
+}
+.btns {
+    margin: 0 auto;
+}

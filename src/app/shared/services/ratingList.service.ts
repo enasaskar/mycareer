@@ -5,20 +5,24 @@ export class RatingListService{
 
     private ratings : RatingList[] = [
         {
+            id : 1,
             icon : '../../assets/img/company-workers.png',
             name : 'Environment'
         },
         {
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            id : 2,
+            icon : '../../assets/img/workplace.png',
+            name : 'Workplace'
         },
         {
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            id : 3,
+            icon : '../../assets/img/appreciation.png',
+            name : 'Appreciation'
         },
         {
-            icon : '../../assets/img/company-workers.png',
-            name : 'Environment'
+            id : 4,
+            icon : '../../assets/img/cv.png',
+            name : 'Experience'
         }
     ];
 

@@ -2,14 +2,14 @@
     <li>
       <div class="comment">
         <div class="img-thumbnail">
-          <img class="avatar" alt="" src="../../../../../../assets/img/Somerhalder.jpg">
+          <img class="avatar" alt="" [src]= user.imagePath>
         </div>
         <div class="comment-block">
           <div class="comment-arrow"></div>
           <span class="comment-by">
-            <strong>John Doe</strong>
+            <strong>{{user.fname}} {{user.lname}} </strong>
           </span>
-          <p>onvallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.</p>
+          <p>{{comment.comment}}</p>
 
         </div>
       </div>

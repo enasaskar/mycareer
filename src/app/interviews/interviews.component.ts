@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicantsService } from '../shared/services/applicants.service';
+import { Applicant } from '../shared/classes/applicant.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-interviews',
@@ -6,20 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./interviews.component.css']
 })
 export class InterviewsComponent implements OnInit {
-  seeMoreAccepted = false;
-  seeMorePending = false;
+  enterprise_name:string;
+  constructor(private applicantsService:ApplicantsService,private route:ActivatedRoute) { 
+  }
 
-  startInterview="Start Interview";
-  accept ="Accept";
-  constructor() { }
-  
-  seeMoreAcceptedclicked(){
-    this.seeMoreAccepted = !this.seeMoreAccepted;
-  }
-  seeMorePendingclicked(){
-    this.seeMorePending = !this.seeMorePending;
-  }
   ngOnInit() {
+    this.enterprise_name = this.route.snapshot.params['name'];
   }
-
+  
 }

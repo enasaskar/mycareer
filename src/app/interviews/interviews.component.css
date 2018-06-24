@@ -1,9 +1,5 @@
-.SeeMore{
-    float: right;
-    margin-right: 1.5%;
-    cursor: pointer;
+.btn.btn-success{
+    margin-right: 2%;
 }
-.search{
-    margin-right: 1.5%;
-    margin-bottom: 10px;
-}
+
+

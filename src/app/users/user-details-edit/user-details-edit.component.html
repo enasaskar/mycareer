@@ -17,7 +17,7 @@
       </div>
       <div class="row">
         <div class="form-group">
-          <div class="col-md-4 col-xs-6">
+          <!-- <div class="col-md-4 col-xs-6">
             <input class="form-control inline iconInput" id="Position" type="text" formControlName = "title">
             <h4 class="inline"><b>@</b></h4>
           </div>
@@ -28,8 +28,12 @@
                 <button class="btn btn-default"><i class="fa fa-search"></i></button>
               </span>
             </div>
+          </div> -->
+          <div class="col-md-8">
+            <h4 class="left">{{user.title}}</h4>
+            <h4 class="left"><b> @ </b></h4>
+            <h4 class="left"><a>{{user.enterpriseName}}</a></h4>
           </div>
-        
           
           <div class="col-md-4 col-xs-12" >
             <span class="thumb-info-social-icons right">
@@ -65,20 +69,27 @@
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <i class="fa fa-map-marker"></i>
-            <input class="form-control iconInput" id="address" type="text" formControlName = "district">
-          </div>
-          <div class="col-md-4 col-xs-6">
-            <select class="form-control mb-md" formControlName = "city">
-              <option>City...</option>
-              <option>Cairo</option>
-              <option>Alexandria</option>
+            <!-- <input class="form-control iconInput" id="address" type="text" formControlName = "district"> -->
+            <select class="form-control mb-md iconInput" formControlName = "district">
+              <option *ngIf="!user.district">District...</option>
+              <option *ngFor="let district of districts">{{district.name}}</option>
             </select>
           </div>
           <div class="col-md-4 col-xs-6">
-            <select class="form-control mb-md" formControlName = "country">
-              <option>Country...</option>
-              <option>Egypt</option>
-              <option>Lebanon</option>
+            <select class="form-control mb-md" formControlName = "city" (change)="onCitySelect()">
+              <option *ngIf="!user.city">City...</option>
+              <option *ngFor="let city of cities">{{city.name}}</option>
+              <!-- <option>Cairo</option>
+              <option>Alexandria</option> -->
+            </select>
+          </div>
+          <div class="col-md-4 col-xs-6">
+            <select class="form-control mb-md" formControlName = "country" (change)="onCountrySelect()">
+              <option *ngIf="user.country">{{user.country}}</option>
+              <option *ngIf="!user.country">Country...</option>
+              <option *ngFor="let country of countries">{{country.name}}</option>
+              <!-- <option>Egypt</option>
+              <option>Lebanon</option> -->
             </select>
           </div>
         </div>
@@ -93,6 +104,14 @@
         </div>
       </div>
       <p><b>Main Interests</b></p>
+      <span class="thumb-info-social-icons right">
+        <a  data-tooltip data-placement="bottom" 
+            data-original-title="Add" 
+            style="cursor: pointer;"
+            (click)="addInterest()">
+            <i class="fa fa-plus"></i><span>Add interest</span>
+        </a>
+      </span>
       <ul class="list icons list-unstyled" formArrayName="interests">
         <li *ngFor="let interestctrl of userEditForm.get('interests').controls; let i = index; ">
           <i class="fa fa-check"></i>

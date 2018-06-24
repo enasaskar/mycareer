@@ -1,10 +1,13 @@
+import { AuthGuard } from './auth-guard.guard';
+import { AuthModule } from './authentication/auth.module';
+import { UserCommentsService } from './shared/services/user-comments.service';
 import { EnterprisesModule } from './enterprise/enterprises.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { JobfairsModule } from './jobfairs/jobfairs.module';
+
 
 import { UsersModule } from './users/users.module';
 import { InterviewsModule } from 'src/app/interviews/interviews.module';
@@ -29,6 +32,11 @@ import { VacanciesModule } from 'src/app/vacancies/vacancies.module';
 import { BsDatepickerModule, ModalModule, RatingModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'angular-calendar';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
+
+
+
 import { SkillsService } from 'src/app/shared/services/skills.service';
 import { SizeService } from 'src/app/shared/services/size.service';
 import { VacancyService } from 'src/app/shared/services/vacancy-service';
@@ -40,6 +48,11 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { RateitemComponent } from './home/rateitem/rateitem.component'
 import { RateService } from 'src/app/shared/services/rate.service';
+import { UserService } from './shared/services/user.service';
+import { ApplicantsService } from './shared/services/applicants.service';
+import { BarRatingModule } from 'ngx-bar-rating';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +60,6 @@ import { RateService } from 'src/app/shared/services/rate.service';
     ServicesitemComponent,
     JobofferitemComponent,
     CompanylogoitemComponent,
-    RateitemComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +77,12 @@ import { RateService } from 'src/app/shared/services/rate.service';
     BrowserAnimationsModule,
     CalendarModule.forRoot(),
     ModalModule.forRoot(),
-    RatingModule.forRoot(),
-    CarouselModule.forRoot()
+    DragScrollModule,
+    AuthModule,
+    BarRatingModule
+  ],
+  exports: [
+    // SkillItemSmallComponent
   ],
   providers: [
     EnterpriseService,
@@ -83,7 +99,10 @@ import { RateService } from 'src/app/shared/services/rate.service';
     VacancyTypeService,
     CurrencyService,
     RatingListService,
-    RateService
+    UserCommentsService,
+    UserService,
+    ApplicantsService,
+    AuthGuard
 ],
   bootstrap: [AppComponent]
 })
