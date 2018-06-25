@@ -6,6 +6,7 @@
                     <input type="text" 
                     placeholder="Add skill" 
                     #skillName 
+                    [(ngModel)]="addedSkillName"
                     aria-label="Number" 
                     matInput 
                     [formControl]="myControl" 
@@ -21,7 +22,7 @@
                 </mat-form-field>
             </div>
             <span class="input-group-btn">
-                <button class="btn btn-default customBtn" type="button" >
+                <button class="btn btn-default customBtn" type="button" (click)="onAdd(addedSkillName)">
                     <i class="fa fa-plus-square fontSize"></i>
                 </button>
             </span>
