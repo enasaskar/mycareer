@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { CommonModule } from '@angular/common';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
@@ -50,7 +52,8 @@ import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-lis
     MatNativeDateModule,
     DragScrollModule,
     BarRatingModule,
-    DragScrollModule
+    DragScrollModule,
+    NgbModule
   ],
   declarations: [
     SkillListComponent,
@@ -71,7 +74,8 @@ import { SkillListDragScrollComponent } from './skill-list-drag-scroll/skill-lis
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    SkillListDragScrollComponent
+    SkillListDragScrollComponent,
+    NgbModule
   ]
 })
 

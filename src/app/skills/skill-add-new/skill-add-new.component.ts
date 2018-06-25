@@ -6,6 +6,7 @@ import {map, startWith} from 'rxjs/operators';
 
 import { SkillsService } from '../../shared/services/skills.service';
 import { Skill } from '../../shared/classes/skill.model';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-skill-add-new',
   templateUrl: './skill-add-new.component.html',
@@ -13,14 +14,19 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillAddNewComponent implements OnInit {
 
+  addedSkill: Skill ;
   addForm: FormGroup;
   @Input() skills: Skill[];
+  @Input() pathLevel ;
   options: Skill[] = [];
   filteredOptions: Observable<Skill[]>;
   myControl: FormControl = new FormControl();
-
+  addedSkillName: string ;
+ skillTo: string;
   selectedSkill ;
-  constructor(private skillsService: SkillsService) {
+  constructor(private skillsService: SkillsService , private activatedRoute: ActivatedRoute) {
+   activatedRoute.url.subscribe(urlseg => this.skillTo = urlseg[0].path);
+   console.log(this.skillTo);
    }
 
   ngOnInit() {
@@ -32,14 +38,26 @@ export class SkillAddNewComponent implements OnInit {
         startWith(''),
         map(val => this.filter(val))
       );
+      this.skillsService.skillAddedPath.subscribe(skillAdded => {
+        // this.skillsService.addSkilltoPath(skillAdded);
+        if (skillAdded.Level === this.pathLevel) {
+          this.skillsService.pathSkills.push(skillAdded);
+        }
+    });
 
+    this.skillsService.skillAddedUser.subscribe(skillAdded => {
+      // this.skillsService.addSkilltoPath(skillAdded);
+         this.skillsService.addNewSkillToUser(skillAdded);
+  });
+
+    // console.log(this.pathSkills);
   }
   filter(val: string): Skill[] {
     return this.options.filter(option =>
       option.Name.toLowerCase().includes(val.toLowerCase()));
   }
   onSubmit(skillName: string) {
-    this.skillsService.addSkill({
+   this.skillsService.addSkill({
       ID: 0,
       Name: skillName,
       Img: '',
@@ -51,7 +69,21 @@ export class SkillAddNewComponent implements OnInit {
       Review: ''
     });
   console.log(skillName);
-  }
 
+  }
+onAdd(name: string) {
+  if (name.length > 0) {
+    if (this.skillTo === 'paths') {
+     const addedSkill =  this.skillsService.getByName(name);
+     addedSkill.Level = this.pathLevel;
+     this.skillsService.skillAddedPath.next(addedSkill);
+    }
+
+    if (this.skillTo === 'userProfile') {
+      const addedSkill =  this.skillsService.getByName(name);
+      this.skillsService.skillAddedUser.next(addedSkill);
+     }
+  }
+}
 
 }

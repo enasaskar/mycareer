@@ -3,7 +3,7 @@
   <app-comment *ngFor="let c of comments" [comment] = "c"></app-comment>
   </ul>
   
-  <form action="" method="POST" role="form" (ngSubmit) = "AddComment()">
+  <form *ngIf="(!isEnterprise || currentId != enterpriseId) && currentUserId != null" action="" method="POST" role="form" (ngSubmit) = "AddComment()">
     <div class="form-group">
       <input type="text" class="form-control" name = "comment" placeholder="Put your comment here..." [(ngModel)] = newComment.comment>
     </div>

@@ -1,19 +1,16 @@
 <div class="container">
     <div class="row" id="SkillsUser">
         <div class="col-md-12">
-            <h1>to see</h1>
-            <h2>
-                <strong>Skills</strong>
-            </h2>
+         
             <!-- kol aly fo2 3al kbeer 5als al-7 items -->
             <!-- technical skills add skill bar and edit  -->
             <div class="row">
                 <div class="col-md-3 col-xs-10">
                     <h3 class="left">
-                        <strong>Technical</strong> Skills</h3>
+                        <strong>{{title}}</strong>{{subTitle}}</h3>
                 </div>
                 <div class="col-md-3 col-xs-10 right">
-                    <app-skill-add-new></app-skill-add-new>
+                    <app-skill-add-new [pathLevel]="title" ></app-skill-add-new>
                 </div>
                 <!-- <div class="col-md-6 col-xs-2">
                     <span class="thumb-info-social-icons right" id="edit-skills">
@@ -25,11 +22,23 @@
                 </div> -->
             </div>
             <!-- aflet technical skills add skill bar and edit  -->
-            <!-- (data-plugin-options)='{"items": "skillsNo"} -->
-            <!-- <div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}' id="hideDots"> -->
-            <div class="demo-one" drag-scroll-y-disabled="true" dragScroll scrollbar-hidden="true">
-                <app-skill-item-small *ngFor="let skil of skillsList" [skillDetails]=skil [toShow]="oneItemToshow"></app-skill-item-small>
+             <!-- <div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}' id="hideDots"> -->
+            <div class="demo-one" 
+            drag-scroll-y-disabled="true" 
+            dragScroll 
+            scrollbar-hidden="true" 
+            #nav>
+                <app-skill-item-small (click)="toBeEdited(i)" class="skill-item" 
+                *ngFor="let skil of skillsList; let i = index" 
+                [skillDetails]="skil" 
+                [skillIndex]="i"
+                [toShow]="oneItemToshow"
+                ></app-skill-item-small>
             </div>
+            <div class="row navDragable">
+            <button class=" custBtn btn btn-primary col-sm-6" (click)="stepLeft()"> left</button>
+            <button  class=" custBtn btn btn-primary col-sm-6" (click)="stepRight()"> right</button>
+        </div>
         </div>
         <h1>
 

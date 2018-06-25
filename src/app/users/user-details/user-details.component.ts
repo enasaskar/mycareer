@@ -5,6 +5,7 @@ import { EventEmitter } from 'events';
 import { User } from '../users.model';
 import { WorkExperienceService } from '../../shared/services/workExperience.service';
 import { EnterpriseService } from '../../shared/services/enterprise.service';
+import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
 
 @Component({
   selector: 'app-user-details',
@@ -14,8 +15,10 @@ import { EnterpriseService } from '../../shared/services/enterprise.service';
 export class UserDetailsComponent implements OnInit {
 
   user: User;
-  // when getting user by id
   id: number;
+  expChanged: WorkExperience[];
+  currentEmpoyment: WorkExperience;
+  isUser = false;
   constructor(private userService: UserService,
     private workExpService: WorkExperienceService,
     private enterpriseService: EnterpriseService,
@@ -25,10 +28,24 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.parent.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
+      if (this.id === this.userService.currentUserId) {
+        this.isUser = true;
+      }
       this.user = this.userService.getUserById(this.id);
-      const currentEmpoyment = this.workExpService.getUserExperiences(this.id).filter(exp => exp.endDate === 'present');
-      this.user.title = currentEmpoyment[0].content;
-      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(currentEmpoyment[0].enterpriseID).name;
+      this.expChanged = this.workExpService.getUserExperiences(this.id);
+      this.currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present')[0];
+      // const currentEmpoyment = this.workExpService.getCurrentUserWorkExp(this.id);
+      // let currentEmpoyment;
+      // this.workExpService.getUserExperiences(this.id)
+      // .subscribe(data => {
+      //   currentEmpoyment = data.filter(exp => exp.endDate === 'present');
+      // });
+      this.workExpService.workExperienceChanged.subscribe(data => {
+        this.expChanged = data;
+        // currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present');
+      });
+      this.user.title = this.currentEmpoyment.content;
+      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
     });
   }
 }

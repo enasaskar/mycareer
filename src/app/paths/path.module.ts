@@ -35,7 +35,7 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
         PathEditInfoComponent,
         ListComponent,
         SuccessAddPopup,
-        ConfirmDeletePopup,
+        ConfirmDeletePopup
         ],
     entryComponents: [
         SuccessAddPopup,
@@ -63,6 +63,7 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        ListComponent
     ]
 })
 

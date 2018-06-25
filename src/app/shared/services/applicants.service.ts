@@ -197,7 +197,6 @@ export class ApplicantsService {
     
   constructor(private skillsService: SkillsService,private userService:UserService,private vacancyService:VacancyService) {
   }
-  
 
   public add(applicant: Applicant) {
     this.applicants.push(applicant);

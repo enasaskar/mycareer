@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../users/users.model';
-import { WorkExperience } from '../classes/userWorkExperienceModel';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -9,6 +8,8 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
 
   private isUser: boolean;
+  public isEnterprise: boolean;
+  public isAdmin: boolean;
 
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
@@ -17,10 +18,12 @@ export class UserService {
 
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
-  currentUserId : number;
+  currentUserId: number;
 
   isEnterprise$: Observable<boolean>;
-  private isEnterpriseSub : Subject<boolean>;
+  private isEnterpriseSub: Subject<boolean>;
+  private isAdminSub: Subject<boolean>;
+  isAdmin$: Observable<boolean>;
 
   // replace this with data from API
   private users: User[] = [
@@ -54,6 +57,83 @@ export class UserService {
       city : '',
       role : 'enterprise',
       enterpriseId : 1
+    },
+    {
+      id : 2,
+      fname : 'Rana',
+      lname : 'Osama',
+      email : 'ranaOsama@gmail.com',
+      password : '12345678',
+      telNumber : '01007677393',
+      district : 'Heliopolis',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 3,
+      fname: 'Youstina',
+      lname: 'Hany',
+      email: 'youstinaHany@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'Shobra',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 4,
+      fname: 'Amel',
+      lname: 'Youssef',
+      email: 'amoulaYoussef@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'El-Marg',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 5,
+      fname: 'Mennatollah',
+      lname: 'El-Mesmary',
+      email: 'mennaElMesmary@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : 'El-Sheikh Zayed',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 6,
+      fname: 'Linah',
+      lname: 'Samy',
+      email: 'linahSamy@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 7,
+      fname: 'Mohammad',
+      lname: 'Ahmed',
+      imagePath: '../../../assets/img/team/emp3.jpg',
+      email: 'MohammedAhmed@yahoo.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza'
     }
   ];
   constructor() {
@@ -65,7 +145,9 @@ export class UserService {
     this.id$ = this.numberSubject.asObservable();
     this.isUser = false;
     this.isEnterpriseSub = new Subject<boolean>();
+    this.isAdminSub = new Subject<boolean>();
     this.isEnterprise$ = this.isEnterpriseSub.asObservable();
+    this.isAdmin$ = this.isAdminSub.asObservable();
   }
   // CRUD ops here
   getUsers() {
@@ -93,7 +175,7 @@ export class UserService {
   setUserId(id: number) {
     this.numberSubject.next(id);
   }
-  getUserId(){
+  getUserId() {
     return this.currentUserId;
   }
   getIsUser() {
@@ -102,8 +184,17 @@ export class UserService {
   setIsUser() {
     this.isUser = true;
   }
-  setIsEnterprise(flag : boolean) {
+  setIsEnterprise(flag: boolean) {
     this.isEnterpriseSub.next(flag);
+  }
+  getIsEnterprise() {
+    return this.isEnterprise;
+  }
+  setIsAdmin(flag: boolean) {
+    this.isAdminSub.next(flag);
+  }
+  getIsAdmin() {
+    return this.isAdmin;
   }
   notSetUser() {
     this.isUser = false;

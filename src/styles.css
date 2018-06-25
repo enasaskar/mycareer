@@ -3,6 +3,7 @@
 /* css of fullcalendar */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
+@import "../node_modules/ngx-bar-rating/themes/br-stars-theme.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 

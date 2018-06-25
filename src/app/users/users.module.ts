@@ -17,6 +17,7 @@ import { EnterprisesModule } from '../enterprise/enterprises.module';
 // import { UserAddWorkExperienceModalComponent } from './user-add-workExperience-Modal/user-add-workExperience-Modal.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { PathsModule } from '../paths/path.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     VacanciesModule,
     InterviewsModule,
     EnterprisesModule,
+    PathsModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -34,12 +36,12 @@ import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateM
     MatNativeDateModule,
     RouterModule.forChild([{path: 'user/:id', component: UsersComponent, children: [
       {path: '', redirectTo: 'userDashBoard', pathMatch: 'full'},
-      {path: 'userProfile', component: UserProfileComponent, children: [
+      {path: 'userProfile', canActivate: [AuthGuard], component: UserProfileComponent, children: [
         {path: '', component: UserDetailsComponent, pathMatch: 'full'},
         {path: 'edit', component: UserDetailsEditComponent}
       ]},
-      // {path: 'userDashBoard', canActivate: [AuthGuard],component: UserDashBoardComponent}
-      {path: 'userDashBoard', component: UserDashBoardComponent}
+      {path: 'userDashBoard', canActivate: [AuthGuard], component: UserDashBoardComponent}
+      // {path: 'userDashBoard', component: UserDashBoardComponent}
     ]}])
   ],
   declarations: [

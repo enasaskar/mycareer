@@ -14,6 +14,7 @@ export class SkillPopupComponent implements OnInit {
   editIcon: Boolean = true;
   @Input() modalRef;
 
+
   ngOnInit() {
   }
   onClick() {

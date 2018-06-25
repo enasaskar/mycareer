@@ -4,7 +4,7 @@
     <div class="col-md-4">
             <div class="team-item thumbnail">
               <!--link to profile-->
-              <a href="#" class="thumb-info team">
+              <a  class="thumb-info team">
                 <img alt="" [src]="skillDetails.Img">
                 <span class="thumb-info-title">
                   <span class="thumb-info-inner">{{skillDetails.Name}}</span>
@@ -19,9 +19,9 @@
             <h4>Reviews</h4>
             <ul class="list icons list-unstyled">
               <li>
-                <strong class="left">{{skillDetails.Rate}}</strong>
+                <!-- <strong class="left">{{skillDetails.Rate}}</strong> -->
                 <!-- <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs"> -->
-                <bar-rating [(rate)]="skillDetails.Rate" [max]="5"></bar-rating>
+                <bar-rating *ngIf="!editIcon" [(rate)]="skillDetails.Rate" [max]="5" [theme]="'stars'"></bar-rating>
                 <p class="clear"></p>
               </li>
               <li>
@@ -54,13 +54,11 @@
           </div>
         </div>
         <app-skill-details-popup *ngIf="openMode" [skillDetails]="skillDetails"></app-skill-details-popup>
-        <app-skill-update *ngIf="!openMode" [skillDetails]="skillDetails"></app-skill-update>
+        <app-skill-update *ngIf="!openMode" [skillDetails]="skillDetails" ></app-skill-update>
        
   </div>
-  <div class="modal-footer" *ngIf="!editIcon">
-    
-          <button type="button" class="btn btn-default">Cancel</button>
-          <button type="submit" class="btn btn-primary">Save</button>
-      
-  </div>
+  <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="back()" *ngIf="!editIcon">Cancel</button>
+
+  </div> -->
 </div>

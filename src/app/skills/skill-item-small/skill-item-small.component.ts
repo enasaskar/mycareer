@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit, Input, TemplateRef, EventEmitter, Output } from '@angular/core';
 import { Skill } from '../../shared/classes/skill.model';
 import { ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -13,22 +13,28 @@ import { SkillsService } from '../../shared/services/skills.service';
 })
 export class SkillItemSmallComponent implements OnInit {
 
+
   constructor(private route: ActivatedRoute,
               private modalService: BsModalService,
               private skillService: SkillsService) { }
   @Input() skillDetails: Skill;
+  @Input() skillIndex: number;
   @Input() id;
   @Input() toShow ;
-
   modalRef: BsModalRef;
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
-  onDelete(id: number) {
-    this.skillService.deleteSkill(id);
+  onTrash() {
+    console.log('trash clicked');
+    // this.skillService.onDelete.next(this.skillDetails);
+    // this.skillService.deleteSkill(this.skillDetails);
+    this.skillService.deleteSkill(this.skillIndex);
+    // this.skillService.onTrashClicked.emit(this.skillDetails.ID);
   }
+
   ngOnInit() {
     // if (this.id === null) {
     //   this.toShow = true;

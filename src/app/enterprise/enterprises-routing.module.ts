@@ -14,7 +14,7 @@ const enterpriseRoutes: Routes = [
     {path : 'enterprises/enterprise/details',component: EnterpriseDetailsComponent},
     {path : 'enterprises/enetrprise/all' , component : EnterpriseViewAllComponent},
     {path : 'enterprises/enterprise/create', component : EnterpriseCreateComponent},
-    {path : 'enterprises/landingPage/:id', canActivate : [AuthGuard], component : LandingPageComponent},
+    {path : 'enterprises/NewFeed/:id', canActivate : [AuthGuard], component : LandingPageComponent},
     {path : 'enterprises/enterprise/goPremium', canActivate : [AuthGuard],component : JobPostingPlansComponent}
 
 ];

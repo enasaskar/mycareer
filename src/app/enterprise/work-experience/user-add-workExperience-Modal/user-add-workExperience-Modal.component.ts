@@ -78,7 +78,7 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     const endDateForm = this.addWorkExpForm.value['endDate'];
     let endDate;
     if (endDateForm) {
-      endDate = (this.addWorkExpForm.value['startDate'].getMonth() + 1) + '/'
+      endDate = (this.addWorkExpForm.value['endDate'].getMonth() + 1) + '/'
                 + endDateForm.getDate()  + '/'
                 + endDateForm.getFullYear();
     } else {

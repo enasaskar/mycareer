@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn : boolean ;
   isLogOut:boolean = false;
   isEnterprise : boolean;
+  isAdmin:boolean;
   eId : number;
    
   constructor(private route: ActivatedRoute,
@@ -48,9 +49,13 @@ export class HeaderComponent implements OnInit {
       if(currentUser.role == "enterprise"){
         this.userService.setIsEnterprise(true);
         this.eId = currentUser.enterpriseId;
-      }})
+        console.log('I am an enterprise');
+      }
+      console.log('currentUser.role =', currentUser.role );
+    });
 
       this.userService.isEnterprise$.subscribe((b : boolean) => {this.isEnterprise = b;})
+      this.userService.isAdmin$.subscribe((b: boolean) => {this.isAdmin = b; });
   }
 
 
@@ -64,12 +69,17 @@ export class HeaderComponent implements OnInit {
    e.target.classList.add('active');
   }
 
-  public onLogOut(){
+  public onLogOut() {
     this.userService.notSetUser();
-    //this.userService.setIsLoggedOut();
+    // this.userService.setIsLoggedOut();
     this.userService.notSetUserLoggedIn();
     this.userService.setIsEnterprise(false);
+   // this.userService.setIsAdmin(false);
     this.userService.currentUserId = null;
+    this.isEnterprise = false;
+    this.isAdmin = false;
+    this.userService.isAdmin = false;
+    this.userService.isEnterprise = false;
     this.router.navigate(['/login']);
   }
 

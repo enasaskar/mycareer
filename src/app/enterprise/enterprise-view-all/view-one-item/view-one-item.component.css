@@ -49,6 +49,7 @@
    width: 60px;
    margin-top: -10px;
    margin-left : -10px;
+   max-height: 50px;
  }
 
  .feature-box .feature-box-info h4
@@ -188,4 +189,18 @@ ul.comments .comment-block strong
 .feature-box-info p
 {
   margin-bottom: 2%;
+}
+.des{
+  max-height: 50px;
+    -webkit-line-clamp: 3;
+    /* -webkit-box-orient: vertical; */
+    overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name{
+  max-height: 30px;
+    -webkit-line-clamp: 1;
+    /* -webkit-box-orient: vertical; */
+    overflow: hidden;
+  text-overflow: ellipsis;
 }

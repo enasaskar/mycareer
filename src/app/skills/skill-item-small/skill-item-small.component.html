@@ -1,11 +1,12 @@
-<div (click)="openModal(popup)">
-    <!-- (click)="openModal(test)" -->
-  <a class="remove " (click)="onDelete(skillDetails.ID)">
+
+  <!-- <a class="remove " (click)="onTrash()"> -->
+
 <div class="skill-item">
-  <a href="#" class="remove edit-skills-display">
+  <a class="remove "(click)="onTrash()">
     <i class="fa fa-trash"></i>
   </a>
   <p class="clear"></p>
+  <div (click)="openModal(popup)">
   <div class="portfolio-item img-thumbnail">
       <!-- [href]="'#'+skillDetails.ID"  -->
     <a class="thumb-info lightbox" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -13,7 +14,11 @@
       <span class="thumb-info-title">
         <span class="thumb-info-inner">{{skillDetails.Name}}</span>
         <span class="thumb-info-type">
-          <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">.30
+          <!-- <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs">.30 -->
+      <ngb-rating [rate]="skillDetails.Rate" [max]=5 [readonly]=" true"></ngb-rating>
+         
+          <!-- <bar-rating [(rate)]="skillDetails.Rate" [max]="5" [theme]="'stars'" [titles]="[]"></bar-rating> -->
+          
         </span>
       </span>
       <span class="thumb-info-action">
@@ -28,10 +33,11 @@
     <!-- {{skil.Level}} -->
 
     <ng-template #popup>
-    <app-skill-popup [skillDetails]="skillDetails" [modalRef]="modalRef"></app-skill-popup>
+    <app-skill-popup [skillDetails]="skillDetails" [modalRef]="modalRef" ></app-skill-popup>
   </ng-template>
   <!-- </div> -->
   <!-- <ng-template #test>
     <app-skill-add-new [modalRef]="modalRef"> </app-skill-add-new>
   </ng-template> -->
+</div>
 </div>
