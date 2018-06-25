@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../users/users.model';
 import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,7 @@ export class UserService {
     'Iaculis vulputate id quis nisl.']},
     {
       id : 1,
+      imagePath: '../../../assets/img/team/emp7.jpg',
       fname : 'Passant',
       lname : 'Osama',
       email : 'passant@gmail.com',
@@ -136,7 +138,7 @@ export class UserService {
       city : 'Giza'
     }
   ];
-  constructor() {
+  constructor(private http: HttpClient) {
     // this.isUserLoggedIn = false;
     this.boolSubject = new Subject<boolean>();
     this.boolSubject.next(false);
@@ -153,8 +155,10 @@ export class UserService {
   getUsers() {
     return this.users.slice();
   }
-  getUserById(id: number) {
-    return this.users[id];
+  getUserById(id: number): Observable<User> {
+    // return this.users[id];
+    id = 1;
+    return <Observable<User>> this.http.get(`http://localhost:49877/api/Users/${id}?type=json`) ;
   }
   addUser(user: User) {
     this.idCount++;

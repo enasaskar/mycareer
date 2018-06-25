@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
           const u = this.userService.getUserByEmail(form.value.email)[0];
           this.userService.setUserId(u.id);
           this.userService.currentUserId = u.id;
-          if (u.role == 'enterprise') {
+          if (u.role === 'enterprise') {
             this.userService.isEnterprise = true;
             this.router.navigate(['/enterprises/NewFeed', u.enterpriseId]);
-          } else  if (u.role == 'admin') {
-            //this.userService.setIsAdmin(true);
+          } else  if (u.role === 'admin') {
+            // this.userService.setIsAdmin(true);
             this.userService.isAdmin = true;
             this.router.navigate(['/home']);
           } else {
@@ -47,6 +47,5 @@ export class LoginComponent implements OnInit {
         }
       }
     }
-    
   }
 }

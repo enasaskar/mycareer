@@ -16,7 +16,7 @@ import { EducationalBackgroundService } from '../../shared/services/educationalB
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User;
+  user: User = {};
   // when getting user by id
   id: number;
   userWorkExperiences: WorkExperience[];
@@ -39,8 +39,9 @@ export class UserProfileComponent implements OnInit {
       if (this.id === this.userService.currentUserId) {
         this.isUser = true;
       }
-      this.user = this.userService.getUserById(this.id);
-      this.user = this.userService.getUserById(this.id);
+      this.userService.getUserById(this.id).subscribe(
+        (user) => { this.user = user; }
+      );
       this.userWorkExperiences = this.workService.getUserExperiences(this.id);
       this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
     });

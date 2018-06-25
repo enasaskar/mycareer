@@ -14,32 +14,36 @@ import { UserComments } from '../../../../shared/classes/user-comments';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
-  enterpriseId : number;
-  comments : UserComments[] = [];
+  enterpriseId: number;
+  comments: UserComments[] = [];
   newComment = new UserComments();
-  currentId : number;
-  isEnterprise : boolean;
-  currentUserId : number;
-  constructor(private commentService : UserCommentsService,private active : ActivatedRoute,
-              private userService : UserService) { }
+  currentId: number;
+  isEnterprise: boolean;
+  currentUserId: number;
+  constructor(private commentService: UserCommentsService, private active: ActivatedRoute,
+              private userService: UserService) { }
 
   ngOnInit() {
-    this.enterpriseId = +this.active.snapshot.params["id"]; 
+    this.enterpriseId = +this.active.snapshot.params['id'];
     this.currentUserId = this.userService.currentUserId;
-    if(this.userService.currentUserId != null){
-      this.currentId = this.userService.getUserById(this.currentUserId).enterpriseId;
+    if (this.userService.currentUserId != null) {
+       this.userService.getUserById(this.currentUserId).subscribe(
+         (user) => {
+          this.currentId = user.enterpriseId;
+         }
+       );
       this.isEnterprise = this.userService.getIsEnterprise();
     }
-  
+
     this.comments = this.commentService.getByEnterpriseId(this.enterpriseId);
     this.commentService.commentsChanged.subscribe(
-      (comments : UserComments[]) => {
+      (comments: UserComments[]) => {
         this.comments = comments;
       }
     );
   }
 
-  AddComment(){
+  AddComment() {
     this.newComment.enterpriseId = +this.enterpriseId;
     this.newComment.userId = this.currentUserId;
     this.commentService.addComment(this.newComment);

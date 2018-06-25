@@ -58,8 +58,14 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.currentUserId != null) {
-    this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
-    this.isEnterprise = this.userService.getIsEnterprise();
+      let currentUser;
+      this.userService.getUserById(this.userService.currentUserId).subscribe(
+        (user) => {
+          currentUser = user;
+          this.currentId = user.enterpriseId;
+          this.isEnterprise = this.userService.getIsEnterprise();
+        }
+      );
     }
     this.id = +this.active.snapshot.params['id'];
     this.details = this.enterpriseService.getById(this.id);

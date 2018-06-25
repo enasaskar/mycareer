@@ -48,6 +48,9 @@ import { RatingListService } from 'src/app/shared/services/ratingList.service';
 import { UserService } from './shared/services/user.service';
 import { ApplicantsService } from './shared/services/applicants.service';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -76,7 +79,9 @@ import { BarRatingModule } from 'ngx-bar-rating';
     ModalModule.forRoot(),
     DragScrollModule,
     AuthModule,
-    BarRatingModule
+    BarRatingModule,
+    HttpModule,
+    HttpClientModule
   ],
   exports: [
     // SkillItemSmallComponent

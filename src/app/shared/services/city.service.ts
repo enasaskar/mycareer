@@ -66,7 +66,7 @@ export class CityService {
 
   // to return city names
   public getByCountryName(co: string) {
-    const  c = this.cities.filter(c => c.countryName === co);
+    const  c = this.cities.filter(o => o.countryName === co);
     return c.map(a => a.name);
   }
 

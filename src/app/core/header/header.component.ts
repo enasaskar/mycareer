@@ -12,14 +12,14 @@ import { UserService } from '../../shared/services/user.service';
 export class HeaderComponent implements OnInit {
 
   id: number;
-  isLoggedIn : boolean ;
-  isLogOut:boolean = false;
-  isEnterprise : boolean;
-  isAdmin:boolean;
-  eId : number;
-   
+  isLoggedIn: boolean ;
+  isLogOut = false;
+  isEnterprise: boolean;
+  isAdmin: boolean;
+  eId: number;
+
   constructor(private route: ActivatedRoute,
-    private router: Router,private userService : UserService) {
+    private router: Router, private userService: UserService) {
       // router.events.subscribe((event) => {
       //   if ( event instanceof ChildActivationEnd) {
       //     this.id = +event.snapshot.firstChild.params['id'];
@@ -41,19 +41,24 @@ export class HeaderComponent implements OnInit {
     //     this.id = null;
     //   }
     // });
-   
-    this.userService.isUserLoggedIn$.subscribe((bool : boolean) => {this.isLoggedIn = bool;});
-    this.userService.id$.subscribe((id : number) => {this.id = id;
-      let currentUser = this.userService.getUserById(this.id);
-      if(currentUser.role == "enterprise"){
-        this.userService.setIsEnterprise(true);
-        this.eId = currentUser.enterpriseId;
-        console.log('I am an enterprise');
-      }
-      console.log('currentUser.role =', currentUser.role );
+
+    this.userService.isUserLoggedIn$.subscribe((bool: boolean) => {this.isLoggedIn = bool; });
+    this.userService.id$.subscribe((id: number) => {this.id = id;
+      let currentUser;
+      this.userService.getUserById(this.id).subscribe(
+        (user) => {
+          currentUser = user;
+          if (currentUser.role === 'enterprise') {
+            this.userService.setIsEnterprise(true);
+            this.eId = currentUser.enterpriseId;
+            console.log('I am an enterprise');
+          }
+        }
+      );
+    //  console.log('currentUser.role =', currentUser.role );
     });
 
-      this.userService.isEnterprise$.subscribe((b : boolean) => {this.isEnterprise = b;})
+      this.userService.isEnterprise$.subscribe((b: boolean) => {this.isEnterprise = b; });
       this.userService.isAdmin$.subscribe((b: boolean) => {this.isAdmin = b; });
   }
 

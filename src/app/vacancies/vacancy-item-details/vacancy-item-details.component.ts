@@ -42,7 +42,6 @@ export class VacancyItemDetailsComponent implements OnInit {
 }
 
   ngOnInit() {
-    debugger
      this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
      console.log(this.vid);
     this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
@@ -70,8 +69,11 @@ export class VacancyItemDetailsComponent implements OnInit {
     this.uId = this.userService.currentUserId;
     console.log(this.uId);
     if (this.uId !== null && this.uId !== undefined) {
-      const user = this.userService.getUserById(this.uId);
-      this.applicantService.add(new Applicant(user, v));
+      let  currentUser ;
+      this.userService.getUserById(this.uId).subscribe(
+        (user) => {currentUser = user; }
+      );
+      this.applicantService.add(new Applicant(currentUser, v));
       this.router.navigate(['/interviews/applicants/1']);
 
     } else {

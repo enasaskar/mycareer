@@ -10,12 +10,14 @@ import { UserComments } from '../../../../../shared/classes/user-comments';
 })
 export class OneCommentComponent implements OnInit {
 
-  @Input() comment : UserComments;
-  user : User;
-  constructor(private userService : UserService) { }
+  @Input() comment: UserComments;
+  user: User;
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.user = this.userService.getUserById(this.comment.userId);
+    this.userService.getUserById(this.comment.userId).subscribe(
+      (user) => {this.user = user; }
+    );
 
   }
 

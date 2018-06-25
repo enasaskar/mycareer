@@ -22,9 +22,9 @@ export class EntrepriseVacanciesComponent implements OnInit {
   ngOnInit() {
     this.uId = this.userService.currentUserId;
     if (this.uId) {
-      this.currentUser = this.userService.getUserById(this.uId);
-      console.log(this.uId);
-      console.log(this.currentUser.role);
+      this.userService.getUserById(this.uId).subscribe(
+        (user) => { this.currentUser = user; }
+      );
     this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.uId);
         this.enterprise = this.eService.getEnterpriseById(this.uId);
   }

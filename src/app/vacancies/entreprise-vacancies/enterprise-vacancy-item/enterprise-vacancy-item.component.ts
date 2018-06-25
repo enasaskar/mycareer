@@ -19,10 +19,14 @@ export class EnterpriseVacancyItemComponent implements OnInit {
   ngOnInit() {
     this.uId = this.userService.currentUserId;
     if (this.uId) {
-    this.currentUser = this.userService.getUserById(this.uId);
+    this.userService.getUserById(this.uId).subscribe(
+      (user) => {this.currentUser = user; }
+    );
   }
     if (this.userService.currentUserId != null) {
-      this.currentId = this.userService.getUserById(this.userService.currentUserId).enterpriseId;
+      this.userService.getUserById(this.userService.currentUserId).subscribe(
+        (user) => { this.currentId = user.enterpriseId; }
+      );
     }
   }
 }

@@ -14,7 +14,7 @@ import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
 })
 export class UserDetailsComponent implements OnInit {
 
-  user: User;
+  user: User = {};
   id: number;
   expChanged: WorkExperience[];
   currentEmpoyment: WorkExperience;
@@ -31,21 +31,25 @@ export class UserDetailsComponent implements OnInit {
       if (this.id === this.userService.currentUserId) {
         this.isUser = true;
       }
-      this.user = this.userService.getUserById(this.id);
-      this.expChanged = this.workExpService.getUserExperiences(this.id);
-      this.currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present')[0];
+      this.userService.getUserById(this.id).subscribe(
+        (user) => {
+          this.user = user;
+          this.expChanged = this.workExpService.getUserExperiences(this.id);
+          this.currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present')[0];
+          this.workExpService.workExperienceChanged.subscribe(data => {
+            this.expChanged = data;
+            // currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present');
+          });
+          this.user.title = this.currentEmpoyment.content;
+          this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
+        }
+      );
       // const currentEmpoyment = this.workExpService.getCurrentUserWorkExp(this.id);
       // let currentEmpoyment;
       // this.workExpService.getUserExperiences(this.id)
       // .subscribe(data => {
       //   currentEmpoyment = data.filter(exp => exp.endDate === 'present');
       // });
-      this.workExpService.workExperienceChanged.subscribe(data => {
-        this.expChanged = data;
-        // currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present');
-      });
-      this.user.title = this.currentEmpoyment.content;
-      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
     });
   }
 }
