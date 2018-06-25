@@ -236,8 +236,15 @@ export class EnterpriseService {
         this.enetrprises.splice(index, 1);
     }
 
-    public update(i: number, e: EnterpriseDetails) {
-        this.enterprisesDetails[i] = e;
+    public update(id: number, e: EnterpriseDetails) {
+        this.enterprisesDetails[id] = e;
+        //console.log(e.branches);
+        // const url = `http://localhost:49877/rpc/Enterprises/PutEnterprise/${id}`;
+        // const httpOptions = {
+        //     headers: new HttpHeaders({
+        //       'Content-Type':  'application/json'
+        //     })};
+        // return this.http.put(url,e,httpOptions);
     }
 
     public getRatingItem(ratingList: RatingList[], id: number) {

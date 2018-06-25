@@ -144,14 +144,15 @@ export class EnterpriseDetailsComponent implements OnInit {
 
   OnEditSubmit(form: NgForm) {
     // To Do:call update function
-    // if(form.valid){
-    this.enterpriseService.update(this.details.id - 1, this.details);
+     if(form.valid){
+    this.enterpriseService.update(this.details.id, this.details)
+    // =.subscribe((e => {console.log(e)}));
     this.e = document.getElementById('e');
     this.edit = document.getElementById('edit');
     this.e.style.display = 'block';
     this.edit.style.display = 'none';
 
-    // }
+     }
 
 
   }
