@@ -40,7 +40,7 @@ export class VacancyAddEditComponent implements OnInit {
     private branchs: BranchService, private activedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    debugger
+
     const id = this.activedRout.snapshot.params['id'];
     console.log(id);
     if (id >= 1) {

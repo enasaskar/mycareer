@@ -1,4 +1,4 @@
-<form [formGroup]="updateForm" (ngSubmit)="onUpdate()" #f="ngForm">
+<form [formGroup]="updateForm" method="POST" (ngSubmit)="onUpdate(f)" #f = ngForm >
   <ul class="list icons list-unstyled">
 
     <div class="table-responsive">

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Evaluation } from '../classes/Evaluation.model';
 import { User } from '../../users/users.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EvaluationService {
-  evaluation:Evaluation[]=[
+  evaluation: Evaluation[] = [
     {
       user_id: 1,
       skill_id: 1,
@@ -33,12 +34,13 @@ export class EvaluationService {
       rate: 0
     }
   ];
+  public getEvaluation = new Subject();
   constructor() { }
 
-  public getEvaluationByUserId(id:number){
-    return this.evaluation.filter(a=>a.user_id == id);
+  public getEvaluationByUserId(id: number) {
+    return this.evaluation.find(a => a.user_id === id);
   }
-  public AddEvaluation(evaluation:Evaluation){
+  public AddEvaluation(evaluation: Evaluation){
     this.evaluation.push(evaluation);
   }
   public delete(){
@@ -47,5 +49,5 @@ export class EvaluationService {
   public update(){
 
   }
-  
+
 }

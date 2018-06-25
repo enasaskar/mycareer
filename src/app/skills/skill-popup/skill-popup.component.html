@@ -21,15 +21,19 @@
               <li>
                 <!-- <strong class="left">{{skillDetails.Rate}}</strong> -->
                 <!-- <input type="text" value="3.4" class="input-disabled1 rating" data-size="xs"> -->
-                <bar-rating *ngIf="!editIcon" [(rate)]="skillDetails.Rate" [max]="5" [theme]="'stars'"></bar-rating>
+               
+
+                  <bar-rating  [(rate)]="skillDetails.Rate"  [max]="5" [theme]="'stars'" [readOnly]="true"></bar-rating>
+              
+                
                 <p class="clear"></p>
               </li>
-              <li>
+              <!-- <li>
                 <strong>Endorsments</strong>
                 <div class="counters dark">
                   <strong (data-to)="skillDetails.NoEndorsments">{{skillDetails.NoEndorsments}}</strong>
                 </div>
-              </li>
+              </li> -->
             </ul>
       </div>
         </div>
