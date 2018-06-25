@@ -4,12 +4,16 @@ export class Skill {
     Name?: string;
     IsDeleted?: boolean;
     Img?: string;
+    from?: string;
+    paths?: string;
+    vacancy?: string;
     Level?: string;
     NoEndorsments?: number;
     Description ?: string;
     Rate ?: number;
     Review ?: string;
-
+    acquiredDat?: string ;
+    // acquiredDat?: DateTimeFormat ;
 
     constructor(id, name, isDel, img, level) {
        this.ID = id;

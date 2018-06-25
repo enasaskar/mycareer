@@ -30,25 +30,15 @@ export class VacancyListComponent implements OnInit {
     if (searchtext) {
       this.enterprise = this.enterpriseService.getByName(searchtext);
       this.vacancyServiec.getVacanciesByEnterpriseId(this.enterprise.id).subscribe((d) => { this.vacancies = d; });
-      //  this.vacancyServiec.getVacanciesByEnterpriseName(searchtext).subscribe((d) => {this.vacancies = d ; });
-      console.log(this.vacancies);
-      // //  this.enterprises =  this.vacancies.map(i => this.enterpriseService.getEnterpriseById(searchtext));
-      //  this.enterprise =   this.enterpriseService.getEnterpriseById(this.vacancies.);
-      //  console.log(this.enterprise);
       this.vacancies.forEach(() => this.enterprises.push(this.enterprise));
-      console.log(this.enterprises);
     } else {
       this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
-      console.log(this.vacancies);
       const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
       this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
-      console.log(this.vacancies);
-      console.log(this.currentUser);
     }
   }
 
   OnSearchSubmit(searchForm: NgForm) {
-    console.log(searchForm.value.s);
     this.vacancyServiec.getVacanciesByEnterpriseIdGeneral(searchForm.value.s).subscribe((d) => { this.vacancies = d; });
     this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
     console.log(this.enterprises);

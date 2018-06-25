@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     const navigation = document.querySelector('nav');
     navigation.addEventListener('mousedown', this.makeActive);
+    
     // console.log(this.route.firstChild);
     // console.log(this.route.firstChild);
     // this.route.params.subscribe((params: Params) => {

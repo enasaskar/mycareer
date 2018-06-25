@@ -63,12 +63,7 @@ export class CalendarService {
     return this.events;
   }
   public delete(event:CalendarEvent){
-    
-    // const id = this.events.indexOf(event);
-    // this.events.splice(id,1);
     this.events = this.events.filter(iEvent => iEvent !== event);
-    //this.activeDayIsOpen = false;
-    console.log(this.events);
     return this.events;
   }
 }
