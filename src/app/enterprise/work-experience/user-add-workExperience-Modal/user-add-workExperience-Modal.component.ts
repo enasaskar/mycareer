@@ -95,6 +95,7 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
       );
       if (this.editMode) {
         this.workExpService.updateExperience(this.id, this.workExpIndex, experience);
+        console.log('update');
       } else {
         this.workExpService.addExperience(this.id, experience);
       }
