@@ -34,7 +34,7 @@ export class VacancyListComponent implements OnInit {
         if (this.searchtext) {
           this.vacancies = data.filter(a => (a.title.toLowerCase().startsWith(this.searchtext.toLowerCase()))
           || (a.description.toLowerCase().startsWith(this.searchtext.toLowerCase()))
-          || (this.enterpriseService.getById(a.fK_Enterprise_Id).name.toLowerCase().startsWith(this.searchtext.toLowerCase()))
+          || (this.enterpriseService.getEnterpriseById(a.fK_Enterprise_Id).name.toLowerCase().startsWith(this.searchtext.toLowerCase()))
         );
         this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
       } else {
@@ -46,15 +46,8 @@ export class VacancyListComponent implements OnInit {
   }
 
   OnSearchSubmit(searchForm: NgForm) {
-<<<<<<< HEAD
     this.searchtext = searchForm.value.s;
     console.log(this.searchtext);
     this.GetDataForVancancyAndEnterPrise();
-=======
-    this.vacancyServiec.getVacanciesByEnterpriseIdGeneral(searchForm.value.s).subscribe((d) => { this.vacancies = d; });
-    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
-    console.log(this.enterprises);
-
->>>>>>> 7a38659f2f5d96c6a2d367e412ab907b5b2b9f8f
   }
 }

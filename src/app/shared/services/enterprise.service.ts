@@ -165,7 +165,7 @@ export class EnterpriseService {
         name : 'ITWorkX',
         headLine : 'Cloud',
         headquarters : 'Egypt',
-        bigLogo : '',
+        bigLogo : '../assets/img/logos/itworx.jpg',
         des : `ITWORX is a global IT Services firm providing Cloud-based and On-premise solutions to the world's leading organizations with an emphasis on Advanced Analytics, Enterprise Mobility, Performance Management, and CRM. ITWORX has a 20-year proven track record building award-winning solutions for Telco, Banking, Manufacturing, Agriculture, and Government; leveraging its vast pool of talent, wide range of partnerships, and global delivery capability. 
 
         ITWORX has global offices in Cairo, Connecticut, Toronto, London, Zurich, Riyadh, Dubai, Abu Dhabi, Kuwait, & Doha. 

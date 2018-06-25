@@ -373,9 +373,13 @@ export class VacancyService {
         return this.http.get(this.UrlApiGetById + id);
     }
 
+    public getByIdstatic(id: number) {
+        return this.vacancies.filter(a => a.id == id)[0];
+    }
+
     public deletev(id: number) {
         return  this.http.delete(this.UrlApiDelete + id);
-        //  return this.getAll();
+        //  return thstaticis.getAll();
     }
     public addVacancy(v: Vacancy) {
         const httpOptions = {

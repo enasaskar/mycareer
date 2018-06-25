@@ -68,7 +68,7 @@ load() {
       (data: Vacancy) =>  {
         this.vacancieyDetails = data ;
         console.log( this.vacancieyDetails);
-        this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
+        this.vacancieyDetailsEnterprise = this.enterpriseService.getByIdStatic(this.vacancieyDetails.fK_Enterprise_Id);
         console.log( this.vacancieyDetailsEnterprise);
         this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
         this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);

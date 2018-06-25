@@ -27,12 +27,12 @@ export class UserPendingInterviewItemComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  ngOnInit() {
+   ngOnInit() {
     // Get current user id
     this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
     });
-    this.vacancy = this.vacancyService.getById(this.interview.vacancyId);
+    this.vacancy = this.vacancyService.getByIdstatic(this.interview.vacancyId);
     console.log(this.vacancy);
 
     this.enterprise = this.enterpriseService.getEnterpriseById(this.vacancy.fK_Enterprise_Id);

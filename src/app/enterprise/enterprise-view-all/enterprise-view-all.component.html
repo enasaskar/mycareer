@@ -20,6 +20,7 @@
 <div class="container available-vacancies">
 
     <div class="row" style="margin-bottom: 20px;">
+        <h2 *ngIf="!enterprises" class = "center">Loading...</h2>
         <div class="col-md-10"></div>
         <div class="col-md-2">
             <a *ngIf="(!isEnterprise || isAdmin) && currentUserId != null" class="btn btn-primary right" routerLink='enterprise/details'>Add Account</a>
