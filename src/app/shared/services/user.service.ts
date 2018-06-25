@@ -14,7 +14,7 @@ export class UserService {
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
 
-  idCount = 2;
+  idCount = 8;
 
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
@@ -106,7 +106,7 @@ export class UserService {
       imagePath: '../../../assets/img/team/emp2.jpg',
       fname: 'Andrew',
       lname: 'Maged',
-      email: 'mennaElMesmary@gmail.com',
+      email: 'andrewMaged@gmail.com',
       password: '12345678',
       telNumber : '01207647393',
       district : 'El-Sheikh Zayed',

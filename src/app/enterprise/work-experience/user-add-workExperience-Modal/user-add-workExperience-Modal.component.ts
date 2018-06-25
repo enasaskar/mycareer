@@ -86,6 +86,7 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     }
     if (this.type === 'work') {
       const experience = new WorkExperience(
+        this.id,
         // this.addWorkExpForm.value['enterprise'],
         this.enterpriseService.getByName(this.myControl.value).id,
         this.addWorkExpForm.value['title'],
@@ -99,6 +100,7 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
       }
     } else {
       const experience = new WorkExperience(
+        this.id,
         // this.addWorkExpForm.value['enterprise'],
         this.enterpriseService.getByName(this.myControl.value).id,
         this.degreeControl.value,

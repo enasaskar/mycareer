@@ -21,6 +21,7 @@ export class SkillItemSmallComponent implements OnInit {
   @Input() skillIndex: number;
   @Input() id;
   @Input() toShow ;
+  @Input() skillIn;
   modalRef: BsModalRef;
 
   openModal(template: TemplateRef<any>) {
@@ -28,10 +29,16 @@ export class SkillItemSmallComponent implements OnInit {
   }
 
   onTrash() {
-    console.log('trash clicked');
+    console.log('trash clicked' + this.skillIndex);
     // this.skillService.onDelete.next(this.skillDetails);
     // this.skillService.deleteSkill(this.skillDetails);
-    this.skillService.deleteSkill(this.skillIndex);
+    if (this.skillIn === 'paths') {
+      this.skillService.deleteSkillFromPath(this.skillIndex);
+    } else if (this.skillIn === 'userProfile') {
+      this.skillService.deleteSkillFromUser(this.skillIndex) ;
+    } else {
+      this.skillService.deleteSkill(this.skillIndex);
+    }
     // this.skillService.onTrashClicked.emit(this.skillDetails.ID);
   }
 

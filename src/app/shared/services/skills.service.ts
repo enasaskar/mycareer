@@ -22,7 +22,7 @@ constructor() {
         {
             ID: 0,
             Name: 'C#',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'v.Good',
             NoEndorsments: 50,
@@ -31,7 +31,7 @@ constructor() {
         {
             ID: 1,
             Name: 'jQuery',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
@@ -40,7 +40,7 @@ constructor() {
         {
             ID: 2,
             Name: 'MVC',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
@@ -49,7 +49,7 @@ constructor() {
         {
             ID: 3,
             Name: 'SQL',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
@@ -58,7 +58,7 @@ constructor() {
         {
             ID: 4,
             Name: 'Dynamic css',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
@@ -67,7 +67,7 @@ constructor() {
         {
             ID: 5,
             Name: 'HTML',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
@@ -76,7 +76,7 @@ constructor() {
         {
             ID: 6,
             Name: 'Bootstrap',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
@@ -85,7 +85,7 @@ constructor() {
         {
             ID: 7,
             Name: 'Angular',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
@@ -94,7 +94,7 @@ constructor() {
         {
             ID: 8,
             Name: 'Interviewing Skills',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'v.Good',
             NoEndorsments: 50,
@@ -104,7 +104,7 @@ constructor() {
         {
             ID: 9,
             Name: 'TypeScript',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
@@ -114,7 +114,7 @@ constructor() {
         {
             ID: 10,
             Name: 'AngularJS',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
@@ -124,7 +124,7 @@ constructor() {
         {
             ID: 11,
             Name: 'Web Api Core',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
@@ -134,7 +134,7 @@ constructor() {
         {
             ID: 12,
             Name: 'UX',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
@@ -144,7 +144,7 @@ constructor() {
         {
             ID: 13,
             Name: 'HTML5',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
@@ -154,7 +154,7 @@ constructor() {
         {
             ID: 14,
             Name: 'C++',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'v.Good',
             NoEndorsments: 50,
@@ -164,7 +164,7 @@ constructor() {
         {
             ID: 15,
             Name: 'MVC',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
@@ -174,7 +174,7 @@ constructor() {
         {
             ID: 16,
             Name: 'Mongo DB',
-            Rate: 5,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
@@ -184,7 +184,7 @@ constructor() {
         {
             ID: 17,
             Name: 'Communication skills',
-            Rate: 3,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
@@ -194,7 +194,7 @@ constructor() {
         {
             ID: 18,
             Name: 'Photoshop',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
@@ -204,7 +204,7 @@ constructor() {
         {
             ID: 19,
             Name: 'Dynamic HTML',
-            Rate: 4,
+            Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
@@ -216,7 +216,7 @@ constructor() {
        {
            ID: 0,
            Name: 'SQL',
-           Rate: 3,
+           Rate: 0,
            IsDeleted: false,
            Review: 'Good',
            Level: 'Intro',
@@ -226,7 +226,7 @@ constructor() {
        {
            ID: 1,
            Name: 'Dynamic css',
-           Rate: 4,
+           Rate: 0,
            IsDeleted: false,
            Review: 'Very Good',
            Level: 'Advanced',
@@ -236,7 +236,7 @@ constructor() {
        {
            ID: 2,
            Name: 'HTML',
-           Rate: 4,
+           Rate: 0,
            IsDeleted: false,
            Level: 'Intermediate',
            Review: 'Very Good',
@@ -246,7 +246,7 @@ constructor() {
        {
            ID: 3,
            Name: 'Bootstrap',
-           Rate: 4,
+           Rate: 0,
            IsDeleted: false,
            Level: 'Intermediate',
 
@@ -257,7 +257,7 @@ constructor() {
        {
            ID: 4,
            Name: 'Angular',
-           Rate: 4,
+           Rate: 0,
            Level: 'Intermediate',
            IsDeleted: false,
            Review: 'Very Good',
@@ -267,7 +267,7 @@ constructor() {
        {
            ID: 5,
            Name: 'Interviewing Skills',
-           Rate: 3,
+           Rate: 0,
            Level: 'Intro',
            IsDeleted: false,
            Review: 'v.Good',
@@ -278,7 +278,7 @@ constructor() {
        {
            ID: 6,
            Name: 'TypeScript',
-           Rate: 5,
+           Rate: 0,
            Level: 'Intro',
            IsDeleted: false,
            Review: 'Excellent',
@@ -289,7 +289,7 @@ constructor() {
        {
         ID: 7,
         Name: 'EcmaScript',
-        Rate: 5,
+        Rate: 0,
         Level: 'Advanced',
         IsDeleted: false,
         Review: 'Excellent',
@@ -300,7 +300,7 @@ constructor() {
     {
         ID: 8,
         Name: 'React',
-        Rate: 5,
+        Rate: 0,
         Level: 'Advanced',
         IsDeleted: false,
         Review: 'Excellent',
@@ -314,7 +314,7 @@ this.userSkills = [
     {
         ID: 0,
         Name: 'C#',
-        Rate: 3,
+        Rate: 0,
         IsDeleted: false,
         Review: 'v.Good',
         NoEndorsments: 50,
@@ -323,7 +323,7 @@ this.userSkills = [
     {
         ID: 1,
         Name: 'jQuery',
-        Rate: 5,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Excellent',
         NoEndorsments: 30,
@@ -332,7 +332,7 @@ this.userSkills = [
     {
         ID: 2,
         Name: 'MVC',
-        Rate: 5,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Excellent',
         NoEndorsments: 20,
@@ -341,7 +341,7 @@ this.userSkills = [
     {
         ID: 3,
         Name: 'SQL',
-        Rate: 3,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Good',
         NoEndorsments: 10,
@@ -350,7 +350,7 @@ this.userSkills = [
     {
         ID: 4,
         Name: 'Dynamic css',
-        Rate: 4,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 50,
@@ -359,7 +359,7 @@ this.userSkills = [
     {
         ID: 5,
         Name: 'HTML',
-        Rate: 4,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
@@ -368,7 +368,7 @@ this.userSkills = [
     {
         ID: 6,
         Name: 'Bootstrap',
-        Rate: 4,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
@@ -377,7 +377,7 @@ this.userSkills = [
     {
         ID: 7,
         Name: 'Angular',
-        Rate: 4,
+        Rate: 0,
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
@@ -386,7 +386,7 @@ this.userSkills = [
     {
         ID: 8,
         Name: 'Interviewing Skills',
-        Rate: 3,
+        Rate: 0,
         IsDeleted: false,
         Review: 'v.Good',
         NoEndorsments: 50,
@@ -460,6 +460,10 @@ addSkilltoPath(skill: Skill) {
     skill.ID = this.pathSkills.length + 1;
    this.pathSkills.push(skill);
 }
+deleteSkillFromPath(id: number) {
+    this.pathSkills.splice(id, 1);
+
+}
 
 ///////////// -------------------------USER-------------------------/////////////
 getAllByUserID(uid: number): Skill[] {
@@ -468,5 +472,9 @@ return this.userSkills;
 addNewSkillToUser(skill: Skill) {
 skill.ID = this.userSkills.length + 1 ;
 this.userSkills.push(skill);
+}
+deleteSkillFromUser(id: number) {
+    this.userSkills.splice(id, 1);
+
 }
 }

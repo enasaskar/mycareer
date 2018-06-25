@@ -8,6 +8,7 @@ import { UserService } from '../../shared/services/user.service';
 import { WorkExperience } from '../../shared/classes/userWorkExperienceModel';
 import { WorkExperienceService } from '../../shared/services/workExperience.service';
 import { EducationalBackgroundService } from '../../shared/services/educationalBackground.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,6 +17,7 @@ import { EducationalBackgroundService } from '../../shared/services/educationalB
 })
 export class UserProfileComponent implements OnInit {
 
+  onEducationChange = new Subject<WorkExperience[]>();
   user: User;
   // when getting user by id
   id: number;
@@ -42,6 +44,14 @@ export class UserProfileComponent implements OnInit {
       this.user = this.userService.getUserById(this.id);
       this.user = this.userService.getUserById(this.id);
       this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+
+      this.workService.onExperienceChange.subscribe(
+        (workExp) => {this.userWorkExperiences = workExp; }
+      );
+      this.userWorkExperiences = this.workService.getUserExperiences(this.id);
+      this.educationService.onEducationChange.subscribe(
+        (WorkExperiences) => {this.userEducationalBackground = WorkExperiences; }
+      );
       this.userEducationalBackground = this.educationService.getUserEducationalBackground(this.id);
     });
     // this.userWorkExperiences = this.workService.getUserExperiences(this.id);
