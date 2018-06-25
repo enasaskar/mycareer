@@ -74,7 +74,6 @@ export class VacancyItemDetailsComponent implements OnInit {
       // similar vacancies
     this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
     this.vacancyServiec.getSimilarVacancy(this.vacancieyDetails.title).subscribe((d) => { this.vacancies = d; });
-<<<<<<< HEAD
     // const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
     // console.log(ids);
     // const ids2 = ids.filter( this.onlyUnique );
@@ -89,16 +88,14 @@ export class VacancyItemDetailsComponent implements OnInit {
     // console.log(ids3);
     console.log(this.vacancies);
     console.log(this.enterprises);
-=======
     this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
->>>>>>> a446a61a368b37a57db34325b9f888d55ff6e6ff
 
   }
   OnSearchSubmit(searchForm: NgForm) { }
 load() {
   console.log(this.vid);
     this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
-    this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
+    //this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
     this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
     this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
 }
