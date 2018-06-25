@@ -14,7 +14,7 @@ export class UserService {
   isUserLoggedIn$: Observable<boolean>;
   private boolSubject: Subject<boolean>;
 
-  idCount = 2;
+  idCount = 8;
 
   id$:   Observable<number>;
   private numberSubject: Subject<number>;
@@ -47,6 +47,7 @@ export class UserService {
     'Iaculis vulputate id quis nisl.']},
     {
       id : 1,
+      imagePath: '../../../assets/img/team/emp7.jpg',
       fname : 'Passant',
       lname : 'Osama',
       email : 'passant@gmail.com',
@@ -60,16 +61,86 @@ export class UserService {
     },
     {
       id : 2,
-      fname : 'Passant',
+      imagePath: '../../../assets/img/team/emp6.jpg',
+      fname : 'Rana',
       lname : 'Osama',
-      email : 'admin@gmail.com',
+      email : 'ranaOsama@gmail.com',
       password : '12345678',
-      telNumber : '',
-      district : '',
-      country : '',
-      city : '',
+      telNumber : '01007677393',
+      district : 'Heliopolis',
+      country : 'Egypt',
+      city : 'Cairo',
       role : 'admin',
+      enterpriseId: 1
     },
+    {
+      id: 3,
+      imagePath: '../../../assets/img/team/emp7.jpg',
+      fname: 'Youstina',
+      lname: 'Hany',
+      email: 'youstinaHany@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'Shobra',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 4,
+      imagePath: '../../../assets/img/team/emp3.jpg',
+      fname: 'Ahmed',
+      lname: 'Adel',
+      email: 'ahmedAdel@gmail.com',
+      password: '12345678',
+      telNumber : '01007647393',
+      district : 'El-Marg',
+      country : 'Egypt',
+      city : 'Cairo',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 5,
+      imagePath: '../../../assets/img/team/emp2.jpg',
+      fname: 'Andrew',
+      lname: 'Maged',
+      email: 'andrewMaged@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : 'El-Sheikh Zayed',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 6,
+      imagePath: '../../../assets/img/team/emp8.jpg',
+      fname: 'Mohammed',
+      lname: 'Samy',
+      email: 'mohamedSamy@gmail.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza',
+      role : 'admin',
+      enterpriseId: 1
+    },
+    {
+      id: 7,
+      fname: 'Mohammad',
+      lname: 'Ahmed',
+      imagePath: '../../../assets/img/team/emp3.jpg',
+      email: 'MohammedAhmed@yahoo.com',
+      password: '12345678',
+      telNumber : '01207647393',
+      district : '6th of October',
+      country : 'Egypt',
+      city : 'Giza'
+    }
   ];
   constructor() {
     // this.isUserLoggedIn = false;

@@ -32,11 +32,7 @@
     </div> 
     <!-- Applicants -->
     <div class="row class1" *ngIf="applicants.length != 0; else noList">
-        <app-view-one-item *ngFor="let applicant of applicants" [applicant]="applicant">
-                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant)"></i>
-                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant)"></i>
-                <i class="fa fa-hourglass-end" style="color:blue"></i>
-        </app-view-one-item>
+        <app-view-one-item *ngFor="let applicant of applicants" [applicant]="applicant"></app-view-one-item>
         
     </div>
     <ng-template #noList>

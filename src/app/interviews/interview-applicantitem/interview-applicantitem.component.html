@@ -7,13 +7,13 @@
             <a class="right">
                 <i class="fa fa-trash" aria-hidden="true" data-id="1" (click)="deleteApplicant()"></i>
             </a>
-            <a routerLink="/user/0/userProfile">
+            <a [routerLink]="['/user',applicant.user.id,'userProfile']">
                 <h4 class="shorter">{{applicant.user.fname + " " + applicant.user.lname }}</h4>
             </a>
             <ul class="list icons list-unstyled">
                 <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> {{applicant.vacancy.title}}</li>
-                <li><i class="fa fa-calendar"></i><strong>Date :</strong></li>
-                <li><i class="fa fa-clock-o"></i><strong>at:</strong></li>
+                <li><i class="fa fa-calendar"></i><strong>{{'Date:'+' '+ (interview? interview.date : 'Not chosen yet')}}</strong></li>
+                <li><i class="fa fa-clock-o"></i><strong>{{'at:'+ ' ' +(interview? interview.time : 'Not chosen yet')}}</strong></li>
             </ul>
             <div class="right VacancyResponse">
                     <button type="button" class="btn btn-primary"(click)="openModal(evaluation)">Start Interview</button>
