@@ -355,7 +355,7 @@ export class VacancyService {
         return  this.vacanciesChanged.startWith(this.getAllNotDeleted());
     }
     public getSimilarVacancy(title: string) {
-        return  this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(a => a.title== title));
+        return  this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(a => a.title == title));
     }
     public getById(id: number) {
         const v = this.vacancies.find(a => a.id == id);

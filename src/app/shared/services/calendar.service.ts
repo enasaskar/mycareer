@@ -12,8 +12,8 @@ export class CalendarService {
   events: CalendarEvent[] = [
     {
         title: "interview",
-        start: new Date("2018-06-20T10:00:00"),
-        end: new Date("2018-06-20T16:00:00"),
+        start: new Date("2018-06-26T10:00:00"),
+        end: new Date("2018-06-26T16:00:00"),
         color: colors.yellow,
         draggable: true,
         resizable: {
@@ -31,8 +31,8 @@ export class CalendarService {
       },
       {
         title: "interview",
-        start: new Date("2018-06-21T10:00:00"),
-        end: new Date("2018-06-21T16:00:00"),
+        start: new Date("2018-06-27T10:00:00"),
+        end: new Date("2018-06-27T16:00:00"),
         color: colors.yellow,
         draggable: true,
         resizable: {
@@ -63,12 +63,7 @@ export class CalendarService {
     return this.events;
   }
   public delete(event:CalendarEvent){
-    
-    // const id = this.events.indexOf(event);
-    // this.events.splice(id,1);
     this.events = this.events.filter(iEvent => iEvent !== event);
-    //this.activeDayIsOpen = false;
-    console.log(this.events);
     return this.events;
   }
 }

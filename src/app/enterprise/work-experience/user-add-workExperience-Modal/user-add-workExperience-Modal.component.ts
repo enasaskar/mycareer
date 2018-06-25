@@ -90,6 +90,7 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     }
     if (this.type === 'work') {
       const experience = new WorkExperience(
+        this.id,
         // this.addWorkExpForm.value['enterprise'],
         this.enterpriseService.getByName(this.myControl.value).id,
         this.addWorkExpForm.value['title'],
@@ -98,11 +99,13 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
       );
       if (this.editMode) {
         this.workExpService.updateExperience(this.id, this.workExpIndex, experience);
+        console.log('update');
       } else {
         this.workExpService.addExperience(this.id, experience);
       }
     } else {
       const experience = new WorkExperience(
+        this.id,
         // this.addWorkExpForm.value['enterprise'],
         this.enterpriseService.getByName(this.myControl.value).id,
         this.degreeControl.value,
