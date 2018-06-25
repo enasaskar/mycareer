@@ -17,7 +17,6 @@ export class UserDetailsComponent implements OnInit {
   user: User;
   id: number;
   expChanged: WorkExperience[];
-  currentEmpoyment: WorkExperience;
   isUser = false;
   constructor(private userService: UserService,
     private workExpService: WorkExperienceService,
@@ -32,20 +31,15 @@ export class UserDetailsComponent implements OnInit {
         this.isUser = true;
       }
       this.user = this.userService.getUserById(this.id);
-      this.expChanged = this.workExpService.getUserExperiences(this.id);
-      this.currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present')[0];
-      // const currentEmpoyment = this.workExpService.getCurrentUserWorkExp(this.id);
-      // let currentEmpoyment;
-      // this.workExpService.getUserExperiences(this.id)
-      // .subscribe(data => {
-      //   currentEmpoyment = data.filter(exp => exp.endDate === 'present');
-      // });
-      this.workExpService.workExperienceChanged.subscribe(data => {
-        this.expChanged = data;
-        // currentEmpoyment = this.expChanged.filter(exp => exp.endDate === 'present');
+      this.workExpService.onExperienceChange.subscribe((WorkExperiences) => {
+        console.log('in subscribe');
+        const current = this.workExpService.getCurrentUserWorkExp(this.id);
+        this.user.title = current[0].content;
+        this.user.enterpriseName = this.enterpriseService.getEnterpriseById(current[0].enterpriseID).name;
       });
-      this.user.title = this.currentEmpoyment.content;
-      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(this.currentEmpoyment.enterpriseID).name;
+      const currentEmployment = this.workExpService.getCurrentUserWorkExp(this.id);
+      this.user.title = currentEmployment[0].content;
+      this.user.enterpriseName = this.enterpriseService.getEnterpriseById(currentEmployment[0].enterpriseID).name;
     });
   }
 }

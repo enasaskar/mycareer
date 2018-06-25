@@ -6,7 +6,8 @@ import {map, startWith} from 'rxjs/operators';
 
 import { SkillsService } from '../../shared/services/skills.service';
 import { Skill } from '../../shared/classes/skill.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { UserService } from '../../shared/services/user.service';
 @Component({
   selector: 'app-skill-add-new',
   templateUrl: './skill-add-new.component.html',
@@ -14,6 +15,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SkillAddNewComponent implements OnInit {
 
+  id: number;
+  isUser = false;
   addedSkill: Skill ;
   addForm: FormGroup;
   @Input() skills: Skill[];
@@ -24,12 +27,17 @@ export class SkillAddNewComponent implements OnInit {
   addedSkillName: string ;
  skillTo: string;
   selectedSkill ;
-  constructor(private skillsService: SkillsService , private activatedRoute: ActivatedRoute) {
+  constructor(private skillsService: SkillsService , private activatedRoute: ActivatedRoute, private userService: UserService) {
    activatedRoute.url.subscribe(urlseg => this.skillTo = urlseg[0].path);
    console.log(this.skillTo);
    }
 
   ngOnInit() {
+    this.activatedRoute.parent.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      if (this.id === this.userService.currentUserId) {
+        this.isUser = true;
+      }});
 
       this.options = this.skillsService.getAll();
       // auto cmplete
