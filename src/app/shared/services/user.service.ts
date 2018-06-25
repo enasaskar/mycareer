@@ -47,6 +47,7 @@ export class UserService {
     'Iaculis vulputate id quis nisl.']},
     {
       id : 1,
+      imagePath: '../../../assets/img/team/emp7.jpg',
       fname : 'Passant',
       lname : 'Osama',
       email : 'passant@gmail.com',
@@ -60,6 +61,7 @@ export class UserService {
     },
     {
       id : 2,
+      imagePath: '../../../assets/img/team/emp6.jpg',
       fname : 'Rana',
       lname : 'Osama',
       email : 'ranaOsama@gmail.com',
@@ -73,6 +75,7 @@ export class UserService {
     },
     {
       id: 3,
+      imagePath: '../../../assets/img/team/emp7.jpg',
       fname: 'Youstina',
       lname: 'Hany',
       email: 'youstinaHany@gmail.com',
@@ -86,9 +89,10 @@ export class UserService {
     },
     {
       id: 4,
-      fname: 'Amel',
-      lname: 'Youssef',
-      email: 'amoulaYoussef@gmail.com',
+      imagePath: '../../../assets/img/team/emp3.jpg',
+      fname: 'Ahmed',
+      lname: 'Adel',
+      email: 'ahmedAdel@gmail.com',
       password: '12345678',
       telNumber : '01007647393',
       district : 'El-Marg',
@@ -99,8 +103,9 @@ export class UserService {
     },
     {
       id: 5,
-      fname: 'Mennatollah',
-      lname: 'El-Mesmary',
+      imagePath: '../../../assets/img/team/emp2.jpg',
+      fname: 'Andrew',
+      lname: 'Maged',
       email: 'mennaElMesmary@gmail.com',
       password: '12345678',
       telNumber : '01207647393',
@@ -112,9 +117,10 @@ export class UserService {
     },
     {
       id: 6,
-      fname: 'Linah',
+      imagePath: '../../../assets/img/team/emp8.jpg',
+      fname: 'Mohammed',
       lname: 'Samy',
-      email: 'linahSamy@gmail.com',
+      email: 'mohamedSamy@gmail.com',
       password: '12345678',
       telNumber : '01207647393',
       district : '6th of October',
