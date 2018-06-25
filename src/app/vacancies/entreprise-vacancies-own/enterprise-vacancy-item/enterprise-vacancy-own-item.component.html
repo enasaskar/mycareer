@@ -1,6 +1,6 @@
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-4 col-sm-6 col-xs-12" *ngIf="status != true">
   <div class="feature-box secundary bordered">
-      <a *ngIf = "currentId == e.id" class="right">
+      <a *ngIf = "currentId == e.id" class="right" (click)=onTrashClick(eVacancyItem.id)>
           <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
       </a>
       <a class="thumb-info lightbox right" routerLink='/vacancies/vacancydetails/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
@@ -19,7 +19,7 @@
           <a href="">
               <h4 class="shorter">{{eVacancyItem.title}}</h4>
           </a>
-          <h6 class="short">location</h6>
+          <h6 class="short">{{e.headquarters}}</h6>
           <p class="short2">posted {{eVacancyItem.postdate}} ago</p>
           <p class="short des">{{eVacancyItem.description}}</p>
 

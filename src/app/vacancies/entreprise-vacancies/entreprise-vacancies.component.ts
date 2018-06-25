@@ -16,15 +16,15 @@ export class EntrepriseVacanciesComponent implements OnInit {
   enterprise: Enterprise;
   eId: number;
   currentUser: any;
-  constructor(private eVacancyServiec: VacancyService, private userService: UserService ,
-     private active: ActivatedRoute, private eService: EnterpriseService) { }
+  constructor(private eVacancyServiec: VacancyService, private userService: UserService,
+    private active: ActivatedRoute, private eService: EnterpriseService) { }
 
   ngOnInit() {
     this.eId = +this.active.snapshot.params['id'];
-      this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.eId);
-      console.log(this.eId);
-      console.log(this.eVacancies);
-        this.enterprise = this.eService.getEnterpriseById(this.eId);
-        console.log(this.enterprise);
-}
+    this.eVacancies = this.eVacancyServiec.getByEnterpriseId(this.eId);
+    console.log(this.eId);
+    console.log(this.eVacancies);
+    this.enterprise = this.eService.getEnterpriseById(this.eId);
+    console.log(this.enterprise);
+  }
 }

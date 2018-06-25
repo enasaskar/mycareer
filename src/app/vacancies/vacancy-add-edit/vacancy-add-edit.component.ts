@@ -12,6 +12,7 @@ import { Vacancy } from '../../shared/classes/vacancy.model';
 import { VacancyLevel } from '../../shared/classes/vacancyLevel';
 import { VacancyType } from '../../shared/classes/VacancyType';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SkillsService } from '../../shared/services/skills.service';
 
 @Component({
   selector: 'app-vacancy-add-edit',
@@ -36,18 +37,18 @@ export class VacancyAddEditComponent implements OnInit {
 
 
   constructor(private vacancy: VacancyService, private vlevels: VacancyLevelService,
-    private vtypes: VacancyTypeService, private currencies: CurrencyService,
+    private vtypes: VacancyTypeService, private currencies: CurrencyService, private skillServices: SkillsService,
     private branchs: BranchService, private activedRout: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    debugger
     const id = this.activedRout.snapshot.params['id'];
     console.log(id);
     if (id >= 1) {
       console.log(id);
       this.title = 'Edit';
-      this.newvacancy = this.vacancy.getById(id);
-      console.log(this.newvacancy);
+       this.vacancy.getById(id).subscribe((data: Vacancy) => {
+        this.newvacancy = data;
+        console.log(this.newvacancy);
       this.vlevel = this.vlevels.getAll();
       this.vtype = this.vtypes.getAll();
       this.currency = this.currencies.getAll();
@@ -57,6 +58,7 @@ export class VacancyAddEditComponent implements OnInit {
       this.newvtype = this.vtypes.getById(this.newvacancy.fK_VacancyType_Id);
       this.newcurrency = this.currencies.getById(this.newvacancy.fK_Currency_Id);
       this.newbranch = this.branchs.getById(this.newvacancy.fK_Branch_Id);
+      });
     } else {
       this.title = 'Add';
       this.newvacancy = new Vacancy();
@@ -71,24 +73,36 @@ export class VacancyAddEditComponent implements OnInit {
     if (form.valid) {
       const id = this.activedRout.snapshot.params['id'];
       console.log(id);
-      if (!id) {
-        this.vacancy.getAll().subscribe((s) => { this.index = s.length; });
-        this.newvacancy.id = this.index + 1;
-      } else {
-        this.newvacancy.id = id;
-      }
-      this.newvacancy.isDeleted = false;
-      this.newvacancy.fK_Branch_Id = this.newbranch.id;
-      this.newvacancy.fK_Currency_Id = this.newcurrency.id;
-      this.newvacancy.fK_Enterprise_Id = 1;
-      this.newvacancy.fK_Level_Id = this.newvlevel.id;
-      this.newvacancy.fK_VacancyType_Id = this.newvtype.id;
-      this.vacancy.addVacancy(this.newvacancy);
-      console.log(this.newvacancy);
-      this.router.navigate(['vacancies']);
+        this.vacancy.getAllWithOrNo().subscribe((s: Vacancy[]) => {
+          if (!id) {
+           this.newvacancy.id = s.length + 2;
+           this.fullData();
+           console.log( this.newvacancy);
+           this.vacancy.addVacancy(this.newvacancy).subscribe((res) => console.log(res), (err) => console.log(err));
+          } else {
+            this.newvacancy.id = id;
+            this.fullData();
+            this.vacancy.updateVacancy(this.newvacancy.id , this.newvacancy).
+            subscribe((res) => console.log(res), (err) => console.log(err));
+
+          }
+          console.log(this.newvacancy);
+        });
+
+      // this.router.navigate(['vacancies']);
       // console.log(this.vacancy.getAll());
 
 
     }
+  }
+  fullData() {
+    this.newvacancy.isDeleted = false;
+    this.newvacancy.postdate = '2018-12-31';
+    this.newvacancy.fK_Branch_Id = this.newbranch.id;
+    this.newvacancy.fK_Currency_Id = this.newcurrency.id;
+    this.newvacancy.fK_Enterprise_Id = 1;
+    this.newvacancy.fK_Level_Id = this.newvlevel.id;
+    this.newvacancy.fK_VacancyType_Id = this.newvtype.id;
+    this.newvacancy.RequiredSkills = this.skillServices.getAllByPathID(1);
   }
 }

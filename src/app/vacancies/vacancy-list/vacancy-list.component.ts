@@ -13,35 +13,41 @@ import { UserService } from '../../shared/services/user.service';
   styleUrls: ['./vacancy-list.component.css']
 })
 export class VacancyListComponent implements OnInit {
-  enterprise: Enterprise;
+
   vacancies: Vacancy[];
   enterprises = new Array<Enterprise>();
   searchtext: string;
-  uId: any;
-  currentUser = null;
+
   constructor(private vacancyServiec: VacancyService,
-    private enterpriseService: EnterpriseService, private userService: UserService, private activateRoute: ActivatedRoute) {
-  }
+              private enterpriseService: EnterpriseService,
+              private userService: UserService,
+              private activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    const searchtext = this.activateRoute.snapshot.params['search'];
-    this.searchtext = searchtext;
+    this.searchtext = this.activateRoute.snapshot.params['search'];
+    this.GetDataForVancancyAndEnterPrise();
+  }
 
-    if (searchtext) {
-      this.enterprise = this.enterpriseService.getByName(searchtext);
-      this.vacancyServiec.getVacanciesByEnterpriseId(this.enterprise.id).subscribe((d) => { this.vacancies = d; });
-      this.vacancies.forEach(() => this.enterprises.push(this.enterprise));
-    } else {
-      this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
-      const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
-      this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+  GetDataForVancancyAndEnterPrise() {
+    this.vacancyServiec.getAll().subscribe(
+      (data: Vacancy[]) => {
+        if (this.searchtext) {
+          this.vacancies = data.filter(a => (a.title.toLowerCase().startsWith(this.searchtext.toLowerCase()))
+          || (a.description.toLowerCase().startsWith(this.searchtext.toLowerCase()))
+          || (this.enterpriseService.getById(a.fK_Enterprise_Id).name.toLowerCase().startsWith(this.searchtext.toLowerCase()))
+        );
+        this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+      } else {
+        this.vacancies = data;
+        this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+      }
     }
+  );
   }
 
   OnSearchSubmit(searchForm: NgForm) {
-    this.vacancyServiec.getVacanciesByEnterpriseIdGeneral(searchForm.value.s).subscribe((d) => { this.vacancies = d; });
-    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
-    console.log(this.enterprises);
-
+    this.searchtext = searchForm.value.s;
+    console.log(this.searchtext);
+    this.GetDataForVancancyAndEnterPrise();
   }
 }

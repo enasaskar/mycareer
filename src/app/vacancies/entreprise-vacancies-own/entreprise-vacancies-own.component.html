@@ -22,17 +22,24 @@
         </div>
 
     </div>
-    <div class="row">
+    <div class="row" *ngIf="currentUser !=null; else addv" >
         <div class="col-md-11">
             <h3>
                 <i class="fa fa-suitcase"></i>Available Vacancies</h3>
         </div>
     </div>
-
+    <ng-template #addv>
+            <div class="row">
+                    <div class="col-md-11">
+                        <h3>
+                            <i class="fa fa-suitcase"></i>No Vacancies Here Please Login</h3>
+                    </div>
+                </div>
+    </ng-template>
     <div class="container vacancy">
 
         <div class="row">
-            <app-enterprise-vacancy-item *ngFor="let i of eVacancies" [eVacancyItem]="i" [e]="enterprise"></app-enterprise-vacancy-item>
+            <app-enterprise-vacancy-own-item *ngFor="let i of eVacancies" [eVacancyItem]="i" [e]="enterprise"></app-enterprise-vacancy-own-item>
         </div>
     </div>
 

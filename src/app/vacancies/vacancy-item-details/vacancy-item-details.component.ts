@@ -26,8 +26,6 @@ export class VacancyItemDetailsComponent implements OnInit {
   vacancieyDetailsEnterprise: EnterpriseDetails;
   vacancies: Vacancy[];
   enterprises: Enterprise[];
-  //enterprises : EnterpriseDetails[];
-  oneEnterprise : EnterpriseDetails;
   searchWord: any;
   vacancieyDetails: Vacancy;
   idUser: number;
@@ -45,16 +43,6 @@ export class VacancyItemDetailsComponent implements OnInit {
   @ViewChild('rownotif') rownotif;
 
   ngOnInit() {
-    debugger
-     this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
-     console.log(this.vid);
-    this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
-    //this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
-    this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id).subscribe((data : EnterpriseDetails)=>{
-      this.vacancieyDetailsEnterprise = data;
-    })
-    this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
-    this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
     // row notify
     this.applystatues = false;
     // get current user
@@ -71,33 +59,26 @@ export class VacancyItemDetailsComponent implements OnInit {
        this.load();
       } );
 
-      // similar vacancies
-    this.vacancyServiec.getNotDeleted().subscribe((d) => { this.vacancies = d; });
-    this.vacancyServiec.getSimilarVacancy(this.vacancieyDetails.title).subscribe((d) => { this.vacancies = d; });
-    // const ids = this.vacancies.map(i => i.fK_Enterprise_Id);
-    // console.log(ids);
-    // const ids2 = ids.filter( this.onlyUnique );
-    // console.log(ids2);
-  this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
-    // this.vacancies.map(i => this.enterpriseService.getById(i.fK_Enterprise_Id).subscribe((data:EnterpriseDetails)=>{
-    //   this.oneEnterprise = data;
-    //   this.enterprises.push(this.oneEnterprise);
-    // }));
-    
-    // const ids3 = this.enterprises.filter( this.onlyUnique );
-    // console.log(ids3);
-    console.log(this.vacancies);
-    console.log(this.enterprises);
-    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
 
   }
   OnSearchSubmit(searchForm: NgForm) { }
 load() {
   console.log(this.vid);
-    this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
-    //this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
-    this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
-    this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
+    this.vacancyServiec.getById(this.vid).subscribe(
+      (data: Vacancy) =>  {
+        this.vacancieyDetails = data ;
+        console.log( this.vacancieyDetails);
+        this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
+        console.log( this.vacancieyDetailsEnterprise);
+        this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
+        this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
+
+       // similar vacancies
+     this.vacancyServiec.getAll().subscribe((d: Vacancy[]) => {
+      this.vacancies = d.filter(a => a.title.toLowerCase().toString().includes(this.vacancieyDetails.title.toLowerCase()));
+      this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+     });
+      });
 }
   onApply(v: Vacancy) {
     console.log(this.uId);
