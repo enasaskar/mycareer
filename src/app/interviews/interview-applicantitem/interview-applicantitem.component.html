@@ -12,8 +12,8 @@
             </a>
             <ul class="list icons list-unstyled">
                 <li><i class="fa fa-suitcase"></i><strong>Job title:</strong> {{applicant.vacancy.title}}</li>
-                <li><i class="fa fa-calendar"></i><strong>{{'Date:'+' '+ (interview? interview.date : 'Not chosen yet')}}</strong></li>
-                <li><i class="fa fa-clock-o"></i><strong>{{'at:'+ ' ' +(interview? interview.time : 'Not chosen yet')}}</strong></li>
+                <li><i class="fa fa-calendar"></i><strong>Date:</strong> {{ (interview? interview.date : ' Not chosen yet')}}</li>
+                <li><i class="fa fa-clock-o"></i><strong>at:</strong>{{(interview? interview.time : ' Not chosen yet')}}</li>
             </ul>
             <div class="right VacancyResponse">
                     <button type="button" class="btn btn-primary"(click)="openModal(evaluation)">Start Interview</button>
