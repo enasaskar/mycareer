@@ -1,19 +1,16 @@
 <div class="container">
     <div class="row" id="SkillsUser">
         <div class="col-md-12">
-            <h1>to see</h1>
-            <h2>
-                <strong>Skills</strong>
-            </h2>
+         
             <!-- kol aly fo2 3al kbeer 5als al-7 items -->
             <!-- technical skills add skill bar and edit  -->
             <div class="row">
                 <div class="col-md-3 col-xs-10">
                     <h3 class="left">
-                        <strong>Technical</strong> Skills</h3>
+                        <strong>{{title}}</strong>{{subTitle}}</h3>
                 </div>
                 <div class="col-md-3 col-xs-10 right">
-                    <app-skill-add-new></app-skill-add-new>
+                    <app-skill-add-new [pathLevel]="title" ></app-skill-add-new>
                 </div>
                 <!-- <div class="col-md-6 col-xs-2">
                     <span class="thumb-info-social-icons right" id="edit-skills">
@@ -31,7 +28,7 @@
             dragScroll 
             scrollbar-hidden="true" 
             #nav>
-                <app-skill-item-small class="skill-item" 
+                <app-skill-item-small (click)="toBeEdited(i)" class="skill-item" 
                 *ngFor="let skil of skillsList; let i = index" 
                 [skillDetails]="skil" 
                 [skillIndex]="i"
