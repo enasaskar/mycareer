@@ -46,8 +46,15 @@ export class VacancyListComponent implements OnInit {
   }
 
   OnSearchSubmit(searchForm: NgForm) {
+<<<<<<< HEAD
     this.searchtext = searchForm.value.s;
     console.log(this.searchtext);
     this.GetDataForVancancyAndEnterPrise();
+=======
+    this.vacancyServiec.getVacanciesByEnterpriseIdGeneral(searchForm.value.s).subscribe((d) => { this.vacancies = d; });
+    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+    console.log(this.enterprises);
+
+>>>>>>> 7a38659f2f5d96c6a2d367e412ab907b5b2b9f8f
   }
 }

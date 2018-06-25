@@ -363,8 +363,11 @@ export class VacancyService {
         return this.http.get(this.UrlApiGetAll);
     }
     public getNotDeleted() {
-        return this.http.get(this.UrlApiGetAll);
-    }
+        return this.http.get(this.UrlApiGetAll);}
+
+    // public getSimilarVacancy(title: string) {
+    //     return  this.vacanciesChanged.startWith(this.getAllNotDeleted().filter(a => a.title == title));
+    // }
 
     public getById(id: number) {
         return this.http.get(this.UrlApiGetById + id);

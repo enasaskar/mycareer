@@ -17,7 +17,7 @@ import { Interview } from '../../shared/classes/interview.model';
 export class InterviewApplicantitemComponent implements OnInit {
   @Input() applicant: Applicant;
   modalRef: BsModalRef;
-  max = 10;
+  max = 5;
   isReadonly = false;
   interview:Interview;
 

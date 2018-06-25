@@ -32,6 +32,7 @@ export class UserDetailsComponent implements OnInit {
       }
       this.user = this.userService.getUserById(this.id);
       this.workExpService.onExperienceChange.subscribe((WorkExperiences) => {
+        console.log('in subscribe');
         const current = this.workExpService.getCurrentUserWorkExp(this.id);
         this.user.title = current[0].content;
         this.user.enterpriseName = this.enterpriseService.getEnterpriseById(current[0].enterpriseID).name;

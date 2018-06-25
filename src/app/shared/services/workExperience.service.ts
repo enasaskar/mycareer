@@ -53,6 +53,7 @@ export class WorkExperienceService {
     const index = this.userExperiences.findIndex(a => a.userId === userID && a.content === aaa[i].content);
     this.userExperiences[index] = workExperience;
     this.onExperienceChange.next(this.getUserExperiences(userID));
+    console.log('next');
   }
   deleteExperience(userID: number, i: number) {
     // const index = this.userExperiences.indexOf(workExpItem);
