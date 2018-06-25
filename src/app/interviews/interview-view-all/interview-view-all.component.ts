@@ -32,13 +32,6 @@ export class InterviewViewAllComponent implements OnInit {
     })
   }
 
-  rejectApplicant(item: Applicant) {
-    this.applicantsService.onDelete.next(item);
-  }
-  acceptedApplicant(item: Applicant) {
-    this.applicantsService.onUpdate.next(item);
-  }
-
   OnSearchSubmit() {
     this.applicants = this.applicantsService.getBySearchWord(this.searchWord, this.enterprise_id).filter(a => a.status === null);
   }

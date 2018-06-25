@@ -25,10 +25,7 @@
                 <app-interview-applicantitem *ngFor="let item of list" [applicant]="item"></app-interview-applicantitem>
             </div>
             <div *ngSwitchCase="'pendingcv'">
-                <app-view-one-item *ngFor="let item of list" [applicant]="item">
-                    <i class="fa fa-check " style="color:green" (click)=acceptApplicant(item)></i>
-                    <i class="fa fa-close " style="color:red" (click)=rejectApplicant(item) ></i>
-                </app-view-one-item>
+                <app-view-one-item *ngFor="let item of list" [applicant]="item"></app-view-one-item>
             </div>
         </div>
     </div> 
@@ -40,18 +37,9 @@
                 <app-interview-applicantitem [applicant]="list[2]"></app-interview-applicantitem>
             </div>
             <div *ngSwitchCase="'pendingcv'">
-                <app-view-one-item [applicant]="list[0]">
-                    <i class="fa fa-check " style="color:green" (click)=acceptApplicant(list[0])></i>
-                    <i class="fa fa-close " style="color:red" (click)=rejectApplicant(list[0])></i>
-                </app-view-one-item>
-                <app-view-one-item [applicant]="list[1]">
-                    <i class="fa fa-check " style="color:green" (click)=acceptApplicant(list[1])></i>
-                    <i class="fa fa-close " style="color:red"(click)=rejectApplicant(list[1])></i>
-                </app-view-one-item>
-                <app-view-one-item [applicant]="list[2]">
-                    <i class="fa fa-check " style="color:green" (click)=acceptApplicant(list[2])></i>
-                    <i class="fa fa-close " style="color:red"(click)=rejectApplicant(list[2])></i>
-                </app-view-one-item>
+                <app-view-one-item [applicant]="list[0]"></app-view-one-item>
+                <app-view-one-item [applicant]="list[1]"></app-view-one-item>
+                <app-view-one-item [applicant]="list[2]"></app-view-one-item>
             </div>
         </div>
     </div> 
@@ -67,10 +55,7 @@
         <app-interview-applicantitem *ngFor="let item of list" [applicant]="item"></app-interview-applicantitem>
     </div>
     <div *ngSwitchCase="'pendingcv'">
-            <app-view-one-item *ngFor="let item of list" [applicant]="item">
-                <i class="fa fa-check " style="color:green" (click)=acceptApplicant(item)></i>
-                <i class="fa fa-close " style="color:red" (click)=rejectApplicant(item)></i>
-            </app-view-one-item>
+        <app-view-one-item *ngFor="let item of list" [applicant]="item"></app-view-one-item>
     </div>
 </div>
 <a class="SeeMore" (click)="seeMoreclicked()" *ngIf="seeMore && list.length > 3">See Less</a>

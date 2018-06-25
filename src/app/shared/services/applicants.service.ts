@@ -5,6 +5,8 @@ import { User } from '../../users/users.model';
 import { Vacancy } from '../classes/vacancy.model';
 import { SkillsService } from './skills.service';
 import { Skill } from '../classes/skill.model';
+import { UserService } from './user.service';
+import { VacancyService } from './vacancy-service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +15,12 @@ export class ApplicantsService {
 
   public onDelete = new Subject();
   public onUpdate = new Subject();
-  
+ 
   skills: Skill[] = this.skillsService.getAll();
+  user:User[] = this.userService.getUsers();
   applicants: Applicant[] =[
     {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Ahmed', 'Adel',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
+      user:this.user[0],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -42,43 +39,10 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status: true
+      status: null
     },
     {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Mohamed', 'Osama',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
-      vacancy: {
-        id: 1,
-        // logoImg: '../../../assets/img/vodafone-icon.png',
-        // logoImgbig: '../../../assets/img/vodafone.png',
-        title: 'Software Engineer',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        requirements: 'bla bla',
-        responsabilities: 'bla2 bla2',
-        postdate: '2 days',
-        salary: '2000',
-        isDeleted: false,
-        RequiredSkills: [...this.skills],
-        fK_Currency_Id: 1,
-        fK_Enterprise_Id: 1,
-        fK_Branch_Id: 1,
-        fK_VacancyType_Id: 1,
-        fK_Level_Id: 1
-      },
-      status: true
-    }, {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Jhon', 'Doe',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
+      user:this.user[1],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -99,13 +63,7 @@ export class ApplicantsService {
       },
       status: null
     }, {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Ahmed', 'Adel',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
+      user: this.user[0],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -124,16 +82,31 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status: true
+      status: null
+    }, {
+      user: this.user[1],
+      vacancy: {
+        id: 1,
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        RequiredSkills: [...this.skills],
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
     },
     {
-      user: new User(0,
-        '../../../assets/img/team/emp2.jpg',
-        'Mohamed', 'Osama',
-        'Web Developer',
-        'Company',
-        'JoeDoe@gmail.com',
-        '12345678'),
+      user: this.user[0],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -152,10 +125,77 @@ export class ApplicantsService {
         fK_VacancyType_Id: 1,
         fK_Level_Id: 1
       },
-      status: true
-    }];
+      status: null
+    },
+    {
+      user: this.user[1],
+      vacancy: {
+        id: 1,
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        RequiredSkills: [...this.skills],
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
+    },
+    {
+      user: this.user[0],
+      vacancy: {
+        id: 1,
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        RequiredSkills: [...this.skills],
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
+    },
+    {
+      user: this.user[1],
+      vacancy: {
+        id: 1,
+        // logoImg: '../../../assets/img/vodafone-icon.png',
+        // logoImgbig: '../../../assets/img/vodafone.png',
+        title: 'Software Engineer',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        requirements: 'bla bla',
+        responsabilities: 'bla2 bla2',
+        postdate: '2 days',
+        salary: '2000',
+        isDeleted: false,
+        RequiredSkills: [...this.skills],
+        fK_Currency_Id: 1,
+        fK_Enterprise_Id: 1,
+        fK_Branch_Id: 1,
+        fK_VacancyType_Id: 1,
+        fK_Level_Id: 1
+      },
+      status: null
+    }
+  ];
     
-  constructor(private skillsService: SkillsService) {
+  constructor(private skillsService: SkillsService,private userService:UserService,private vacancyService:VacancyService) {
   }
   
 

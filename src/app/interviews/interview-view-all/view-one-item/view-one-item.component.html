@@ -4,7 +4,8 @@
             <img [src]="applicant.user.imagePath">
         </div>
         <div class="feature-box-info VacancyInfo">
-            <a href="#" routerLink="/user/0/userProfile">
+
+            <a [routerLink]="['/user',applicant.user.id,'userProfile']">
                 <h4 class="shorter"> {{applicant.user.fname + " "+ applicant.user.lname}}</h4>
             </a>
             <ul class="list icons list-unstyled">
@@ -13,7 +14,8 @@
                     <strong>Position:</strong> {{applicant.vacancy.title}}</li>
             </ul>
             <div class="right VacancyResponse">
-                <ng-content></ng-content>     
+                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant)"></i>
+                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant)"></i>     
             </div>
             <p class="clear"></p>
         </div>

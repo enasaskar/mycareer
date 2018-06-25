@@ -6,6 +6,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ApplicantsService } from '../../shared/services/applicants.service';
 import { Applicant } from '../../shared/classes/applicant.model';
 import { EvaluationService } from '../../shared/services/evaluation.service';
+import { InterviewService } from '../../shared/services/interview.service';
+import { Interview } from '../../shared/classes/interview.model';
 
 @Component({
   selector: 'app-interview-applicantitem',
@@ -17,8 +19,9 @@ export class InterviewApplicantitemComponent implements OnInit {
   modalRef: BsModalRef;
   max = 10;
   isReadonly = false;
-  skillsRate:number[]=[];
-  constructor(private modalService: BsModalService, private applicantsService: ApplicantsService,private evaluationService:EvaluationService) {
+  interview:Interview;
+
+  constructor(private modalService: BsModalService, private applicantsService: ApplicantsService,private evaluationService:EvaluationService,private interviewService:InterviewService) {
   }
 
   openModal(template: TemplateRef<any>) {
@@ -31,12 +34,10 @@ export class InterviewApplicantitemComponent implements OnInit {
     }
   }
   ngOnInit() {
-
+    this.interview = this.interviewService.getInterviewByuserId(this.applicant.user.id);
+    console.log(this.interview);
   }
-  // getSkillName(id: number): string {
-  //   return this.skillsService.getByID(id).Name;
-  // }
-
+  
   public deleteApplicant() {
     this.applicantsService.onDelete.next(this.applicant);
   }
