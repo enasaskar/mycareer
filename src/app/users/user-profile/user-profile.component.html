@@ -54,7 +54,9 @@
     <!--Previous Exp-->
     <div class="row class1">
         <div class="col-md-6"><h3><strong>Work</strong> Experience</h3></div>
-        <span class="col-md-6 thumb-info-social-icons">
+        <span 
+        *ngIf="isUser"
+        class="col-md-6 thumb-info-social-icons">
           <a data-tooltip data-placement="bottom" 
           data-original-title="Add" 
           style="cursor: pointer;"
@@ -75,7 +77,9 @@
     <div class="row class1">
       <div class="col-md-6"><h3><strong>Educational</strong> Background</h3></div>
       <span class="col-md-6 thumb-info-social-icons">
-        <a data-tooltip data-placement="bottom" 
+        <a 
+        *ngIf="isUser"
+        data-tooltip data-placement="bottom" 
         data-original-title="Add" 
         style="cursor: pointer;"
         class="right"
