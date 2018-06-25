@@ -32,7 +32,10 @@ export class EnterpriseViewAllComponent implements OnInit {
       }
 
   ngOnInit() {
-    this.enterprises = this.enterpriseService.getAll();
+    this.enterpriseService.getAll().subscribe((data : Enterprise[])=>{
+      this.enterprises = data;
+    })
+    //this.enterprises = this.enterpriseService.getAll();
     this.currentUserId = this.userService.currentUserId;
     if(this.currentUserId != null){
       this.isEnterprise = this.userService.getIsEnterprise();
@@ -41,6 +44,16 @@ export class EnterpriseViewAllComponent implements OnInit {
   }
 
   OnSearchSubmit(form: NgForm) {
-    this.enterprises = this.enterpriseService.getBySearchWord(this.searchWord);
+    this.enterpriseService.getAll().subscribe((data : Enterprise[])=>{
+                
+      if (this.searchWord.length > 0 ) {
+      this.enterprises = data.filter(a => a.name.toLowerCase().includes(this.searchWord.toLowerCase()));
+      }
+      else {
+          this.enterprises = data;
+        }
+        console.log(this.enterprises);
+  });
+    //this.enterprises = this.enterpriseService.getBySearchWord(this.searchWord);
   }
 }

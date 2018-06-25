@@ -1,9 +1,9 @@
-import { Sizes } from '../classes/sizes';
-import { Enterprise } from '../classes/enterprise';
+import { Observable } from 'rxjs/Observable';
+import { Enterprise } from './../classes/enterprise';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EnterpriseDetails } from '../classes/enterprise-details';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { RatingModal } from '../classes/rating.modal';
 import { UserRatingsService } from './user-ratings.service';
 import { RatingList } from '../classes/ratingList';
 
@@ -17,7 +17,7 @@ export class EnterpriseService {
 
     private enetrprises: Enterprise[] = [
         {
-            id : 1,
+            id : 2,
             name : 'Vodafone',
             headline : 'Telecommunications',
             logo : '../assets/img/logos/vodafone.png',
@@ -30,7 +30,7 @@ export class EnterpriseService {
         },
 
         {
-            id : 2,
+            id : 1,
             name : 'ITWORX',
             headline : 'Cloud',
             logo : '../assets/img/logos/itworx.jpg',
@@ -53,6 +53,7 @@ export class EnterpriseService {
             name: 'Valeo',
             headline : 'Automative',
             logo: '../../../assets/img/logos/Valeo_Logo.svg.png',
+            
             des : `Valeo is an automotive supplier, partner to all automakers worldwide. As a technology company, Valeo proposes innovative products and systems that contribute to the reduction of CO2 emissions and to the development of intuitive driving. 
 
             In 2017, the Group generated sales of 18.6 billion euros and invested over 19% of its original equipment sales in Research and Development. Valeo has 184 plants, 55 Research and Development centers and 15 distribution platforms, and employs 111,600 people in 33 countries worldwide. `,
@@ -63,7 +64,8 @@ export class EnterpriseService {
             name: 'Sunrise Language School',
             headline: 'Education',
             logo: '../../../assets/img/school.png',
-            des: 'Sunrise Language School founded in 1984 is ......etc',
+            
+            des: 'Sunrise Language School founded in 1984 is a huge enterprise which provides educational services for students from all over egypt',
             headquarters: 'Egypt'
         },
         {
@@ -71,18 +73,18 @@ export class EnterpriseService {
             name: 'Ain Shams University',
             headline: 'Education',
             logo: '../../../assets/img/school.png',
-            des: 'Ain Shams University founded in 1884 is ......etc',
+            des: 'Ain Shams University founded in 1884 is a huge enterprise which provides educational services for students from all over egypt',
             headquarters: 'Egypt'
         }
 
     ];
 
-    constructor(private userRatingService: UserRatingsService) {
+    constructor(private userRatingService: UserRatingsService, private http : HttpClient) {
 
     }
 
     private enterprisesDetails: EnterpriseDetails[] = [{
-        id : 1,
+        id : 2,
         name : 'Vodafone',
         headLine : 'Telecommunications',
         headquarters : 'USA',
@@ -106,7 +108,24 @@ export class EnterpriseService {
                 country :{ id : 1,
                     name : 'Egypt',
                     cities : [
-                      'Cairo','Giza','Alex'
+                        {
+                            id : 1,
+                            name : 'Cairo',
+                            countryId : 1,
+                            countryName : 'Egypt'
+                          },
+                          {
+                            id : 2,
+                            name : 'Alex',
+                            countryId : 1,
+                            countryName : 'Egypt'
+                          },
+                          {
+                            id : 3,
+                            name : 'Giza',
+                            countryId : 1,
+                            countryName : 'Egypt'
+                          }
                     ]},
                 city : {id : 1,
                     name : 'Cairo',
@@ -118,7 +137,18 @@ export class EnterpriseService {
                 country : { id : 1,
                     name : 'Egypt',
                     cities : [
-                      'Cairo','Giza','Alex'
+                        {
+                            id : 4,
+                            name : 'New York',
+                            countryId : 2,
+                            countryName : 'USA'
+                          },
+                          {
+                            id : 5,
+                            name : 'Denver',
+                            countryId : 2,
+                            countryName : 'USA'
+                          },
                     ]},
                 city :{id : 2,
                     name : 'Giza',
@@ -131,7 +161,7 @@ export class EnterpriseService {
         ]
         },
         {
-        id : 2,
+        id : 1,
         name : 'ITWorkX',
         headLine : 'Cloud',
         headquarters : 'Egypt',
@@ -154,20 +184,34 @@ export class EnterpriseService {
         return this.enterprisesDetails;
     }
 
-    public getAll(): Enterprise[] {
-        return this.enetrprises;
+    // public getAll(): Enterprise[] {
+    //     return this.enetrprises;
+    // }
+
+    public getAll(){
+        return this.http.get('http://localhost:49877/rpc/Enterprises/GetAll?searchInput=%20&type=json');
     }
 
     public add(enterprise: EnterpriseDetails) {
-        this.enterprisesDetails.push(enterprise);
+        //this.enterprisesDetails.push(enterprise);
+        console.log(enterprise.branches);
+        const url = 'http://localhost:49877/rpc/Enterprises/PostEnterprise';
+        const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json'
+            })};
+        return this.http.post(url,enterprise,httpOptions);
     }
 
-    public getById(id: number) {
+    public getByIdStatic(id: number) {
         for (let i = 0 ; i < this.enterprisesDetails.length ; i++) {
             if (this.enterprisesDetails[i].id === id) {
                 return this.enterprisesDetails[i];
             }
         }
+    }
+    public getById(id : number):Observable<EnterpriseDetails>{
+        return <Observable<EnterpriseDetails>>this.http.get(`http://localhost:49877/rpc/Enterprises/GetEnterprise/${id}?type=json`);
     }
 
     public getEnterpriseById(id: number) {
@@ -194,17 +238,6 @@ export class EnterpriseService {
 
     public update(i: number, e: EnterpriseDetails) {
         this.enterprisesDetails[i] = e;
-    }
-
-    public getBySearchWord(searchWord: string) {
-        let enterprises = [];
-        if (searchWord.length > 0 ) {
-            enterprises = this.getAll().filter(a => a.name.toLowerCase().includes(searchWord.toLowerCase()));
-          } else {
-            enterprises = this.getAll();
-          }
-
-          return enterprises;
     }
 
     public getRatingItem(ratingList: RatingList[], id: number) {

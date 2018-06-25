@@ -13,21 +13,60 @@ export class CountryService {
       id : 1,
       name : 'Egypt',
       cities : [
-        'Cairo', 'Giza', 'Alex'
+        {
+          id : 1,
+          name : 'Cairo',
+          countryId : 1,
+          countryName : 'Egypt'
+        },
+        {
+          id : 2,
+          name : 'Alex',
+          countryId : 1,
+          countryName : 'Egypt'
+        },
+        {
+          id : 3,
+          name : 'Giza',
+          countryId : 1,
+          countryName : 'Egypt'
+        }
       ]
     },
     {
       id : 2,
       name : 'USA',
       cities : [
-        'New York', 'Denver'
+        {
+          id : 4,
+          name : 'New York',
+          countryId : 2,
+          countryName : 'USA'
+        },
+        {
+          id : 5,
+          name : 'Denver',
+          countryId : 2,
+          countryName : 'USA'
+        }
       ]
     },
     {
       id : 3,
       name : 'France',
       cities : [
-        'Paris', 'Cann'
+        {
+          id : 6,
+          name : 'Paris',
+          countryId : 3,
+          countryName : 'France'
+        },
+        {
+          id : 7,
+          name : 'Cann',
+          countryId : 3,
+          countryName : 'France'
+        }
       ]
     }
   ];

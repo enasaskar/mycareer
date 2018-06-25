@@ -26,6 +26,8 @@ export class VacancyItemDetailsComponent implements OnInit {
   vacancieyDetailsEnterprise: EnterpriseDetails;
   vacancies: Vacancy[];
   enterprises: Enterprise[];
+  //enterprises : EnterpriseDetails[];
+  oneEnterprise : EnterpriseDetails;
   searchWord: any;
   vacancieyDetails: Vacancy;
   idUser: number;
@@ -46,7 +48,10 @@ export class VacancyItemDetailsComponent implements OnInit {
      this.activeRoute.params.subscribe((params) => { this.vid = params['id'] ; } );
      console.log(this.vid);
     this.vacancieyDetails = this.vacancyServiec.getById(this.vid);
-    this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
+    //this.vacancieyDetailsEnterprise = this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id);
+    this.enterpriseService.getById(this.vacancieyDetails.fK_Enterprise_Id).subscribe((data : EnterpriseDetails)=>{
+      this.vacancieyDetailsEnterprise = data;
+    })
     this.vacancieyDetailsType = this.typeService.getById(this.vacancieyDetails.fK_VacancyType_Id);
     this.vacancieyDetailslevel = this.levelsService.getById(this.vacancieyDetails.fK_Level_Id);
 
@@ -57,7 +62,12 @@ export class VacancyItemDetailsComponent implements OnInit {
     // console.log(ids);
     // const ids2 = ids.filter( this.onlyUnique );
     // console.log(ids2);
-    this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+  this.enterprises = this.vacancies.map(i => this.enterpriseService.getEnterpriseById(i.fK_Enterprise_Id));
+    // this.vacancies.map(i => this.enterpriseService.getById(i.fK_Enterprise_Id).subscribe((data:EnterpriseDetails)=>{
+    //   this.oneEnterprise = data;
+    //   this.enterprises.push(this.oneEnterprise);
+    // }));
+    
     // const ids3 = this.enterprises.filter( this.onlyUnique );
     // console.log(ids3);
     console.log(this.vacancies);

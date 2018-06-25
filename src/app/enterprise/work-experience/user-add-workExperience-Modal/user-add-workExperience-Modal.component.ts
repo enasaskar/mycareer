@@ -1,10 +1,10 @@
+import { Enterprise } from './../../../shared/classes/enterprise';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import { Enterprise } from '../../../shared/classes/enterprise';
 import { EnterpriseService } from '../../../shared/services/enterprise.service';
 import { WorkExperienceService } from '../../../shared/services/workExperience.service';
 import { EducationalBackgroundService } from '../../../shared/services/educationalBackground.service';
@@ -45,9 +45,9 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
     this.route.parent.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.initForm();
-      this.options = this.enterpriseService.getAll();
-      // for autocomplete
-      this.filteredOptions = this.myControl.valueChanges
+      this.enterpriseService.getAll().subscribe((data:Enterprise[])=>{
+        this.options = data;
+        this.filteredOptions = this.myControl.valueChanges
         .pipe(
           startWith(''),
           map(val => this.filter(val))
@@ -58,6 +58,10 @@ export class UserAddWorkExperienceModalComponent implements OnInit {
           map(value => this.filterEdu(value))
         );
       }
+      })
+      //this.options = this.enterpriseService.getAll();
+      // for autocomplete
+     
     });
   }
 

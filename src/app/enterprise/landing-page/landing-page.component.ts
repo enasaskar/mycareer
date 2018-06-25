@@ -20,7 +20,10 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     this.eId = +this.router.snapshot.params["id"];
     console.log(this.eId);
-    this.enterprise = this.enterpriseService.getById(this.eId);
+    //this.enterprise = this.enterpriseService.getById(this.eId);
+    this.enterpriseService.getById(this.eId).subscribe((data) => {
+      this.enterprise = data;
+    });
   }
 
   public chartClicked(e:any):void {

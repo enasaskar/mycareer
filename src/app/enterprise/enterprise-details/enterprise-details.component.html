@@ -33,7 +33,7 @@
 
 
     <!-- view details -->
-    <div *ngIf="details" class="row enterprise-view-one" id = "e">
+    <div *ngIf="id" class="row enterprise-view-one" id = "e">
       <div class="col-md-4">
         <div class="portfolio-item">
           <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -179,7 +179,7 @@
 
 
     <!-- add view -->
-    <form action="" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
+    <form action="" *ngIf="!id" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
       <div class="row form-group">
           <div class="col-md-4">
               <div class="portfolio-item">
@@ -198,7 +198,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-building"></i></span>
                         </span>
-                        <input type="text" #eName = ngModel required class="form-control" name="newenterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">													
+                        <input type="text" #eName = ngModel required class="form-control" name="details" placeholder="Name" [(ngModel)] = "details.name">													
                       </div>
                 </div>
                 <div class="form-group col-md-6 input-group-sm">
@@ -206,7 +206,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><img width = "15" src="../../../assets/img/header.png" alt=""></span>
                         </span>
-                        <input type="text" #eHeadline = ngModel required class="form-control" name="newheadLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">                  
+                        <input type="text" #eHeadline = ngModel required class="form-control" name="newheadLine" placeholder="HeadLine" [(ngModel)] = "details.headLine">                  
                     </div>
                 </div>
         
@@ -218,7 +218,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><img width = "15" src="../../../assets/img/headline.png" alt=""></span>
                         </span>
-                        <input type="textarea" #eDesc = ngModel  required class="form-control" name="newdescription" placeholder="Description" [(ngModel)] = "newEnterprise.des">
+                        <input type="textarea" #eDesc = ngModel  required class="form-control" name="newdescription" placeholder="Description" [(ngModel)] = "details.des">
                     </div>
                 </div>
               </div>
@@ -228,7 +228,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-globe"></i></span>
                         </span>
-                        <input type="text" #eSite = ngModel required class="form-control" name="newwebsite" placeholder="website" [(ngModel)] = "newEnterprise.website">               
+                        <input type="text" #eSite = ngModel required class="form-control" name="newwebsite" placeholder="website" [(ngModel)] = "details.website">               
                     </div>
                 </div>
                 <div class="form-group col-md-4 input-group-sm">
@@ -236,7 +236,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-facebook-f"></i></span>
                         </span>
-                        <input type="text" #eFb = ngModel required class="form-control" name="newfacebook" placeholder="Facebook Account" [(ngModel)] = "newEnterprise.facebookAccount">                                              
+                        <input type="text" #eFb = ngModel required class="form-control" name="newfacebook" placeholder="Facebook Account" [(ngModel)] = "details.facebookAccount">                                              
                     </div>
                 </div>
                 <div class="form-group col-md-4 input-group-sm">
@@ -244,7 +244,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-twitter"></i></span>
                         </span>
-                        <input type="text" #eTwitter = ngModel required class="form-control" name="newtwitter" placeholder="Twitter Account" [(ngModel)] = "newEnterprise.twitterAccount">                                              													
+                        <input type="text" #eTwitter = ngModel required class="form-control" name="newtwitter" placeholder="Twitter Account" [(ngModel)] = "details.twitterAccount">                                              													
                     </div>
                 </div>
               </div>
@@ -255,7 +255,7 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-building"></i></span>
                         </span>
-                        <input type="text" #eHead = ngModel  required class="form-control" name="newheadquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">                                  													
+                        <input type="text" #eHead = ngModel  required class="form-control" name="newheadquarters" placeholder="Headquarters" [(ngModel)] = "details.headquarters">                                  													
                       </div>
                 </div>
                 <div class="form-group col-md-6 input-group-sm">
@@ -263,22 +263,22 @@
                         <span class="input-group-addon">
                           <span class="icon"><i class="fa fa-sitemap"></i></span>
                         </span>
-                        <select  class="form-control" required name = "newsize" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
+                        <select  class="form-control" required name = "newsize" [(ngModel)] = "details.size" #eSize = ngModel> 
                             <option value="" disabled>Select the company size range</option>
                             <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
                         </select>      
                     </div>  
                 </div>
               </div>
-              <div class = "appendBranch">
+              <div class = "appendBranch" *ngFor='let branch of details.branches; let i = index'>
                 <div class="row branches">
                   <div class="form-group col-md-3 input-group-sm">
                       <div class="input-group input-group-icon">
                           <span class="input-group-addon">
                             <span class="icon"><i class="fa fa-location-arrow"></i></span>
                           </span>
-                          <select class="form-control" required name = "newBranch.country" [(ngModel)] = "newBranch.country"> 
-                              <option *ngFor="let co of countries">{{co.name}}</option>
+                          <select class="form-control" required [name]="'txtCountry' + i" [(ngModel)] = "branch.country.id"> 
+                              <option *ngFor="let co of countries" [value]="co.id" >{{co.name}}</option>
                           </select>                            													
                         </div>
                   </div>
@@ -288,8 +288,8 @@
                           <span class="input-group-addon">
                             <span class="icon"><i class="fa fa-location-arrow"></i></span>
                           </span>
-                          <select class="form-control" required name = "newBranch.city" [(ngModel)] = "newBranch.city"> 
-                            <option *ngFor="let ci of cities">{{ci.name}}</option>
+                          <select class="form-control" required [name]="'txtCity' + i" [(ngModel)] = "branch.city.id"> 
+                            <option *ngFor="let ci of countries[i].cities" [value]="ci.id">{{ci.name}}</option>
                           </select>                            													
                         </div>                    
                   </div>
@@ -298,7 +298,7 @@
                           <span class="input-group-addon">
                             <span class="icon"><i class="fa fa-location-arrow"></i></span>
                           </span>
-                          <input type="text" required class="form-control" placeholder="Loaction details" name = "newBranch.locationDetails" [(ngModel)] = "newBranch.locationDetails"  >                              													
+                          <input type="text" required class="form-control" placeholder="Loaction details" [name]="'txtLoc' + i" [(ngModel)] = "branch.locationDetails"  >                              													
                         </div>
                   </div>
                 </div>
@@ -413,14 +413,14 @@
                   </div>
                 </div>
                 <div class = "appendBranch">
-                  <div *ngFor = "let b of details.branches"  class="row branches">
+                  <div *ngFor = "let b of details.branches; let i= index"  class="row branches">
                     <div class="form-group col-md-3 input-group-sm">
                         <div class="input-group input-group-icon">
                             <span class="input-group-addon">
                               <span class="icon"><i class="fa fa-location-arrow"></i></span>
                             </span>
-                            <select (change) = "onChange()"  class="form-control" required [name] = "b.country.name" [(ngModel)] = "b.country.name"> 
-                                <option *ngFor="let co of countries">{{co.name}}</option>
+                            <select (change) = "onChange()"  class="form-control" required [name]="'ddlBrancCountry'+i" [(ngModel)] = "b.country.name"> 
+                                <option *ngFor="let co of countries" [value]="co.name">{{co.name}}</option>
                               </select>                            													
                           </div>
                     </div>
@@ -430,8 +430,8 @@
                             <span class="input-group-addon">
                               <span class="icon"><i class="fa fa-location-arrow"></i></span>
                             </span>
-                            <select class="form-control" required [name] = "b.city.name" [(ngModel)] = "b.city.name"> 
-                              <option *ngFor="let ci of b.country.cities">{{ci}}</option>
+                            <select class="form-control" required [name]="'ddlBranchCity'+i" [(ngModel)] = "b.city.name"> 
+                              <option *ngFor="let ci of b.country.cities" [value]="ci.name">{{ci.name}}</option>
                             </select>                            													
                           </div>                    
                     </div>
@@ -440,7 +440,7 @@
                             <span class="input-group-addon">
                               <span class="icon"><i class="fa fa-location-arrow"></i></span>
                             </span>
-                            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+                            <input type="text" required class="form-control" [name]="'txtLocation'+i" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
                           </div>
                     </div>
                   </div>

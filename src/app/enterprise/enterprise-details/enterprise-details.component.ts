@@ -33,9 +33,9 @@ export class EnterpriseDetailsComponent implements OnInit {
   public isEnterprise: boolean;
   public curretntUesrId: number;
 
-  public newId = 3;
+  public newId = 5;
 
-  details: EnterpriseDetails;
+  details: EnterpriseDetails = new EnterpriseDetails();
 
   public e: any;
   public edit;
@@ -45,16 +45,16 @@ export class EnterpriseDetailsComponent implements OnInit {
   cities: City[];
 
 
-  newEnterprise = new EnterpriseDetails();
+
   oldEnterprise: EnterpriseDetails;
-  newBranch = new EnterpriseBranches();
+ 
 
 
   constructor(private enterpriseService: EnterpriseService, private active: ActivatedRoute,
     private sizeService: SizeService, private dialog: MatDialog,
     private countryService: CountryService, private cityService: CityService, private router: Router,
     private userService: UserService) {
-    this.newEnterprise.branches = [];
+    this.details.branches = [];
   }
 
   ngOnInit() {
@@ -65,27 +65,34 @@ export class EnterpriseDetailsComponent implements OnInit {
       this.isEnterprise = this.userService.getIsEnterprise();
     }
     //this.id = +this.active.snapshot.params['id'];
+    this.details.branches.push({city:new City(), country : new Country()});
     this.active.params.subscribe((params: Params) => {
-      this.id = params['id'] ;
+      this.id = params['id'];
       this.loadData();
     });
 
 
-    
+
   }
 
-  loadData(){
-    this.details = this.enterpriseService.getById(+this.id);
-    this.oldEnterprise = Object.assign({}, this.details);
-    // console.log(this.oldEnterprise);
+  loadData() {
+    this.enterpriseService.getById(+this.id).subscribe((data) => {
+      this.details = data;
+      //console.log(this.details);
+      this.oldEnterprise = Object.assign({}, this.details);
+      //console.log(this.oldEnterprise);
+    });
+
+
+
     this.sizes = this.sizeService.getAll();
     this.countries = this.countryService.getAll();
     //console.log(this.id);
     this.cities = this.cityService.getAll();
     this.countryService.onChange.subscribe(
       () => {
-        this.details.branches.map(co => co.country.cities = this.cityService.getByCountryName(co.country.name));
-        console.log('oninit');
+        this.details.branches.map(b => b.country.cities = this.cityService.getByCountryName(b.country.name));
+        //console.log('oninit');
       }
     );
   }
@@ -103,7 +110,7 @@ export class EnterpriseDetailsComponent implements OnInit {
     this.edit = document.getElementById('edit');
     this.e.style.display = 'block';
     this.edit.style.display = 'none';
-    this.router.navigate(['/enterprises/enterprise/details/', this.id]);
+    //this.router.navigate(['/enterprises/enterprise/details/', this.id]);
   }
   onChange() {
     // console.log();
@@ -114,53 +121,24 @@ export class EnterpriseDetailsComponent implements OnInit {
   }
 
   onAddBranch() {
-    this.newEnterprise.branches.push(this.newBranch);
-    const branches = document.getElementsByClassName('appendBranch')[0];
-    branches.innerHTML += `<div class="row branches">
-    <div class="form-group col-md-3 input-group-sm">
-        <div class="input-group input-group-icon">
-            <span class="input-group-addon">
-              <span class="icon"><i class="fa fa-location-arrow"></i></span>
-            </span>
-            <select (change) = ${this.onChange()}  class="form-control" required [name] = ${this.newBranch.country} [(ngModel)] =${this.newBranch.country}>
-                <option *ngFor=let co of ${this.countries}">{{co.name}}</option>
-              </select>
-          </div>
-    </div>
-
-    <div class="form-group col-md-3 input-group-sm">
-        <div class="input-group input-group-icon">
-            <span class="input-group-addon">
-              <span class="icon"><i class="fa fa-location-arrow"></i></span>
-            </span>
-            <select class="form-control" required [name] = ${this.newBranch.city} [(ngModel)] = ${this.newBranch.city}>
-              <option *ngFor="let ci of ${this.cities}">{{ci.name}}</option>
-            </select>
-          </div>
-    </div>
-    <div class="form-group col-md-4 input-group-sm">
-        <div class="input-group input-group-icon">
-            <span class="input-group-addon">
-              <span class="icon"><i class="fa fa-location-arrow"></i></span>
-            </span>
-            <input type="text" required class="form-control" [name]=${this.newBranch.locationDetails} placeholder="Location" [(ngModel)] = ${this.newBranch.locationDetails}>
-          </div>
-    </div>
-  </div>`;
+    this.details.branches.push({city:new City(), country : new Country()});
   }
+ 
 
   OnAddSubmit(form: NgForm) {
     if (form.valid) {
-      this.newEnterprise.id = this.newId;
-      this.enterpriseService.add(this.newEnterprise);
-      this.newId++;
-      let u = this.userService.getUserById(this.curretntUesrId);
-      u.role = "enterprise",
-        u.enterpriseId = this.newEnterprise.id;
-      //this.isEnterprise = true;
-      this.userService.isEnterprise = true;
-      this.router.navigate(['/enterprises/enterprise/details', this.newEnterprise.id]);
-
+      //this.newEnterprise.id = this.newId;
+      // console.log(this.newBranch);
+      //this.details.branches.push(this.details.branches);
+      this.enterpriseService.add(this.details).subscribe( (ne : EnterpriseDetails) => {
+        //console.log(ne);
+        let u = this.userService.getUserById(this.curretntUesrId);
+        u.role = "enterprise",
+        u.enterpriseId = ne.id;
+        this.isEnterprise = true;
+        this.userService.isEnterprise = true;
+        this.router.navigate(['/enterprises/enterprise/details', ne.id]);
+      });
     }
   }
 
