@@ -77,7 +77,7 @@
                   Sign Up
                  </a>          </li>
           <li *ngIf="isLoggedIn">
-            <a [routerLink]="['user',id,'userProfile']">My Profile</a>
+            <a [routerLink]="['user',id,'userProfile']">{{userName}}</a>
           </li>
           <li *ngIf="isLoggedIn">
               <a style = "cursor : pointer" (click) = "onLogOut()">Logout</a>

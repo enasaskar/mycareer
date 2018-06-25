@@ -12,15 +12,15 @@ import { JobOfferService } from '../../shared/services/jobOffer.service';
 export class UserJobOffersComponent implements OnInit {
 
   @Input() JobOffers: JobOffer[];
-  private enterprises = [];
-  private vacancies = [];
+  public enterprises = [];
+ public vacancies = [];
   constructor(private enterpriseSevice: EnterpriseService,
      private vacancyService: VacancyService,
      private jobOfferService: JobOfferService) { }
 
   ngOnInit() {
     this.JobOffers.map( offer => {
-      const vacancy = this.vacancyService.getById(offer.vacancyID);
+      const vacancy = this.vacancyService.getByIdstatic(offer.vacancyID);
       this.vacancies.push(vacancy);
     });
     this.vacancies.map(vacancy => {
