@@ -63,7 +63,7 @@ export class ApplicantsService {
       },
       status: null
     }, {
-      user: this.user[0],
+      user: this.user[2],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -84,7 +84,7 @@ export class ApplicantsService {
       },
       status: null
     }, {
-      user: this.user[1],
+      user: this.user[3],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -106,7 +106,7 @@ export class ApplicantsService {
       status: null
     },
     {
-      user: this.user[0],
+      user: this.user[4],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -128,7 +128,7 @@ export class ApplicantsService {
       status: null
     },
     {
-      user: this.user[1],
+      user: this.user[5],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -150,7 +150,7 @@ export class ApplicantsService {
       status: null
     },
     {
-      user: this.user[0],
+      user: this.user[6],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',
@@ -172,7 +172,7 @@ export class ApplicantsService {
       status: null
     },
     {
-      user: this.user[1],
+      user: this.user[7],
       vacancy: {
         id: 1,
         // logoImg: '../../../assets/img/vodafone-icon.png',

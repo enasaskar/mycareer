@@ -6,33 +6,8 @@ import { User } from '../../users/users.model';
   providedIn: 'root'
 })
 export class EvaluationService {
-  evaluation:Evaluation[]=[
-    {
-      user_id: 1,
-      skill_id: 1,
-      rate: 0
-    },
-    {
-      user_id: 1,
-      skill_id: 2,
-      rate: 0
-    },
-    {
-      user_id: 1,
-      skill_id: 3,
-      rate: 0
-    },
-    {
-      user_id: 1,
-      skill_id: 4,
-      rate: 0
-    },
-    {
-      user_id: 1,
-      skill_id: 5,
-      rate: 0
-    }
-  ];
+  evaluation:Evaluation[]=[];
+  
   constructor() { }
 
   public getEvaluationByUserId(id:number){
