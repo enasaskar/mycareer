@@ -16,26 +16,27 @@ export class SkillUpdateComponent implements OnInit {
   }
   updateForm: FormGroup;
   @Input() skillDetails: Skill;
-
+  @Input() skillIndex: number;
+  acquiredDate: string;
+  from: string;
   datePickerConfig: Partial<BsDatepickerConfig>;
-
+  @Input() isUser;
   editedItemIndex;
   editedSkill;
   ngOnInit() {
-    this.skillsService.editing.subscribe(
-      (index: number) => {
-        this.editedItemIndex = index;
-        console.log('edited item indx', this.editedItemIndex);
-        this.editedSkill = this.skillsService.getSkill(this.editedItemIndex);
-        this.editSkillF.setValue({
-          acquiredDate: this.editedSkill.acquiredDate,
-          from: this.editedSkill.from,
-          paths: this.editedSkill.paths,
-          vacancies: this.editedSkill.vacancy
-        });
-      }
-    );
+    console.log('isUSer : ' + this.isUser);
+    // this.skillsService.editing.subscribe(
+    //   (index: number) => {
+    //     this.editedItemIndex = index;
+    //     console.log('edited item indx', this.editedItemIndex);
+    //     this.editedSkill = this.skillsService.getSkill(this.editedItemIndex);
+    //     this.editSkillF.setValue({
+    //       acquiredDate: this.editedSkill.acquiredDate,
+    //       from: this.editedSkill.from,
 
+    //     });
+    //   }
+    // );
     this.updateForm = new FormGroup({
       'acquiredDate' : new FormControl('enterDate reactiveFroms'),
       'from': new FormControl(null),
@@ -47,9 +48,17 @@ export class SkillUpdateComponent implements OnInit {
   public onUpdate(f: NgForm) {
     // console.log(this.updateForm);
     // console.log(f);
-    console.log(this.skillDetails.ID);
-    this.skillsService.updateSkill2(this.skillDetails);
-    this.skillsService.skillOnUpdate.next(this.skillDetails);
+    if (this.isUser === true) {
+
+    }
+     this.skillDetails.acquiredDat = this.acquiredDate = f.value['acquiredDate'].getDate();
+    this.skillDetails.from = this.from = f.value['from'];
+    console.log(this.skillDetails.acquiredDat + 'form added acquired date');
+    console.log(this.skillDetails.from + 'form added acquired date');
+    console.log(this.skillIndex);
+    this.skillsService.updateSkill(this.skillIndex, this.skillDetails);
+    //  this.skillsService.updateSkill2(this.skillDetails);
+    // this.skillsService.skillOnUpdate.next(this.skillDetails);
     // this.skillsService.updateSkill(this.editedItemIndex, this.editedSkill);
   }
 

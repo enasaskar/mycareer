@@ -58,7 +58,11 @@
           </div>
         </div>
         <app-skill-details-popup *ngIf="openMode" [skillDetails]="skillDetails"></app-skill-details-popup>
-        <app-skill-update *ngIf="!openMode" [skillDetails]="skillDetails" ></app-skill-update>
+        <app-skill-update *ngIf="!openMode" 
+        [skillIndex]="skillIndex"
+        [skillDetails]="skillDetails"
+        [isUser]="isUser"
+        ></app-skill-update>
        
   </div>
   <!-- <div class="modal-footer">

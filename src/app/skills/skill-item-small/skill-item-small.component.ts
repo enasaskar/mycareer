@@ -23,9 +23,9 @@ export class SkillItemSmallComponent implements OnInit {
   @Input() toShow ;
   @Input() skillIn;
   modalRef: BsModalRef;
-  isUser = null;
+  isUseer ;
   isPath = false;
-
+    isUSer;
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -39,8 +39,9 @@ export class SkillItemSmallComponent implements OnInit {
       this.isPath = true;
       this.skillService.deleteSkillFromPath(this.skillIndex);
     } else if (this.skillIn === 'userProfile') {
-      this.isUser = this.id;
-      console.log('on trash is user' + this.isUser);
+      this.isUSer = true;
+      this.isUseer = this.id;
+      console.log('on trash is user' + this.isUseer);
       this.skillService.deleteSkillFromUser(this.skillIndex) ;
     } else {
       this.skillService.deleteSkill(this.skillIndex);

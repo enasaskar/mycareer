@@ -17,7 +17,7 @@ export class SkillPopupComponent implements OnInit {
   editIcon: Boolean = true;
   @Input() modalRef;
   @Input() userID;
-
+  @Input() isUser;
 
   ngOnInit() {
     // this.evaluationService.getEvaluationByUserId()

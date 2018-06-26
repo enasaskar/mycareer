@@ -6,7 +6,7 @@
     <i class="fa fa-trash"></i>
   </a>
   <p class="clear"></p>
-  <div (click)="openModal(popup)">
+  <div  (click)="openModal(popup)">
   <div class="portfolio-item img-thumbnail">
       <!-- [href]="'#'+skillDetails.ID"  -->
     <a class="thumb-info lightbox" data-plugin-options='{"type":"inline", preloader: false}'>
@@ -32,10 +32,11 @@
   <!-- <div [id]="skillDetails.ID" *ngIf="toShow" class="popup-inline-content skillsFull"> -->
     <!-- {{skil.Level}} -->
 
-    <ng-template #popup>
+    <ng-template #popup >
     <app-skill-popup [skillDetails]="skillDetails"
     [skillIndex]="skillIndex"
     [modalRef]="modalRef" 
+    [isUser]="isUser"
     *ngIf="!isPath"
     ></app-skill-popup>
   </ng-template>

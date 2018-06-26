@@ -4,7 +4,7 @@
       <ul class="list icons list-unstyled">
         <li>
           <i class="fa fa-calendar"></i> Date-acquired
-          <strong id="date-acquired">1/10/2017</strong>
+          <strong id="date-acquired">{{skillDetails.acquiredDat}}</strong>
           <!--Date Time Picker-->
           <div class="form-group editable-skill-details">
             <div class="input-group date" id="datetimepicker1">
@@ -18,8 +18,8 @@
         <li>
           <i class="fa fa-university"></i>
           From
-          <span class="label label-info">Ain Shams University</span>
-          <span class="label label-info">ITI</span>
+          <span  class="label label-info">{{skillDetails.from}}</span>
+          <!-- <span class="label label-info">ITI</span> -->
           <div class="form-group search editable-skill-details">
             <form id="searchForm" action="page-search-results.html" method="get" novalidate="novalidate">
               <div class="input-group">
@@ -43,7 +43,7 @@
         <li>
           <i class="fa fa-briefcase"></i>
           Required in
-          <span class="label label-success">100</span> Vacancies
+          <span class="label label-success">11</span> Vacancies
         </li>
       </ul>
       <!-- <div class="right editable-skill-details">

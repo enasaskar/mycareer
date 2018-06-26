@@ -27,7 +27,9 @@ constructor() {
             IsDeleted: false,
             Review: 'v.Good',
             NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/cs.jpg'
+            Img: '../../../../assets/img/skills/cs.jpg',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 1,
@@ -36,7 +38,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/jquery.png'
+            Img: '../../../../assets/img/skills/jquery.png',
+            acquiredDat: '3/8/2016',
+            from: 'Ain shams Univercity'
         },
         {
             ID: 2,
@@ -45,7 +49,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
-            Img: '../../../../assets/img/skills/mvc.png'
+            Img: '../../../../assets/img/skills/mvc.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 3,
@@ -54,7 +60,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
-            Img: '../../../../assets/img/skills/sql.png'
+            Img: '../../../../assets/img/skills/sql.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 4,
@@ -63,7 +71,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/css.png'
+            Img: '../../../../assets/img/skills/css.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 5,
@@ -72,7 +82,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/html.png'
+            Img: '../../../../assets/img/skills/html.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 6,
@@ -81,7 +93,9 @@ constructor() {
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/bootstrap.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
         {
             ID: 7,
@@ -90,126 +104,152 @@ constructor() {
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/angular.png'
+            Img: '../../../../assets/img/skills/angular.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
         },
+        // {
+        //     ID: 8,
+        //     Name: 'Interviewing Skills',
+        //     Rate: 0,
+        //     IsDeleted: false,
+        //     Review: 'v.Good',
+        //     NoEndorsments: 50,
+        //     Img: '../../../../assets/img/skills/interview.png',
+        //     acquiredDat: '6/10/2018',
+        //     from: 'Cairo Univercity'
+
+        // },
         {
             ID: 8,
-            Name: 'Interviewing Skills',
-            Rate: 0,
-            IsDeleted: false,
-            Review: 'v.Good',
-            NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/bootstrap.png'
-
-        },
-        {
-            ID: 9,
             Name: 'TypeScript',
             Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/Typescript_logo.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 10,
+            ID: 9,
             Name: 'AngularJS',
             Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/angularJs.jpg',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 11,
+            ID: 10,
             Name: 'Web Api Core',
             Rate: 0,
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/apiCore.jpg',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 12,
-            Name: 'UX',
+            ID: 11,
+            Name: 'web api',
             Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/apiCore.jpg',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 13,
+            ID: 12,
             Name: 'HTML5',
             Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/html.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 14,
+            ID: 13,
             Name: 'C++',
             Rate: 0,
             IsDeleted: false,
             Review: 'v.Good',
             NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/c++.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 15,
+            ID: 14,
             Name: 'MVC',
             Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/mvc.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 16,
+            ID: 15,
             Name: 'Mongo DB',
             Rate: 0,
             IsDeleted: false,
             Review: 'Excellent',
             NoEndorsments: 20,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/mongodb.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 17,
+            ID: 16,
             Name: 'Communication skills',
             Rate: 0,
             IsDeleted: false,
             Review: 'Good',
             NoEndorsments: 10,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/Communication-Skills2.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 18,
+            ID: 17,
             Name: 'Photoshop',
             Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 50,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/PS.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         },
         {
-            ID: 19,
+            ID: 18,
             Name: 'Dynamic HTML',
             Rate: 0,
             IsDeleted: false,
             Review: 'Very Good',
             NoEndorsments: 30,
-            Img: '../../../../assets/img/skills/bootstrap.png'
+            Img: '../../../../assets/img/skills/html.png',
+            acquiredDat: '6/10/2018',
+            from: 'Cairo Univercity'
 
         }
     ];
@@ -267,28 +307,17 @@ constructor() {
        },
        {
            ID: 5,
-           Name: 'Interviewing Skills',
-           Rate: 0,
-           Level: 'Intro',
-           IsDeleted: false,
-           Review: 'v.Good',
-           NoEndorsments: 50,
-           Img: '../../../../assets/img/skills/bootstrap.png'
-
-       },
-       {
-           ID: 6,
            Name: 'TypeScript',
            Rate: 0,
            Level: 'Intro',
            IsDeleted: false,
            Review: 'Excellent',
            NoEndorsments: 30,
-           Img: '../../../../assets/img/skills/bootstrap.png'
+           Img: '../../../../assets/img/skills/Typescript_logo.png'
 
        },
        {
-        ID: 7,
+        ID: 6,
         Name: 'EcmaScript',
         Rate: 0,
         Level: 'Advanced',
@@ -299,7 +328,7 @@ constructor() {
 
     },
     {
-        ID: 8,
+        ID: 7,
         Name: 'React',
         Rate: 0,
         Level: 'Advanced',
@@ -319,7 +348,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'v.Good',
         NoEndorsments: 50,
-        Img: '../../../../assets/img/skills/cs.jpg'
+        Img: '../../../../assets/img/skills/cs.jpg',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 1,
@@ -328,7 +359,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Excellent',
         NoEndorsments: 30,
-        Img: '../../../../assets/img/skills/jquery.png'
+        Img: '../../../../assets/img/skills/jquery.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 2,
@@ -337,7 +370,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Excellent',
         NoEndorsments: 20,
-        Img: '../../../../assets/img/skills/mvc.png'
+        Img: '../../../../assets/img/skills/mvc.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 3,
@@ -346,7 +381,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Good',
         NoEndorsments: 10,
-        Img: '../../../../assets/img/skills/sql.png'
+        Img: '../../../../assets/img/skills/sql.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 4,
@@ -355,7 +392,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 50,
-        Img: '../../../../assets/img/skills/css.png'
+        Img: '../../../../assets/img/skills/css.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 5,
@@ -364,7 +403,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
-        Img: '../../../../assets/img/skills/html.png'
+        Img: '../../../../assets/img/skills/html.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 6,
@@ -373,7 +414,9 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
-        Img: '../../../../assets/img/skills/bootstrap.png'
+        Img: '../../../../assets/img/skills/bootstrap.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     },
     {
         ID: 7,
@@ -382,18 +425,22 @@ this.userSkills = [
         IsDeleted: false,
         Review: 'Very Good',
         NoEndorsments: 30,
-        Img: '../../../../assets/img/skills/angular.png'
-    },
-    {
-        ID: 8,
-        Name: 'Interviewing Skills',
-        Rate: 0,
-        IsDeleted: false,
-        Review: 'v.Good',
-        NoEndorsments: 50,
-        Img: '../../../../assets/img/skills/bootstrap.png'
-
+        Img: '../../../../assets/img/skills/angular.png',
+        acquiredDat: '6/10/2018',
+        from: 'Cairo Univercity'
     }
+    // {
+    //     ID: 8,
+    //     Name: 'Interviewing Skills',
+    //     Rate: 0,
+    //     IsDeleted: false,
+    //     Review: 'v.Good',
+    //     NoEndorsments: 50,
+    //     Img: '../../../../assets/img/skills/interview.png',
+    //     acquiredDat: '6/10/2018',
+    //     from: 'Cairo Univercity'
+
+    // }
 ];
 }
 
@@ -463,7 +510,9 @@ deleteSkillFromPath(id: number) {
     this.pathSkills.splice(id, 1);
 
 }
-
+updatePathSkill(skillIndex, newSkill) {
+    this.pathSkills[skillIndex] = newSkill;
+}
 ///////////// -------------------------USER-------------------------/////////////
 getAllByUserID(uid: number): Skill[] {
 return this.userSkills;
@@ -475,5 +524,8 @@ this.userSkills.push(skill);
 deleteSkillFromUser(id: number) {
     this.userSkills.splice(id, 1);
 
+}
+updateUSerSkill(skillIndex, newSkill) {
+    this.userSkills[skillIndex] = newSkill;
 }
 }
