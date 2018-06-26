@@ -44,14 +44,14 @@ export class SkillUpdateComponent implements OnInit {
     });
   }
 
-  public onUpdate() {
-    console.log(this.updateForm);
-    this.skillsService.updateSkill(this.editedItemIndex, this.editedSkill);
+  public onUpdate(f: NgForm) {
+    // console.log(this.updateForm);
+    // console.log(f);
+    console.log(this.skillDetails.ID);
+    this.skillsService.updateSkill2(this.skillDetails);
+    this.skillsService.skillOnUpdate.next(this.skillDetails);
+    // this.skillsService.updateSkill(this.editedItemIndex, this.editedSkill);
   }
-  addInstitute(inst: string) {
-
-  }
-
 
 
 }

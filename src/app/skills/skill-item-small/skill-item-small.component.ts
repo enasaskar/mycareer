@@ -23,6 +23,9 @@ export class SkillItemSmallComponent implements OnInit {
   @Input() toShow ;
   @Input() skillIn;
   modalRef: BsModalRef;
+  isUser = null;
+  isPath = false;
+
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -33,8 +36,11 @@ export class SkillItemSmallComponent implements OnInit {
     // this.skillService.onDelete.next(this.skillDetails);
     // this.skillService.deleteSkill(this.skillDetails);
     if (this.skillIn === 'paths') {
+      this.isPath = true;
       this.skillService.deleteSkillFromPath(this.skillIndex);
     } else if (this.skillIn === 'userProfile') {
+      this.isUser = this.id;
+      console.log('on trash is user' + this.isUser);
       this.skillService.deleteSkillFromUser(this.skillIndex) ;
     } else {
       this.skillService.deleteSkill(this.skillIndex);
@@ -43,6 +49,12 @@ export class SkillItemSmallComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.skillIn === 'paths') {
+      this.isPath = true;
+      this.skillService.deleteSkillFromPath(this.skillIndex);
+    }
+    console.log('is path : ' + this.isPath);
+
     // if (this.id === null) {
     //   this.toShow = true;
     // } else { this.toShow = false; }

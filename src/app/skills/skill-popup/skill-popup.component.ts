@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Skill } from '../../shared/classes/skill.model';
+import { EvaluationService } from '../../shared/services/evaluation.service';
+import { SkillsService } from '../../shared/services/skills.service';
 
 @Component({
   selector: 'app-skill-popup',
@@ -8,14 +10,21 @@ import { Skill } from '../../shared/classes/skill.model';
 })
 export class SkillPopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private evaluationService: EvaluationService , private skillsService: SkillsService) { }
   @Input() public skillDetails: Skill;
+  @Input() skillIndex;
   openMode: Boolean = true;
   editIcon: Boolean = true;
   @Input() modalRef;
+  @Input() userID;
 
 
   ngOnInit() {
+    // this.evaluationService.getEvaluationByUserId()
+    this.skillsService.skillOnUpdate.subscribe((skil: Skill) => {
+      this.skillsService.updateSkill(this.skillIndex, skil);
+      // this.skillsList = this.skillsService.getAllByUserID(1);
+    });
   }
   onClick() {
     console.log('Click');

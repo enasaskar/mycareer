@@ -15,6 +15,7 @@ export class SkillsService {
     skillChanged = new Subject<Skill[]>();
     skillAddedPath = new Subject<Skill>();
     skillAddedUser = new Subject<Skill>();
+    skillOnUpdate = new Subject<Skill>();
 
 
 constructor() {
@@ -438,8 +439,6 @@ updateSkill2(newSkill: Skill) {
 const toUpdate = this.getByID(newSkill.ID);
 toUpdate.acquiredDat = newSkill.acquiredDat;
 toUpdate.from = newSkill.from;
-toUpdate.vacancy = newSkill.vacancy;
-toUpdate.paths = newSkill.paths;
 
 }
 
