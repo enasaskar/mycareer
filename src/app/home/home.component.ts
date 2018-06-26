@@ -16,13 +16,12 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class HomeComponent implements OnInit {
-  servicessitem:IService[];
+  servicessitem: IService[];
   jobofferitems:IOffer[]
   companylogoitems:ILogo[];
-  images: Array<string>=[
+  images: Array<string> =[
       "../../assets/img/slides/slide-1.jpg",
-      "../../assets/img/slides/slide-2.jpg",
-      "../../assets/img/slides/slide-3.jpg",
+      "../../assets/img/slides/slide-2.jpg"
   ]
   
   
@@ -34,9 +33,9 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.servicessitem=this.homeservice.getAll();
-    this.jobofferitems=this.offerservice.getAll();
-    this.companylogoitems=this.Logoservice.getAll();
+    this.servicessitem = this.homeservice.getAll();
+    this.jobofferitems = this.offerservice.getAll();
+    this.companylogoitems = this.Logoservice.getAll();
   }
 
 }
