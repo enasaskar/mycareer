@@ -1,22 +1,53 @@
- 
+<section class="page-top">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <h1>Paths</h1>
+          </div>
+      </div>
+  </div>
+</section>
   <div role="main" class="main">
     <!-- @Html.Partial("GeneralPartialViews/_PartialHeaderIntro_Quotes"); -->
     <div class="container">
       <!--SubHeader-->
       <!-- @Html.Partial("Path/_PartialViewAllSubHeader") -->
       <!-- Filter-->
-      <ul class="nav nav-pills sort-source" data-sort-id="team" data-option-key="filter">
-        <li data-option-value="*" class="active">
-          <a href="">Show All</a>
-        </li>
-        <li *ngFor='let cat of PathCategories' [attr.data-option-value]="cat.Name">
-          <a >{{cat.Name}}</a>
-        </li>
-      </ul>
+      <div class="row" >
 
-   
+        <!-- <div class="col-md-8" >
+
+          <ul class="nav nav-pills sort-source" data-sort-id="team" data-option-key="filter">
+            <li data-option-value="*" class="active">
+              <a href="">Show All</a>
+            </li>
+            <li *ngFor='let cat of PathCategories' [attr.data-option-value]="cat.Name">
+              <a >{{cat.Name}}</a>
+            </li>
+          </ul>
+        </div> -->
+    <div class="col-md-7 col-md-offset-5 search" >
+            <aside class="sidebar">
+                <form method="POST" role="form" (ngSubmit) = "getAll(searchWord)" #searchForm = ngForm>
+                    <div class="input-group input-group-lg">
+                        <input class="form-control" placeholder="Search for a path..." name="s" id="s" type="text" [(ngModel)] = searchWord>
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </aside>
+    </div>
+
+      </div>
+
       <!-- Path items View ALL -->
-
       <app-list [pathList]= 'paths'></app-list>
     </div>
   </div> 

@@ -9,7 +9,7 @@
                     <h3 class="left">
                         <strong>{{title}}</strong>{{subTitle}}</h3>
                 </div>
-                <div class="col-md-3 col-xs-10 right">
+                <div class="col-md-3 col-xs-10 right" *ngIf="showEdit" >
                     <app-skill-add-new [pathLevel]="title" ></app-skill-add-new>
                 </div>
                 <!-- <div class="col-md-6 col-xs-2">
@@ -50,4 +50,3 @@
     </div>
 
 </div>
-<app-skill-list-drag-scroll></app-skill-list-drag-scroll>

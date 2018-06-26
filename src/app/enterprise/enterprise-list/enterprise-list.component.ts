@@ -12,13 +12,21 @@ import { PathService } from '../../shared/services/path.service';
 export class EnterpriseListComponent implements OnInit {
 
    @Input() pathId: number;
-   public enterprises: Enterprise[];
+   @Input() enterprises: Enterprise[];
 
   constructor(private enterpriseService: EnterpriseService, private pathService: PathService) { }
 
   ngOnInit() {
-    this.enterprises = this.pathService.getEnterpriseRecommendPath(this.pathId);
+    // debugger
+    // this.enterprises = this.pathService.getEnterpriseRecommendPath(this.pathId);
+    // console.log('in ent list comp ', this.enterprises);
 
+    // this.pathService.getAllApi().subscribe(pathList => {
+    //   let res = pathList.find( p => p.Id == this.pathId).EnterpriseRecommendPath;
+    //   console.log(res);
+    //   this.enterprises = res;
+    // });
+      // console.log(this.enterprises);
   }
 
 }

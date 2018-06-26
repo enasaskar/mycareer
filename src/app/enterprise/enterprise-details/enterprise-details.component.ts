@@ -142,6 +142,10 @@ export class EnterpriseDetailsComponent implements OnInit {
     }
   }
 
+  cancleAdd(){
+    this.router.navigate(['/enterprises']);
+  }
+
   OnEditSubmit(form: NgForm) {
     // To Do:call update function
      if(form.valid){

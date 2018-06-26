@@ -58,7 +58,7 @@
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Main, Model.Categories) -->
                         
 
-                        <select   name="path.PathMainCategory" #mainCat = "ngModel" class="form-control" [(ngModel)]= "path.PathMainCategory" required >
+                        <select   name="path.PathMainCategory.Id" #mainCat = "ngModel" class="form-control" [(ngModel)]= "path.PathMainCategory.Id" required >
                             <option value="default" disabled selected> Select Main category</option>
                             <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
                           </select>
@@ -81,7 +81,7 @@
                     </div>
                     <div class=" col-xs-7">
                         <!-- @Html.DropDownListFor(a => a.Path.FK_EnumPathCategory_Id_Sub, Model.Categories) -->
-                        <select [(ngModel)]= "path.PathSubCategory" #subCat = "ngModel" name="path.PathSubCategory" class="form-control" required >
+                        <select [(ngModel)]= "path.PathSubCategory.Id" #subCat = "ngModel" name="path.PathSubCategory.Id" class="form-control" required >
                             <option value="" disabled selected> Select Sub category</option>
                             <option *ngFor="let cat of categories" [value]="cat.Id">{{cat.Name}}</option>
                           </select>

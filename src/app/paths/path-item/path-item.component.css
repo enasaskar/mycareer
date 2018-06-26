@@ -1,10 +1,14 @@
 .team-item {
     /* flex-wrap: wrap;
     align-content: flex-start; */
-    height: 250px;
+    height: 330px;
+}
+.img-responsive {
+    height: 150px;
 }
 p {
     overflow: hidden;
+    height: 150px;
     text-overflow: ellipsis;
 }
 

@@ -1,36 +1,39 @@
 <div class="row pathLevel">
     <!-- Path Level Title-->
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
         <div class="row">
             <div class="col-md-3">
                 <h3>
                     <strong>{{levelName}} </strong> Level
                 </h3>
             </div>
-            <div class="col-sm-4" *ngIf= "isCreatorEnterprise" >
-                <div class="form-group col-md-10 searchSkillInPath" [ngClass]="{'hide': showSearch}">
-                    <div class="col-md-12">
-                        <mat-form-field class="example-full-width">
-                            <input type="text" placeholder="Pick a skill" #skillName aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-                            <mat-autocomplete #auto="matAutocomplete">
-                                <mat-option *ngFor="let skillOption of filteredOptions | async | slice:0:90" [value]="skillOption.Name">
-                                    {{ skillOption.Name }}
-                                </mat-option>
-                            </mat-autocomplete>
-                        </mat-form-field>
+            <div class="col-md-offset-5 col-sm-4" *ngIf="isCreatorEnterprise">
+                <div class="form-group col-md-10 searchSkillInPath">
+                    <div class="row">
+                        <div class="col-md-8" id="skillDropDown">
+                            <mat-form-field class="example-full-width">
+                                <input type="text" placeholder="Pick a skill" [(ngModel)]='skillName' aria-label="Number" matInput [formControl]="myControl"
+                                    [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let skillOption of filteredOptions | async | slice:0:90" [value]="skillOption.Name">
+                                        {{ skillOption.Name }}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </div>
+                        <span class="thumb-info-social-icons col-md-1 AddPathSkill left  ">
+                            <a class=" " data-tooltip data-placement="bottom" data-original-title="Add" (click)="addSkill()">
+                                <i class="fa fa-plus"></i>
+                                <span>Add Path</span>
+                            </a>
+                        </span>
                     </div>
                 </div>
-                <span class="thumb-info-social-icons  AddPathSkill left  " (click)="addSkill(skillName)">
-                    <a class=" " data-tooltip data-placement="bottom" data-original-title="Add">
-                        <i class="fa fa-plus"></i>
-                        <span>Add Path</span>
-                    </a>
-                </span>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Path Level Skills-->
-   <div class="container">
+    <div class="container">
         <div class="row" id="SkillsUser">
             <div class="col-md-12">
                 <div class="owl-carousel owl-carousel-spaced smallOwl" data-plugin-options='{"items": 7}' id="hideDots">
@@ -42,5 +45,5 @@
 
     <!-- <app-skill-list-drag-scroll [skills]="skills" ></app-skill-list-drag-scroll> -->
     
-    <app-skill-list [title]="levelName"></app-skill-list>
+    <app-skill-list [title]="levelName"[subTitle]="'Level'" ></app-skill-list>
 </div>

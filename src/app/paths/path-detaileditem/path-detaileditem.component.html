@@ -64,13 +64,13 @@
                   <ul>
                     <li>
                       <a href="#" data-tooltip data-original-title="Like">
-                        <i class="fa fa-heart"></i>{{Path.NoOfInterestedUsers}}
+                        <!-- <i class="fa fa-heart"></i>{{Path.NoOfInterestedUsers}} -->
                       </a>
                     </li>
                     <li>
                       <i class="fa fa-tags"></i>
-                      <a href="#">{{Path.PathSubCategory.Name}}</a>,
-                      <a href="#">{{Path.PathMainCategory.Name}}</a>
+                      <a >{{Path.PathMainCategory.Name}}</a> | 
+                      <a >{{Path.PathSubCategory.Name}}</a> 
                     </li>
                   </ul>
                 </div>
@@ -85,18 +85,26 @@
              {{ Path.Description }}
             </p>
 
-            <div *ngIf="!isEnterprise" >
-              <a href="#" class="btn btn-primary btn-icon" (click)="enrollUser()">
+            <div *ngIf="!isEnterprise && !enrolledUser" >
+              <a  class="btn btn-primary btn-icon" (click)="enrollUser()">
                 <i class="fa fa-external-link"></i>Enroll
               </a>
-              <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+            </div>
+            <div *ngIf="!isEnterprise && enrolledUser" >
+              <a  class="btn btn-default btn-icon" (click)="deenrollUser()">
+                <i class="fa fa-external-link"></i>De-Enroll
+              </a>
             </div>
 
-            <div *ngIf="isEnterprise" >
-                <a href="#" class="btn btn-primary btn-icon" (click)="RecommendPath()">
+            <div *ngIf="isEnterprise && !recommeded" >
+                <a  class="btn btn-primary btn-icon" (click)="RecommendPath()">
                   <i class="fa fa-external-link"></i>Recommend
                 </a>
-                <span class="arrow hlb" data-appear-animation="rotateInUpLeft" data-appear-animation-delay="800"></span>
+              </div>
+              <div *ngIf="isEnterprise && recommeded" >
+                <a  class="btn btn-default btn-icon" (click)="unRecommendPath()">
+                  <i class="fa fa-external-link"></i>UnRecommend
+                </a>
               </div>
 
 
@@ -108,17 +116,17 @@
     <hr class="tall" />
 
     <!-- Intro level skills -->
-    <app-path-level-skill [levelName]="'Intro'" [skills]="skills" ></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Intro'" [skills]="skillsIntro" ></app-path-level-skill>
 
     <hr class="tall" />
 
     <!-- Intermediate  level skills -->
-    <app-path-level-skill [levelName]="'Intermediate'" [skills]="skills" ></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Intermediate'" [skills]="skillsIntermediate" ></app-path-level-skill>
 
     <hr class="tall" />
 
     <!-- Advanced level skills -->
-    <app-path-level-skill [levelName]="'Advanced'" [skills]="skills" ></app-path-level-skill>
+    <app-path-level-skill [levelName]="'Advanced'" [skills]="skillsAdvanced" ></app-path-level-skill>
     <hr class="tall" />
 
     <!--   Title-->
@@ -135,7 +143,7 @@
   </div>
   <!-- TODO : add Enterprise components -->
   <div class="container">
-    <app-enterprise-list [pathId]="Path.Id" ></app-enterprise-list>
+    <app-enterprise-list [pathId]="Path.Id" [enterprises]="Path.EnterpriseRecommendPath" ></app-enterprise-list>
   </div>
   <hr class="tall" />
   <div class="container">

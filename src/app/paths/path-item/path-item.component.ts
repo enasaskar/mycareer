@@ -14,7 +14,7 @@ export class PathItemComponent implements OnInit {
 
 
 
-  @Input() Path: IPath;
+  @Input() Path: IPath = {};
   public isAdmin = false;
   public User: User = {
     id: 0,
@@ -27,11 +27,17 @@ export class PathItemComponent implements OnInit {
     telNumber: '010000',
     district: 'Haram',
   };
-  constructor(private pathService: PathService, private userService: UserService, private route: Router) { }
+  constructor(private pathService: PathService, private userService: UserService, private route: Router) {
+    // debugger
+    // console.log('path item on const=' , this.Path);
+  }
 
   ngOnInit() {
+    // debugger
+    // console.log('path in pathItem = ', this.Path);
+    // this.Path.ImgURL = '../../../assets/img/avatar-2.jpg';
     this.isAdmin = this.userService.getIsAdmin();
-    console.log('isAdmin = ', this.isAdmin);
+    // console.log('isAdmin = ', this.isAdmin);
     this.userService.isUserLoggedIn$.subscribe( (isLoggedIn: boolean) => {
       if (isLoggedIn) {
         //  this.isAdmin = this.pathService.isAdmin(this.User.id);

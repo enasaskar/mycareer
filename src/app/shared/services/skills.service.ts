@@ -15,6 +15,7 @@ export class SkillsService {
     skillChanged = new Subject<Skill[]>();
     skillAddedPath = new Subject<Skill>();
     skillAddedUser = new Subject<Skill>();
+    skillOnUpdate = new Subject<Skill>();
 
 
 constructor() {
@@ -438,8 +439,6 @@ updateSkill2(newSkill: Skill) {
 const toUpdate = this.getByID(newSkill.ID);
 toUpdate.acquiredDat = newSkill.acquiredDat;
 toUpdate.from = newSkill.from;
-toUpdate.vacancy = newSkill.vacancy;
-toUpdate.paths = newSkill.paths;
 
 }
 
@@ -456,6 +455,7 @@ deletePathSkill(pathSkill: number) {
     // console.log(this.pathSkills);
     return this.pathSkills;
 }
+
 addSkilltoPath(skill: Skill) {
     skill.ID = this.pathSkills.length + 1;
    this.pathSkills.push(skill);
@@ -465,6 +465,9 @@ deleteSkillFromPath(id: number) {
 
 }
 
+getSkillsByLevel(pathId: number, levelName: String): Skill[] {
+    return this.pathSkills.filter( i => i.Level === levelName);
+}
 ///////////// -------------------------USER-------------------------/////////////
 getAllByUserID(uid: number): Skill[] {
 return this.userSkills;

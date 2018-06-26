@@ -1,20 +1,68 @@
 import { IPath } from '../interfaces/IPath';
 import { Skill } from '../classes/skill.model';
+// import { Http, Response, Headers, RequestOptions, RequestMethod } from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Enterprise } from '../classes/enterprise';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class PathService {
-    constructor() {
-
+    constructor( private http: HttpClient) {
     }
+    private pathUrl = 'http://localhost:49877/api/path';  // URL to web api
     //  =============================================================================================================
     //  ================================================   DATA   ==================================================
     //  =============================================================================================================
     private path: IPath;
     public isEntPathCreator = new Subject<boolean>();
+    public skillAddedToPath = new Subject<Skill>();
 
-
-    private skills: Skill[] = [{
+    private skills: Skill[] = [
+        {
+            ID: 1,
+            Name: 'C#',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 2,
+            Name: 'Angular',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intermediate',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 3,
+            Name: 'Time Management',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Advanced',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        }, {
+            ID: 4,
+            Name: 'OS',
+            Img: '../../../assets/img/avatar-2.jpg',
+            Description: 'This is a skill for a certain path or a certain person',
+            IsDeleted: false,
+            Rate: 5,
+            Level: 'Intro',
+            Review: 'great skill, you should all get it',
+            NoEndorsments: 4
+        },
+    ];
+    public allSkills: Skill[] = [
+        {
             ID: 1,
             Name: 'C#',
             Img: '../../../assets/img/avatar-2.jpg',
@@ -230,23 +278,24 @@ export class PathService {
         Id: 0,
         Name: '',
         Description: '',
-        EntPathCreator: null,
+        // EntPathCreator: "" ,
         ImgURL: '../../../assets/img/avatar-2.jpg',
         NoOfInterestedUsers: 0,
         IsDeleted: false,
-        PathMainCategory: null,
+        PathMainCategory: {},
         RequiredSkillsCount: 0,
-        PathSubCategory: null,
+        PathSubCategory: {},
         SimilarPaths: [],
         RequiredSkills: [...this.skills],
-        EnterpriseRecommendPath:[...this.enetrprises],
+        EnterpriseRecommendPath: [ ...this.enetrprises],
     };
-    private paths: IPath[] = [
+    private paths: IPath[] = [];
+    private staticpaths: IPath[] = [
         {
             Id: 1,
-            Name: 'Web development',
-            Description: 'This is a web path',
-            ImgURL: '../../../assets/img/avatar-2.jpg',
+            Name: 'Computer Network Architect',
+            Description: 'Open source networking projects are transforming how service providers and enterprises develop, deploy, and scale their networks and next-generation services. The Open Network Automation Platform (ONAP) project orchestrates and manages physical and virtual network services to bring agility, higher customer satisfaction and lower costs.   ',
+            ImgURL: '../../../assets/img/pathlogo/it6.png',
             RequiredSkillsCount: 20,
             IsDeleted: false,
             PathMainCategory: {
@@ -267,9 +316,9 @@ export class PathService {
 
         }, {
             Id: 2,
-            Name: 'IOS development',
-            Description: 'This is an IOS path',
-            ImgURL: '../../../assets/img/avatar-2.jpg',
+            Name: 'Android Development',
+            Description: ' Android is the free platform developed by Google, widely used in many devices such as mobile phones, tablets, TV, wearables and the Internet of things. Its expansion has been spectacular, being the S.O. most used today. After completing this course you will learn the basics of Android application development and you will be able to perform simple applications that include the most important and innovative aspects of this platform. ',
+            ImgURL: '../../../assets/img/pathlogo/it1.jpg',
             RequiredSkillsCount: 20,
             IsDeleted: false,
             PathMainCategory: {
@@ -672,57 +721,98 @@ export class PathService {
     //  ================================================ Functions ==================================================
     //  =============================================================================================================
     public getAll(): IPath[] {
-        const pathArr = this.paths.filter(p => p.IsDeleted === false);
-        // console.log(this.paths);
+        const pathArr = this.staticpaths.filter(p => p.IsDeleted === false);
         return pathArr;
+    }
+    getAllApi (): Observable<IPath[]> {
+        return this.http.get<IPath[]>(this.pathUrl);
+      }
+    public getAllBySearch(searchWord: string): IPath[] {
+        // debugger
+        let pathArr ;
+        // tslint:disable-next-line:max-line-length
+        pathArr = this.staticpaths.filter(p => p.IsDeleted === false && p.Name.toLowerCase().includes(searchWord.toLowerCase()) || p.Description.toLowerCase().includes(searchWord.toLowerCase()) || p.PathMainCategory.Name.toLowerCase().includes(searchWord.toLowerCase() ) );
+        // console.log(pathArr);
+            return pathArr;
+    }
+
+    public getAllBySearchApi(searchWord: string):  Observable<IPath[]> {
+        // debugger
+        // let pathArr ;
+
+        // this.getAllApi().subscribe(data => {
+        // tslint:disable-next-line:max-line-length
+        //     pathArr = data.filter(p => p.IsDeleted === false && p.Name.toLowerCase().includes(searchWord.toLowerCase()) || p.Description.toLowerCase().includes(searchWord.toLowerCase())  );
+        // });
+            return  this.http.get<IPath[]>(this.pathUrl + '/' + searchWord);
     }
 
     public getById(id: number): IPath {
-        const path = this.paths.find(i => i.Id == id);
-        console.log( 'path byID = ', path);
+        const path = this.staticpaths.find(i => i.Id == id);
+        // console.log( 'path byID = ', path);
         return path;
     }
+
+    getByIdApi (id: number): Observable<IPath> {
+        return this.http.get<IPath>(this.pathUrl + '/' + id);
+      }
 
     public getSimilarPaths(id: number): IPath[] {
         // ckeck if they are not deleted first
         return this.similarPaths.filter(p => p.IsDeleted === false);
     }
 
-    public addPath(path: IPath): number {
+    public addPatha(path: IPath): number {
         path.Id = this.paths.length + 1;
-        this.paths.push(path);
+        this.staticpaths.push(path);
         return path.Id;
+    }
+
+    public addPathApi (path: IPath): Observable<IPath> {
+        return this.http.post(this.pathUrl, path);
     }
 
     public edit(path: IPath) {
         // this.paths.find(p => p.Id === path.Id);
-        const index = this.paths.indexOf(path);
+        const index = this.staticpaths.indexOf(path);
         if (index !== -1) {
-            this.paths[index] = path;
+            this.staticpaths[index] = path;
         }
     }
 
-    public getSkills(pathId: number): Skill[] {
-        return this.skills;
+public editApi (path: IPath): Observable<IPath> {
+    return this.http.put(this.pathUrl + '/' + path.Id, path);
+}
+
+    // public getSkills(pathId: number): Skill[] {
+    //     return this.skills;
+    // }
+
+    public getSkillsByLevell(pathId: number, levelName: String): Skill[] {
+        return this.skills.filter( i => i.Level === levelName);
     }
 
-    public getSkillsByLevel(pathId: number, levelName: String): Skill[] {
-        return this.skills;
-    }
-
-    public addSkillToPath(skillName: string): boolean {
+    public addSkillToPath(skillName: string, levelName: string): boolean {
         // send name to api
         // OR
         // send skill object to api
-        this.skills.find(s => s.Name === skillName);
+        // debugger
+
         return true; // true if succssesfully inserted
     }
 
     public delete(pathId: number) {
-        this.paths.find( p => p.Id === pathId).IsDeleted = true;
+        this.staticpaths.find( p => p.Id === pathId).IsDeleted = true;
+    }
+    public deleteApi(pathId: number) {
+       return this.http.delete<IPath>(this.pathUrl + '/' + pathId );
     }
 
     public enrollUserToPath(userId: number, pathId: number) {
+
+    }
+
+    public deenrollUserToPath(userId: number, pathId: number) {
 
     }
 
@@ -730,8 +820,16 @@ export class PathService {
 
     }
 
+    public removeEnterpriseRecommendPath (enterpriseId: number, pathId: number) {
+
+    }
+
     public getEnterpriseRecommendPath (pathId: number): Enterprise[] {
-        return this.paths.find( p => p.Id === pathId).EnterpriseRecommendPath;
+        // console.log('paths in enterprise =', this.paths);
+        const result = this.staticpaths.find( p => p.Id === pathId).EnterpriseRecommendPath;
+        // debugger
+        console.log('path service', result);
+        return result;
     }
 
     public isPathCreator(userId: number, pathId: number): boolean {
@@ -743,7 +841,7 @@ export class PathService {
     }
 
     public getUserPaths(userID: number) {
-        const pathArr = this.paths.filter(p => p.IsDeleted === false).slice(0, 2);
+        const pathArr = this.staticpaths.filter(p => p.IsDeleted === false).slice(0, 2);
         // console.log(this.paths);
         return pathArr;
     }

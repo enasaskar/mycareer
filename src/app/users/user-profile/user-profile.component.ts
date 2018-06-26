@@ -43,6 +43,9 @@ export class UserProfileComponent implements OnInit {
       }
       this.user = this.userService.getUserById(this.id);
       this.user = this.userService.getUserById(this.id);
+      if(this.user.imagePath ===null || this.user.imagePath === '') {
+        this.user.imagePath = '../../../assets/img/team/anon.png';
+      }
       this.userWorkExperiences = this.workService.getUserExperiences(this.id);
 
       this.workService.onExperienceChange.subscribe(

@@ -1,4 +1,4 @@
-<li class="col-md-3 col-sm-4 col-xs-6 isotope-item {{Path.PathMainCategory.Name}} product path-item">
+<li class="col-md-3 col-sm-4 col-xs-6 isotope-item  product path-item">
   <span class="product-thumb-info">
     <a class="add-to-cart-product" name="deletePath" (click)="trashClicked()" *ngIf= "isAdmin" >
       <span>
@@ -7,10 +7,10 @@
     </a>
     <span class="team-item thumbnail product-thumb-info-content"  >
       <a  class="thumb-info team" [routerLink]="['/paths','profile', Path.Id ]" (click)="redirectToPath(Path)" >
-        <img class="img-responsive" alt="" src="{{Path.ImgURL}}">
+        <img class="img-responsive" alt="" src="{{Path.ImgURL}}" >
         <span class="thumb-info-title">
           <span class="thumb-info-inner">{{Path.Name}}</span>
-          <span class="thumb-info-type">{{Path.RequiredSkillsCount}} Skills</span>
+          <span class="thumb-info-type">20 Skills</span>
         </span>
       </a>
       <span class="thumb-info-caption">

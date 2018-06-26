@@ -18,8 +18,9 @@ export class PathLevelSkillComponent implements OnInit {
   @Input() levelName: string;
   @Input() skills: Skill[];
   @Input() pathId: number;
-  showSearch = true;
-  public isCreatorEnterprise = true;
+  // showSearch = true;
+  skillName: string;
+  public isCreatorEnterprise = false;
   public User: User = {
     id: 0,
     fname: 'John',
@@ -34,12 +35,9 @@ export class PathLevelSkillComponent implements OnInit {
 
   constructor(private pathService: PathService, private skillService: SkillsService, private userService: UserService) {
     // check if current user is the creator enterprise
-  this.userService.isEnterprise$.subscribe((isEnt: boolean) => {
-    if (isEnt) {
-      this.isCreatorEnterprise = this.pathService.isPathCreator(this.User.id, this.pathId);
-    }
-  }
-  ); }
+    // TODO: check if creator
+    this.isCreatorEnterprise = this.userService.getIsEnterprise();
+}
 
   myControl: FormControl = new FormControl();
   filteredOptions: Observable<Skill[]>;
@@ -47,12 +45,18 @@ export class PathLevelSkillComponent implements OnInit {
   skillOptions: Skill[];
 
   ngOnInit() {
-    this.skillOptions = this.skillService.getAll();
+    // this.skillOptions = this.skillService.getAll();
+    this.skillOptions = this.pathService.allSkills;
     this.filteredOptions = this.myControl.valueChanges
     .pipe(
       startWith(''),
       map(val => this.filter(val))
     );
+    this.pathService.skillAddedToPath.subscribe( newSkill => {
+      if ( newSkill.Level === this.levelName) {
+        this.skills.push(newSkill);
+      }
+    });
     // this.skills = this.pathService.getSkillsByLevel(this.pathId, 'intro');
   }
 
@@ -61,16 +65,17 @@ export class PathLevelSkillComponent implements OnInit {
       option.Name.toLowerCase().includes(val.toLowerCase()));
   }
 
-  public toggleDiv() {
-    this.showSearch = ! this.showSearch;
-  }
+  // public toggleDiv() {
+  //   this.showSearch = ! this.showSearch;
+  // }
 
-  public addSkill(skillName: string) {
-    if (skillName.length > 0) {
+  public addSkill() {
+    if (this.skillName.length > 0) {
       // not empty
-      this.pathService.addSkillToPath(skillName);
+      // debugger
+      this.pathService.addSkillToPath(this.skillName, this.levelName);
     }
 
-    this.toggleDiv();
+    // this.toggleDiv();
   }
 }

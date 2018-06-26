@@ -14,20 +14,39 @@ export class PathListComponent implements OnInit {
 
 
   public PathCategories: IPathCategory[];
-  public paths: IPath[];
+  public paths: IPath[] = [];
     constructor(private pathCategoryService: PathCategoryService,
       private pathService: PathService) {
         pathService.onDelete.subscribe(
-          (p : IPath) => {
-            pathService.delete(p.Id);
-            this.paths = this.pathService.getAll();
+          (p: IPath) => {
+            // pathService.delete(p.Id);
+            pathService.deleteApi(p.Id).subscribe( path => {
+              console.log('path deleted =', path);
+                this.pathService.getAllApi().subscribe( data => {
+                  this.paths = data;
+                  console.log( ' data in ondelete = ', data);
+                });
+            });
           }
         );
       }
 
   ngOnInit() {
     this.PathCategories = this.pathCategoryService.getAll();
-    this.paths = this.pathService.getAll();
+
+    this.pathService.getAllApi().subscribe( data => {
+      this.paths = data;
+      // console.log( ' data in ngOninit = ', data);
+      console.log( ' this.paths in ngOninit = ', this.paths);
+    });
+  }
+
+  public getAll(searchWord: string) {
+    // this.paths = this.pathService.getAllBySearch(searchWord);
+    this.pathService.getAllApi().subscribe(data => {
+        // tslint:disable-next-line:max-line-length
+        this.paths = data.filter(p => p.IsDeleted === false && p.Name.toLowerCase().includes(searchWord.toLowerCase()) || p.Description.toLowerCase().includes(searchWord.toLowerCase())  );
+        });
   }
 
 }

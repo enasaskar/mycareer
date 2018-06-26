@@ -34,7 +34,9 @@ export class PathEditInfoComponent implements OnInit {
       this.path = this.pathService.defaultPath;
     }
     else {
-      this.path =  this.pathService.getById(this.path.Id);
+      this.pathService.getByIdApi(this.path.Id).subscribe(data => {
+        this.path = data;
+      });
       this.addOperation = false;
     }
 
@@ -45,7 +47,11 @@ export class PathEditInfoComponent implements OnInit {
     if (this.addOperation) {
       this.addStart = true;
       if (pathForm.valid) {
-        res = this.pathService.addPath(this.path);
+        // res = this.pathService.addPath(this.path);
+        this.pathService.addPathApi(this.path).subscribe( data => {
+          res = data.Id;
+          console.log( 'new path = ', data);
+        });
         // if valid => show sucess popup
       const dialogRef = this.dialog.open(SuccessAddPopup, {
           data: {
@@ -62,9 +68,13 @@ export class PathEditInfoComponent implements OnInit {
       // Edit operation
       if (pathForm.valid) {
         // edit path
-        this.pathService.edit(this.path);
+        // this.pathService.edit(this.path);
+        this.pathService.editApi (this.path).subscribe(data => {
+          console.log('done edit, path = ', data);
+          this.path = data;
+          this.router.navigate(['/paths', 'profile', this.path.Id]);
+        });
         // Go to all Path profile
-        this.router.navigate(['/paths', 'profile', this.path.Id]);
       }
     }
      return res;
