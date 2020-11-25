@@ -1,0 +1,31 @@
+<div *ngIf="isUser"  class="search ">
+   
+        <div class="input-group">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <input type="text" 
+                    placeholder="Add skill" 
+                    #skillName 
+                    [(ngModel)]="addedSkillName"
+                    aria-label="Number" 
+                    matInput 
+                    [formControl]="myControl" 
+                    [matAutocomplete]="auto">
+
+                    <mat-autocomplete #auto="matAutocomplete"(optionSelected)='onSubmit($event.option.value)'>
+                       
+                        <mat-option *ngFor="let option of filteredOptions | async | slice:0:90" [value]="option.Name">
+                            {{ option.Name }}
+                        </mat-option>
+               
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-default customBtn" type="button" (click)="onAdd(addedSkillName)">
+                    <i class="fa fa-plus-square fontSize"></i>
+                </button>
+            </span>
+        </div>
+  
+</div>

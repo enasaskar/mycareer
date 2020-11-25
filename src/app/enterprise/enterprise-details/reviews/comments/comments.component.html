@@ -1,0 +1,13 @@
+<div class="col-md-9">
+  <ul class="comments">
+  <app-comment *ngFor="let c of comments" [comment] = "c"></app-comment>
+  </ul>
+  
+  <form *ngIf="(!isEnterprise || currentId != enterpriseId) && currentUserId != null" action="" method="POST" role="form" (ngSubmit) = "AddComment()">
+    <div class="form-group">
+      <input type="text" class="form-control" name = "comment" placeholder="Put your comment here..." [(ngModel)] = newComment.comment>
+    </div>
+    <button type="submit" class="btn btn-primary">Comment</button>
+  </form>
+  
+</div>

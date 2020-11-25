@@ -1,0 +1,24 @@
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="feature-box secundary bordered">
+            <a *ngIf="isUser" class="right" (click)="deleteExperience()">
+                <i class="fa fa-trash" aria-hidden="true" data-id="1"></i>
+            </a>
+            <a *ngIf="isUser" class="right" (click)="openModal(editExp)">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <div class="feature-box-icon">
+                <img [src]="enterprise.logo" alt="">
+            </div>
+            <div class="feature-box-info">
+                <a href="index-2.html">
+                    <h4 class="shorter">{{enterprise.name}}</h4>
+                </a>
+                <span>{{workExpItem.content}}</span><br>
+                <span>{{workExpItem.startDate}} - {{workExpItem.endDate}}</span>
+            </div>
+    </div>
+</div>
+<ng-template #editExp>
+  <app-user-add-workExperience-Modal [modalRef]="modalRef" [type]="type" [workExpItem]="workExpItem"
+  [workExpIndex]="workExpIndex"></app-user-add-workExperience-Modal>
+</ng-template>

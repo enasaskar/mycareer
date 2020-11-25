@@ -1,0 +1,494 @@
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 *ngIf = "details">Enterprises/{{details.name}}</h1>
+        <h1 *ngIf = "!details">Create your own account</h1>        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div role="main" class="main">
+  <div class="container">
+
+    <!-- <div class="row push-top" id="projects">
+      <div id="popupProject" class="popup-inline-content">
+        <h2>Lorem Ipsum Dolor</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-thumbnail img-responsive" alt="" src="img/projects/project.jpg">
+          </div>
+          <div class="col-md-4">
+            <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
+            <label for="file-upload" class="btn btn-primary file-upload">Change Photo</label>
+          </div>
+
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- view details -->
+    <div *ngIf="details" class="row enterprise-view-one" id = "e">
+      <div class="col-md-4">
+        <div class="portfolio-item">
+          <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+            <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-md-8">
+        <span *ngIf = "id == currentId && isEnterprise" class="thumb-info-social-icons" id="intro_edit">
+          <div class="info_edit">
+            <a data-tooltip data-placement="top" data-original-title="Edit">
+              <i class="fa fa-pencil" aria-hidden="true" (click)="onClick()"></i>
+              <span>Edit</span>
+            </a>
+          </div>
+        </span>
+        <h2 class="shorter">
+          {{details.name}}
+        </h2>
+        <h4>{{details.headLine}}</h4>
+        <hr class="shorter"/>
+        <span class="thumb-info-social-icons" id="socialIcons">
+          <div class="social">
+            <a data-tooltip data-placement="top" target="_blank" href="http://www.facebook.com" data-original-title="Facebook">
+              <i class="fa fa-facebook"></i>
+              <span>Facebook</span>
+            </a>
+            <a data-tooltip data-placement="top" href="http://www.twitter.com" data-original-title="Twitter">
+              <i class="fa fa-twitter"></i>
+              <span>Twitter</span>
+            </a>
+            
+          </div>
+
+
+        </span>
+        <div class="des">
+          <div class="featured-box">
+            <div class="box-content">
+              <h4>
+                <strong>About Us</strong>
+              </h4>
+              <p class="editablePara">{{details.des}}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="hidden-textbox form-group"></div>
+
+        <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
+
+        <div class="row read-more-content">
+
+          <div class="col-sm-4">
+            <div class="business-card b1">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-1">
+                      <i class="fal fa-globe"></i>
+                  </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">WebSite</h4>
+                  <h6>{{details.website}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4">
+            <div class="business-card b2">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-2">
+                      <i class="far fa-building"></i>
+                  </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Headquarters</h4>
+                  <h6>{{details.headquarters}}</h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="col-sm-4">
+            <div class="business-card b3">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                      <i class="fas fa-sitemap"></i>
+                  </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Size</h4>
+                  <h6>{{details.size}}</h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                  <div class="business-card b3">
+                    <div class="media">
+                      <div class="media-left">
+                        <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                            <i class="fas fa-sitemap"></i>
+                        </i>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">Branches</h4>
+                        <ul>
+                          <li *ngFor="let branch of details.branches">{{branch.country.name}},{{branch.city.name}},{{branch.locationDetails}}</li>
+                        </ul>
+      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          
+        </div>
+        <div class="seeMore">
+          <div class="row">
+            <div class="col-md-6">
+              <hr class="short">
+              <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
+              <i class="fa fa-angle-double-down more"></i>
+              <i class="fa fa-angle-double-up less"></i>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- add view -->
+    <form action="" *ngIf="!details" method="POST" role="form" (ngSubmit) = "OnAddSubmit(addForm)" #addForm = ngForm>
+      <div class="row form-group">
+          <div class="col-md-4">
+              <div class="portfolio-item">
+                <a class="thumb-info lightbox"  data-plugin-options='{"type":"inline", preloader: false}'>
+                  <img class="img-responsive" src="../../../assets/img/default.png" alt="" id="enterprise_logo">
+                </a>
+                <input type="file"  required class="form-control" name="newenterpriseLogo"  (change) = "onFileChange($event)">													                  
+                
+              </div>
+            </div>
+      <div class="col-md-8" >
+          <div class="input-group form-group">
+              <div class="row">
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-building"></i></span>
+                        </span>
+                        <input type="text" #eName = ngModel required class="form-control" name="newenterpriseName" placeholder="Name" [(ngModel)] = "newEnterprise.name">													
+                      </div>
+                </div>
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><img width = "15" src="../../../assets/img/header.png" alt=""></span>
+                        </span>
+                        <input type="text" #eHeadline = ngModel required class="form-control" name="newheadLine" placeholder="HeadLine" [(ngModel)] = "newEnterprise.headLine">                  
+                    </div>
+                </div>
+        
+              </div>
+        
+              <div class="row">
+                <div class="form-group col-md-12 input-group-lg">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><img width = "15" src="../../../assets/img/headline.png" alt=""></span>
+                        </span>
+                        <input type="textarea" #eDesc = ngModel  required class="form-control" name="newdescription" placeholder="Description" [(ngModel)] = "newEnterprise.des">
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-globe"></i></span>
+                        </span>
+                        <input type="text" #eSite = ngModel required class="form-control" name="newwebsite" placeholder="website" [(ngModel)] = "newEnterprise.website">               
+                    </div>
+                </div>
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-facebook-f"></i></span>
+                        </span>
+                        <input type="text" #eFb = ngModel required class="form-control" name="newfacebook" placeholder="Facebook Account" [(ngModel)] = "newEnterprise.facebookAccount">                                              
+                    </div>
+                </div>
+                <div class="form-group col-md-4 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-twitter"></i></span>
+                        </span>
+                        <input type="text" #eTwitter = ngModel required class="form-control" name="newtwitter" placeholder="Twitter Account" [(ngModel)] = "newEnterprise.twitterAccount">                                              													
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+        
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-building"></i></span>
+                        </span>
+                        <input type="text" #eHead = ngModel  required class="form-control" name="newheadquarters" placeholder="Headquarters" [(ngModel)] = "newEnterprise.headquarters">                                  													
+                      </div>
+                </div>
+                <div class="form-group col-md-6 input-group-sm">
+                    <div class="input-group input-group-icon">
+                        <span class="input-group-addon">
+                          <span class="icon"><i class="fa fa-sitemap"></i></span>
+                        </span>
+                        <select  class="form-control" required name = "newsize" [(ngModel)] = "newEnterprise.size" #eSize = ngModel> 
+                            <option value="" disabled>Select the company size range</option>
+                            <option *ngFor="let s of sizes" [value] = "s.value">{{s.text}}</option>
+                        </select>      
+                    </div>  
+                </div>
+              </div>
+              <div class = "appendBranch">
+                <div class="row branches">
+                  <div class="form-group col-md-3 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <select class="form-control" required name = "newBranch.country" [(ngModel)] = "newBranch.country"> 
+                              <option *ngFor="let co of countries">{{co.name}}</option>
+                          </select>                            													
+                        </div>
+                  </div>
+          
+                  <div class="form-group col-md-3 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <select class="form-control" required name = "newBranch.city" [(ngModel)] = "newBranch.city"> 
+                            <option *ngFor="let ci of cities">{{ci.name}}</option>
+                          </select>                            													
+                        </div>                    
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <div class="input-group input-group-icon">
+                          <span class="input-group-addon">
+                            <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                          </span>
+                          <input type="text" required class="form-control" placeholder="Loaction details" name = "newBranch.locationDetails" [(ngModel)] = "newBranch.locationDetails"  >                              													
+                        </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- <div class="col-md-2"> -->
+                <i class="fa fa-plus" id="addBranch" (click) = "onAddBranch()"></i>
+              <!-- </div> -->
+            </div>
+      </div>
+      
+      <div class="form-group">
+        <!-- Button -->
+        <div class="right">
+          <button id="btn-signup" type="submit" class="btn btn-info" [disabled] = "addForm.invalid">
+            <i class="icon-hand-right"></i>Submit</button>
+        </div>
+      </div>
+      </div>
+      </form>
+
+  
+    <!-- edit view -->
+    <form *ngIf="details" action="" method="POST" role="form" (ngSubmit) = "OnEditSubmit(editForm)" #editForm = ngForm>
+      <div id = "edit" class="enterpriseEdit">
+        <div class="col-md-4">
+            <div class="portfolio-item">
+              <a class="thumb-info lightbox" href="#" data-plugin-options='{"type":"inline", preloader: false}'>
+                <img class="img-responsive" [src]="details.bigLogo" alt="" id="enterprise_logo">
+              </a>
+              <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
+              <label for="file-upload" class="btn btn-primary file-upload">Change Logo</label>
+            </div>
+          </div>
+        <div class="col-md-8" >
+            <div class="input-group form-group">
+                <div class="row">
+                  <div class="form-group col-md-6 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-building"></i></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseName" placeholder="Name" [(ngModel)] = details.name>													
+												</div>
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><img width = "15" src="../../../assets/img/header.png" alt=""></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseHead" placeholder="HeadLine" [(ngModel)] = details.headLine>
+												</div>
+                  </div>
+          
+                </div>
+          
+                <div class="row">
+                  <div class="form-group col-md-12 input-group-lg">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><img width = "15" src="../../../assets/img/headline.png" alt=""></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseDesc" placeholder="Description" [(ngModel)] = details.des>
+												</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-globe"></i></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseWebSite" placeholder="Website" [(ngModel)] = details.website>                
+												</div>
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-facebook-f"></i></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseFb" placeholder="FacebookAccount" [(ngModel)] = details.facebookAccount>                      
+												</div>
+                  </div>
+                  <div class="form-group col-md-4 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-twitter"></i></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseTwitter" placeholder="TwitterAccount" [(ngModel)] = details.twitterAccount>                      													
+												</div>
+                  </div>
+                </div>
+                <div class="row">
+          
+                  <div class="form-group col-md-6 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-building"></i></span>
+													</span>
+                          <input type="text" required class="form-control" name="enterpriseHeadquarters" placeholder="Headquarters" [(ngModel)] = details.headquarters>                        													
+												</div>
+                  </div>
+                  <div class="form-group col-md-6 input-group-sm">
+                      <div class="input-group input-group-icon">
+													<span class="input-group-addon">
+														<span class="icon"><i class="fa fa-sitemap"></i></span>
+													</span>
+                          <select  class="form-control" required name = "size" [(ngModel)] = details.size> 
+                              <option *ngFor="let s of sizes">{{s.text}}</option>                            
+                          </select>         
+											</div>  
+                  </div>
+                </div>
+                <div class = "appendBranch">
+                  <div *ngFor = "let b of details.branches"  class="row branches">
+                    <div class="form-group col-md-3 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <select (change) = "onChange()"  class="form-control" required [name] = "b.country.name" [(ngModel)] = "b.country.name"> 
+                                <option *ngFor="let co of countries">{{co.name}}</option>
+                              </select>                            													
+                          </div>
+                    </div>
+            
+                    <div class="form-group col-md-3 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <select class="form-control" required [name] = "b.city.name" [(ngModel)] = "b.city.name"> 
+                              <option *ngFor="let ci of b.country.cities">{{ci}}</option>
+                            </select>                            													
+                          </div>                    
+                    </div>
+                    <div class="form-group col-md-4 input-group-sm">
+                        <div class="input-group input-group-icon">
+                            <span class="input-group-addon">
+                              <span class="icon"><i class="fa fa-location-arrow"></i></span>
+                            </span>
+                            <input type="text" required class="form-control" [name]="b.locationDetails" placeholder="Location" [(ngModel)] = "b.locationDetails">                              													
+                          </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- <div class="col-md-2"> -->
+                  <i class="fa fa-plus" id="addBranch" (click) = "onAddBranch()"></i>
+                <!-- </div> -->
+                <input class="btn btn-default right" type="button" value="Cancle" (click)='onCancle()' />
+                <input type="submit" class="btn btn-primary right" value="Save" />
+    
+          
+              </div>
+        </div>
+    </div>
+    
+    </form>
+    
+  
+    <hr class="short" />
+
+
+
+    <!-- Available vacancies -->
+
+    <div *ngIf="details" class="available-vacancies ">
+      <app-entreprise-vacancies></app-entreprise-vacancies>   
+    </div>
+
+
+    <!-- reviews -->
+    <app-reviews *ngIf="details"></app-reviews>
+  </div>
+
+  <!-- floating-button -->
+  <div *ngIf="details && currentId == id && isEnterprise" id="container-floating">
+
+    <div class="nd3 nds" data-toggle="tooltip" data-placement="left" title="New Vacancy" routerLink = "/vacancies/addvacancy">
+      <img class="reminder" src="../../../assets/img/vacancy.png" alt="">
+    </div>
+    <div class="nd1 nds" data-toggle="tooltip" data-placement="left" title="New CareerPath" routerLink="/paths/add">
+      <img class="reminder" src="../../../assets/img/jobFair.png" alt="">
+    </div>
+
+    <div id="floating-button" onclick="newmail()">
+      <p class="plus">+</p>
+      <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
+    </div>
+
+  </div>
+</div>

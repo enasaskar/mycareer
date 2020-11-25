@@ -1,0 +1,27 @@
+
+<div role="main" class="main">
+    <!--edit here from ts file according to open page-->
+    <section class="page-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <ul class="breadcrumb">
+                <li><a href="#">User</a></li>
+                <li class="active">{{current}}</li>
+              </ul>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h1>{{current}}</h1>
+            </div>
+          </div>
+        </div>
+    </section>
+    <div class="container">
+        <router-outlet></router-outlet>
+        <!-- <app-user-profile></app-user-profile> -->
+        <!-- <app-user-dash-board></app-user-dash-board> -->
+    </div>
+</div>      

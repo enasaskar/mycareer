@@ -1,0 +1,244 @@
+<!-- Vacancy-view-one -->
+
+<!-- about-us -->
+<section class="page-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Vacancies</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div role="main" class="main">
+
+  <div class="container">
+    <div class="row" *ngIf="applystatues !=false" ><div  class="col-md-8 alert alert-success">
+      <strong>Congratualtions {{currentuser.fname}}!
+
+    </strong> You applied for this job wait for responding. </div></div>
+    <div class="row push-top" id="projects">
+      <div id="popupProject" class="popup-inline-content">
+        <h2> Name : {{vacancieyDetailsEnterprise.name}}</h2>
+        <h2 *ngFor="let item of vacancieyDetailsEnterprise.branches">Branches : {{item.city}} {{item.locationDetails}}</h2>
+        <h2>Description : {{vacancieyDetailsEnterprise.des}}</h2>
+        <h2>size : {{vacancieyDetailsEnterprise.size}}</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <img class="img-thumbnail img-responsive" alt="" [src]='vacancieyDetailsEnterprise.bigLogo'>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row enterprise-view-one">
+
+      <div class="col-md-3">
+        <div class="portfolio-item">
+          <a class="thumb-info lightbox" href="#popupProject" data-plugin-options='{"type":"inline", preloader: false}'>
+            <img class="img-responsive" src='{{vacancieyDetailsEnterprise.bigLogo}}' alt="" id="enterprise_logo">
+          </a>
+          <input type="file" accept="image/*" class="visually-hidden" id="file-upload">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- <span class="thumb-info-social-icons" id="intro_edit" *ngIf="currentuser != null">
+          <div class="info_edit">
+            <a class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{vacancieyDetails.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+              data-toggle="tooltip" data-placement="top" title="edit">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              <span>Edit</span>
+            </a>
+          </div>
+        </span> --> 
+
+        <h2 class="shorter arabic-titile">
+          {{vacancieyDetails.title}} </h2>
+
+        <h4 class="arabic-headline">{{vacancieyDetailsEnterprise.name}}</h4>
+        <div class="col-md-3" style="float: right;">
+          <div class="info counters">
+            <i class="fa fa-user">
+            </i>
+            <strong data-to="56">56</strong>
+            <label>Applicants</label>
+          </div>
+        </div>
+        <input type="submit" class="btn apply btn-primary" *ngIf="applystatues !=true " (click)="onApply(vacancieyDetails)" value="Apply" />
+
+
+
+        <div class="des">
+          <div class="featured-box">
+            <div class="box-content">
+              <h4>
+                <strong>Job Description</strong>
+              </h4>
+              <p class="editablePara">{{vacancieyDetails.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="des">
+          <div class="featured-box">
+            <div class="box-content">
+              <h4>
+                <strong>Job Requirments</strong>
+              </h4>
+              <p class="editablePara">{{vacancieyDetails.requirements}}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="des">
+            <div class="featured-box">
+              <div class="box-content">
+                <h4>
+                  <strong>Skills Requirments</strong>
+                </h4>
+                <a class="btn btn-info" style="margin: 1px;" *ngFor="let item of vacancieyDetails.RequiredSkills">{{item.Name}}</a>
+              </div>
+            </div>
+          </div>
+
+        <div class="hidden-textbox form-group"></div>
+
+        <input id="read-more-toggle-1" class="read-more-toggle" type="checkbox">
+
+
+        <div class="row read-more-content">
+          <div class="col-sm-4">
+            <div class="business-card b1">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-1">
+                      <i class="fa fa-spinner"></i>
+                  </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Type</h4>
+                  <h6>{{vacancieyDetailsType.name}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="business-card b2">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-typo3 icon-featured icon-featured-2">
+                      <i class="fa fa-level-up"></i>
+
+                  </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Level</h4>
+                  <h6>{{vacancieyDetailslevel.name}}</h6>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="business-card b3">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-dollar-sign icon-featured icon-featured-3">
+                      <i class="fa fa-dollar"></i>            
+                          </i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Salary</h4>
+                  <h6>{{vacancieyDetails.salary}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row seeMore">
+          <div class="col-md-6">
+            <hr class="short">
+            <label class="read-more-toggle-label" for="read-more-toggle-1">Show </label>
+            <i class="fa fa-angle-double-down more"></i>
+            <i class="fa fa-angle-double-up less"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-building"></i>About this Company </h3>
+          </div>
+          <div class="panel-body">Industry:
+            <a role="button" routerLink='/enterprises/enterprise/details/{{vacancieyDetailsEnterprise.id}}'>
+              Computer Software</a>
+            <br>
+            <a role="button" routerLink='/vacancies/{{vacancieyDetailsEnterprise.name}}'>
+              <!-- ../../ -->
+              See all Careers and Jobs at {{vacancieyDetailsEnterprise.name}}
+            </a>
+
+          </div>
+        </div>
+
+
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <i class="fa fa-suitcase"></i>Find Related Jobs </h3>
+          </div>
+          <div class="panel-body">
+            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.name}}">
+              All Careers and Jobs at {{vacancieyDetailsEnterprise.name}}</a>
+            <a role="button" *ngFor="let item of vacancieyDetailsEnterprise.branches" routerLink="/vacancies/{{item.city}}">
+              UI/UX Web Developer Jobs in {{item.city.name}}
+            </a>
+           
+            <a role="button" routerLink="/vacancies/{{vacancieyDetailsEnterprise.headquarters}}">
+              Jobs in Egypt
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<hr class="short" />
+
+
+<!-- Similar vacancies -->
+
+<div class="container available-vacancies ">
+
+  <div class="row">
+    <div class="col-md-11">
+      <h3>
+        <i class="fa fa-suitcase"></i>Similar Vacancies</h3>
+    </div>
+    <div class="col-md-1 right">
+      <a href="Enterprise_SeeAll.html">See all</a>
+    </div>
+  </div>
+  <div class="container vacancy">
+    <div class="row">
+      <app-vacancy-item *ngFor="let v of vacancies ; let  e=index" [index]="e" [vacancyitem]="v" [enterprises]="enterprises"></app-vacancy-item>
+    </div>
+
+  </div>
+
+
+</div>

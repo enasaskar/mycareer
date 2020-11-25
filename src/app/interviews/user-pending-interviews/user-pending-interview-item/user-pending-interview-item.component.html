@@ -1,0 +1,21 @@
+<div  class="col-md-4 col-sm-6 col-xs-12">
+    <div class="feature-box secundary bordered">
+        <div class="feature-box-icon">
+            <img [src]="enterprise.logo" alt="">
+        </div>
+        <div class="feature-box-info VacancyInfo">
+            <a class="right">
+                <i class="fa fa-trash" aria-hidden="true" data-id="1" (click)="cancelInterview()"></i>
+            </a>
+            <a href="index-2.html">
+                <h4 class="shorter">{{enterprise.name}}</h4>
+            </a>
+            <ul class="list icons list-unstyled">
+                <li><i class="fa fa-suitcase"></i>{{vacancy.title}}</li>
+                <li><i class="fa fa-calendar"></i> {{interview.date}}</li>
+                <li><i class="fa fa-clock-o"></i> {{interview.time}}</li>
+            </ul>
+            
+        </div>
+    </div>
+</div>

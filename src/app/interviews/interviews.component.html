@@ -1,0 +1,41 @@
+<!-- interview section -->
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Interviews|{{enterprise_name}}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row class1">
+        <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Scheduale</strong> Interviews</h3></div>
+        <!-- Calendar -->
+        <app-calendar></app-calendar>
+
+        <hr class="mini">
+        
+        <!-- shortList -->
+        <div class="col-md-12"></div><h3><i class="fa fa-file-text"></i><strong>Accepted</strong> CV</h3> 
+        <app-interview-list [listType]="'shortlist'"></app-interview-list>
+        <hr class="mini">
+
+        <!-- <button class="btn btn-success" routerLink="accepted-cv">
+            <i class="fa fa-file-text" ></i><strong>Accepted</strong> CV
+        </button> -->
+
+        <!-- Waiting List -->
+        <div class="col-md-12"></div><h3><i class="fa fa-file-text"></i><strong>Pending</strong> CV</h3> 
+        <app-interview-list [listType]="'pendingcv'"></app-interview-list>
+
+        <!-- <button class="btn btn-primary">
+            <i class="fa fa-file-text"></i><strong>Pending</strong> CV
+        </button> -->
+    </div>
+</div>

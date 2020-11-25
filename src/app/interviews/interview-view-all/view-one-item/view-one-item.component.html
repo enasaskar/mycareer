@@ -1,0 +1,22 @@
+<div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="feature-box secundary bordered">
+        <div class="feature-box-icon">
+            <img [src]="applicant.user.imagePath">
+        </div>
+        <div class="feature-box-info VacancyInfo">
+
+            <a [routerLink]="['/user',applicant.user.id,'userProfile']">
+                <h4 class="shorter"> {{applicant.user.fname + " "+ applicant.user.lname}}</h4>
+            </a>
+            <ul class="list icons list-unstyled">
+                <li>
+                    <i class="fa fa-suitcase"></i>
+                    <strong>Position:</strong> {{applicant.vacancy.title}}</li>
+            </ul>
+            <div class="right VacancyResponse">
+                <i class="fa fa-check " style="color:green" (click)="acceptedApplicant(applicant)"></i>
+                <i class="fa fa-close " style="color:red" (click)="rejectApplicant(applicant)"></i>     
+            </div>
+            <p class="clear"></p>
+        </div>
+    </div>

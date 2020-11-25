@@ -1,0 +1,29 @@
+<div class="col-md-4 col-sm-6 col-xs-12" >
+  <div class="feature-box secundary bordered">
+      <a *ngIf = "currentId == e.id" class="right" >
+          <i class="fa fa-trash" aria-hidden="true" data-id="1" (click)=OnTeashClick(eVacancyItem.id)></i>
+      </a>
+      <a class="thumb-info lightbox right" routerLink='/vacancies/vacancydetails/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+          data-toggle="tooltip" data-placement="top" title="more info">
+          <i class="fa fa-info"></i>
+      </a>
+      <a *ngIf = "currentId == e.id" class="thumb-info lightbox right" routerLink='/vacancies/editvacancy/{{eVacancyItem.id}}' data-plugin-options='{"type":"inline", preloader: false}'
+          data-toggle="tooltip" data-placement="top" title="edit">
+          <i class="fa fa-pencil"></i>
+      </a>
+
+      <div class="feature-box-icon">
+          <img [src]="e.logo" alt="">
+      </div>
+      <div class="feature-box-info">
+          <a href="">
+              <h4 class="shorter">{{eVacancyItem.title}}</h4>
+          </a>
+          <h6 class="short">{{e.headquarters}}</h6>
+          <p class="short2">posted {{eVacancyItem.postdate}} ago</p>
+          <p class="short des">{{eVacancyItem.description}}</p>
+
+      </div>
+  </div>
+
+</div>

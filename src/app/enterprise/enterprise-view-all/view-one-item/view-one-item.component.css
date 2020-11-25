@@ -1,0 +1,206 @@
+  .col-md-4{
+    margin-bottom: 1%;
+  }
+  .main .container .thumbnail #enterprise_logo
+  {
+    width: 200px;
+    
+  }
+
+ 
+  #large-content
+  {
+    min-height: 250px;
+  }
+   .right
+  {
+    float: right;
+  }
+ 
+  .center
+  {
+    margin-left : 15%;
+  }
+  .visually-hidden
+  {
+    display: block;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .photo-list img
+  {
+    float: left;
+    
+  
+ }
+ .photo-list i
+ {
+   color : black;
+ }
+ .feature-box-icon img
+ {
+   width: 60px;
+   margin-top: -10px;
+   margin-left : -10px;
+   max-height: 50px;
+ }
+
+ .feature-box .feature-box-info h4
+ {
+   color: #0088cc;
+ }
+
+ .container .feature-box .feature-box-info a+p ,.container .feature-box .feature-box-info > p+p~p
+ {
+   color: black;
+   
+ }
+
+ .container .feature-box .feature-box-info > p+p~p
+ {
+   font-size: 12px;
+ }
+ #ago
+ {
+   color: #777777;
+ }
+
+ .feature-box i
+ {
+   margin-right : 20px;
+   font-size : 15px;
+   cursor: pointer;
+ }
+
+ 
+
+ .big_font
+ {
+   font-size : 35px;
+   margin-bottom:  2%;
+ }
+
+ .left
+ {
+   float: left;
+ }
+
+
+ .feature-box i
+ {
+   color: #0088cc;
+   
+ }
+
+ .feature-box .info
+ {
+   display: inline-block;
+ }
+
+
+
+ .icon-featured
+{
+  line-height: 65px;
+  width: 70px;
+  height: 72px;
+  font-size: 33px;
+} 
+
+
+
+
+.featured-box .box-content
+{
+  padding: 0px 30px 10px 30px;
+}
+
+ul.comments .comment-arrow
+{
+  border-right: 15px solid #ebebe0;
+}
+ul.comments .comment-block
+{
+  background: #ebebe0;
+}
+ul.comments .comment-block
+{
+  color: #2e353e;
+}
+
+ul.comments .comment-block strong
+{
+  color: #0088cc ;
+}
+.post-block
+{
+  border-top: none;
+  
+}
+
+.post-block h3
+{
+  color: #444444;
+}
+
+
+.vl {
+  border-left: 1px solid #bcbcbcc4;
+  height: 370px;
+  position: absolute;
+  left: 5%;
+  margin-left: -3px;
+  top: 0;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------------------------------------------------------------------ */
+ @media screen and (max-width : 470px)
+ {
+   
+.enterprise-view-one .portfolio-item
+{
+  margin-top: 0px;
+  margin-left : 22%;
+  
+}
+
+.thumb-info img
+{
+  width : 200px;
+}
+ }
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+{
+  margin-top : 5px;
+}
+
+.feature-box-info p
+{
+  margin-bottom: 2%;
+}
+.des{
+  max-height: 50px;
+    -webkit-line-clamp: 3;
+    /* -webkit-box-orient: vertical; */
+    overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name{
+  max-height: 30px;
+    -webkit-line-clamp: 1;
+    /* -webkit-box-orient: vertical; */
+    overflow: hidden;
+  text-overflow: ellipsis;
+}

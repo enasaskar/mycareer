@@ -1,0 +1,42 @@
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Interviews|{{enterprise.name}}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <!-- Search -->
+    <div class="row">
+        <div class="col-md-4 pull-right search">
+            <aside class="sidebar">
+                <form method="POST" role="form" (ngSubmit) = "OnSearchSubmit()">
+                    <div class="input-group input-group-lg">
+                        <input class="form-control" placeholder="Search by Vacancy or by applicant name" name=" " [(ngModel)]= searchWord >
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </aside>
+        </div>
+    </div> 
+    <!-- Applicants -->
+    <div class="row class1" *ngIf="applicants.length != 0; else noList">
+        <app-view-one-item *ngFor="let applicant of applicants" [applicant]="applicant"></app-view-one-item>
+        
+    </div>
+    <ng-template #noList>
+        <h3 class="text-center"><strong>No list</strong></h3>
+     </ng-template>
+    <a class="btn btn-primary pull-right" [routerLink] ="['/interviews', enterprise_id, enterprise.name]">Schedual An Interview</a>
+</div>

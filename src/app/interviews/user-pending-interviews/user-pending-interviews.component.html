@@ -1,0 +1,5 @@
+<div class="row class1">
+  <div class="col-md-12"><h3><i class="fa fa-calendar"></i> <strong>Pending</strong> Interviews</h3></div>
+  <app-user-pending-interview-item *ngFor="let interview of interviews; let i = index"
+  [i]="i" [interview]="interview"></app-user-pending-interview-item>
+</div>

@@ -1,0 +1,47 @@
+<form [formGroup]="updateForm" method="POST" (ngSubmit)="onUpdate(f)" #f = ngForm >
+  <ul class="list icons list-unstyled">
+
+    <div class="table-responsive">
+      <table class="table table-hover tableCustom">
+
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa fa-calendar"></i> Date-acquired</td>
+            <td>
+              <input type="text" 
+              formControlName="acquiredDate" 
+              name="acquiredDate" 
+              bsDatepicker [bsConfig]="datePickerConfig"
+              ngModel>
+            </td>
+           
+
+
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-university"></i>
+              From</td>
+            <td>
+              <input type="text" 
+              formControlName="from" 
+              name="from"
+              ngModel>
+            </td>
+          
+          </tr>
+       
+        
+        </tbody>
+      </table>
+    </div>
+  </ul>
+  
+  <p class="clear"></p>
+  <div class="modal-footer" *ngIf="!editIcon">
+    
+      <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid">Save</button>
+  
+</div>
+</form>

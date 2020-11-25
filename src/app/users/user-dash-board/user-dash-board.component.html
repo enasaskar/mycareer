@@ -1,0 +1,25 @@
+<!--page containing all user progress like path/interviews/job offers etc...-->
+
+<!--paths-->
+<div class="row push-top">
+    <h2><i class="fa fa-road"></i> <strong> Followed Paths</strong></h2>
+    
+    <app-list [pathList] = "userPaths"></app-list>
+    <hr class="tall"/>
+</div>
+<!--Vacancies-->
+<div class="row push-top">
+    
+    <h2><i class="fa fa-newspaper-o"></i> <strong> Applications</strong></h2>
+    <!--Accepted CV-->
+    <app-user-pending-vacancies [userPendingVacancies]="userPendingVacancies"></app-user-pending-vacancies>
+    <hr class="mini"/>
+    <!--Pending Interview-->
+    <!-- <app-user-pending-interviews [interviews] = "userPendingInterviews"></app-user-pending-interviews> -->
+    <app-user-pending-interviews></app-user-pending-interviews>
+    <hr class="mini"/>
+    <!--Status-->
+    <!--Job Offers-->
+    <app-user-jobOffers [JobOffers]="userJobOffers"></app-user-jobOffers>
+    <hr class="tall"/>
+</div>

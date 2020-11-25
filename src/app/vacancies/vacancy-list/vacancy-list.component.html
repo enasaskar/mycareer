@@ -1,0 +1,56 @@
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Vacancies</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Available vacancies -->
+
+<div class="container available-vacancies">
+
+        <div class="row">
+            <div class="col-md-11">
+                <h3>
+                    <i class="fa fa-suitcase"></i>Available Vacancies</h3>
+            </div>
+        </div>
+    
+        <div class="container vacancy">
+            <div class="row">
+                <div class="col-md-4 left search">
+                    <aside class="sidebar">
+                        <form method="POST" role="form" (ngSubmit) = "OnSearchSubmit(searchForm)" #searchForm = ngForm>
+                            <div class="input-group input-group-lg">
+                                <input class="form-control" placeholder="Search..." name="s" id="s" type="text" [(ngModel)] = searchtext >
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </aside>
+                </div>
+            </div>
+    
+    
+            <div class="row">
+                <app-vacancy-item *ngFor="let v of vacancies ; let  e=index" [index]="e" [vacancyitem]="v" [enterprises]="enterprises"></app-vacancy-item>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+

@@ -1,0 +1,96 @@
+<section class="page-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{{title}} Vacancies</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3" >
+        <form method="post" (ngSubmit) = "OnSubmit(addForm)" #addForm = ngForm>
+            <div  class="text-danger"></div>
+
+            <div class="form-group">
+                <label for="Vacancy.title" class="control-label">Title</label>
+                <input type="text" #vtitle = ngModel required name="Vacancytitle" class="form-control" [(ngModel)]="newvacancy.title" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Vacancy.requirements" class="control-label">Job Requirments</label>
+                <textarea #vimg = ngModel required [(ngModel)]="newvacancy.requirements" name="JobRequirments" class="form-control" type="text" ></textarea>
+                <span  class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Vacancy.description" class="control-label">Job Description</label>
+                <textarea #vimgbig = ngModel required  [(ngModel)]="newvacancy.description" name="description" class="form-control"  type="text"></textarea>
+                <span class="text-danger"></span>
+            </div>  
+
+            <div class="form-group">
+                <label for="Vacancy.responsabilities" class="control-label">Job Responsabilities</label>
+                <textarea #vimgbig = ngModel required [(ngModel)]="newvacancy.responsabilities" name="description" class="form-control"  type="text"></textarea>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Vacancy.FK_Level_Id" class="control-label">Vacancy Level</label>
+                <select name="VacancyFK_Level_Id" required class="form-control" #vlv = ngModel  [(ngModel)]="newvlevel.id" >
+                      <option *ngFor="let vlev of vlevel" value="{{vlev.id}}">{{vlev.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="VacancyFK_VacancyType_Id" class="control-label">Vacancy Type </label>
+                <select for="VacancyFK_VacancyType_Id" required class="form-control" name="VacancyFK_VacancyType_Id" #typev = ngModel  [(ngModel)]="newvtype.id">
+                      <option *ngFor="let vtyp of vtype"  selected value="{{vtyp.id}}" >{{vtyp.name}}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Vacancy.availablesnumber" class="control-label">Vacancies available Numbers </label>
+                <input type="number" #vavailablesnumber = ngModel required name="Vacancyavailablesnumber" class="form-control" [(ngModel)]="newvacancy.availablesnumber" />
+                <span class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <label for="VacancySalary" class="control-label">Salary</label>
+                <input #vsalary = ngModel  [(ngModel)]="newvacancy.salary" required name="VacancySalary" class="form-control" type="number" />
+                <span  class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Vacancy.FK_Currency_Id" class="control-label">Currency Type</label>
+                <select name="VacancyFK_Currency_Id" required class="form-control" name="Currency" #vcur = ngModel  [(ngModel)]="newcurrency.id">
+                      <option *ngFor="let c of currency" value="{{c.id}}">{{c.name}}</option>
+                </select>
+            </div>
+         
+            <div class="form-group">
+                <label for="Vacancy" class="control-label">Location</label>
+                <select for="VLocation" required required class="form-control" name="VLocation" #vloc = ngModel  [(ngModel)]="newbranch.id" >
+                      <option *ngFor="let vl of branch" value="{{vl.id}}" >{{vl.name}}</option>
+                </select>
+            </div>
+          
+            <div class="form-group">
+                <label for="Vacancy.Posted_date" class="control-label">Posted date</label>
+                <input type="date" #vdate = ngModel required name="VacancyPosted_date" class="form-control" [(ngModel)]="newvacancy.postdate" />
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-info" [disabled] = "addForm.invalid" />
+            </div>
+        </form>
+    </div>
+  </div>
+</div>

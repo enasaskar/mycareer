@@ -1,0 +1,89 @@
+<header id="header" class="narrow" data-plugin-options='{"alwaysStickyEnabled": true, "stickyEnabled": true, "stickyWithGap": false, "stickyChangeLogoSize": false}'>
+  <div class="container">
+    <div class="logo">
+      <a href="">
+        <img alt="Porto" width="150" height="50" src="../../../assets/img/logo.png">
+      </a>
+    </div>
+    <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+  <div class="navbar-collapse nav-main-collapse collapse">
+    <div class="container">
+      <ul class="social-icons">
+        <li class="facebook">
+          <a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a>
+        </li>
+        <li class="twitter">
+          <a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a>
+        </li>
+      </ul>
+      <nav class="nav-main mega-menu">
+        <ul class="nav nav-pills nav-main" id="mainMenu">
+          <li class="active">
+            <a *ngIf="!isLoggedIn" routerLink="/home">
+              Home
+            </a>
+            <a *ngIf="isLoggedIn" [routerLink]="['user',id,'userDashBoard']">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a routerLink='/vacancies'>Vacancies</a>
+          </li>
+          <li>
+            <a routerLink='/enterprises'>Enterprises </a>
+          </li>
+          <li>
+            <a routerLink="/paths/list">Career Paths </a>
+          </li>
+          <li *ngIf="isLoggedIn && isEnterprise" class="dropdown">
+            <a class="dropdown-toggle">
+              For Enterprises
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                  <a [routerLink]="['/enterprises/enterprise/details',eId]">Profile</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/enterprises/NewFeed',eId]">New Feeds</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/vacancies/enterprise/own']">Own Vacancies </a>
+                </li>
+              <li>
+                <a routerLink="/vacancies/addvacancy">Post New Vacancy</a>
+              </li>
+              <li>
+                <a routerLink="/paths/add">Add New Career Path</a>
+              </li>
+              <li>
+                <a [routerLink]="['/interviews/applicants',eId]">Vacancies Interviews Details</a>
+              </li>
+              <li>
+                <a routerLink = "/enterprises/enterprise/goPremium">Go Premium</a>
+              </li>
+            </ul>
+          </li>
+          <li *ngIf="!isLoggedIn">
+              <a routerLink = "/login" class="dropdown-toggle">
+                  Login
+                 </a>
+          </li>
+          <li *ngIf="!isLoggedIn">
+              <a routerLink = "/signUp" class="dropdown-toggle">
+                  Sign Up
+                 </a>          </li>
+          <li *ngIf="isLoggedIn">
+            <a [routerLink]="['user',id,'userProfile']">My Profile</a>
+          </li>
+          <li *ngIf="isLoggedIn">
+              <a style = "cursor : pointer" (click) = "onLogOut()">Logout</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
